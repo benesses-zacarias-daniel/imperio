@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "../pages/Home";
-import Productos from "../pages/Productos";
-import Sobre from "../pages/Sobre";
-import Termos from "../pages/Termos";
-import Anunciar from "../pages/Anunciar";
-import Carinho from "../pages/Carinho";
-import Contacto from "../pages/Contacto";
+import Home from "../pages/home/Home";
+import Productos from "../pages/productos/Productos";
+import Sobre from "../pages/sobre/Sobre";
+import Termos from "../pages/termos/Termos";
+import Anunciar from "../pages/anunciar/Anunciar";
+import Carinho from "../pages/carrinho/Carinho";
+import Contacto from "../pages/contacto/Contacto";
 
-const Routas = () => {
+const Rotas = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
@@ -22,4 +22,4 @@ const Routas = () => {
 }
 
 
-export default Routas;
+export default Rotas;

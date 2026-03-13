@@ -3,14 +3,14 @@ import './App.css';
 import "./style/global.css";
 import Footer from './components/layout/Footer/Footer';
 import Header from './components/layout/Header/Header';
-import Routas from './routes/Routas';
+import Rotas from './routes/Rotas';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <section id="conteudo">
-        <Routas />
+        <Rotas />
       </section>
       <Footer />
     </BrowserRouter>
