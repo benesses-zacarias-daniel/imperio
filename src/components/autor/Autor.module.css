@@ -1,0 +1,19 @@
+.area_autor {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.info_autor {
+    width: 100%;
+    text-align: center;
+}
+
+.link_autor {
+    color: #D4AF37;
+    text-decoration: none;
+    font-weight: 700;
+}

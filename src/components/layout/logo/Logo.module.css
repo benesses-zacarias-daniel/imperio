@@ -1,0 +1,29 @@
+.area_logo {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.icone_logo {
+    width: 30px;
+    height: 30px;
+}
+
+.area_nome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.area_foco {
+    color: #D4AF37;
+}
