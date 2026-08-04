@@ -1,7 +1,8 @@
 nav {
     position: absolute;
-    top: 0px;
+    top: 0;
     bottom: 0;
+    left: 0;
 }
 
 nav,
@@ -12,7 +13,9 @@ nav,
 
 .contaner_menu {
     /* position:; */
-    background-color: #ffffff61;
+    background-color: #211c1568;
+    cursor: pointer;
+    ;
 
 }
 
@@ -85,4 +88,9 @@ nav,
 
 .pagina_activa p {
     color: #D4AF37 !important;
+}
+
+.pagina_activa {
+    background: #2A2A2A;
+    border-radius: 10px;
 }

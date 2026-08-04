@@ -23,7 +23,7 @@ import TermosActiva from "../../../assets/icons/termosL.svg";
 import ContactoActiva from "../../../assets/icons/estrelaCircular.svg";
 
 
-const Menu = ({ mostrarIcone = true, mostrarMenu, onClickOcultar }) => {
+const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar }) => {
     const { pathname } = useLocation();
     const [paginaActiva, setPaginaActiva] = useState(pathname);
 
@@ -38,7 +38,9 @@ const Menu = ({ mostrarIcone = true, mostrarMenu, onClickOcultar }) => {
         mostrarMenu && (
             <nav>
 
-                <div className={style.contaner_menu}>
+                <div className={style.contaner_menu} onClick={() => {
+                    onClickOcultar(false);
+                }}>
                     <div className={style.contedeudo_contaner}>
 
                         {mostrarIcone && (<div className={style.icone_faxar_menu}>
