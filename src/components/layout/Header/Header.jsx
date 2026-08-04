@@ -45,8 +45,8 @@ const Header = () => {
                     </div>
                 )}
             </div>
-            <Menu mostrarMenu={showMenu} mostrarIcone={true} onClickOcultar={(val) => {
-                onClickMenu(val)
+            <Menu mostrarMenu={showMenu} mostrarIcone={true} mostrarIconesMenu={true} onClickOcultar={(val) => {
+                onClickMenu(val);
             }} />
         </header>
     )

@@ -26,7 +26,7 @@ const Footer = () => {
                         <div className={style.contactos}>
                             <h4>
                                 Contactos
-                            </h4><br />
+                            </h4>
                             [icone de email]<br />
                             [whatsApp]<br />
                             [facebook]<br />
@@ -35,9 +35,9 @@ const Footer = () => {
                     </div>
                     <div className={style.nav}>
                         <h4>
-                            Navegação
+                            Navegação Rápida
                         </h4>
-                        <Menu mostrarMenu={false} />
+                        <Menu mostrarMenu={true} onClickOcultar={() => { }} classContaner={style.contaner_footer_menu} classeLinkMenu={style.link_footer} classeBtnMenu={style.btn_footer_menu} />
                     </div>
                 </div>
                 <hr className={style.linha} />

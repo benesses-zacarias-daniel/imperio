@@ -23,7 +23,7 @@ import TermosActiva from "../../../assets/icons/termosL.svg";
 import ContactoActiva from "../../../assets/icons/estrelaCircular.svg";
 
 
-const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar }) => {
+const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
     const { pathname } = useLocation();
     const [paginaActiva, setPaginaActiva] = useState(pathname);
 
@@ -38,99 +38,114 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar }) => 
         mostrarMenu && (
             <nav>
 
-                <div className={style.contaner_menu} onClick={() => {
-                    onClickOcultar(false);
+                <div className={classContaner} id="contaner_menu" onClick={(evt) => {
+                    if (evt.target.id === "contaner_menu") {
+                        onClickOcultar(false);
+                    }
                 }}>
                     <div className={style.contedeudo_contaner}>
 
                         {mostrarIcone && (<div className={style.icone_faxar_menu}>
-                            <Button children={
+                            {/* <Button children={
                                 <Img src={Fexar} alt={"Ícone de Menu com X"} />
                             } onClick={() => {
                                 onClickOcultar(false);
-                            }} />
+                            }} /> */}
+                            <div className={style.nome_marca_menu}>
+                                <div className={style.nome}>
+                                    Imperial Electrónicos
+                                </div>
+                                <span className={style.min_desc}>Hardware Premium</span>
+                            </div>
                         </div>)}
                         <div className={style.area_menu}>
-                            <Link to={"/"} className={`${style.link_menu} ${(paginaActiva === "/") ? style.pagina_activa : ""}`}>
+                            <Link to={"/"} className={`${classeLinkMenu} ${(paginaActiva === "/") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
+                                        )}
                                         <p>Home</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
-                            <Link to={"/productos"} className={`${style.link_menu} ${(paginaActiva === "/productos") ? style.pagina_activa : ""}`}>
+                            <Link to={"/productos"} className={`${classeLinkMenu} ${(paginaActiva === "/productos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/productos") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/productos") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        )}
                                         <p>Productos</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
 
-                            <Link to={"/sobre"} className={`${style.link_menu} ${(paginaActiva === "/sobre") ? style.pagina_activa : ""}`}>
+                            <Link to={"/sobre"} className={`${classeLinkMenu} ${(paginaActiva === "/sobre") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/sobre") ? SobreActiva : Sobre} alt={"Ícone de Info"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/sobre") ? SobreActiva : Sobre} alt={"Ícone de Info"} className={style.img_menu} />
+                                        )}
                                         <p>Sobre</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
 
-                            <Link to={"/contacto"} className={`${style.link_menu} ${(paginaActiva === "/contacto") ? style.pagina_activa : ""}`}>
+                            <Link to={"/contacto"} className={`${classeLinkMenu} ${(paginaActiva === "/contacto") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/contacto") ? ContactoActiva : Contacto} alt={"Ícone de Email"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/contacto") ? ContactoActiva : Contacto} alt={"Ícone de Email"} className={style.img_menu} />
+                                        )}
                                         <p>Contacto</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
 
-                            <Link to={"/anunciar"} className={`${style.link_menu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
+                            <Link to={"/anunciar"} className={`${classeLinkMenu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/anunciar") ? AnunciarActiva : Anunciar} alt={"Ícone de Casa com um Mais no Canto"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/anunciar") ? AnunciarActiva : Anunciar} alt={"Ícone de Casa com um Mais no Canto"} className={style.img_menu} />
+                                        )}
                                         <p>Anunciar Produto</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
 
-                            <Link to={"/carinho"} className={`${style.link_menu} ${(paginaActiva === "/carinho") ? style.pagina_activa : ""}`}>
+                            <Link to={"/carinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carinho") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/carinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
-                                        <p>Carinho</p>
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/carinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
+                                        )}
+                                        <p>Carrinho</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
 
-                            <Link to={"/termos"} className={`${style.link_menu} ${(paginaActiva === "/termos") ? style.pagina_activa : ""}`}>
+                            <Link to={"/termos"} className={`${classeLinkMenu} ${(paginaActiva === "/termos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        <Img src={(paginaActiva === "/termos") ? TermosActiva : Termos} alt={"Ícone de Doc"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/termos") ? TermosActiva : Termos} alt={"Ícone de Doc"} className={style.img_menu} />
+                                        )}
                                         <p>Termos & Condições</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
-                                }} className={style.btn_menu} />
+                                }} className={classeBtnMenu} />
 
                             </Link>
                         </div>
