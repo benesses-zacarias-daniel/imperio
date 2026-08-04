@@ -2,6 +2,7 @@ import Autor from "../../autor/Autor";
 import Logo from "../logo/Logo";
 import LogoIcone from "../../../assets/logo/logo.svg";
 import style from "./Footer.module.css";
+import Menu from "../Sidebar/Menu";
 
 const Footer = () => {
     const DadosAutor = [{
@@ -35,14 +36,8 @@ const Footer = () => {
                     <div className={style.nav}>
                         <h4>
                             Navegação
-                        </h4><br />
-                        [home]
-                        <br />
-                        [produtos]
-                        <br />
-                        [sobre]
-                        <br />
-                        [anunciar]
+                        </h4>
+                        <Menu mostrarMenu={false} />
                     </div>
                 </div>
                 <hr className={style.linha} />

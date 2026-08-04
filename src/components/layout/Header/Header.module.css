@@ -71,7 +71,6 @@ header {
     height: 28px;
 }
 
-.carinho_bnt:active .contador_carinho {
-    transform: scale(.98);
-    border: 2px solid red !important;
+.clickBtn {
+    transform: scale(.92);
 }
