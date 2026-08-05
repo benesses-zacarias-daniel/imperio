@@ -18,7 +18,7 @@ const Header = () => {
         setClick(true);
         setTimeout(() => {
             setClick(false);
-        }, 200)
+        }, 95)
     }
 
     const onClickMenu = (val) => {
@@ -38,9 +38,11 @@ const Header = () => {
             <div className={style.area_carinho}>
                 <Button children={
                     <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
-                } onClick={() => { onClickCarinho(); }} className={style.carinho_bnt} />
+                } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />
                 {contador > 0 && (
-                    <div className={`${style.contador_carinho} ${click && style.clickBtn}`}>
+                    <div className={`${style.contador_carinho} ${click && style.clickBtn}`} onClick={() => {
+                        onClickCarinho();
+                    }}>
                         <p>{contador >= 10 ? "+9" : contador}</p>
                     </div>
                 )}
