@@ -13,7 +13,7 @@
 }
 
 .link_autor {
-    color: #D4AF37;
+    color: var(--dourado_principal);
     text-decoration: none;
     font-weight: 700;
 }

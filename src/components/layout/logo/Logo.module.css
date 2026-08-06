@@ -20,10 +20,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 4px;
-    color: #000;
+    color: var(--preto_principal);
     font-weight: 700;
 }
 
 .area_foco {
-    color: #D4AF37;
+    color: var(--dourado_principal);
 }

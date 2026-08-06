@@ -1,7 +1,7 @@
 footer {
     width: 100%;
-    background: #181818;
-    color: #ffffff;
+    background: var(--preto_principal);
+    color: var(--texto_principal);
     padding: 30px 15px 10px 15px;
     display: flex;
     align-items: center;
@@ -73,7 +73,7 @@ footer {
 
 .link_footer {
     text-decoration: none;
-    color: #fff;
+    color: var(--texto_principal);
     /* font-weight: 600; */
     width: 150px;
     padding: 0;
@@ -88,7 +88,7 @@ footer {
 
 .btn_footer_menu {
     background: none;
-    color: #ffffff;
+    color: var(--texto_principal);
     font-weight: 530;
 }
 
@@ -99,7 +99,7 @@ footer {
 .linha {
     height: 1px;
     border: none;
-    background: #fff;
+    background: var(--texto_principal);
     width: 90%;
     margin: 5px 0px 5px 0px;
 }

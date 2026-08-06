@@ -14,7 +14,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #211c1568;
+    background: var(--preto_claro);
     cursor: pointer;
 
 }
@@ -22,7 +22,8 @@ nav {
 .contedeudo_contaner {
     width: 250px;
     height: 100%;
-    background-color: rgb(57, 57, 57);
+    /* background-color: rgb(57, 57, 57); */
+    background-color: var(--chocolate_principal);
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
@@ -48,12 +49,13 @@ nav,
 
 .nome {
     font-weight: 600;
-    color: #D4AF37;
+    color: var(--dourado_principal);
 }
 
 .min_desc {
     font-size: .72rem;
-    color: #fff;
+    color: var(--texto_secundario);
+    opacity: .7;
 }
 
 .area_menu {
@@ -64,7 +66,7 @@ nav,
 
 .link_menu {
     text-decoration: none;
-    color: #fff;
+    color: var(--texto_principal);
     /* font-weight: 600; */
     gap: 10px;
     width: 100%;
@@ -76,9 +78,15 @@ nav,
     flex-wrap: wrap;
 }
 
+.link_menu:hover {
+    /* background-color: #55545495; */
+    background: var(--preto_claro);
+    border-radius: 10px;
+}
+
 .btn_menu {
-    color: #ffffff;
-    font-weight: 530;
+    color: var(--texto_secundario);
+    font-weight: 505;
     width: 100%;
     display: flex;
     align-items: center;
@@ -108,10 +116,12 @@ nav,
 }
 
 .pagina_activa p {
-    color: #D4AF37;
+    color: var(--dourado_principal);
+    font-weight: 800;
 }
 
 .pagina_activa {
-    background: #2A2A2A;
+    /* background: #2A2A2A; */
+    background: var(--chocolate_claro);
     border-radius: 10px;
 }

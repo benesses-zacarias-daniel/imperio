@@ -1,0 +1,27 @@
+:root {
+    /* Dourado */
+    --dourado_principal: #D4AF37;
+    --dourado_secundario: #E9C349;
+    --dourado_claro: #F6D66E;
+
+    /* Preto */
+    --preto_principal: #0F0D09;
+    --preto_claro: #0000006b;
+    /*Chocolate*/
+    --chocolate_principal: #1f1b13;
+    --chocolate_claro: #26221a;
+
+    /* Borda */
+    --borda: #3B342A;
+
+    /* Texto */
+    --texto_principal: #F5F1E8;
+    --texto_secundario: #C9BFAF;
+    --texto_castanho: #8A8175;
+
+    /* Estados */
+    --sucesso: #4CAF50;
+    --info: #4A90E2;
+    --alerta: #F5A623;
+    --perigo: #E74C3C;
+}

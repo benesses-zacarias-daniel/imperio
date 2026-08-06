@@ -37,7 +37,8 @@ header {
 
 .contador_carinho {
     position: absolute;
-    background: #F1C75B;
+    /* background: #F1C75B; */
+    background: var(--dourado_secundario);
     border-radius: 100%;
     width: 22px;
     height: 22px;
@@ -50,7 +51,7 @@ header {
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    color: #0E0E0E;
+    color: var(--preto);
     cursor: pointer;
 }
 
@@ -73,5 +74,5 @@ header {
 }
 
 .clickBtn {
-    transform: scale(.92) !important;
+    transform: scale(.96) !important;
 }

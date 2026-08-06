@@ -52,14 +52,6 @@
     --danger:#E74C3C;
 }*/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
 html,
 body,
 #root {
