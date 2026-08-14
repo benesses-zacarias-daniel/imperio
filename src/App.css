@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-.conteudo {
+#conteudo {
     width: 100%;
     flex: 1;
     overflow-y: scroll;
