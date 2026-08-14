@@ -1,5 +1,6 @@
 footer {
     width: 100%;
+    /* height: 200px; */
     background: var(--preto_principal);
     color: var(--texto_principal);
     padding: 30px 15px 10px 15px;

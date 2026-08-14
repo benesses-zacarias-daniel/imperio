@@ -1,9 +1,15 @@
-#conteudo {
+.imperial_container {
     width: 100%;
-    flex: 1;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
+}
+
+.conteudo {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
 }

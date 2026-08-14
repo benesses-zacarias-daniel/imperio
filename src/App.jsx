@@ -8,11 +8,13 @@ import Rotas from './routes/Rotas';
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
-      <section id="conteudo">
-        <Rotas />
-      </section>
-      <Footer />
+      <div className="imperial_container">
+        <Header />
+        <main className="conteudo">
+          <Rotas />
+          <Footer />
+        </main>
+      </div>
     </BrowserRouter>
   )
 }
