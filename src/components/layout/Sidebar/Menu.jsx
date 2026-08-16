@@ -4,6 +4,8 @@ import style from "./Menu.module.css";
 import Button from "../../button/Button";
 import Img from "../../img/Img";
 
+import scrollCima from "../../../utils/scrollCima";
+
 import Home from "../../../assets/icons/casa.svg";
 import Productos from "../../../assets/icons/produto.svg";
 import Sobre from "../../../assets/icons/sobre.svg";
@@ -68,6 +70,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -80,6 +83,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -93,6 +97,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -106,6 +111,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -119,6 +125,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -132,6 +139,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
@@ -145,6 +153,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     </>
                                 } onClick={() => {
                                     onClickOcultar(false);
+                                    scrollCima();
                                 }} className={classeBtnMenu} />
 
                             </Link>
