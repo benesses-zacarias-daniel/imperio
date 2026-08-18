@@ -1,26 +1,33 @@
+import { Link } from "react-router-dom";
+import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
 import ContainerSessao from "../../components/Common/container/ContainerSessao";
-import stlye from "./Home.module.css";
+import style from "./Home.module.css";
+import scrollCima from "../../utils/scrollCima";
 
 const Home = () => {
     return (
-        <ContainerSessao className={stlye.container_home}>
-            <p>Home</p>
-            <Hero />
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-                Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-                Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-                Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-                Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-                Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-                Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-                Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-                Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-                Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-            </p>
+        <ContainerSessao className={style.container_home}>
+            <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={"Ver Productos"} textoCon={"Contactar"} classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
+            <ContainerSessao className={style.container_produtos}>
+                <div className={style.area_produtos_home}>
+                    <div className={style.destaque_prod}>
+                        <div className={style.titulo_dest_prod}>
+                            Produtos em Destaque
+                        </div>
+                        <div className={style.area_btn_dest}>
+                            <Link to={"/productos"}>
+                                <Button onClick={() => {
+                                    scrollCima();
+                                }} className={style.ver_todos_home} children={"Ver Todos"} />
+                            </Link>
+                        </div>
+                    </div>
+                    <div className={style.area_produtos_home}>
+
+                    </div>
+                </div>
+            </ContainerSessao>
         </ContainerSessao>
     )
 }

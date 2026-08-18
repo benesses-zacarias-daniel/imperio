@@ -1,26 +1,26 @@
+import style from "./Hero.module.css";
 import Button from "../../button/Button"
-import Img from "../../img/Img"
+import ContainerSessao from "../../Common/container/ContainerSessao";
 
-const Hero = () => {
+const Hero = ({ foco, marca, minInfo, textoProd, classNameBtnProd, textoCon, classNameBtnCon }) => {
     return (
-        <div className="contaner_hero">
-            <div className="area_accao_hero">
-                <div className="area_foco_marca">
-                    <div className="foco">
-                        Imperial
+        <ContainerSessao className={style.contaner_hero}>
+            <div className={style.container_conteudo_hero}>
+                <div className={style.area_accao_hero}>
+                    <div className={style.area_foco_marca}>
+                        <div className={style.foco}>
+                            {foco}
+                        </div>
+                        {marca}
                     </div>
-                    Electrónicos
-                </div>
-                <div className="min_info"> <i>A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto.</i></div>
-                <div className="area_btns">
-                    <Button children={"Ver produtos"} onClick={() => { }} />
-                    <Button children={"Contactar"} onClick={() => { }} />
+                    <div className={style.min_info}><i>{minInfo}</i></div>
+                    <div className={style.area_btns}>
+                        <Button children={textoProd} onClick={() => { }} className={classNameBtnProd} />
+                        <Button children={textoCon} onClick={() => { }} className={classNameBtnCon} />
+                    </div>
                 </div>
             </div>
-            <div className="area_img_hero">
-                <Img alt={"Imagem de Teste"} src={"#"} />
-            </div>
-        </div>
+        </ContainerSessao>
     );
 }
 

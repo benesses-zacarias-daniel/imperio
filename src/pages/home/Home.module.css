@@ -1,3 +1,53 @@
 .container_home {
     flex: 1;
+    flex-wrap: wrap;
+}
+
+.btn_prod {
+    background: var(--dourado_principal);
+}
+
+.btn_prod,
+.btn_con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.btn_con {
+    color: var(--dourado_principal);
+    border: 2px solid var(--dourado_principal);
+}
+
+.container_produtos {
+    padding: 15px;
+}
+
+.destaque_prod {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.titulo_dest_prod {
+    flex: 1;
+    color: var(--dourado_principal);
+}
+
+.area_btn_dest {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.ver_todos_home {
+    width: 70px;
+    color: var(--dourado_secundario);
 }
