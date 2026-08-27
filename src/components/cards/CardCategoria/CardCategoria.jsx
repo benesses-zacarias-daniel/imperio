@@ -3,13 +3,13 @@ import Img from "../../img/Img"
 import style from "./CardCategoria.module.css"
 
 const CardCategoria = ({ dados }) => {
-    console.log(dados);
-
     return (
         <ContainerSessao className={style.container_categoria}>
             <div className={style.container_conteudo}>
-                <div className={style.titulo_categoria}>
-                    {dados.titulo}
+                <div className={style.titulo_cat}>
+                    <h3>
+                        {dados.titulo}
+                    </h3>
                 </div>
                 {dados.min_info && (
                     <div className={style.min_info}>

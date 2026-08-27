@@ -11,6 +11,7 @@ import CarroEntrega from "../../assets/icons/carroEntrega.svg"
 import EscudoVerificado from "../../assets/icons/escudoVerificado.svg"
 import Suporte from "../../assets/icons/suporte.svg"
 import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
+import ContactarGrupo from "../../components/home/ContactarGrupo";
 
 const Home = () => {
     const Produtos = [
@@ -111,11 +112,10 @@ const Home = () => {
                                 <CardProdutos dados={Produtos} />
                             </>
                         } />
-                    <ContainerSessao children={
-                        <CardCategoria dados={Categorias[0]} />
-                    } />
+                    <CardCategoria dados={Categorias[0]} />
                 </div>
             </ContainerSessao>
+            <ContactarGrupo />
         </ContainerSessao>
     )
 }

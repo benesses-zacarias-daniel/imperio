@@ -1,6 +1,7 @@
 .container_home {
     flex: 1;
     flex-wrap: wrap;
+    padding: 20px 10px 10px 10px;
 }
 
 .btn_prod {
@@ -23,7 +24,7 @@
 }
 
 .container_produtos {
-    padding: 15px;
+    padding: 0px;
 }
 
 .destaque_prod {
