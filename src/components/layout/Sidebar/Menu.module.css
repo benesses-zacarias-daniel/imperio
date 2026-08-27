@@ -16,6 +16,7 @@ nav {
     height: 100%;
     background: var(--preto_claro);
     cursor: pointer;
+    z-index: 99999;
 
 }
 

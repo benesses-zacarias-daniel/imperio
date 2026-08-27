@@ -27,6 +27,7 @@
 }
 
 .destaque_prod {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,4 +51,12 @@
 .ver_todos_home {
     width: 70px;
     color: var(--dourado_secundario);
+}
+
+.area_produtos_home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }

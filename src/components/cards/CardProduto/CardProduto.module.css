@@ -1,0 +1,167 @@
+.container_card {
+    width: 340px;
+    height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    border-radius: 20px;
+    padding: 5px;
+    background: #f9f9fa;
+    border: 2px solid var(--borda);
+}
+
+.area_imagem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 1;
+    position: relative;
+}
+
+.area_info_accao {
+    height: 140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.classificacao {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.classificacao p {
+    opacity: .6;
+}
+
+.area_estrela {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info_produto {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.are_desc_produto {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.nome_produto,
+.desc_produto {
+    width: 100%;
+    text-align: justify;
+}
+
+.nome_produto {
+    font-weight: 900;
+}
+
+.desc_produto {
+    font-style: italic;
+    font-size: .8;
+}
+
+.area_acao {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 5px 0px 5px 0px;
+}
+
+.btn_det,
+.btn_car {
+    height: 35px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.btn_car {
+    background-color: var(--dourado_claro);
+    width: 120px;
+}
+
+.btn_det {
+    /* background-color: #e6e6e6; */
+    border: 2px solid var(--dourado_claro);
+    width: 120px;
+}
+
+.img_produto {
+    width: 98%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.icone {
+    width: 26px;
+    height: 26px;
+}
+
+.categoria {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ffffff7d;
+    padding: 6px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.preco {
+    position: absolute;
+    display: flex;
+    right: 15px;
+    bottom: 15px;
+    background: var(--dourado_transp);
+    color: var(--preto_principal);
+    padding: 6px;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
