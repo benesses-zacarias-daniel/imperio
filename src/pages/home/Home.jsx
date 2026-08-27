@@ -1,10 +1,16 @@
+import style from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
 import ContainerSessao from "../../components/Common/container/ContainerSessao";
-import style from "./Home.module.css";
 import scrollCima from "../../utils/scrollCima";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
+//Ícones Categorias
+import EstrelaVerify from "../../assets/icons/verificado.svg"
+import CarroEntrega from "../../assets/icons/carroEntrega.svg"
+import EscudoVerificado from "../../assets/icons/escudoVerificado.svg"
+import Suporte from "../../assets/icons/suporte.svg"
+import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 
 const Home = () => {
     const Produtos = [
@@ -42,15 +48,35 @@ const Home = () => {
     const Categorias = [
         {
             "id": 1,
-            "titulo": "Space X PC",
+            "titulo": "A Experiência Imperial",
             "min_info": "",
             "categorias": [
                 {
                     "id": 1,
-                    "src": "",
-                    "alt": "",
-                    "titulo": "",
-                    "desc": ""
+                    "src": EstrelaVerify,
+                    "alt": "Ícone de verificado",
+                    "titulo": "Produtos Originais",
+                    "desc": "Garantia absoluta de autenticidade em cada componente e acessório."
+                },
+                {
+                    "id": 2,
+                    "src": CarroEntrega,
+                    "alt": "Ícone de Carro de entrega",
+                    "titulo": "Entrega Segura",
+                    "desc": "Logística premium com rastreamento em tempo real e seguro total."
+                },
+                {
+                    "id": 3,
+                    "src": EscudoVerificado,
+                    "alt": "Ícone de Escudo",
+                    "titulo": "Pagamento Seguro",
+                    "desc": "AS mais modernas tecnologias de criptografia para sua total tranquilidade."
+                }, {
+                    "id": 4,
+                    "src": Suporte,
+                    "alt": "Ícone de pessoa com HadPhones",
+                    "titulo": "Suporte 24/7",
+                    "desc": "Concierge dedicado para resolver qualquer dúvida a qualquer momento."
                 }
             ]
         }
@@ -85,6 +111,9 @@ const Home = () => {
                                 <CardProdutos dados={Produtos} />
                             </>
                         } />
+                    <ContainerSessao children={
+                        <CardCategoria dados={Categorias[0]} />
+                    } />
                 </div>
             </ContainerSessao>
         </ContainerSessao>

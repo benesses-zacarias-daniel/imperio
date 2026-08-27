@@ -3,6 +3,8 @@ import Img from "../../img/Img"
 import style from "./CardCategoria.module.css"
 
 const CardCategoria = ({ dados }) => {
+    console.log(dados);
+
     return (
         <ContainerSessao className={style.container_categoria}>
             <div className={style.container_conteudo}>
@@ -36,3 +38,6 @@ const CardCategoria = ({ dados }) => {
         </ContainerSessao>
     )
 }
+
+
+export default CardCategoria;
