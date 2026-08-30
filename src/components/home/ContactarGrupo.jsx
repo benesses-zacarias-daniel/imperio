@@ -23,7 +23,7 @@ const ContactarGrupo = () => {
                         <a href="#">
                             <Img src={WhatsApp} className={style.icone} /> <p>Entrar</p>
                         </a>
-                    } className={style.btn_ent_grup} />
+                    } className={style.btn_ent_grup} onClick={() => { }} />
                 </div>
             </div>
         } />
