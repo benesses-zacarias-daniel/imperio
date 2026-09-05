@@ -2,6 +2,7 @@ import style from "./CardProduto.module.css";
 import Img from "../../img/Img"
 import Estrela from "../../../assets/icons/estrelaAval.svg";
 import Carinho from "../../../assets/icons/carinho.svg";
+import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
 
 const CardProdutos = ({ dados }) => {
@@ -39,8 +40,18 @@ const CardProdutos = ({ dados }) => {
                                     </p>
                                 </div>
                                 <div className={style.area_acao}>
-                                    <Button children={"Ver Detalhes"} onClick={() => { }} className={style.btn_det} />
-                                    <Button onClick={() => { }} className={style.btn_car} children={"Carrinho"} />
+                                    <Button children={
+                                        <>
+                                            <Img src={Visao} alt={"Ícone de olho"} />
+                                            <p>Ver</p>
+                                        </>
+                                    } onClick={() => { }} className={style.btn_det} />
+                                    <Button children={
+                                        <>
+                                            <Img src={Carinho} alt={"Ícone de Carinho"} />
+                                            <p>Adicionar</p>
+                                        </>
+                                    } onClick={() => { }} className={style.btn_car} />
                                 </div>
                             </div>
                         </div>

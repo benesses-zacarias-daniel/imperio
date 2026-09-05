@@ -23,7 +23,8 @@ const Home = () => {
             "limit": "MaxVision",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Space X"
+            "alt": "Imagem de PC da Space X",
+            "categorias": ""
         },
         {
             "id": 2,
@@ -33,7 +34,8 @@ const Home = () => {
             "limit": "Limitado",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Nasa"
+            "alt": "Imagem de PC da Nasa",
+            "categorias": ""
         }, {
             "id": 3,
             "nome": "GamerZone PC",
@@ -42,7 +44,8 @@ const Home = () => {
             "limit": "3 modelos",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer"
+            "alt": "Imagem de PC Gamer",
+            "categorias": ""
         }
     ];
 

@@ -1,0 +1,32 @@
+.container_hero_prods,
+.container_conteudo,
+.conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.container_hero_prods,
+.container_conteudo {
+    width: 100%;
+}
+
+.conteudo {
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.select {
+    border-radius: 6px;
+    border: 1px solid rgba(255, 0, 0, 0);
+    /* background: var(--preto_claro); */
+    padding: 5px;
+}
+
+.opcao {
+    /* background: var(--alerta) !important; */
+    color: blue;
+}

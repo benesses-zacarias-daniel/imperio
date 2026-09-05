@@ -1,7 +1,7 @@
 .container_home {
     flex: 1;
     flex-wrap: wrap;
-    padding: 20px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .btn_prod {
