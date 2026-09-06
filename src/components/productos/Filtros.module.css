@@ -13,6 +13,12 @@
     width: 100%;
 }
 
+.container_hero_prods {
+    height: 60px;
+    border: 2px solid red;
+    border-radius: 8px;
+}
+
 .conteudo {
     width: 100%;
     flex-direction: row;

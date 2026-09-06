@@ -1,12 +1,12 @@
 import Button from "../button/Button";
-import ContainerSessao from "../Common/container/ContainerSessao";
+import ContainerDiv from "../Common/container/ContainerDiv";
 import style from "./ContactarGrupo.module.css";
 import Img from "../img/Img";
 import WhatsApp from "../../assets/icons/whatsapp.svg";
 
 const ContactarGrupo = () => {
     return (
-        <ContainerSessao className={style.container_cont_grupo} children={
+        <ContainerDiv className={style.container_cont_grupo} children={
             <div className={style.container_conteudo}>
                 <div className={style.area_textos}>
                     <div className={style.titulo_grupo}>

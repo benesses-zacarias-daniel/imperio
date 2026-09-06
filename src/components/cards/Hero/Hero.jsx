@@ -1,10 +1,10 @@
 import style from "./Hero.module.css";
 import Button from "../../button/Button"
-import ContainerSessao from "../../Common/container/ContainerSessao";
+import ContainerDiv from "../../Common/container/ContainerDiv";
 
 const Hero = ({ foco, marca, minInfo, textoProd, classNameBtnProd, textoCon, classNameBtnCon }) => {
     return (
-        <ContainerSessao className={style.contaner_hero}>
+        <ContainerDiv className={style.contaner_hero}>
             <div className={style.container_conteudo_hero}>
                 <div className={style.area_accao_hero}>
                     <div className={style.area_foco_marca}>
@@ -20,7 +20,7 @@ const Hero = ({ foco, marca, minInfo, textoProd, classNameBtnProd, textoCon, cla
                     </div>
                 </div>
             </div>
-        </ContainerSessao>
+        </ContainerDiv>
     );
 }
 

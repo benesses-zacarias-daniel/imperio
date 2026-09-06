@@ -1,8 +1,10 @@
 import { useState } from "react";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
-import ContainerSessao from "../../components/Common/container/ContainerSessao";
+import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
 import style from "./Productos.module.css";
+import Button from "../../components/button/Button";
+
 
 const Productos = () => {
     const ProdutosDados = [
@@ -96,22 +98,29 @@ const Productos = () => {
         setDadosMostrar(ProdutosDados);
     }
     return (
-        <ContainerSessao className={style.contianer_produtos}>
-            <Filtros onClickOpcao={(cat) => { handleClikcFiltros(cat) }} categorias={Categoria} />
+        <ContainerDiv className={style.contianer_produtos}>
+            <Filtros onClickOpcao={(cat) => { handleClikcFiltros(cat) }} categorias={Categoria} nome={"filtrar_productos"} id={"filtrar_productos"} />
             <div className={style.container_area_prod}>
                 <div className={style.area_titulo_cont_prod}>
                     <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
-                    <p className={style.total_prods}>{ProdutosDados.length} total itens</p>
+                    <p className={style.total_prods}>{dadosMostrar.length} total itens</p>
                 </div>
                 <div className={style.area_produtos_pro}>
                     <CardProdutos dados={dadosMostrar} />
                 </div>
             </div>
-            <div>
-                <p>{"<- "}</p>
-                <p>{"1 2 3 4 5->"}</p>
+            <div className={style.area_contador}>
+                <div className={style.btn_contador}>{"<"}</div>
+                <div className={style.contadores}>
+                    <Button children={"1"} onClick={() => { }} className={style.btn_cont} />
+                    <Button children={"2"} onClick={() => { }} className={style.btn_cont} />
+                    <Button children={"3"} onClick={() => { }} className={style.btn_cont} />
+                    <Button children={"4"} onClick={() => { }} className={style.btn_cont} />
+                    <Button children={"5"} onClick={() => { }} className={style.btn_cont} />
+                </div>
+                <div className={style.btn_contador}>{">"}</div>
             </div>
-        </ContainerSessao>)
+        </ContainerDiv>)
 }
 
 export default Productos;

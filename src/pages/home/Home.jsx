@@ -2,7 +2,7 @@ import style from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
-import ContainerSessao from "../../components/Common/container/ContainerSessao";
+import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import scrollCima from "../../utils/scrollCima";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
 //Ícones Categorias
@@ -87,13 +87,13 @@ const Home = () => {
     ];
 
     return (
-        <ContainerSessao className={style.container_home}>
+        <ContainerDiv className={style.container_home}>
             <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={
                 <Link to={"/productos"} className={style.link_prods}>
                     Ver Productos
                 </Link>
             } textoCon={"Contactar"} classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
-            <ContainerSessao className={style.container_produtos}>
+            <ContainerDiv className={style.container_produtos}>
                 <div className={style.area_produtos_home}>
                     <div className={style.destaque_prod}>
                         <div className={style.titulo_dest_prod}>
@@ -109,7 +109,7 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-                    <ContainerSessao className={style.area_produtos_home}
+                    <ContainerDiv className={style.area_produtos_home}
                         children={
                             <>
                                 <CardProdutos dados={Produtos} />
@@ -117,9 +117,9 @@ const Home = () => {
                         } />
                     <CardCategoria dados={Categorias[0]} />
                 </div>
-            </ContainerSessao>
+            </ContainerDiv>
             <ContactarGrupo />
-        </ContainerSessao>
+        </ContainerDiv>
     )
 }
 

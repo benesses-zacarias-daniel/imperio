@@ -1,11 +1,9 @@
-import ContainerSessao from "../Common/container/ContainerSessao";
+import ContainerDiv from "../Common/container/ContainerDiv";
 import style from "./Filtros.module.css";
 
-const Filtros = ({ onClickOpcao, categorias }) => {
-    console.log(categorias);
-
+const Filtros = ({ onClickOpcao, nome, id, categorias }) => {
     return (
-        <ContainerSessao className={style.container_hero_prods}>
+        <ContainerDiv className={style.container_hero_prods}>
             <div className={style.container_conteudo}>
                 <div className={style.conteudo}>
                     <p>Fitrar Por</p>
@@ -21,7 +19,7 @@ const Filtros = ({ onClickOpcao, categorias }) => {
                     </select>
                 </div>
             </div>
-        </ContainerSessao>
+        </ContainerDiv>
     )
 }
 

@@ -1,10 +1,10 @@
-import ContainerSessao from "../../Common/container/ContainerSessao"
+import ContainerDiv from "../../Common/container/ContainerDiv"
 import Img from "../../img/Img"
 import style from "./CardCategoria.module.css"
 
 const CardCategoria = ({ dados }) => {
     return (
-        <ContainerSessao className={style.container_categoria}>
+        <ContainerDiv className={style.container_categoria}>
             <div className={style.container_conteudo}>
                 <div className={style.titulo_cat}>
                     <h3>
@@ -35,7 +35,7 @@ const CardCategoria = ({ dados }) => {
                     }
                 </div>
             </div>
-        </ContainerSessao>
+        </ContainerDiv>
     )
 }
 
