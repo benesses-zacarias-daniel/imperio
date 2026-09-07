@@ -1,11 +1,10 @@
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import style from "./Contacto.module.css";
-import Img from "../../components/img/Img";
 //Ícones Categorias
-import Telefone from "../../assets/icons/chamada.svg"
-import Contactar from "../../assets/icons/contactarL.svg"
-import WhatsApp from "../../assets/icons/whatsapp.svg"
-import Periodo from "../../assets/icons/periodo.svg"
+import Telefone from "../../assets/icons/chamada.svg";
+import Contactar from "../../assets/icons/contactarL.svg";
+import WhatsApp from "../../assets/icons/whatsapp.svg";
+import Periodo from "../../assets/icons/periodo.svg";
 import Informacoes from "../../components/contacto/infos/Informacoes";
 import Mensagens from "../../components/contacto/mens/Mensagens";
 
@@ -31,7 +30,7 @@ const Contacto = () => {
             "titulo": "E-mail",
             "info": "imperialelctronicocontacto@gmail.com"
         }, {
-            "id": 3,
+            "id": 4,
             "src": Periodo,
             "alt": "Ícone de calendario",
             "titulo": "Horário de Funcionamento",

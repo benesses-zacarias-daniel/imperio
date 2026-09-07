@@ -1,22 +1,104 @@
+import CaixaAnunciar from "../../components/anuciar/escolha/CaixaAnunciar";
+import ContainerDiv from "../../components/Common/container/ContainerDiv";
+import style from "./Anunciar.module.css";
+
+//Ícones Input
+import Enviar from "../../assets/icons/enviar.svg";
+import Telefone from "../../assets/icons/chamada.svg";
+import Publicar from "../../assets/icons/publicar.svg";
 
 const Anunciar = () => {
-    return (<>
-        <p>Anunciar</p>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-            Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-            Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-            Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-            Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-            Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-            Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto dicta temporibus nemo repellat aperiam sequi dolorum nobis labore ipsam molestias? Et culpa omnis rem fuga magnam, deserunt distinctio corrupti dolorum.
-            Totam, pariatur dolorum perspiciatis minima tempore minus inventore ab. Reiciendis assumenda expedita inventore dignissimos alias nisi eaque harum exercitationem voluptas praesentium aspernatur, temporibus cumque sapiente quod laudantium officia, recusandae tenetur?
-            Tempore quos cumque numquam odio doloribus, repellat eaque, aliquam alias officiis animi, ullam inventore recusandae autem aperiam delectus impedit? Iure cumque aliquid corrupti esse aliquam numquam ducimus ad, officia quas?
-            Quas ea voluptatum illum! Dolores excepturi ullam recusandae maiores cupiditate autem cum quidem beatae molestias fugit esse, necessitatibus nisi? Culpa obcaecati deleniti dolorem non libero atque ipsam perspiciatis dignissimos numquam!
-        </p>
-    </>)
+    const DadosAnunciar = {
+        "id": 1,
+        "texto_btn": "Publicar Producto",
+        "type": [
+            "text",
+            "number",
+            "file",
+            "phone"
+        ],
+        "icones": [
+            {
+                "id": 1,
+                "icone_src": Enviar,
+                "icone_alt": "Ícone de enviar (na forma de núvem)"
+            },
+            {
+                "id": 2,
+                "icone_src": Telefone,
+                "icone_alt": "Ícone de smartphone"
+            },
+            {
+                "id": 3,
+                "icone_src": Publicar,
+                "icone_alt": "Ícone de publicar/enviar"
+            }
+        ],
+        "inputs": [
+            {
+                "id": 1,
+                "label": "Nome do Produto",
+                "placeholder": "Ex.: RTX Sparc"
+            }, {
+                "id": 2,
+                "label": "Preço",
+                "placeholder": "0.00"
+            }, {
+                "id": 3,
+                "label": "Descrição Detalhadas",
+                "placeholder": "Descreva as especificações, estado de conservação e garantia..."
+            }, {
+                "id": 4,
+                "label": "Fotos do Produto",
+                "placeholder": "Clique para carregar"
+            }, {
+                "id": 5,
+                "label": "Contacto (Telefone ou WhatsApp)",
+                "placeholder": "+258 84 000 6914"
+            }]
+    }
+
+    const Opcoes = [
+        {
+            "id": 1,
+            "nome": "categorias",
+            "label": "Categoria",
+            "opcoes": [{
+                "id": 1,
+                "cat": "Todas as Categorias",
+                "value": "todas"
+            }, {
+                "id": 2,
+                "cat": "SmatPhones",
+                "value": "smartphones"
+            }, {
+                "id": 3,
+                "cat": "TVs",
+                "value": "tvs"
+            }, {
+                "id": 4,
+                "cat": "Electrodomésticos",
+                "value": "electro"
+            }, {
+                "id": 5,
+                "cat": "PCs",
+                "value": "pcs"
+            }]
+        }
+    ]
+
+    return (
+        <ContainerDiv className={style.container_carrinho}>
+            <div className={style.container_conteudo}>
+                <div className={style.area_info_car}>
+                    <div className={style.titulo_car}>
+                        <h3>Anunciar Novo Producto</h3>
+                        <p className={style.car_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
+                    </div>
+                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} />
+                </div>
+            </div>
+        </ContainerDiv>)
 }
 
 

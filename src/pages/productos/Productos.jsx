@@ -63,7 +63,7 @@ const Productos = () => {
     ];
 
     const [dadosMostrar, setDadosMostrar] = useState(ProdutosDados);
-    const Categoria = [
+    const FiltrosCategorias = [
         {
             "id": 1,
             "cat": "Todas as Categorias",
@@ -99,7 +99,7 @@ const Productos = () => {
     }
     return (
         <ContainerDiv className={style.contianer_produtos}>
-            <Filtros onClickOpcao={(cat) => { handleClikcFiltros(cat) }} categorias={Categoria} nome={"filtrar_productos"} id={"filtrar_productos"} />
+            <Filtros onClickOpcao={(cat) => { handleClikcFiltros(cat) }} categorias={FiltrosCategorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
             <div className={style.container_area_prod}>
                 <div className={style.area_titulo_cont_prod}>
                     <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>

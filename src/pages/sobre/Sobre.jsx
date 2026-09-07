@@ -74,7 +74,7 @@ const Sobre = () => {
                     "desc": "+ Excelência Técnica+ Estética Funcional+ Integridade Imperial+ Inovação de Elite"
                 },
                 {
-                    "id": 3,
+                    "id": 4,
                     "src": Eficiente,
                     "alt": "Ícone de raio",
                     "titulo": "Performance Extrema",
