@@ -7,7 +7,7 @@ const Filtros = ({ onClickOpcao, nome, id, categorias }) => {
             <div className={style.container_conteudo}>
                 <div className={style.conteudo}>
                     <p>Fitrar Por</p>
-                    <select name="filtros" id="filtros" className={style.select}>
+                    <select name={nome} id={id} className={style.select}>
                         {categorias.map((cat) => {
                             return (
                                 <option key={cat.id} value={cat.value} className={style.opcao} onClick={(evt) => {
