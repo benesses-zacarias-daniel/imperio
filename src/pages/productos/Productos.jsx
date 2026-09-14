@@ -59,6 +59,56 @@ const Productos = () => {
             "src": "./img/pc.jpg",
             "alt": "Imagem de PC Gamer",
             "categorias": "smartphones"
+        }, {
+            "id": 6,
+            "nome": "Tecno Pop Ultra 360B",
+            "preco": 60,
+            "bagde": "Excelência - Tecno Pop Ultra 360B",
+            "limit": "3 modelos",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/pc.jpg",
+            "alt": "Imagem de PC Gamer",
+            "categorias": "smartphones"
+        }, {
+            "id": 7,
+            "nome": "Tecno Pop Ultra 360B",
+            "preco": 60,
+            "bagde": "Excelência - Tecno Pop Ultra 360B",
+            "limit": "3 modelos",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/pc.jpg",
+            "alt": "Imagem de PC Gamer",
+            "categorias": "smartphones"
+        }, {
+            "id": 8,
+            "nome": "Gileira",
+            "preco": 90,
+            "bagde": "Excelência - Gileira",
+            "limit": "3 modelos",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/pc.jpg",
+            "alt": "Imagem de PC Gamer",
+            "categorias": "electro"
+        }, {
+            "id": 9,
+            "nome": "Gileira",
+            "preco": 90,
+            "bagde": "Excelência - Gileira",
+            "limit": "3 modelos",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/pc.jpg",
+            "alt": "Imagem de PC Gamer",
+            "categorias": "electro"
+        }, {
+            "id": 10,
+            "nome": "Space X PC",
+            "preco": 2500,
+            "bagde": "Ultra Resistente - Space X PC",
+            "limit": "MaxVision",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/pc.jpg",
+            "alt": "Imagem de PC da Space X",
+            "categorias": "pcs"
         }
     ];
 
@@ -87,7 +137,7 @@ const Productos = () => {
         }
     ]
 
-    const handleClikcFiltros = (categoria) => {
+    const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
             const novosDados = ProdutosDados.filter((iten) => iten.categorias === categoria);
             setDadosMostrar(novosDados);
@@ -99,7 +149,7 @@ const Productos = () => {
     }
     return (
         <ContainerDiv className={style.contianer_produtos}>
-            <Filtros onClickOpcao={(cat) => { handleClikcFiltros(cat) }} categorias={FiltrosCategorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
+            <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={FiltrosCategorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
             <div className={style.container_area_prod}>
                 <div className={style.area_titulo_cont_prod}>
                     <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
