@@ -12,9 +12,10 @@ const CardProdutos = ({ dados }) => {
                 return (
                     <div key={Produto.id} className={style.container_card}>
                         <div className={style.area_imagem}>
-                            <Img src={"img/pc.jpg"} alt={"Imagem de PC"} className={style.img_produto} />
-                            <div className={style.categoria}>{Produto.bagde}</div>
-
+                            <Img src={Produto.src} alt={Produto.alt} className={style.img_produto} />
+                            {Produto.bagde && (
+                                <div className={style.categoria}>{Produto.bagde}</div>
+                            )}
                             <div className={style.preco}>
                                 <h3>$ {Produto.preco} MT</h3>
                             </div>

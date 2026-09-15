@@ -10,109 +10,169 @@ const Productos = () => {
     const ProdutosDados = [
         {
             "id": 1,
-            "nome": "Space X PC",
-            "preco": 2500,
-            "bagde": "Ultra Resistente - Space X PC",
-            "limit": "MaxVision",
+            "nome": "Skyland Ultra",
+            "preco": 25500,
+            "bagde": "Setup Gamer - Completo",
+            "limit": "Excelencia em Cada Bit",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Space X",
-            "categorias": "pcs"
-        },
-        {
+            "src": "./img/pc01.jpeg",
+            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
+            "categorias": "pc"
+        }, {
             "id": 2,
-            "nome": "TV Analógica 262 HD",
-            "preco": 3000,
-            "bagde": "VIP - TV Analógica 262 HD",
-            "limit": "Limitado",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Nasa",
-            "categorias": "tvs"
+            "src": "./img/pc02.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "pc"
         }, {
             "id": 3,
-            "nome": "Smart TV LED",
-            "preco": 6000,
-            "bagde": "Excelência - Smart TV LED",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "tvs"
+            "src": "./img/pc03.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "pc"
         }, {
             "id": 4,
-            "nome": "Gileira",
-            "preco": 90,
-            "bagde": "Excelência - Gileira",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "electro"
+            "src": "./img/smartphone01.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "smartphone"
         }, {
             "id": 5,
-            "nome": "Tecno Pop Ultra 360B",
-            "preco": 60,
-            "bagde": "Excelência - Tecno Pop Ultra 360B",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "smartphones"
+            "src": "./img/smartphone02.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "smartphone"
         }, {
             "id": 6,
-            "nome": "Tecno Pop Ultra 360B",
-            "preco": 60,
-            "bagde": "Excelência - Tecno Pop Ultra 360B",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "smartphones"
+            "src": "./img/smartphone03.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "smartphone"
         }, {
             "id": 7,
-            "nome": "Tecno Pop Ultra 360B",
-            "preco": 60,
-            "bagde": "Excelência - Tecno Pop Ultra 360B",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "smartphones"
+            "src": "./img/smartphone04.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "smartphone"
         }, {
             "id": 8,
-            "nome": "Gileira",
-            "preco": 90,
-            "bagde": "Excelência - Gileira",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "electro"
+            "src": "./img/tv01.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "tv"
         }, {
             "id": 9,
-            "nome": "Gileira",
-            "preco": 90,
-            "bagde": "Excelência - Gileira",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": "electro"
+            "src": "./img/tv02.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "tv"
         }, {
             "id": 10,
-            "nome": "Space X PC",
-            "preco": 2500,
-            "bagde": "Ultra Resistente - Space X PC",
-            "limit": "MaxVision",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/tv03.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "tv"
+        }, {
+            "id": 11,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/tv04.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "tv"
+        }, {
+            "id": 12,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/electrodomesticos01.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "electro"
+        }, {
+            "id": 13,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/electrodomesticos02.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "electro"
+        }, {
+            "id": 14,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/electrodomesticos03.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "electro"
+        }, {
+            "id": 15,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "src": "./img/electrodomesticos04.jpeg",
+            "alt": "Imagem de ",
+            "categorias": "electro"
+        }, {
+            "id": 16,
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Space X",
-            "categorias": "pcs"
+            "alt": "Imagem de ",
+            "categorias": "pc"
         }
     ];
 
     const [dadosMostrar, setDadosMostrar] = useState(ProdutosDados);
+
     const FiltrosCategorias = [
         {
             "id": 1,
@@ -121,11 +181,11 @@ const Productos = () => {
         }, {
             "id": 2,
             "cat": "SmatPhones",
-            "value": "smartphones"
+            "value": "smartphone"
         }, {
             "id": 3,
             "cat": "TVs",
-            "value": "tvs"
+            "value": "tv"
         }, {
             "id": 4,
             "cat": "Electrodomésticos",
@@ -133,9 +193,9 @@ const Productos = () => {
         }, {
             "id": 5,
             "cat": "PCs",
-            "value": "pcs"
+            "value": "pc"
         }
-    ]
+    ];
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
@@ -146,7 +206,8 @@ const Productos = () => {
         }
 
         setDadosMostrar(ProdutosDados);
-    }
+    };
+
     return (
         <ContainerDiv className={style.contianer_produtos}>
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={FiltrosCategorias} nome={"filtrar_productos"} id={"filtrar_productos"} />

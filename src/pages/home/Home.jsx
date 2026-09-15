@@ -17,35 +17,34 @@ const Home = () => {
     const Produtos = [
         {
             "id": 1,
-            "nome": "Space X PC",
-            "preco": 2500,
-            "bagde": "Ultra Resistente",
-            "limit": "MaxVision",
+            "nome": "Skyland Ultra",
+            "preco": 25500,
+            "bagde": "Setup Gamer - Completo",
+            "limit": "Excelencia em Cada Bit",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Space X",
-            "categorias": ""
-        },
-        {
+            "src": "./img/pc01.jpeg",
+            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
+            "categorias": "pc"
+        }, {
             "id": 2,
-            "nome": "PC SolarUltra",
-            "preco": 3000,
-            "bagde": "VIP",
-            "limit": "Limitado",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "Excelencia em Cada Bit",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC da Nasa",
-            "categorias": ""
+            "src": "./img/tv02.jpeg",
+            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
+            "categorias": "tv"
         }, {
             "id": 3,
-            "nome": "GamerZone PC",
-            "preco": 6000,
-            "bagde": "Excelência",
-            "limit": "3 modelos",
+            "nome": "",
+            "preco": 25500,
+            "bagde": "",
+            "limit": "Excelencia em Cada Bit",
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc.jpg",
-            "alt": "Imagem de PC Gamer",
-            "categorias": ""
+            "src": "./img/smartphone04.jpeg",
+            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
+            "categorias": "smartphone"
         }
     ];
 
