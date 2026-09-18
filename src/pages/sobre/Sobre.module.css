@@ -1,0 +1,105 @@
+.container_sobre {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.container_conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container_conteudo * img {
+    width: 30px;
+    height: 20px;
+}
+
+.area_hero_sobre {
+    width: 100%;
+    height: 250px;
+    border: 1px solid red;
+    position: relative;
+}
+
+.img_fundo_sobre {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.info_hero_sobre {
+    position: absolute;
+    top: 65px;
+    padding: 0px 0px 0px 5px;
+}
+
+.foco_hero,
+.jornada {
+    color: var(--dourado_secundario);
+}
+
+.jor_tit {
+    padding: 5px 0px 5px 0px;
+}
+
+.titulo_hero {
+    font-size: .4rem;
+    font-weight: bold;
+    padding: 0px 0px 5px 0px;
+
+}
+
+.historia {
+    padding: 10px 10px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    text-align: justify;
+}
+
+.info_historia_sobre {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info_historia_sobre p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 23px;
+}
+
+.jornada {
+    padding: 2px 0px 5px 0px;
+}
+
+.valor_missao {
+    width: 350px;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.areaInfoC {
+    padding: 10px 0px 0px 5px;
+    /* display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+/* .areaInfoC div {
+    width: 100%;
+    text-align: justify;
+} */

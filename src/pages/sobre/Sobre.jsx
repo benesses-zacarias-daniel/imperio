@@ -90,7 +90,9 @@ const Sobre = () => {
                     <Img src={"img/pc.jpg"} alt={"Imagem de sala de data center/tecnologia"} className={style.img_fundo_sobre} />
                     <div className={style.info_hero_sobre}>
                         <div className={style.foco_hero}>
-                            A Nossa Jornada
+                            <p className={style.jor_tit}>
+                                A Nossa Essência
+                            </p>
                         </div>
                         <div className={style.titulo_hero}>
                             <h4>A Excelência em cada Transistor</h4>
@@ -103,23 +105,22 @@ const Sobre = () => {
                 <div className={style.historia}>
                     <div className={style.info_historia_sobre}>
                         <div className={style.area_historia}>
-
-                            <div className={style.foco_hero}>
-                                <h3>A Nossa Jornada</h3>
+                            <div className={style.jornada}>
+                                <h3>Uma Jornada de Inovação</h3>
                             </div>
                             <div className={style.texto_historia}>
                                 <p>
-                                    Fundada no coração do distrito tecnológico, a Imperial Electrónicos nasce de uma visão simples: <span>o hardware de alta performance não deve ser apenas funcional, deve ser uma obra de arte. Começámos como um pequeno atelier de personalizção para workstations de eleite.</span>
+                                    Fundada no coração do distrito tecnológico, a Imperial Electrónicos nasce de uma visão simples: <i> o hardware de alta performance não deve ser apenas funcional, deve ser uma obra de arte. Começámos como um pequeno atelier de personalizção para workstations de eleite.</i> <br />
                                     Hoje, somos referência mundial na curadoria de componentes exclusivos e na engenharia de sistemas que desafiam os limites da física. Cada peça que ostenta o selo Imperial passou por rigosos testes de qualidade e estética, garantindo que o prestígio acompanhe a performance.
                                 </p>
                             </div>
                         </div>
-                        <div className={style.area_logo}>
+                        {/* <div className={style.area_logo}>
                             <Img alt={"Logo da marca"} src={"./img/pc.jpg"} className={style.logo_historia} />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-                <CardCategoria dados={Categorias[0]} />
+                <CardCategoria classeCatItem={style.valor_missao} areaInfoCat={style.areaInfoC} dados={Categorias[0]} />
                 <Porque infosPorque={PorqueDados[0]} />
             </div>
         </ContainerDiv>

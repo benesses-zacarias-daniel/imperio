@@ -6,7 +6,8 @@
 .container_conteudo,
 .area_categorias,
 .categoria,
-.icone_categoria {
+.icone_categoria,
+.areaInfoCat {
     width: 100%;
     display: flex;
     align-items: center;
@@ -32,6 +33,10 @@
     /* border-top-right-radius: 20px;
     border-bottom-left-radius: 20px; */
     background-color: #ebe0e0;
+}
+
+.areaInfoCat {
+    justify-content: flex-start;
 }
 
 .titulo_categoria {
