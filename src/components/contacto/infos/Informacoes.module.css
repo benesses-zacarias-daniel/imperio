@@ -1,0 +1,55 @@
+.infor_directas {
+    width: 320px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid var(--borda);
+    background-color: var(--preto_claro);
+    border-radius: 10px;
+    color: var(--texto_principal);
+}
+
+.titulo_infos {
+    color: var(--dourado_secundario);
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+}
+
+.area_contactos {
+    /* border: 2px solid var(--borda); */
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.infor_directas * img {
+    width: 25px;
+    height: 25px;
+}
+
+.contacto {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.area_icone_con {
+    width: 35px;
+    height: 35px;
+    background-color: var(--borda);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 6px;
+}

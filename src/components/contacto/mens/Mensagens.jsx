@@ -5,13 +5,11 @@ import style from "./Mensagens.module.css";
 
 const Mensagens = ({ Mensagens }) => {
 
-    console.log(Mensagens.inputs);
-
     return (
         <ContainerDiv className={style.container_mens}>
             <div className={style.texto_info}>
                 <div className={style.titulo_mens}>
-                    {Mensagens.titulo}
+                    <h3>{Mensagens.titulo}</h3>
                 </div>
                 <div className={style.info}>
                     {Mensagens.info}
@@ -35,8 +33,9 @@ const Mensagens = ({ Mensagens }) => {
                         <div className={style.label_input}>
                             {Mensagens.label}
                         </div>
-                        <div className={style.campo_input_mens}>
-                            <input type={Mensagens.type} placeholder={Mensagens.placeholder} className={style.campo_mens} />
+                        <div className={style.area_campo_mens}>
+                            <textarea placeholder={Mensagens.placeholder} className={style.campo_mens}></textarea>
+                            {/* <input type={Mensagens.type} p /> */}
                         </div>
                     </div>
                     <div className={style.area_enviar_mens}>
