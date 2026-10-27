@@ -5,7 +5,6 @@ import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 //Ícones Categorias
 import Velocidade from "../../assets/icons/veloc.svg"
 import Visao from "../../assets/icons/visao2.svg"
-import Verificado from "../../assets/icons/verificado.svg"
 //Ícones Porques
 import EstrelaCircular from "../../assets/icons/estrelaCircular.svg"
 import Suporte from "../../assets/icons/suporte.svg"
@@ -34,13 +33,6 @@ const Sobre = () => {
                     "alt": "Ícone de olho",
                     "titulo": "Vião",
                     "desc": "Ser reconhecida globalmente como o padrão ouro em electrónica premium, onde a tecnologia encontra a exclusividade."
-                },
-                {
-                    "id": 3,
-                    "src": Verificado,
-                    "alt": "Ícone de verificado",
-                    "titulo": "Valores",
-                    "desc": "+ Excelência Técnica+ Estética Funcional+ Integridade Imperial+ Inovação de Elite"
                 }
             ]
         }
