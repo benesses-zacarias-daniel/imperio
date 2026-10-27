@@ -2,7 +2,7 @@ import ContainerDiv from "../../Common/container/ContainerDiv"
 import Img from "../../img/Img"
 import style from "./CardCategoria.module.css"
 
-const CardCategoria = ({ dados, classeCatItem = categoriaItem, areaInfoCat = style.areaInfoCat }) => {
+const CardCategoria = ({ dados, classeCatItem = style.categoriaItem, iconeCategoria = style.icone_categoria, areaInfoCat = style.areaInfoCat }) => {
     return (
         <ContainerDiv className={style.container_categoria}>
             <div className={style.container_conteudo}>
@@ -20,7 +20,7 @@ const CardCategoria = ({ dados, classeCatItem = categoriaItem, areaInfoCat = sty
                     {dados.categorias.map((Categoria) => {
                         return (
                             <div key={Categoria.id} className={classeCatItem}>
-                                <div className={style.icone_categoria}>
+                                <div className={iconeCategoria}>
                                     <Img src={Categoria.src} alt={Categoria.alt} className={style.img_cat} />
                                 </div>
                                 <div className={areaInfoCat}>
@@ -38,7 +38,7 @@ const CardCategoria = ({ dados, classeCatItem = categoriaItem, areaInfoCat = sty
                 </div>
             </div>
         </ContainerDiv>
-    )
+    );
 }
 
 

@@ -71,7 +71,7 @@ const Sobre = () => {
                     "src": EstrelaVerificada,
                     "alt": "Ícone parecido com selo",
                     "titulo": "Garantia Imperial",
-                    "desc": "+ Excelência Técnica+ Estética Funcional+ Integridade Imperial+ Inovação de Elite"
+                    "desc": "Oferecemos periodos de garantia alargados e substituição prioritária em toda nossa gama premium."
                 },
                 {
                     "id": 4,
@@ -120,7 +120,7 @@ const Sobre = () => {
                         </div> */}
                     </div>
                 </div>
-                <CardCategoria classeCatItem={style.valor_missao} areaInfoCat={style.areaInfoC} dados={Categorias[0]} />
+                <CardCategoria classeCatItem={style.valor_missao} iconeCategoria={style.area_img_cat} areaInfoCat={style.areaInfoC} dados={Categorias[0]} />
                 <Porque infosPorque={PorqueDados[0]} />
             </div>
         </ContainerDiv>

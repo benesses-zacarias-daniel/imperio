@@ -18,7 +18,6 @@
 .area_hero_sobre {
     width: 100%;
     height: 250px;
-    border: 1px solid red;
     position: relative;
 }
 
@@ -29,13 +28,25 @@
 
 .info_hero_sobre {
     position: absolute;
-    top: 65px;
-    padding: 0px 0px 0px 5px;
+    top: 0px;
+    height: inherit;
+    padding: 0px 0px 0px 10px;
+    background: var(--preto_claro);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: var(--texto_principal);
 }
 
 .foco_hero,
 .jornada {
     color: var(--dourado_secundario);
+}
+
+.jornada {
+    color: var(--preto_principal);
 }
 
 .jor_tit {
@@ -50,7 +61,7 @@
 }
 
 .historia {
-    padding: 10px 10px 0px 10px;
+    padding: 10px 10px 10px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,18 +92,36 @@
 }
 
 .valor_missao {
-    width: 350px;
-    border: 2px solid red;
+    width: 340px;
+    height: 170px;
+    border: 2px solid var(--borda);
     border-radius: 10px;
     padding: 10px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
+    background: var(--texto_castanho);
+}
+
+.valor_missao div {
+    background: transparent;
+    text-align: justify;
+    color: var(--texto_principal);
+}
+
+.area_img_cat {
+    width: 35px;
+    height: 35px;
+}
+
+.area_img_cat img {
+    width: 35px;
+    height: 35px;
 }
 
 .areaInfoC {
-    padding: 10px 0px 0px 5px;
+    padding: 4px 0px 0px 5px;
     /* display: flex;
     align-items: flex-start;
     justify-content: center;

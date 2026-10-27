@@ -26,6 +26,14 @@
     text-align: center;
 }
 
+.categoriaItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
 .icone_categoria {
     width: 55px;
     height: 55px;
@@ -46,6 +54,7 @@
 
 .desc_categoria {
     padding: 0px 0px 5px 0px;
+    text-align: center;
 }
 
 .titulo_cat,

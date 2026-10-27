@@ -4,13 +4,14 @@
     --dourado_secundario: #E9C349;
     --dourado_claro: #F6D66E;
     --dourado_transp: #d4af377e;
-
+    --dourado_: #252114;
+    /*--dourado_transp: #d4af3761;*/
     /* Preto */
     --preto_principal: #0F0D09;
     --preto_claro: #0000006b;
     /*Chocolate*/
     --chocolate_principal: #1f1b13;
-    --chocolate_claro: #26221a;
+    --chocolate_claro: #806f4d;
 
     /* Borda */
     --borda: #3B342A;

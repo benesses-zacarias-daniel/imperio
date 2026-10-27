@@ -7,20 +7,20 @@ const Porque = ({ infosPorque }) => {
         <ContainerDiv className={style.area_porque}>
             <div className={style.area_min_info}>
                 <h3 className={style.titulo_porque}>{infosPorque.titulo}</h3>
-                <p>{infosPorque.min_info}</p>
+                <p className={style.min_info}>{infosPorque.min_info}</p>
             </div>
             <div className={style.area_porques}>
                 {
                     infosPorque.porques.map((porque) => {
                         return (
                             <div key={porque.id} className={style.porque}>
-                                <div className={style.area_icone_porque}>
-                                    <div className={style.borda_porque}>
+                                <div className={style.area_cont_porque}>
+                                    <div className={style.fundo_icone_porque}>
                                         <Img src={porque.src} alt={porque.alt} className={style.icone_porque} />
                                     </div>
                                     <div className={style.area_texto_porque}>
-                                        <div className={style.titulo_porque}>
-                                            {porque.titulo}
+                                        <div className={style.titulo_raz}>
+                                            <h2>{porque.titulo}</h2>
                                         </div>
                                         <div className={style.texto_porque}>
                                             {porque.desc}
