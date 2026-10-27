@@ -7,6 +7,7 @@ import WhatsApp from "../../assets/icons/whatsapp.svg";
 import Periodo from "../../assets/icons/periodo.svg";
 import Informacoes from "../../components/contacto/infos/Informacoes";
 import Mensagens from "../../components/contacto/mens/Mensagens";
+import Enviar from "../../assets/icons/publicar.svg"
 
 const Contacto = () => {
     const InformacoesDirectas = [{
@@ -43,7 +44,7 @@ const Contacto = () => {
         "titulo": "Envie uma Mensagem",
         "info": "Entraremos em contacto consigo num prazo máximo de 24 horas úteis.",
         "texto_btn": "Enviar Mensagem",
-        "src": "#",
+        "src": Enviar,
         "alt": "Ícone de enviar",
         "label": "A sua Mensagem",
         "type": "text",

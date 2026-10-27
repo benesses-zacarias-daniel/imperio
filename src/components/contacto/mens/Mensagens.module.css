@@ -1,0 +1,109 @@
+.container_mens {
+    width: 320px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 2px solid var(--borda);
+    background-color: var(--preto_claro);
+    border-radius: 10px;
+    color: var(--texto_principal);
+}
+
+.texto_info {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.titulo_mens {
+    color: var(--dourado_secundario);
+    text-align: center;
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+}
+
+.info {
+    width: 100%;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.area_preencher,
+.mensagem_preencher {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.area_inputs,
+.input,
+.area_campo_mens,
+.area_enviar_mens {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.label_input {
+    width: 100%;
+    text-align: justify;
+}
+
+input,
+.campo_mens {
+    width: 270px;
+    padding: 5px;
+}
+
+input {
+    height: 35px;
+}
+
+input,
+.btn_mens,
+.campo_mens {
+    border-radius: 6px;
+}
+
+.area_campo_mens {
+    text-align: center;
+}
+
+.campo_mens {
+    height: 170px;
+    resize: none;
+}
+
+.area_enviar_mens {
+    padding: 5px 0px 5px 0px;
+}
+
+.btn_mens {
+    background-color: var(--dourado_transp);
+    padding: 5px;
+    height: 35px;
+}
