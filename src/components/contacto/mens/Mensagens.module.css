@@ -75,8 +75,11 @@ form {
 
 input,
 .campo_mens {
-    width: 270px;
+    width: 290px;
     padding: 5px;
+    background-color: var(--dourado_);
+    border: 2px solid var(--borda);
+    color: var(--texto_principal);
 }
 
 input {
@@ -94,7 +97,7 @@ input,
 }
 
 .campo_mens {
-    height: 170px;
+    height: 190px;
     resize: none;
 }
 
