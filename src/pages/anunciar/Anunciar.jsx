@@ -25,11 +25,6 @@ const Anunciar = () => {
             },
             {
                 "id": 2,
-                "icone_src": Telefone,
-                "icone_alt": "Ícone de smartphone"
-            },
-            {
-                "id": 3,
                 "icone_src": Publicar,
                 "icone_alt": "Ícone de publicar/enviar"
             }
@@ -95,7 +90,8 @@ const Anunciar = () => {
                         <h3>Anunciar Novo Producto</h3>
                     </div>
                     <p className={style.car_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
-                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} classContainer={style.classeContainer} classContainerCont={style.classContainerCont} classAreaInput={style.classAreaInput} classInput={style.classInput} />
+                    {/* <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} classContainer={style.classeContainer} classContainerCont={style.classContainerCont} classAreaInput={style.classAreaInput} /> */}
+                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} />
                 </div>
             </div>
         </ContainerDiv>)
