@@ -93,9 +93,9 @@ const Anunciar = () => {
                 <div className={style.area_info_car}>
                     <div className={style.titulo_car}>
                         <h3>Anunciar Novo Producto</h3>
-                        <p className={style.car_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
                     </div>
-                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} />
+                    <p className={style.car_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
+                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} classContainer={style.classeContainer} classContainerCont={style.classContainerCont} classAreaInput={style.classAreaInput} classInput={style.classInput} />
                 </div>
             </div>
         </ContainerDiv>)

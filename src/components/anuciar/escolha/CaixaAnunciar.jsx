@@ -4,23 +4,23 @@ import Img from "../../img/Img";
 import Button from "../../button/Button";
 
 
-const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
+const CaixaAnunciar = ({ dadosAnunciar, Opcoes, classContainer = style.container_dados_anunciar, classContainerCont = style.container_, classAreaInput = style.area_input_anun, classInput = style.input_anun }) => {
     console.log(Opcoes[0]);
 
     return (
-        <ContainerDiv className={style.container_dados_anunciar}>
+        <ContainerDiv className={classContainer}>
 
-            <div className={style.container_}>
+            <div className={classContainerCont}>
                 <form method="post">
                     <div className={style.container_conteudo}>
                         <div className={style.conteudo}>
-                            <div className={style.area_input_anun}>
+                            <div className={classAreaInput}>
                                 <div className={style.area_label}>
                                     <label htmlFor="nome">
                                         {dadosAnunciar.inputs[0].label}
                                     </label>
                                 </div>
-                                <input type={dadosAnunciar.type[0]} id="nome" placeholder={dadosAnunciar.inputs[0].placeholder} className={style.input_anun} />
+                                <input type={dadosAnunciar.type[0]} id="nome" placeholder={dadosAnunciar.inputs[0].placeholder} className={classInput} />
                             </div>
                             <div className={style.select_categoria_anun}>
                                 <label>
@@ -36,15 +36,15 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                                     })}
                                 </select>
                             </div>
-                            <div className={style.area_input_anun}>
+                            <div className={classAreaInput}>
                                 <div className={style.area_label}>
                                     <label htmlFor="det">
                                         {dadosAnunciar.inputs[2].label}
                                     </label>
                                 </div>
-                                <input type={dadosAnunciar.type[0]} id="det" placeholder={dadosAnunciar.inputs[2].placeholder} className={style.input_anun} />
+                                <input type={dadosAnunciar.type[0]} id="det" placeholder={dadosAnunciar.inputs[2].placeholder} className={classInput} />
                             </div>
-                            <div className={style.area_input_anun}>
+                            <div className={classAreaInput}>
                                 <div className={style.area_label}>
                                     {dadosAnunciar.inputs[3].label}
                                 </div>
@@ -68,7 +68,7 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                                 </div>
                                 <div className={style.area_icone_input}>
                                     <Img src={dadosAnunciar.icones[1].icone_src} alt={dadosAnunciar.icones[1].icone_alt} className={style.icone_input_tell} />
-                                    <input type={dadosAnunciar.type[4]} id={"contacto_"} placeholder={dadosAnunciar.inputs[4].placeholder} className={style.input_anun} />
+                                    <input type={dadosAnunciar.type[4]} id={"contacto_"} placeholder={dadosAnunciar.inputs[4].placeholder} className={classInput} />
                                 </div>
                             </div>
                         </div>
