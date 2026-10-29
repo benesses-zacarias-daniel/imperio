@@ -78,7 +78,7 @@ input,
     width: 290px;
     padding: 5px;
     background-color: var(--dourado_);
-    border: 2px solid var(--borda);
+    border: 1px solid var(--borda);
     color: var(--texto_principal);
 }
 

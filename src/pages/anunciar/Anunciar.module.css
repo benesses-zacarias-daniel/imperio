@@ -1,9 +1,9 @@
-.container_carrinho {
+.container_anunciar {
     flex: 1;
     flex-wrap: wrap;
 }
 
-.container_conteudo {
+.container_cont_anun {
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,47 +12,17 @@
     flex-shrink: 1;
 }
 
-.area_info_car {
+.are_info_anun {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-}
-
-.titulo_car {
-    padding: 5px 0px 5px 0px;
-}
-
-.car_min_info {
+    text-align: center;
     padding: 0px 0px 8px 0px;
 }
 
-
-/*.titulo_car,
-.car_min_info {
-    text-align: center;
-} 
-.classeContainer {
-    border: 1px solid red;
-    width: 320px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.classContainerCont {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.classAreaInput div {
+.titulo_anun {
     padding: 0px 0px 5px 0px;
-} */
+}

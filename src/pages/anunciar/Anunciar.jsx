@@ -83,17 +83,16 @@ const Anunciar = () => {
     ]
 
     return (
-        <ContainerDiv className={style.container_carrinho}>
-            <div className={style.container_conteudo}>
-                <div className={style.area_info_car}>
-                    <div className={style.titulo_car}>
+        <ContainerDiv className={style.container_anunciar}>
+            <div className={style.container_cont_anun}>
+                <div className={style.are_info_anun}>
+                    <div className={style.titulo_anun}>
                         <h3>Anunciar Novo Producto</h3>
                     </div>
-                    <p className={style.car_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
-                    {/* <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} classContainer={style.classeContainer} classContainerCont={style.classContainerCont} classAreaInput={style.classAreaInput} /> */}
-                    <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} />
+                    <p className={style.anun_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
                 </div>
             </div>
+            <CaixaAnunciar dadosAnunciar={DadosAnunciar} Opcoes={Opcoes} />
         </ContainerDiv>)
 }
 
