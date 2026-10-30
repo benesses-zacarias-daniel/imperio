@@ -8,7 +8,7 @@ const Footer = () => {
     const DadosAutor = [{
         "id": 1,
         "nomeAutor": "BZD",
-        "linkSobre": "https://sobremin-bzd-site.vercel.app",
+        "linkSobre": "https://sobrebzd.vercel.app",
         "textos": ["Desenvolvido por ", " © 2026 - Imperial Electronicos . Todos os direiros reservados."]
     }];
 
