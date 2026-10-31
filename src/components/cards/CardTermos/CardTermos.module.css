@@ -1,0 +1,60 @@
+.container_card_term {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.area_texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.area_texto,
+.area_titulo_termos {
+    width: 100%;
+}
+
+.titulo_termos {
+    width: 100%;
+    text-align: justify;
+    color: var(--dourado_principal);
+    padding: 7px 0px 7px 0px;
+}
+
+.desc_termos {
+    padding: 0px 0px 5px 0px;
+    text-align: justify;
+}
+
+.lista {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0px 0px 5px 0px;
+}
+
+.ponto {
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: var(--dourado_principal);
+}
+
+.texto_term {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: justify;
+}

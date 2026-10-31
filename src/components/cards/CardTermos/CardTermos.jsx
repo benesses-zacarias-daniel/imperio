@@ -1,4 +1,3 @@
-import Img from "../../img/Img";
 import style from "./CardTermos.module.css";
 
 const CardTermos = ({ dadosTermos }) => {
@@ -6,12 +5,7 @@ const CardTermos = ({ dadosTermos }) => {
     return (
         dadosTermos.map((termosDados) => {
             return (
-                <div key={termosDados.id} className={style.container_termos}>
-                    {/* <div className={style.area_icone_container}>
-                        <div className={termosDados.src ? style.area_icone : ""}>
-                            <Img src={termosDados.src} alt={termosDados.alt} />
-                        </div>
-                    </div> */}
+                <div key={termosDados.id} className={style.container_card_term}>
                     <div className={style.area_texto}>
                         <div className={style.area_titulo_termos}>
                             <h3 className={style.titulo_termos}>{termosDados.titulo}</h3>
