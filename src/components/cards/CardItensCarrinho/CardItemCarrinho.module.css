@@ -1,0 +1,77 @@
+.container_cardItemCar,
+.container_titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 30px;
+}
+
+.container_cardItemCar {
+    width: 340px;
+    height: 100px;
+    padding: 5px;
+    gap: 10px;
+}
+
+
+.img_car {
+    width: 78px;
+    height: 78px;
+}
+
+.area_infos_item_car {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.container_titulo {
+    width: 100%;
+}
+
+.container_cardItemCar,
+.img_item_car,
+.img_car {
+    border-radius: 10px;
+    border: 1px solid rgb(35, 3, 3);
+}
+
+.img_item_car {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: transparent;
+}
+
+.area_btn_acao_car {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_btn_esq {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80px;
+    border: 1px solid red;
+    border-radius: 15px;
+
+}
+
+.btn_car {
+    width: 25px;
+    height: 25px;
+}
