@@ -11,6 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1;
 }
 
 .titulo_car {
@@ -24,7 +25,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 510px;
+}
+
+.area_controle_scroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .area_btn_resumo {
