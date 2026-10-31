@@ -1,0 +1,29 @@
+.container_termos {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    width: 360px;
+}
+
+.foco_termos {
+    padding: 15px;
+    width: 350px;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+.titulo_terms {
+    color: var(--dourado_principal);
+    padding: 0px 0px 5px 0px;
+}
+
+.titulo_terms,
+.foco_termos p {
+    text-align: justify;
+}
