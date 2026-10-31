@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 510px;
+    height: 560px;
 }
 
 .area_controle_scroll {
@@ -43,7 +43,7 @@
 .area_btn_resumo {
     position: absolute;
     bottom: 5px;
-    right: 10px;
+    right: 6px;
     background: #00000076;
     padding: 5px;
     width: 40px;
