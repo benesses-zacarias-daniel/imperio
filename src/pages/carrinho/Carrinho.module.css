@@ -1,0 +1,44 @@
+.container_carrinho {
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0px 0px 40px 0px;
+}
+
+.container_conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo_car {
+    width: 100%;
+    text-align: center;
+    padding: 0px 0px 10px 0px;
+}
+
+.container_itens_car {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.area_btn_resumo {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    background: #00000076;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 60px;
+}

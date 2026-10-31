@@ -7,11 +7,11 @@ const CardTermos = ({ dadosTermos }) => {
         dadosTermos.map((termosDados) => {
             return (
                 <div key={termosDados.id} className={style.container_termos}>
-                    <div className={style.area_icone_container}>
+                    {/* <div className={style.area_icone_container}>
                         <div className={termosDados.src ? style.area_icone : ""}>
                             <Img src={termosDados.src} alt={termosDados.alt} />
                         </div>
-                    </div>
+                    </div> */}
                     <div className={style.area_texto}>
                         <div className={style.area_titulo_termos}>
                             <h3 className={style.titulo_termos}>{termosDados.titulo}</h3>

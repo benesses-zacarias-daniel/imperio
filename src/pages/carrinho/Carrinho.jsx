@@ -5,8 +5,10 @@ import Button from "../../components/button/Button";
 import Img from "../../components/img/Img";
 import Visao from "../../assets/icons/visao.svg"
 import CardResumo from "../../components/cards/CardResumo/CardResumo";
+import { useState } from "react";
 
 const Carrinho = () => {
+    const [showResumo, setShowResumo] = useState(false);
     const ProdutosCarrinho = [
         {
             "id": 1,
@@ -78,6 +80,9 @@ const Carrinho = () => {
             "subtotal": 840
         }];
 
+    const onClickResumo = (val) => {
+        setShowResumo(val);
+    }
     return (
         <ContainerDiv className={style.container_carrinho}>
             <div className={style.container_conteudo}>
@@ -90,9 +95,13 @@ const Carrinho = () => {
                 <div className={style.area_btn_resumo}>
                     <Button className={style.btn_resumo} children={
                         <Img src={Visao} alt={"Ícone de olho"} className={style.icone_resumo} />
-                    } onClick={() => { }} />
+                    } onClick={() => { onClickResumo(true) }} />
                 </div>
-                <CardResumo dadosResumos={Resumos[0]} />
+                {
+                    showResumo && (
+                        <CardResumo dadosResumos={Resumos[0]} showResumo={() => { setShowResumo(false) }} />
+                    )
+                }
             </div>
         </ContainerDiv>)
 }

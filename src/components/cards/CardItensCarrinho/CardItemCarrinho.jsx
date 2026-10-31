@@ -12,7 +12,7 @@ const CardItemCarrinho = ({ ItensCarrinho }) => {
 
                 <ContainerDiv key={itensCarrinho.id} className={style.container_cardItemCar}>
                     <div className={style.img_item_car}>
-                        <Img src={itensCarrinho.src} alt={itensCarrinho.alt} className={style.img_item_car} />
+                        <Img src={itensCarrinho.src} alt={itensCarrinho.alt} className={style.img_car} />
                     </div>
                     <div className={style.area_infos_item_car}>
                         <div className={style.container_titulo}>
@@ -20,24 +20,24 @@ const CardItemCarrinho = ({ ItensCarrinho }) => {
                                 <h3>{itensCarrinho.nome}</h3>
                             </div>
                             <div className={style.area_preco}>
-                                {itensCarrinho.preco}
+                                {itensCarrinho.preco} MT
                             </div>
                         </div>
-                        <div className={style.area_badge}>
+                        {/* <div className={style.area_badge}>
                             <p>{itensCarrinho.bagde}</p>
-                        </div>
+                        </div> */}
                         <div className={style.area_btn_acao_car}>
-                            {/* <div className={style.container_btn_esq}>
+                            <div className={style.container_btn_esq}>
                                 <Button className={style.btn_car}>
                                     <p>-</p>
                                 </Button>
                                 <div className={style.contador_itens}>
-                                    <p>{itensCarrinho.total_car}</p>
+                                    <p>{itensCarrinho.total_car === 10 ? "+9" : itensCarrinho.total_car} </p>
                                 </div>
                                 <Button className={style.btn_car}>
                                     <p>+</p>
                                 </Button>
-                            </div> */}
+                            </div>
                             <div className={style.container_dir}>
                                 <Button className={style.btn_rem} onClick={() => {
                                 }}>
