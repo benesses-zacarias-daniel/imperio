@@ -10,7 +10,7 @@ const CardResumo = ({ dadosResumos, showResumo }) => {
     }
     return (
         <ContainerDiv id={"container_area_resumo"} className={style.container_area_resumo} click={(evt) => {
-            if (evt.target.id === "container_area_resumo") {
+            if (evt.target === evt.currentTarget) {
                 onClickOcultarResumo();
             }
 
