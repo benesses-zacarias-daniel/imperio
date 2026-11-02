@@ -6,7 +6,7 @@
     left: 0;
     bottom: 0;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
@@ -21,7 +21,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -86,14 +86,13 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow-y: scroll;
-    padding: 0px 0px 35px 0px;
+    padding: 0px 0px 75px 0px;
 }
 
 .fexar_detalhes {
     width: 100%;
     height: 40px;
-    padding: var(--px5) var(--px5) 10px var(--px5);
+    padding: 5px 5px 10px 5px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -112,27 +111,30 @@
 
 .area_titulo_detalhes {
     width: 100%;
-    padding: var(--px5);
+    padding: 5px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .area_conteudo {
+    width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    align-content: flex-start;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    /* height: 100%; */
+    height: 100%;
+    overflow-y: scroll;
 }
 
 .ponto_verd {
-    background: var(--verdePrimario);
+    background: var(--dourado_principal);
     width: 8px;
     height: 8px;
     border-radius: 100%;
@@ -149,8 +151,12 @@
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: var(--fundoSecTrans);
+    background-color: var(--preto_claro);
     border-radius: 20px;
+}
+
+.area_legenda_local h4 {
+    color: var(--texto_principal);
 }
 
 .area_imgs_detalhes {
@@ -175,56 +181,31 @@
     top: 225px;
     left: 5px;
     font-weight: 900;
-    color: var(--verdePrimario);
+    color: var(--texto_principal);
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background: var(--fundoSecTrans);
+    background: var(--preto_claro);
     border-radius: 20px;
     width: 50px;
-}
-
-.area_btns_controle {
-    position: absolute;
-    top: 225px;
-    right: 5px;
-    width: 85px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: var(--brancoTrans);
-    border-radius: 20px;
-}
-
-.btn_control img {
-    width: 24px;
-    height: 30px;
 }
 
 .area_info_detalhes {
     width: 100%;
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 10px var(--px5) var(--px5) var(--px5);
 }
 
 .area_info_detalhes h3 {
     width: 100%;
     text-align: justify;
     padding: 8px 8px 8px 0px;
-}
-
-.desc_detalhe {
-    width: 100%;
-    text-align: justify;
 }
 
 .area_acessos_detalhes {
@@ -338,20 +319,6 @@
 .miniatura_ativa {
     border-color: #087F75;
 }
-
-/* @media only screen and (min-width:900px) {
-    .area_conteudo {
-        flex-direction: row;
-    }
-
-    .area_info_detalhes {
-        width: 400px;
-    }
-
-    .area_imgs_detalhes {
-        flex: 1;
-    }
-} */
 
 @media only screen and (min-width:490px) {
     .area_imgs_detalhes {

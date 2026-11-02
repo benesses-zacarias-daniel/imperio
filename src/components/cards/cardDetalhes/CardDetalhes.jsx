@@ -11,13 +11,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
     const detalhes = dados[0].detalhes;
     const srcDetalhes = detalhes.srcDetalhes;
     const tamanhoSrc = srcDetalhes.length;
-    const descDetalhes = detalhes.descDetalhes;
     const acessos = detalhes.acessos;
-    const video = detalhes.video;
-    //Link WhatsApp
-    const numero = "258 87 000 6914";
-    const mensWhatSapp = dados[0].mensWhatSapp;
-    const linkWhatsApp = `https://wa.me/${numero}?text=${mensWhatSapp}`;
     //States para gerir as Imgs
     const [srcDetAct, setSrcDetAct] = useState(0);
     const [fade, setFade] = useState(false);
@@ -66,7 +60,6 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
                             <div className={style.loc_detalhes}>{srcDetAct + 1}/{tamanhoSrc}</div>
                         </div>
                         <div className={style.area_info_detalhes}>
-                            <div className={style.desc_detalhe}>{descDetalhes}</div>
                             {acessos && (<h3>O Producto possui:</h3>)}
                             <div className={style.area_acessos_detalhes}>
                                 {acessos && (
