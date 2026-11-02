@@ -4,6 +4,7 @@ import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
 import style from "./Productos.module.css";
 import Button from "../../components/button/Button";
+import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 
 
 const Productos = () => {
@@ -17,7 +18,15 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc01.jpeg",
             "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "pc"
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }, { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada", "Mercado", "Estrada"]
+            }
         }, {
             "id": 2,
             "nome": "",
@@ -27,7 +36,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc02.jpeg",
             "alt": "Imagem de ",
-            "categorias": "pc"
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 3,
             "nome": "",
@@ -37,7 +53,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc03.jpeg",
             "alt": "Imagem de ",
-            "categorias": "pc"
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 4,
             "nome": "",
@@ -47,7 +70,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/smartphone01.jpeg",
             "alt": "Imagem de ",
-            "categorias": "smartphone"
+            "categorias": "smartphone",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 5,
             "nome": "",
@@ -57,7 +87,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/smartphone02.jpeg",
             "alt": "Imagem de ",
-            "categorias": "smartphone"
+            "categorias": "smartphone",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 6,
             "nome": "",
@@ -67,7 +104,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/smartphone03.jpeg",
             "alt": "Imagem de ",
-            "categorias": "smartphone"
+            "categorias": "smartphone",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 7,
             "nome": "",
@@ -77,7 +121,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/smartphone04.jpeg",
             "alt": "Imagem de ",
-            "categorias": "smartphone"
+            "categorias": "smartphone",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 8,
             "nome": "",
@@ -87,7 +138,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/tv01.jpeg",
             "alt": "Imagem de ",
-            "categorias": "tv"
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 9,
             "nome": "",
@@ -97,7 +155,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/tv02.jpeg",
             "alt": "Imagem de ",
-            "categorias": "tv"
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 10,
             "nome": "",
@@ -107,7 +172,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/tv03.jpeg",
             "alt": "Imagem de ",
-            "categorias": "tv"
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 11,
             "nome": "",
@@ -117,7 +189,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/tv04.jpeg",
             "alt": "Imagem de ",
-            "categorias": "tv"
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 12,
             "nome": "",
@@ -127,7 +206,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/electrodomesticos01.jpeg",
             "alt": "Imagem de ",
-            "categorias": "electro"
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 13,
             "nome": "",
@@ -137,7 +223,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/electrodomesticos02.jpeg",
             "alt": "Imagem de ",
-            "categorias": "electro"
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 14,
             "nome": "",
@@ -147,7 +240,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/electrodomesticos03.jpeg",
             "alt": "Imagem de ",
-            "categorias": "electro"
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 15,
             "nome": "",
@@ -157,7 +257,14 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/electrodomesticos04.jpeg",
             "alt": "Imagem de ",
-            "categorias": "electro"
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 16,
             "nome": "",
@@ -167,11 +274,20 @@ const Productos = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc.jpg",
             "alt": "Imagem de ",
-            "categorias": "pc"
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }
     ];
 
     const [dadosMostrar, setDadosMostrar] = useState(ProdutosDados);
+    const [showDetalhes, setShowDetalhes] = useState(false);
+    const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const FiltrosCategorias = [
         {
@@ -208,6 +324,16 @@ const Productos = () => {
         setDadosMostrar(ProdutosDados);
     };
 
+    const onClickMostrarDetalhes = (id) => {
+        const dadosDetalhes = ProdutosDados.filter((Prod) => Prod.id === id);
+
+        setDadosDetalhes(dadosDetalhes);
+        setShowDetalhes(true);
+    }
+
+    const onClickOcultar = () => {
+        setShowDetalhes(false);
+    }
     return (
         <ContainerDiv className={style.contianer_produtos}>
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={FiltrosCategorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
@@ -217,7 +343,7 @@ const Productos = () => {
                     <p className={style.total_prods}>{dadosMostrar.length} total itens</p>
                 </div>
                 <div className={style.area_produtos_pro}>
-                    <CardProdutos dados={dadosMostrar} />
+                    <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                 </div>
             </div>
             <div className={style.area_contador}>
@@ -231,6 +357,9 @@ const Productos = () => {
                 </div>
                 <div className={style.btn_contador}>{">"}</div>
             </div>
+            {showDetalhes && (
+                <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
+            )}
         </ContainerDiv>)
 }
 
