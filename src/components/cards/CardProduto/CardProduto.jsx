@@ -5,7 +5,7 @@ import Carinho from "../../../assets/icons/carinho.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
 
-const CardProdutos = ({ dados }) => {
+const CardProdutos = ({ dados, onClickDetalhes }) => {
     return (
         dados.map(
             (Produto) => {
@@ -46,7 +46,7 @@ const CardProdutos = ({ dados }) => {
                                             <Img src={Visao} alt={"Ícone de olho"} />
                                             <p>Ver</p>
                                         </>
-                                    } onClick={() => { }} className={style.btn_det} />
+                                    } onClick={() => { onClickDetalhes(Produto.id) }} className={style.btn_det} />
                                     <Button children={
                                         <>
                                             <Img src={Carinho} alt={"Ícone de Carinho"} />

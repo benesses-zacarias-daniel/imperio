@@ -1,3 +1,4 @@
+import { useState } from "react";
 import style from "./Home.module.css";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
@@ -12,6 +13,7 @@ import EscudoVerificado from "../../assets/icons/escudoVerificado.svg"
 import Suporte from "../../assets/icons/suporte.svg"
 import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 import ContactarGrupo from "../../components/home/ContactarGrupo";
+import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 
 const Home = () => {
     const Produtos = [
@@ -24,7 +26,15 @@ const Home = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/pc01.jpeg",
             "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "pc"
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }
+                ],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 2,
             "nome": "",
@@ -34,7 +44,15 @@ const Home = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/tv02.jpeg",
             "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "tv"
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }
+                ],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }, {
             "id": 3,
             "nome": "",
@@ -44,7 +62,14 @@ const Home = () => {
             "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
             "src": "./img/smartphone04.jpeg",
             "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "smartphone"
+            "categorias": "smartphone",
+            "detalhes": {
+                "srcDetalhes": [
+                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
+                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
+                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
+                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
+            }
         }
     ];
 
@@ -85,6 +110,19 @@ const Home = () => {
         }
     ];
 
+    const [showDetalhes, setShowDetalhes] = useState(false);
+    const [dadoDetalhes, setDadosDetalhes] = useState([]);
+
+    const onClickMostrarDetalhes = (id) => {
+        const dadosDetalhes = Produtos.filter((Prod) => Prod.id === id);
+
+        setDadosDetalhes(dadosDetalhes);
+        setShowDetalhes(true);
+    }
+
+    const onClickOcultar = () => {
+        setShowDetalhes(false);
+    }
     return (
         <ContainerDiv className={style.container_home}>
             <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={
@@ -111,13 +149,16 @@ const Home = () => {
                     <ContainerDiv className={style.area_produtos_home}
                         children={
                             <>
-                                <CardProdutos dados={Produtos} />
+                                <CardProdutos dados={Produtos} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                             </>
                         } />
                     <CardCategoria dados={Categorias[0]} />
                 </div>
             </ContainerDiv>
             <ContactarGrupo />
+            {showDetalhes && (
+                <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
+            )}
         </ContainerDiv>
     )
 }
