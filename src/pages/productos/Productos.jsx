@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
@@ -13,11 +13,11 @@ import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 
 const Productos = () => {
 
-    const [dadosMostrar, setDadosMostrar] = useState(dividirGrupoProdutos(ProductoDados, 1, 4));
+    const [inicio, setInicio] = useState(0);
+    const [fim, setFim] = useState(3);
+    const [dadosMostrar, setDadosMostrar] = useState(dividirGrupoProdutos(ProductoDados, inicio, fim));
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
-    const [inicio, setInicio] = useState(1);
-    const [fim, setFim] = useState(4);
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
@@ -43,16 +43,25 @@ const Productos = () => {
 
     const onClickMudarGrupo = (tipo) => {
         if (tipo === 0) {
-            setInicio(inicio - 3);
+            if (inicio === 0) { return; }
             setFim(inicio);
+            setInicio(inicio - 3);
         } else {
+            if (fim >= ProductoDados.length) {
+                return;
+            }
+
             setInicio(fim);
             setFim(fim + 3);
         }
-
-        setDadosMostrar(dividirGrupoProdutos(ProductoDados, inicio, fim))
-        console.log(dadoDetalhes);
     }
+
+    useEffect(() => {
+        setDadosMostrar(
+            dividirGrupoProdutos(ProductoDados, inicio, fim)
+        );
+    }, [inicio, fim]);
+
     return (
         <ContainerDiv className={style.contianer_produtos}>
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
