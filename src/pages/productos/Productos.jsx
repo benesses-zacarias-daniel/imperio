@@ -10,6 +10,7 @@ import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 import ProductoDados from "../../components/data/ProductosDados.json";
 import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
+import scrollCima from "../../utils/scrollCima";
 
 const Productos = () => {
 
@@ -57,6 +58,8 @@ const Productos = () => {
             setInicio(fim);
             setFim(fim + 3);
         }
+
+        scrollCima()
     }
 
     useEffect(() => {
