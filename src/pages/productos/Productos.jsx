@@ -15,19 +15,20 @@ const Productos = () => {
 
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
-    const [dadosMostrar, setDadosMostrar] = useState(dividirGrupoProdutos(ProductoDados, inicio, fim));
+    const [dadosFiltrados, setDadosFiltrados] = useState(ProductoDados);
+    const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            const novosDados = ProductoDados.filter((iten) => iten.categorias === categoria);
-            setDadosMostrar(novosDados);
-
-            return;
+            setDadosFiltrados(ProductoDados.filter((iten) => iten.categorias === categoria));
+        } else {
+            setDadosFiltrados(ProductoDados);
         }
 
-        setDadosMostrar(ProductoDados);
+        setInicio(0);
+        setFim(3);
     };
 
     const onClickMostrarDetalhes = (id) => {
@@ -43,11 +44,13 @@ const Productos = () => {
 
     const onClickMudarGrupo = (tipo) => {
         if (tipo === 0) {
-            if (inicio === 0) { return; }
+            if (inicio <= 0) {
+                return;
+            }
             setFim(inicio);
             setInicio(inicio - 3);
         } else {
-            if (fim >= ProductoDados.length) {
+            if (fim >= dadosFiltrados.length) {
                 return;
             }
 
@@ -57,10 +60,12 @@ const Productos = () => {
     }
 
     useEffect(() => {
+
         setDadosMostrar(
-            dividirGrupoProdutos(ProductoDados, inicio, fim)
+            dividirGrupoProdutos(dadosFiltrados, inicio, fim)
         );
-    }, [inicio, fim]);
+
+    }, [dadosFiltrados, inicio, fim]);
 
     return (
         <ContainerDiv className={style.contianer_produtos}>
@@ -68,7 +73,7 @@ const Productos = () => {
             <div className={style.container_area_prod}>
                 <div className={style.area_titulo_cont_prod}>
                     <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
-                    <p className={style.total_prods}>{ProductoDados.length} total itens</p>
+                    <p className={style.total_prods}>{dadosFiltrados.length} total itens</p>
                 </div>
                 <div className={style.area_produtos_pro}>
                     <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
