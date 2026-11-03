@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "cat": "Todas as Categorias",
+        "value": "todas"
+    },
+    {
+        "id": 2,
+        "cat": "SmatPhones",
+        "value": "smartphone"
+    },
+    {
+        "id": 3,
+        "cat": "TVs",
+        "value": "tv"
+    },
+    {
+        "id": 4,
+        "cat": "Electrodomésticos",
+        "value": "electro"
+    },
+    {
+        "id": 5,
+        "cat": "PCs",
+        "value": "pc"
+    }
+]

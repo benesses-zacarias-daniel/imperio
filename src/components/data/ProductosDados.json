@@ -1,0 +1,690 @@
+[
+    {
+        "id": 1,
+        "nome": "Smartphone Pro",
+        "preco": 25500,
+        "bagde": "Novo",
+        "limit": 5,
+        "desc": "Smartphone de design elegante, com ecrã tátil e câmara de alta qualidade.",
+        "src": "./img/smartphone01.jpeg",
+        "alt": "Imagem de Smartphone Pro",
+        "categorias": "smartphone",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/smartphone01.jpeg",
+                    "srcThumb": "./img/smartphone01.jpeg",
+                    "alt": "Smartphone Pro",
+                    "localizacao": "Smartphone Pro"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/smartphone02.jpeg",
+                    "srcThumb": "./img/smartphone02.jpeg",
+                    "alt": "Smartphone Android",
+                    "localizacao": "Smartphone Android"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/smartphone03.jpeg",
+                    "srcThumb": "./img/smartphone03.jpeg",
+                    "alt": "Telemóvel Básico",
+                    "localizacao": "Telemóvel Básico"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã tátil",
+                "Câmara traseira e frontal",
+                "Wi-Fi, Bluetooth e dados móveis",
+                "Bateria recarregável",
+                "Armazenamento interno"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "nome": "Smartphone Android",
+        "preco": 14500,
+        "bagde": "Promoção",
+        "limit": 8,
+        "desc": "Smartphone Android com ecrã grande, ideal para o dia a dia.",
+        "src": "./img/smartphone02.jpeg",
+        "alt": "Imagem de Smartphone Android",
+        "categorias": "smartphone",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/smartphone02.jpeg",
+                    "srcThumb": "./img/smartphone02.jpeg",
+                    "alt": "Smartphone Android",
+                    "localizacao": "Smartphone Android"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/smartphone03.jpeg",
+                    "srcThumb": "./img/smartphone03.jpeg",
+                    "alt": "Telemóvel Básico",
+                    "localizacao": "Telemóvel Básico"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/smartphone04.jpeg",
+                    "srcThumb": "./img/smartphone04.jpeg",
+                    "alt": "Telemóvel Clássico",
+                    "localizacao": "Telemóvel Clássico"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã tátil de grande dimensão",
+                "Câmara traseira múltipla",
+                "Suporte para dois cartões SIM",
+                "Bateria de longa duração",
+                "Wi-Fi e Bluetooth"
+            ]
+        }
+    },
+    {
+        "id": 3,
+        "nome": "Telemóvel Básico",
+        "preco": 1200,
+        "bagde": "",
+        "limit": 20,
+        "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
+        "src": "./img/smartphone03.jpeg",
+        "alt": "Imagem de Telemóvel Básico",
+        "categorias": "smartphone",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/smartphone03.jpeg",
+                    "srcThumb": "./img/smartphone03.jpeg",
+                    "alt": "Telemóvel Básico",
+                    "localizacao": "Telemóvel Básico"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/smartphone04.jpeg",
+                    "srcThumb": "./img/smartphone04.jpeg",
+                    "alt": "Telemóvel Clássico",
+                    "localizacao": "Telemóvel Clássico"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/smartphone01.jpeg",
+                    "srcThumb": "./img/smartphone01.jpeg",
+                    "alt": "Smartphone Pro",
+                    "localizacao": "Smartphone Pro"
+                }
+            ],
+            "especificacoes": [
+                "Teclado físico",
+                "Bateria de longa duração",
+                "Chamadas e SMS",
+                "Lanterna integrada",
+                "Rádio FM"
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "nome": "Telemóvel Clássico",
+        "preco": 1800,
+        "bagde": "Clássico",
+        "limit": 15,
+        "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
+        "src": "./img/smartphone04.jpeg",
+        "alt": "Imagem de Telemóvel Clássico",
+        "categorias": "smartphone",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/smartphone04.jpeg",
+                    "srcThumb": "./img/smartphone04.jpeg",
+                    "alt": "Telemóvel Clássico",
+                    "localizacao": "Telemóvel Clássico"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/smartphone01.jpeg",
+                    "srcThumb": "./img/smartphone01.jpeg",
+                    "alt": "Smartphone Pro",
+                    "localizacao": "Smartphone Pro"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/smartphone02.jpeg",
+                    "srcThumb": "./img/smartphone02.jpeg",
+                    "alt": "Smartphone Android",
+                    "localizacao": "Smartphone Android"
+                }
+            ],
+            "especificacoes": [
+                "Design clássico e resistente",
+                "Teclado físico",
+                "Bateria de longa duração",
+                "Chamadas e SMS",
+                "Jogos integrados"
+            ]
+        }
+    },
+    {
+        "id": 5,
+        "nome": "Televisão LED",
+        "preco": 18900,
+        "bagde": "",
+        "limit": 6,
+        "desc": "Televisão LED com imagem nítida para a sala de estar.",
+        "src": "./img/tv01.jpeg",
+        "alt": "Imagem de Televisão LED",
+        "categorias": "tv",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/tv01.jpeg",
+                    "srcThumb": "./img/tv01.jpeg",
+                    "alt": "Televisão LED",
+                    "localizacao": "Televisão LED"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/tv02.jpeg",
+                    "srcThumb": "./img/tv02.jpeg",
+                    "alt": "Televisão LED Slim",
+                    "localizacao": "Televisão LED Slim"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/tv03.jpeg",
+                    "srcThumb": "./img/tv03.jpeg",
+                    "alt": "Televisão Retro",
+                    "localizacao": "Televisão Retro"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã LED de alta definição",
+                "Entradas HDMI e USB",
+                "Sintonizador digital",
+                "Colunas integradas",
+                "Comando à distância"
+            ]
+        }
+    },
+    {
+        "id": 6,
+        "nome": "Televisão LED Slim",
+        "preco": 22500,
+        "bagde": "Mais vendido",
+        "limit": 6,
+        "desc": "Televisão LED de design fino, com bordas reduzidas e ótimo contraste.",
+        "src": "./img/tv02.jpeg",
+        "alt": "Imagem de Televisão LED Slim",
+        "categorias": "tv",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/tv02.jpeg",
+                    "srcThumb": "./img/tv02.jpeg",
+                    "alt": "Televisão LED Slim",
+                    "localizacao": "Televisão LED Slim"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/tv03.jpeg",
+                    "srcThumb": "./img/tv03.jpeg",
+                    "alt": "Televisão Retro",
+                    "localizacao": "Televisão Retro"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/tv04.jpeg",
+                    "srcThumb": "./img/tv04.jpeg",
+                    "alt": "Smart TV",
+                    "localizacao": "Smart TV"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã LED com bordas finas",
+                "Entradas HDMI e USB",
+                "Sintonizador digital",
+                "Colunas integradas",
+                "Comando à distância"
+            ]
+        }
+    },
+    {
+        "id": 7,
+        "nome": "Televisão Retro",
+        "preco": 4500,
+        "bagde": "Retro",
+        "limit": 3,
+        "desc": "Televisão de estilo clássico, ideal para colecionadores e decoração.",
+        "src": "./img/tv03.jpeg",
+        "alt": "Imagem de Televisão Retro",
+        "categorias": "tv",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/tv03.jpeg",
+                    "srcThumb": "./img/tv03.jpeg",
+                    "alt": "Televisão Retro",
+                    "localizacao": "Televisão Retro"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/tv04.jpeg",
+                    "srcThumb": "./img/tv04.jpeg",
+                    "alt": "Smart TV",
+                    "localizacao": "Smart TV"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/tv01.jpeg",
+                    "srcThumb": "./img/tv01.jpeg",
+                    "alt": "Televisão LED",
+                    "localizacao": "Televisão LED"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã CRT",
+                "Sintonizador analógico",
+                "Comandos no painel frontal",
+                "Entrada de antena",
+                "Design retro"
+            ]
+        }
+    },
+    {
+        "id": 8,
+        "nome": "Smart TV",
+        "preco": 32000,
+        "bagde": "Destaque",
+        "limit": 4,
+        "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
+        "src": "./img/tv04.jpeg",
+        "alt": "Imagem de Smart TV",
+        "categorias": "tv",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/tv04.jpeg",
+                    "srcThumb": "./img/tv04.jpeg",
+                    "alt": "Smart TV",
+                    "localizacao": "Smart TV"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/tv01.jpeg",
+                    "srcThumb": "./img/tv01.jpeg",
+                    "alt": "Televisão LED",
+                    "localizacao": "Televisão LED"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/tv02.jpeg",
+                    "srcThumb": "./img/tv02.jpeg",
+                    "alt": "Televisão LED Slim",
+                    "localizacao": "Televisão LED Slim"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã LED de alta resolução",
+                "Aplicações de streaming",
+                "Wi-Fi integrado",
+                "Entradas HDMI e USB",
+                "Comando à distância"
+            ]
+        }
+    },
+    {
+        "id": 9,
+        "nome": "Batedeira de Bancada",
+        "preco": 5200,
+        "bagde": "Novo",
+        "limit": 10,
+        "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
+        "src": "./img/electrodomesticos01.jpeg",
+        "alt": "Imagem de Batedeira de Bancada",
+        "categorias": "electro",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/electrodomesticos01.jpeg",
+                    "srcThumb": "./img/electrodomesticos01.jpeg",
+                    "alt": "Batedeira de Bancada",
+                    "localizacao": "Batedeira de Bancada"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/electrodomesticos02.jpeg",
+                    "srcThumb": "./img/electrodomesticos02.jpeg",
+                    "alt": "Fogão com Forno",
+                    "localizacao": "Fogão com Forno"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/electrodomesticos03.jpeg",
+                    "srcThumb": "./img/electrodomesticos03.jpeg",
+                    "alt": "Ferro de Engomar",
+                    "localizacao": "Ferro de Engomar"
+                }
+            ],
+            "especificacoes": [
+                "Taça em aço inoxidável",
+                "Várias velocidades de batimento",
+                "Inclui batedor, gancho e globo",
+                "Base antiderrapante",
+                "Fácil de limpar"
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "nome": "Fogão com Forno",
+        "preco": 21000,
+        "bagde": "",
+        "limit": 5,
+        "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
+        "src": "./img/electrodomesticos02.jpeg",
+        "alt": "Imagem de Fogão com Forno",
+        "categorias": "electro",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/electrodomesticos02.jpeg",
+                    "srcThumb": "./img/electrodomesticos02.jpeg",
+                    "alt": "Fogão com Forno",
+                    "localizacao": "Fogão com Forno"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/electrodomesticos03.jpeg",
+                    "srcThumb": "./img/electrodomesticos03.jpeg",
+                    "alt": "Ferro de Engomar",
+                    "localizacao": "Ferro de Engomar"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/electrodomesticos04.jpeg",
+                    "srcThumb": "./img/electrodomesticos04.jpeg",
+                    "alt": "Torradeira",
+                    "localizacao": "Torradeira"
+                }
+            ],
+            "especificacoes": [
+                "Forno integrado",
+                "Queimadores com acendimento automático",
+                "Porta de vidro temperado",
+                "Termóstato regulável",
+                "Estrutura em aço inoxidável"
+            ]
+        }
+    },
+    {
+        "id": 11,
+        "nome": "Ferro de Engomar",
+        "preco": 1500,
+        "bagde": "Promoção",
+        "limit": 25,
+        "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
+        "src": "./img/electrodomesticos03.jpeg",
+        "alt": "Imagem de Ferro de Engomar",
+        "categorias": "electro",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/electrodomesticos03.jpeg",
+                    "srcThumb": "./img/electrodomesticos03.jpeg",
+                    "alt": "Ferro de Engomar",
+                    "localizacao": "Ferro de Engomar"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/electrodomesticos04.jpeg",
+                    "srcThumb": "./img/electrodomesticos04.jpeg",
+                    "alt": "Torradeira",
+                    "localizacao": "Torradeira"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/electrodomesticos01.jpeg",
+                    "srcThumb": "./img/electrodomesticos01.jpeg",
+                    "alt": "Batedeira de Bancada",
+                    "localizacao": "Batedeira de Bancada"
+                }
+            ],
+            "especificacoes": [
+                "Base antiaderente",
+                "Temperatura regulável",
+                "Função vapor",
+                "Cabo ergonómico",
+                "Depósito de água"
+            ]
+        }
+    },
+    {
+        "id": 12,
+        "nome": "Torradeira",
+        "preco": 2300,
+        "bagde": "",
+        "limit": 12,
+        "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
+        "src": "./img/electrodomesticos04.jpeg",
+        "alt": "Imagem de Torradeira",
+        "categorias": "electro",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/electrodomesticos04.jpeg",
+                    "srcThumb": "./img/electrodomesticos04.jpeg",
+                    "alt": "Torradeira",
+                    "localizacao": "Torradeira"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/electrodomesticos01.jpeg",
+                    "srcThumb": "./img/electrodomesticos01.jpeg",
+                    "alt": "Batedeira de Bancada",
+                    "localizacao": "Batedeira de Bancada"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/electrodomesticos02.jpeg",
+                    "srcThumb": "./img/electrodomesticos02.jpeg",
+                    "alt": "Fogão com Forno",
+                    "localizacao": "Fogão com Forno"
+                }
+            ],
+            "especificacoes": [
+                "Ranhuras largas",
+                "Vários níveis de tostagem",
+                "Função descongelar",
+                "Bandeja de migalhas removível",
+                "Corpo em aço inoxidável"
+            ]
+        }
+    },
+    {
+        "id": 13,
+        "nome": "Portátil",
+        "preco": 28500,
+        "bagde": "",
+        "limit": 7,
+        "desc": "Portátil leve e rápido para estudo e trabalho.",
+        "src": "./img/pc.jpg",
+        "alt": "Imagem de Portátil",
+        "categorias": "pc",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/pc.jpg",
+                    "srcThumb": "./img/pc.jpg",
+                    "alt": "Portátil",
+                    "localizacao": "Portátil"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/pc01.jpeg",
+                    "srcThumb": "./img/pc01.jpeg",
+                    "alt": "PC Gamer",
+                    "localizacao": "PC Gamer"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/pc02.jpeg",
+                    "srcThumb": "./img/pc02.jpeg",
+                    "alt": "Portátil Gamer",
+                    "localizacao": "Portátil Gamer"
+                }
+            ],
+            "especificacoes": [
+                "Ecrã LED",
+                "Processador multinúcleo",
+                "Memória RAM e disco SSD",
+                "Teclado e touchpad",
+                "Bateria recarregável e Wi-Fi"
+            ]
+        }
+    },
+    {
+        "id": 14,
+        "nome": "PC Gamer",
+        "preco": 65000,
+        "bagde": "Destaque",
+        "limit": 3,
+        "desc": "Computador gamer completo, com iluminação RGB e desempenho para jogos exigentes.",
+        "src": "./img/pc01.jpeg",
+        "alt": "Imagem de PC Gamer",
+        "categorias": "pc",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/pc01.jpeg",
+                    "srcThumb": "./img/pc01.jpeg",
+                    "alt": "PC Gamer",
+                    "localizacao": "PC Gamer"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/pc02.jpeg",
+                    "srcThumb": "./img/pc02.jpeg",
+                    "alt": "Portátil Gamer",
+                    "localizacao": "Portátil Gamer"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/pc03.jpeg",
+                    "srcThumb": "./img/pc03.jpeg",
+                    "alt": "Computador de Secretária",
+                    "localizacao": "Computador de Secretária"
+                }
+            ],
+            "especificacoes": [
+                "Iluminação RGB",
+                "Placa gráfica dedicada",
+                "Monitor de alta taxa de atualização",
+                "Teclado e rato gamer",
+                "Refrigeração reforçada"
+            ]
+        }
+    },
+    {
+        "id": 15,
+        "nome": "Portátil Gamer",
+        "preco": 58000,
+        "bagde": "Novo",
+        "limit": 4,
+        "desc": "Portátil gamer com teclado retroiluminado e ventilação reforçada.",
+        "src": "./img/pc02.jpeg",
+        "alt": "Imagem de Portátil Gamer",
+        "categorias": "pc",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/pc02.jpeg",
+                    "srcThumb": "./img/pc02.jpeg",
+                    "alt": "Portátil Gamer",
+                    "localizacao": "Portátil Gamer"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/pc03.jpeg",
+                    "srcThumb": "./img/pc03.jpeg",
+                    "alt": "Computador de Secretária",
+                    "localizacao": "Computador de Secretária"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/pc.jpg",
+                    "srcThumb": "./img/pc.jpg",
+                    "alt": "Portátil",
+                    "localizacao": "Portátil"
+                }
+            ],
+            "especificacoes": [
+                "Teclado retroiluminado RGB",
+                "Placa gráfica dedicada",
+                "Ecrã de alta taxa de atualização",
+                "Ventilação reforçada",
+                "Disco SSD rápido"
+            ]
+        }
+    },
+    {
+        "id": 16,
+        "nome": "Computador de Secretária",
+        "preco": 24500,
+        "bagde": "",
+        "limit": 6,
+        "desc": "Computador de secretária com monitor incluído, ideal para casa e escritório.",
+        "src": "./img/pc03.jpeg",
+        "alt": "Imagem de Computador de Secretária",
+        "categorias": "pc",
+        "detalhes": {
+            "srcDetalhes": [
+                {
+                    "id": 1,
+                    "srcDet": "./img/pc03.jpeg",
+                    "srcThumb": "./img/pc03.jpeg",
+                    "alt": "Computador de Secretária",
+                    "localizacao": "Computador de Secretária"
+                },
+                {
+                    "id": 2,
+                    "srcDet": "./img/pc.jpg",
+                    "srcThumb": "./img/pc.jpg",
+                    "alt": "Portátil",
+                    "localizacao": "Portátil"
+                },
+                {
+                    "id": 3,
+                    "srcDet": "./img/pc01.jpeg",
+                    "srcThumb": "./img/pc01.jpeg",
+                    "alt": "PC Gamer",
+                    "localizacao": "PC Gamer"
+                }
+            ],
+            "especificacoes": [
+                "Monitor LED incluído",
+                "Torre com processador multinúcleo",
+                "Memória RAM e disco rápido",
+                "Portas USB e HDMI",
+                "Teclado e rato"
+            ]
+        }
+    }
+]

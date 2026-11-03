@@ -11,7 +11,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
     const detalhes = dados[0].detalhes;
     const srcDetalhes = detalhes.srcDetalhes;
     const tamanhoSrc = srcDetalhes.length;
-    const acessos = detalhes.acessos;
+    const especificacoes = detalhes.especificacoes;
     //States para gerir as Imgs
     const [srcDetAct, setSrcDetAct] = useState(0);
     const [fade, setFade] = useState(false);
@@ -60,14 +60,14 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
                             <div className={style.loc_detalhes}>{srcDetAct + 1}/{tamanhoSrc}</div>
                         </div>
                         <div className={style.area_info_detalhes}>
-                            {acessos && (<h3>O Producto possui:</h3>)}
+                            {especificacoes && (<h3>O Producto possui:</h3>)}
                             <div className={style.area_acessos_detalhes}>
-                                {acessos && (
-                                    acessos.map((acesso, pos) => {
+                                {especificacoes && (
+                                    especificacoes.map((esp, pos) => {
                                         return (
                                             <div key={pos} className={style.acesso}>
                                                 <Img src={EstrelaAval} alt={"Estrela"} />
-                                                <p>{acesso}</p>
+                                                <p>{esp}</p>
                                             </div>
                                         )
                                     })

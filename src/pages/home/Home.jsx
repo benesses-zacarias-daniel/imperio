@@ -14,64 +14,11 @@ import Suporte from "../../assets/icons/suporte.svg"
 import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
+//Dados
+import ProductoDados from "../../components/data/ProductosDados.json";
 
 const Home = () => {
-    const Produtos = [
-        {
-            "id": 1,
-            "nome": "Skyland Ultra",
-            "preco": 25500,
-            "bagde": "Setup Gamer - Completo",
-            "limit": "Excelencia em Cada Bit",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/pc01.jpeg",
-            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "pc",
-            "detalhes": {
-                "srcDetalhes": [
-                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
-                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
-                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }
-                ],
-                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
-            }
-        }, {
-            "id": 2,
-            "nome": "",
-            "preco": 25500,
-            "bagde": "",
-            "limit": "Excelencia em Cada Bit",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/tv02.jpeg",
-            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "tv",
-            "detalhes": {
-                "srcDetalhes": [
-                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
-                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
-                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }
-                ],
-                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
-            }
-        }, {
-            "id": 3,
-            "nome": "",
-            "preco": 25500,
-            "bagde": "",
-            "limit": "Excelencia em Cada Bit",
-            "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-            "src": "./img/smartphone04.jpeg",
-            "alt": "Imagem de setup completo de PC (DeskTop),Teclado Gamer ect..",
-            "categorias": "smartphone",
-            "detalhes": {
-                "srcDetalhes": [
-                    { "id": 1, "srcDet": "/./img/tv02.jpeg", "srcThumb": "./img/tv02.jpeg", "alt": "", "localizacao": "Visão Frontal" },
-                    { "id": 2, "srcDet": "/./img/tv01.jpeg", "srcThumb": "./img/tv01.jpeg", "alt": "", "localizacao": "Slot" },
-                    { "id": 3, "srcDet": "/./img/smartphone04.jpeg", "srcThumb": "./img/smartphone04.jpeg", "alt": "", "localizacao": "Top Design" }],
-                "acessos": ["Água", "Escola (Primárias e Secundárias)", "Mercado", "Estrada"]
-            }
-        }
-    ];
+    const ProdutosDestaque = ProductoDados.filter((prodFiltrado) => prodFiltrado.id === 1 || prodFiltrado.id === 2 || prodFiltrado.id === 4);
 
     const Categorias = [
         {
@@ -114,7 +61,7 @@ const Home = () => {
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const onClickMostrarDetalhes = (id) => {
-        const dadosDetalhes = Produtos.filter((Prod) => Prod.id === id);
+        const dadosDetalhes = ProdutosDestaque.filter((Prod) => Prod.id === id);
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);
@@ -149,7 +96,7 @@ const Home = () => {
                     <ContainerDiv className={style.area_produtos_home}
                         children={
                             <>
-                                <CardProdutos dados={Produtos} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                <CardProdutos dados={ProdutosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                             </>
                         } />
                     <CardCategoria dados={Categorias[0]} />
