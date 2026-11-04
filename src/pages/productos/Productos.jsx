@@ -5,7 +5,10 @@ import Filtros from "../../components/productos/Filtros";
 import style from "./Productos.module.css";
 import Button from "../../components/button/Button";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
-
+import Img from "../../components/img/Img";
+//Ícones
+import SetaCima from "../../assets/icons/setaCim.svg";
+import SetaBaixo from "../../assets/icons/setaBaix.svg";
 //Dados
 import ProductoDados from "../../components/data/ProductosDados.json";
 import Categorias from "../../components/data/Categorias.json";
@@ -44,13 +47,18 @@ const Productos = () => {
     }
 
     const onClickMudarGrupo = (tipo) => {
+
         if (tipo === 0) {
+
             if (inicio <= 0) {
                 return;
             }
+
             setFim(inicio);
             setInicio(inicio - 3);
+
         } else {
+
             if (fim >= dadosFiltrados.length) {
                 return;
             }
@@ -82,9 +90,13 @@ const Productos = () => {
                     <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                 </div>
             </div>
-            <div className={style.area_contador}>
-                <Button children={"<"} onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
-                <Button children={">"} onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
+            <div className={style.area_coltrol_exib}>
+                <Button children={
+                    <Img src={SetaCima} alt={"Ícone de seta par cima"} className={style.icones_btn_control} />
+                } onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
+                <Button children={
+                    <Img src={SetaBaixo} alt={"Ícone de seta par baixo"} className={style.icones_btn_control} />
+                } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
             </div>
             {showDetalhes && (
                 <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />

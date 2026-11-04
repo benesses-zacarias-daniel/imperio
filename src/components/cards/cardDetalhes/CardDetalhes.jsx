@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./CardDetalhes.module.css";
 import Img from "../../img/Img";
 import Fexar from "../../../assets/icons/fexar_detalhes.svg";
-import Carrinho from "../../../assets/icons/carinho.svg";
+import Carrinho from "../../../assets/icons/carinhoadd.svg";
 import Button from "../../button/Button";
 import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 

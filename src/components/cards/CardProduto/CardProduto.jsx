@@ -1,7 +1,7 @@
 import style from "./CardProduto.module.css";
 import Img from "../../img/Img"
 import Estrela from "../../../assets/icons/estrelaAval.svg";
-import Carinho from "../../../assets/icons/carinho.svg";
+import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
 

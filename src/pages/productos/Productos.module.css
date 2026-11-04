@@ -44,3 +44,29 @@
 .area_produtos_pro {
     gap: 8px;
 }
+
+.area_coltrol_exib {
+    position: fixed;
+    top: 170px;
+    right: 15px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.btn_cont {
+    background-color: #0000001a;
+    border-radius: 10px;
+    height: 25px;
+    width: 25px;
+}
+
+.icones_btn_control {
+    width: 24px;
+    height: 24px;
+}
