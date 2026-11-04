@@ -86,7 +86,7 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0px 0px 75px 0px;
+    /* padding: 0px 0px 75px 0px; */
 }
 
 .fexar_detalhes {
@@ -161,7 +161,7 @@
 
 .area_imgs_detalhes {
     position: relative;
-    width: 330px;
+    width: 340px;
     height: 260px;
     display: flex;
     align-items: center;
@@ -268,14 +268,14 @@
     position: absolute;
     bottom: 15px;
     top: 1px;
-    right: -10px;
+    right: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     /* flex-wrap: wrap; */
     height: 98%;
-    width: 60px;
+    width: 45px;
     z-index: 3;
 }
 
