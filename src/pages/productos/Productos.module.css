@@ -48,7 +48,7 @@
 .area_coltrol_exib {
     position: fixed;
     top: 170px;
-    right: 15px;
+    right: 5px;
     height: 65px;
     display: flex;
     align-items: center;

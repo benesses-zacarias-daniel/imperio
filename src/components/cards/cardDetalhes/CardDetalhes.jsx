@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./CardDetalhes.module.css";
 import Img from "../../img/Img";
 import Fexar from "../../../assets/icons/fexar_detalhes.svg";
-import Carrinho from "../../../assets/icons/carinhoadd.svg";
+import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Button from "../../button/Button";
 import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 
@@ -77,7 +77,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
                         <div className={style.area_btn_contactar_detalhes}>
                             <Button className={style.btn_detalhe_detalhe} children={
                                 <>
-                                    <Img src={Carrinho} alt={"Ícone de Carinho"} />
+                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
                                     <p>Adicionar</p>
                                 </>
                             } onClick={() => { }} />
