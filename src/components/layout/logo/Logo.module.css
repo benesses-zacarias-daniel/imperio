@@ -27,3 +27,7 @@
 .area_foco {
     color: var(--dourado_principal);
 }
+
+.corNormal {
+    color: var(--preto_principal);
+}

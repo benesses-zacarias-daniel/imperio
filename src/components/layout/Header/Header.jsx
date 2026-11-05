@@ -10,11 +10,13 @@ import Carinho from "../../../assets/icons/carinho.svg";
 import LogoIcone from "../../../assets/logo/logo.svg";
 import Menu from "../Sidebar/Menu";
 import useContextCarinho from "../../../hooks/useContextCarinho";
+import scrollCima from "../../../utils/scrollCima";
 
 const Header = () => {
     const [click, setClick] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const { itens } = useContextCarinho();
+
     const onClickCarinho = () => {
         setClick(true);
         setTimeout(() => {
@@ -38,7 +40,7 @@ const Header = () => {
                     <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} />
                 </div>
                 <div className={style.area_carinho}>
-                    <Link to={"/carinho"}>
+                    <Link to={"/carinho"} onClick={() => { scrollCima() }}>
                         <Button children={
                             <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
                         } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />

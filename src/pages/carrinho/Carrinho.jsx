@@ -7,6 +7,7 @@ import Visao from "../../assets/icons/visao.svg"
 import CardResumo from "../../components/cards/CardResumo/CardResumo";
 import { useState } from "react";
 import useContextCarinho from "../../hooks/useContextCarinho";
+import scrollCima from "../../utils/scrollCima";
 
 const Carrinho = () => {
     const [showResumo, setShowResumo] = useState(false);
@@ -30,7 +31,10 @@ const Carrinho = () => {
                 <div className={style.area_btn_resumo}>
                     <Button className={style.btn_resumo} children={
                         <Img src={Visao} alt={"Ícone de olho"} className={style.icone_resumo} />
-                    } onClick={() => { onClickResumo(true) }} />
+                    } onClick={() => {
+                        onClickResumo(true);
+                        scrollCima();
+                    }} />
                 </div>
                 {
                     showResumo && (

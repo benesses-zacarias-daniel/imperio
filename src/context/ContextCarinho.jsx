@@ -7,11 +7,9 @@ const ContextCarinhoProvider = ({ children }) => {
     const [itens, setItens] = useState([]);
 
     const onClickAdicionarItem = (obj) => {
-        console.log(obj);
 
         const novoObj = normalizar(obj);
 
-        console.log(novoObj);
         setItens((actual) => {
             const existe = actual.find((prod) => prod.id === novoObj.id);
             if (existe) {
@@ -20,11 +18,9 @@ const ContextCarinhoProvider = ({ children }) => {
 
             return [...actual, novoObj]
         });
+
     };
 
-    // useEffect(() => {
-    //     console.log(itens);
-    // }, [itens])
     const onClickRemoverItem = (idObj) => {
         const objs = itens.filter((objF) => objF.id !== idObj);
 
@@ -75,11 +71,11 @@ const ContextCarinhoProvider = ({ children }) => {
             total += item.quantidade * item.preco;
         });
 
-        return total;
+        return total + 200;//200 para entrega ao domicílio
     };
 
     const onClickMensagemFinalizarCompra = () => {
-        let mensagem = "Olá, equipe da Imperial Electrônicos. Gostaria de encomenda esses productos ";
+        let mensagem = "Olá, equipe da Imperial Electrônicos. Gostaria de encomendar esses productos ";
         itens.map((item, pos) => {
             if (pos < itens.length - 1) {
                 mensagem += `${item.nome}, `;
@@ -87,6 +83,7 @@ const ContextCarinhoProvider = ({ children }) => {
                 mensagem += `${item.nome}.`;
             }
         });
+
         mensagem += ` Com o total de ${onClickTotal()} MT.`;
 
         return mensagem;

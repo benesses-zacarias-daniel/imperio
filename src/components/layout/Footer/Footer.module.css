@@ -19,6 +19,7 @@ footer {
     flex-wrap: wrap;
 }
 
+
 .area_info {
     width: 100%;
     height: 100%;
@@ -56,6 +57,10 @@ footer {
     flex-wrap: wrap;
     flex-shrink: 0;
     gap: 10px;
+}
+
+.titulo_nav {
+    padding: 5px 0px 0px 0px;
 }
 
 .contaner_footer_menu {
@@ -112,4 +117,62 @@ footer {
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+
+.contacto {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.titulo_contacto {
+    padding: 0px 0px 5px 0px;
+}
+
+.area_numeros,
+.email {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    color: #f70505;
+}
+
+.email p,
+.numeros a p {
+    color: var(--texto_principal);
+    font-weight: 450;
+}
+
+.numeros,
+.email {
+    font-family: "Merriweather", serif;
+}
+
+.email a {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.link_footer_nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    padding: 6px 0px 0px 10px;
+}
+
+.link_footer_nav img {
+    width: 20px;
+    height: 20px;
+    padding: 2px 0px 0px 0px;
+}
+
+.corFora {
+    color: var(--texto_principal);
 }

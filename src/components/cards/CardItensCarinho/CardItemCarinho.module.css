@@ -1,11 +1,16 @@
 .container_cardItemCar,
-.container_titulo {
+.container_titulo,
+.area_badge {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
     height: 30px;
+}
+
+.area_badge {
+    font-style: italic;
 }
 
 .container_cardItemCar {
@@ -39,7 +44,7 @@
 .img_item_car,
 .img_car {
     border-radius: 10px;
-    border: 1px solid rgb(35, 3, 3);
+    border: 1px solid var(--dourado_principal);
 }
 
 .img_item_car {
@@ -59,19 +64,38 @@
     justify-content: space-between;
 }
 
-.container_btn_esq {
+.container_btn_esq,
+.container_btn_dir {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
     width: 80px;
-    border: 1px solid red;
+    border: 1px solid var(--dourado_principal);
     border-radius: 15px;
 
+}
+
+.container_btn_dir {
+    width: 95px;
+    border: 1px solid transparent;
+}
+
+.btn_rem {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 1px;
 }
 
 .btn_car {
     width: 25px;
     height: 25px;
+}
+
+.icone_qtd_control {
+    width: 20px;
+    height: 20px;
 }

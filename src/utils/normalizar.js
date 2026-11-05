@@ -1,6 +1,5 @@
 const normalizar = (producto) => {
-    const novoObj =
-    {
+    return {
         "id": producto.id,
         "nome": producto.nome,
         "preco": producto.preco,
@@ -10,10 +9,6 @@ const normalizar = (producto) => {
         "categorias": producto.categorias,
         "quantidade": 1
     };
-
-    console.log(novoObj);
-
-    return novoObj;
 }
 
 

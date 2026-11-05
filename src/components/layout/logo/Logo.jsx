@@ -1,7 +1,7 @@
 import Img from "../../img/Img";
 import style from "./Logo.module.css";
 
-const Logo = ({ LogoMarca, marca, foco }) => {
+const Logo = ({ LogoMarca, marca, foco, className = style.corNormal }) => {
 
     return (
         <div className={style.area_logo}>
@@ -10,7 +10,9 @@ const Logo = ({ LogoMarca, marca, foco }) => {
                 <div className={style.area_foco}>
                     {foco}
                 </div>
-                {marca}
+                <div className={className}>
+                    {marca}
+                </div>
             </div>
         </div>
     )

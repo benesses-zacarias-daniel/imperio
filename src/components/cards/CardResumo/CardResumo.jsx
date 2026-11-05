@@ -1,7 +1,8 @@
+import style from "./CardResumo.module.css";
 import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
-import style from "./CardResumo.module.css";
+import FecharResumo from "../../../assets/icons/fexar_detalhes.svg"
 // import Seta from "../../../assets/icons/seta.svg"
 import useContextCarinho from "../../../hooks/useContextCarinho";
 
@@ -16,8 +17,6 @@ const CardResumo = ({ showResumo }) => {
     return (
         <ContainerDiv id={"container_area_resumo"} className={style.container_area_resumo} click={(evt) => {
             if (evt.target === evt.currentTarget) {
-                sagemFinalizarCompra();
-                const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
                 onClickOcultarResumo();
             }
 
@@ -25,7 +24,7 @@ const CardResumo = ({ showResumo }) => {
             <div className={style.container_resumo}>
                 <div className={style.fexarShowResumo}>
                     <Button className={style.btn_fexar_resumo} onClick={() => { onClickOcultarResumo() }}>
-                        X
+                        <Img src={FecharResumo} alt={"Ícone de X"} className={style.icone_fechar_resumo} />
                     </Button>
                 </div>
                 <div className={style.container_conteudo}>
@@ -40,7 +39,7 @@ const CardResumo = ({ showResumo }) => {
                         </div>
                         <div className={style.val_sub}>
                             <p className={style.total}>
-                                {onClickTotal()}
+                                {onClickTotal() === 200 ? 0 : onClickTotal()}
                             </p>
                         </div>
                     </div>
@@ -61,12 +60,12 @@ const CardResumo = ({ showResumo }) => {
                         </a>
                     </div>
                     <div className={style.info_envio}>
-                        {/* <div className={style.area_icone_env}>
-                            <Img />
-                        </div> */}
                         <div className={style.val_sub}>
-                            <p className={style.total}>
+                            {/* <p className={style.total}>
                                 A entrega depende de acordo entre o cliente e o entregador.
+                            </p> */}
+                            <p className={style.total}>
+                                A valor total envolve a entrega dos Productos.
                             </p>
                         </div>
                     </div>
