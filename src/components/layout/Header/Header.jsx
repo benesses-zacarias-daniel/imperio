@@ -1,12 +1,13 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import style from "./Header.module.css";
 import Button from "../../button/Button";
 import Img from "../../img/Img";
-import style from "./Header.module.css";
 import Logo from "../logo/Logo";
 //Imagens
 import AbrirMenu from "../../../assets/icons/menu.svg";
 import Carinho from "../../../assets/icons/carinho.svg";
 import LogoIcone from "../../../assets/logo/logo.svg";
-import { useState } from "react";
 import Menu from "../Sidebar/Menu";
 import useContextCarinho from "../../../hooks/useContextCarinho";
 
@@ -14,7 +15,6 @@ const Header = () => {
     const [click, setClick] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const { itens } = useContextCarinho();
-
     const onClickCarinho = () => {
         setClick(true);
         setTimeout(() => {
@@ -38,18 +38,20 @@ const Header = () => {
                     <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} />
                 </div>
                 <div className={style.area_carinho}>
-                    <Button children={
-                        <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
-                    } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />
-                    {itens.length > 0 && (
-                        <div className={`${style.contador_carinho} ${click && style.clickBtn}`} onClick={() => {
-                            onClickCarinho();
-                        }}>
-                            <p>{itens.length >= 10 ? "+9" : itens.length}</p>
-                        </div>
-                    )}
+                    <Link to={"/carinho"}>
+                        <Button children={
+                            <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
+                        } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />
+                        {itens.length > 0 && (
+                            <div className={`${style.contador_carinho} ${click && style.clickBtn}`} onClick={() => {
+                                onClickCarinho();
+                            }}>
+                                <p>{itens.length >= 10 ? "+9" : itens.length}</p>
+                            </div>
+                        )}
+                    </Link>
                 </div>
-            </header>
+            </header >
             <Menu mostrarMenu={showMenu} mostrarIcone={true} mostrarIconesMenu={true} onClickOcultar={(val) => {
                 onClickMenu(val);
             }} />

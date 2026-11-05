@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import normalizar from "../utils/normalizar";
 
 const ContextCarinho = createContext();
@@ -9,13 +9,22 @@ const ContextCarinhoProvider = ({ children }) => {
     const onClickAdicionarItem = (obj) => {
         console.log(obj);
 
-        const novoObj = [...itens, normalizar(obj)];
+        const novoObj = normalizar(obj);
 
         console.log(novoObj);
-        setItens(novoObj);
-        console.log(itens);
+        setItens((actual) => {
+            const existe = actual.find((prod) => prod.id === novoObj.id);
+            if (existe) {
+                return;
+            }
+
+            return [...actual, novoObj]
+        });
     };
 
+    // useEffect(() => {
+    //     console.log(itens);
+    // }, [itens])
     const onClickRemoverItem = (idObj) => {
         const objs = itens.filter((objF) => objF.id !== idObj);
 

@@ -5,15 +5,11 @@ import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
 import useContextCarinho from "../../../hooks/useContextCarinho";
-import { useState } from "react";
 
 const CardProdutos = ({ dados, onClickDetalhes }) => {
-    const { onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
-    const [controlProd, setControlProd] = useState(true);
+    const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
+    // const noCarinho = itens.some((prod) => prod.id === dados.id);
 
-    const onClickControl = (val) => {
-        setControlProd(val);
-    }
     return (
         dados.map(
             (Produto) => {
@@ -56,8 +52,17 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                                         </>
                                     } onClick={() => { onClickDetalhes(Produto.id) }} className={style.btn_det} />
                                     {
-                                        controlProd ? (
+                                        (itens.some((prod) => prod.id === Produto.id)) ? (
+                                            <Button children={
+                                                <>
+                                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
+                                                    <p>Remover</p>
+                                                </>
+                                            } onClick={() => {
+                                                onClickRemoverItem(Produto.id);
 
+                                            }} className={style.btn_car} />
+                                        ) : (
                                             <Button children={
                                                 <>
                                                     <Img src={Carinho} alt={"Ícone de Carinho"} />
@@ -65,18 +70,6 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                                                 </>
                                             } onClick={() => {
                                                 onClickAdicionarItem(Produto);
-                                                onClickControl(false)
-                                            }} className={style.btn_car} />
-                                        ) : (
-                                            <Button children={
-                                                <>
-                                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
-                                                    <p>Removeer</p>
-                                                </>
-                                            } onClick={() => {
-                                                onClickRemoverItem(Produto.id);
-                                                onClickControl(true)
-
                                             }} className={style.btn_car} />
                                         )
 
