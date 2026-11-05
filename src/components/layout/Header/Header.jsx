@@ -8,11 +8,12 @@ import Carinho from "../../../assets/icons/carinho.svg";
 import LogoIcone from "../../../assets/logo/logo.svg";
 import { useState } from "react";
 import Menu from "../Sidebar/Menu";
+import useContextCarinho from "../../../hooks/useContextCarinho";
 
 const Header = () => {
-    const [contador, setContador] = useState(8);
     const [click, setClick] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+    const { itens } = useContextCarinho();
 
     const onClickCarinho = () => {
         setClick(true);
@@ -40,11 +41,11 @@ const Header = () => {
                     <Button children={
                         <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
                     } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />
-                    {contador > 0 && (
+                    {itens.length > 0 && (
                         <div className={`${style.contador_carinho} ${click && style.clickBtn}`} onClick={() => {
                             onClickCarinho();
                         }}>
-                            <p>{contador >= 10 ? "+9" : contador}</p>
+                            <p>{itens.length >= 10 ? "+9" : itens.length}</p>
                         </div>
                     )}
                 </div>

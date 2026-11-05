@@ -4,8 +4,16 @@ import Estrela from "../../../assets/icons/estrelaAval.svg";
 import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
+import useContextCarinho from "../../../hooks/useContextCarinho";
+import { useState } from "react";
 
 const CardProdutos = ({ dados, onClickDetalhes }) => {
+    const { onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
+    const [controlProd, setControlProd] = useState(true);
+
+    const onClickControl = (val) => {
+        setControlProd(val);
+    }
     return (
         dados.map(
             (Produto) => {
@@ -47,12 +55,32 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                                             <p>Ver</p>
                                         </>
                                     } onClick={() => { onClickDetalhes(Produto.id) }} className={style.btn_det} />
-                                    <Button children={
-                                        <>
-                                            <Img src={Carinho} alt={"Ícone de Carinho"} />
-                                            <p>Adicionar</p>
-                                        </>
-                                    } onClick={() => { }} className={style.btn_car} />
+                                    {
+                                        controlProd ? (
+
+                                            <Button children={
+                                                <>
+                                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
+                                                    <p>Adicionar</p>
+                                                </>
+                                            } onClick={() => {
+                                                onClickAdicionarItem(Produto);
+                                                onClickControl(false)
+                                            }} className={style.btn_car} />
+                                        ) : (
+                                            <Button children={
+                                                <>
+                                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
+                                                    <p>Removeer</p>
+                                                </>
+                                            } onClick={() => {
+                                                onClickRemoverItem(Produto.id);
+                                                onClickControl(true)
+
+                                            }} className={style.btn_car} />
+                                        )
+
+                                    }
                                 </div>
                             </div>
                         </div>
