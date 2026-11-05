@@ -99,3 +99,15 @@
     width: 20px;
     height: 20px;
 }
+
+.bordaInicial {
+    border-radius: 0px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.bordaFinal {
+    border-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

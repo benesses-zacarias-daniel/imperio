@@ -5,6 +5,7 @@ import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
 import useContextCarinho from "../../../hooks/useContextCarinho";
+import RemoverItem from "../../../assets/icons/delete.svg";
 
 const CardProdutos = ({ dados, onClickDetalhes }) => {
     const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
@@ -55,13 +56,13 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                                         (itens.some((prod) => prod.id === Produto.id)) ? (
                                             <Button children={
                                                 <>
-                                                    <Img src={Carinho} alt={"Ícone de Carinho"} />
+                                                    <Img src={RemoverItem} alt={"Ícone de Carinho"} />
                                                     <p>Remover</p>
                                                 </>
                                             } onClick={() => {
                                                 onClickRemoverItem(Produto.id);
 
-                                            }} className={style.btn_car} />
+                                            }} className={style.btn_rm_item} />
                                         ) : (
                                             <Button children={
                                                 <>

@@ -104,7 +104,8 @@
 }
 
 .btn_det,
-.btn_car {
+.btn_car,
+.btn_rm_item {
     height: 35px;
     background: transparent;
     display: flex;
@@ -114,17 +115,22 @@
     flex-wrap: wrap;
     border-radius: 10px;
     padding: 5px;
+    border: 2px solid var(--dourado_claro);
+    width: 120px;
 }
 
 .btn_car {
     background-color: var(--dourado_claro);
-    width: 120px;
+    border-color: transparent;
+}
+
+.btn_rm_item {
+    background-color: transparent;
+    border-color: var(--perigo);
 }
 
 .btn_det {
-    /* background-color: #e6e6e6; */
-    border: 2px solid var(--dourado_claro);
-    width: 120px;
+    border-color: var(--dourado_claro);
 }
 
 .img_produto {
@@ -144,7 +150,7 @@
     left: 15px;
     background: #ffffff7d;
     padding: 6px;
-    border-radius: 7px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;

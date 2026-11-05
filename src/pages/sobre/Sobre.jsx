@@ -43,7 +43,7 @@ const Sobre = () => {
             "id": 1,
             "titulo": "Porque escolher a Imperial?",
             "min_info": "A diferença está nos detalhes que os outros ignoram.",
-            "porques": [
+            "categorias": [
                 {
                     "id": 1,
                     "src": EstrelaCircular,
@@ -113,7 +113,8 @@ const Sobre = () => {
                     </div>
                 </div>
                 <CardCategoria classeCatItem={style.valor_missao} iconeCategoria={style.area_img_cat} areaInfoCat={style.areaInfoC} dados={Categorias[0]} />
-                <Porque infosPorque={PorqueDados[0]} />
+                {/* <Porque infosPorque={PorqueDados[0]} /> */}
+                <CardCategoria dados={PorqueDados[0]} />
             </div>
         </ContainerDiv>
     )

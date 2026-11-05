@@ -12,10 +12,10 @@ const CardItemCarrinho = ({ ItensCarinho }) => {
     const { onClickAlterarQtdItem, onClickRemoverItem } = useContextCarinho();
 
     return (
-        ItensCarinho.map((itensCarinho) => {
+        ItensCarinho.map((itensCarinho, pos) => {
             return (
 
-                <ContainerDiv key={itensCarinho.id} className={style.container_cardItemCar}>
+                <ContainerDiv key={itensCarinho.id} className={`${style.container_cardItemCar} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensCarinho.length - 1 ? style.bordaFinal : ""}`}>
                     <div className={style.img_item_car}>
                         <Img src={itensCarinho.srcThumb} alt={itensCarinho.altThumb} className={style.img_car} />
                     </div>

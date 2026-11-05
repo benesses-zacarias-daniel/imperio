@@ -2,7 +2,7 @@ import style from "./CardResumo.module.css";
 import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
-import FecharResumo from "../../../assets/icons/fexar_detalhes.svg"
+import FecharResumo from "../../../assets/icons/fexar_detalhes.svg";
 // import Seta from "../../../assets/icons/seta.svg"
 import useContextCarinho from "../../../hooks/useContextCarinho";
 

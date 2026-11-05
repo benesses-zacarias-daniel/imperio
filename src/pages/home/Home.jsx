@@ -19,6 +19,8 @@ import ProductoDados from "../../components/data/ProductosDados.json";
 
 const Home = () => {
     const ProdutosDestaque = ProductoDados.filter((prodFiltrado) => prodFiltrado.id === 1 || prodFiltrado.id === 2 || prodFiltrado.id === 4);
+    const num1 = "258 84 975 4315";
+    const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
 
     const Categorias = [
         {
@@ -73,10 +75,14 @@ const Home = () => {
     return (
         <ContainerDiv className={style.container_home}>
             <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={
-                <Link to={"/productos"} className={style.link_prods}>
+                <Link to={"/productos"} className={style.link_prods} onClick={() => { scrollCima(); }}>
                     Ver Productos
                 </Link>
-            } textoCon={"Contactar"} classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
+            } textoCon={
+                <a href={linkWhatsApp1} className={style.link_con_hero}>
+                    Contactar
+                </a>
+            } classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
             <ContainerDiv className={style.container_produtos}>
                 <div className={style.area_produtos_home}>
                     <div className={style.destaque_prod}>
