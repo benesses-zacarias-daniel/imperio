@@ -1,26 +1,29 @@
 import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
-import style from "./CardItemCarrinho.module.css";
+import style from "./CardItemCarinho.module.css";
 import Remover from "../../../assets/icons/delete.svg";
+import useContextCarinho from "../../../hooks/useContextCarinho";
 
 
-const CardItemCarrinho = ({ ItensCarrinho }) => {
+const CardItemCarrinho = ({ ItensCarinho }) => {
+    const { onClickAlterarQtdItem, onClickRemoverItem } = useContextCarinho();
+
     return (
-        ItensCarrinho.map((itensCarrinho) => {
+        ItensCarinho.map((itensCarinho) => {
             return (
 
-                <ContainerDiv key={itensCarrinho.id} className={style.container_cardItemCar}>
+                <ContainerDiv key={itensCarinho.id} className={style.container_cardItemCar}>
                     <div className={style.img_item_car}>
-                        <Img src={itensCarrinho.srcThumb} alt={itensCarrinho.altThum} className={style.img_car} />
+                        <Img src={itensCarinho.srcThumb} alt={itensCarinho.altThumb} className={style.img_car} />
                     </div>
                     <div className={style.area_infos_item_car}>
                         <div className={style.container_titulo}>
                             <div className={style.area_nome_car}>
-                                <h3>{itensCarrinho.nome}</h3>
+                                <h3>{itensCarinho.nome}</h3>
                             </div>
                             <div className={style.area_preco}>
-                                {itensCarrinho.preco} MT
+                                {itensCarinho.preco} MT
                             </div>
                         </div>
                         {/* <div className={style.area_badge}>
@@ -28,18 +31,19 @@ const CardItemCarrinho = ({ ItensCarrinho }) => {
                         </div> */}
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>
-                                <Button className={style.btn_car}>
+                                <Button className={style.btn_car} onClick={() => { onClickAlterarQtdItem(itensCarinho.id, 1) }}>
                                     <p>-</p>
                                 </Button>
                                 <div className={style.contador_itens}>
-                                    <p>{itensCarrinho.quantidade === 10 ? "+9" : itensCarrinho.quantidade} </p>
+                                    <p>{itensCarinho.quantidade === 10 ? "+9" : itensCarinho.quantidade} </p>
                                 </div>
-                                <Button className={style.btn_car}>
+                                <Button className={style.btn_car} onClick={() => { onClickAlterarQtdItem(itensCarinho.id, 0) }}>
                                     <p>+</p>
                                 </Button>
                             </div>
                             <div className={style.container_dir}>
                                 <Button className={style.btn_rem} onClick={() => {
+                                    onClickRemoverItem(itensCarinho.id, 1);
                                 }}>
                                     <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_btn_car} />
                                     Remover

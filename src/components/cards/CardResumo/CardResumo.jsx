@@ -3,14 +3,21 @@ import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
 import style from "./CardResumo.module.css";
 // import Seta from "../../../assets/icons/seta.svg"
+import useContextCarinho from "../../../hooks/useContextCarinho";
 
-const CardResumo = ({ dadosResumos, showResumo }) => {
+const CardResumo = ({ showResumo }) => {
+    const { onClickMensagemFinalizarCompra, onClickTotal } = useContextCarinho();
+    const numero = "849754315", mens = onClickMensagemFinalizarCompra();
+    const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
     const onClickOcultarResumo = () => {
         showResumo(false);
     }
+
     return (
         <ContainerDiv id={"container_area_resumo"} className={style.container_area_resumo} click={(evt) => {
             if (evt.target === evt.currentTarget) {
+                sagemFinalizarCompra();
+                const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
                 onClickOcultarResumo();
             }
 
@@ -33,7 +40,7 @@ const CardResumo = ({ dadosResumos, showResumo }) => {
                         </div>
                         <div className={style.val_sub}>
                             <p className={style.total}>
-                                {dadosResumos.subtotal}
+                                {onClickTotal()}
                             </p>
                         </div>
                     </div>
@@ -46,10 +53,12 @@ const CardResumo = ({ dadosResumos, showResumo }) => {
                         </p>
                     </div>
                     <div className={style.area_btn_finalizar_compra}>
-                        <Button className={style.btn_finalizar} onClick={() => { }}>
-                            <p>Finalizar Compra</p>
-                            {/* <Img src={Seta} alt={"Ícone de seta"} /> */}
-                        </Button>
+                        <a href={linkWhatsApp} target="_blank">
+                            <Button className={style.btn_finalizar} onClick={() => { }}>
+                                <p>Finalizar Compra</p>
+                                {/* <Img src={Seta} alt={"Ícone de seta"} /> */}
+                            </Button>
+                        </a>
                     </div>
                     <div className={style.info_envio}>
                         {/* <div className={style.area_icone_env}>

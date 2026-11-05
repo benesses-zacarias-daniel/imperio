@@ -6,7 +6,7 @@ const normalizar = (producto) => {
         "preco": producto.preco,
         "bagde": producto.bagde,
         "srcThumb": producto.detalhes.srcDetalhes[0].srcThumb,
-        "altThum": producto.detalhes.srcDetalhes[0].altThum,
+        "altThumb": producto.detalhes.srcDetalhes[0].alt,
         "categorias": producto.categorias,
         "quantidade": 1
     };
