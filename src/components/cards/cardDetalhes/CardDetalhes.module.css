@@ -246,6 +246,31 @@
     padding: 10px;
 }
 
+.btn_add_resumo,
+.btn_rm_resumo {
+    height: 35px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid var(--dourado_claro);
+    width: 120px;
+}
+
+.btn_add_resumo {
+    background-color: var(--dourado_claro);
+    border-color: transparent;
+}
+
+.btn_rm_resumo {
+    background-color: transparent;
+    border-color: var(--perigo);
+}
+
 .btn_detalhe_detalhe {
     display: flex;
     align-items: center;

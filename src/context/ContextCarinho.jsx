@@ -9,6 +9,7 @@ const ContextCarinhoProvider = ({ children }) => {
     const onClickAdicionarItem = (obj) => {
 
         const novoObj = normalizar(obj);
+        console.log(novoObj);
 
         setItens((actual) => {
             const existe = actual.find((prod) => prod.id === novoObj.id);
