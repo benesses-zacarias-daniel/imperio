@@ -7,7 +7,7 @@ import FecharResumo from "../../../assets/icons/fexar_detalhes.svg";
 import useContextCarinho from "../../../hooks/useContextCarinho";
 
 const CardResumo = ({ showResumo }) => {
-    const { onClickMensagemFinalizarCompra, onClickTotal } = useContextCarinho();
+    const { onClickMensagemFinalizarCompra, onClickTotal, limparNavegador } = useContextCarinho();
     const numero = "849754315", mens = onClickMensagemFinalizarCompra();
     const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
     const onClickOcultarResumo = () => {
@@ -53,7 +53,10 @@ const CardResumo = ({ showResumo }) => {
                     </div>
                     <div className={style.area_btn_finalizar_compra}>
                         <a href={linkWhatsApp} target="_blank">
-                            <Button className={style.btn_finalizar} onClick={() => { }}>
+                            <Button className={style.btn_finalizar} onClick={() => {
+                                limparNavegador();
+                                onClickOcultarResumo();
+                            }}>
                                 <p>Finalizar Compra</p>
                                 {/* <Img src={Seta} alt={"Ícone de seta"} /> */}
                             </Button>

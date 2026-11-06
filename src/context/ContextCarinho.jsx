@@ -1,31 +1,45 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import normalizar from "../utils/normalizar";
 
 const ContextCarinho = createContext();
 
 const ContextCarinhoProvider = ({ children }) => {
-    const [itens, setItens] = useState([]);
+    const [itens, setItens] = useState(() => {
+        const itensSalvos = localStorage.getItem("productos");
+
+        return itensSalvos ? JSON.parse(itensSalvos) || [] : [];
+    });
 
     const onClickAdicionarItem = (obj) => {
 
         const novoObj = normalizar(obj);
-        console.log(novoObj);
+        // console.log(novoObj);
 
         setItens((actual) => {
             const existe = actual.find((prod) => prod.id === novoObj.id);
             if (existe) {
                 return;
             }
-
             return [...actual, novoObj]
         });
+    };
 
+    const salvarNoNavegador = (objDados) => {
+        const itensSalvos = JSON.parse(localStorage.getItem("productos"));
+        itensSalvos.push(objDados[0])
+        localStorage.setItem("productos", JSON.stringify(itensSalvos));
+    };
+
+    const limparNavegador = () => {
+        setItens([]);
+        salvarNoNavegador([]);
     };
 
     const onClickRemoverItem = (idObj) => {
         const objs = itens.filter((objF) => objF.id !== idObj);
 
         setItens(objs);
+        salvarNoNavegador(itens);
     };
 
     const onClickAlterarQtdItem = (idObj, tipo) => {
@@ -50,19 +64,8 @@ const ContextCarinhoProvider = ({ children }) => {
             return item;
         });
 
-        /* if (tipo === 0) {
-             obj[0].quantidade = obj[0].quantidade + 1;
-         } else {
-             if (obj[0].quantidade === 1) {
- 
-             }
- 
-             obj[0].quantidade = obj[0].quantidade - 1;
-         }
- 
-          const objFinal = [...obj, ...objs];
-          console.log("Final --- ");console.log(...objFinal);*/
         setItens(objFinal);
+        //salvarNoNavegador(objFinal);
     };
 
     const onClickTotal = () => {
@@ -90,8 +93,27 @@ const ContextCarinhoProvider = ({ children }) => {
         return mensagem;
     };
 
+    // useEffect(() => {
+    //     const dadosItens = JSON.parse(localStorage.getItem("productos")) || []
+    //     console.log(dadosItens);
+
+    //     if (dadosItens.length > 0) {
+
+    //         setItens(dadosItens);
+    //         return;
+    //     }
+
+    //     localStorage.setItem("productos", JSON.stringify(dadosItens));
+    // }, [])
+
+    useEffect(() => {
+        localStorage.setItem("productos", JSON.stringify(itens));
+        // salvarNoNavegador(itens)
+    }, [itens])
+
+
     return (
-        <ContextCarinho.Provider value={{ itens, setItens, onClickAdicionarItem, onClickRemoverItem, onClickAlterarQtdItem, onClickTotal, onClickMensagemFinalizarCompra }}>
+        <ContextCarinho.Provider value={{ itens, setItens, onClickAdicionarItem, onClickRemoverItem, onClickAlterarQtdItem, onClickTotal, onClickMensagemFinalizarCompra, limparNavegador }}>
             {children}
         </ContextCarinho.Provider>
     )
