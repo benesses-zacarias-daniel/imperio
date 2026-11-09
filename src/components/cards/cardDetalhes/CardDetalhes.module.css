@@ -151,12 +151,12 @@
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: var(--preto_claro);
+    background-color: var(--dourado_transp);
     border-radius: 20px;
 }
 
 .area_legenda_local h4 {
-    color: var(--texto_principal);
+    color: var(--preto_principal);
 }
 
 .area_imgs_detalhes {
@@ -181,14 +181,14 @@
     top: 225px;
     left: 5px;
     font-weight: 900;
-    color: var(--texto_principal);
+    color: var(--preto_principal);
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background: var(--preto_claro);
+    background: var(--dourado_transp);
     border-radius: 20px;
     width: 50px;
 }
@@ -264,11 +264,14 @@
 .btn_add_resumo {
     background-color: var(--dourado_claro);
     border-color: transparent;
+    font-weight: 700;
+    color: var(--texto_principal);
 }
 
 .btn_rm_resumo {
     background-color: transparent;
     border-color: var(--perigo);
+
 }
 
 .btn_detalhe_detalhe {
@@ -331,7 +334,7 @@
     border-radius: 6px;
 
     cursor: pointer;
-    background: #fff;
+    background: var(--texto_principal);
 }
 
 .miniatura img,
@@ -342,7 +345,7 @@
 }
 
 .miniatura_ativa {
-    border-color: #087F75;
+    border-color: var(--dourado_principal);
 }
 
 @media only screen and (min-width:490px) {

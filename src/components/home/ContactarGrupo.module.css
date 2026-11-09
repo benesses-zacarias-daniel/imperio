@@ -15,7 +15,7 @@
 .container_conteudo {
     width: 320px;
     padding: 15px;
-    border: 1px solid var(--dourado_transp);
+    border: 2px solid var(--dourado_transp);
     border-radius: 12px;
 }
 
@@ -36,24 +36,31 @@
 
 .btn_ent_grup {
     flex-direction: row;
-    background-color: var(--dourado_claro);
-    width: 80px;
+    background-color: var(--dourado_principal);
+    width: 90px;
+    height: 32px;
     border-radius: 7px;
-    padding: 4px;
 }
 
 .btn_ent_grup a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
     flex-direction: row;
 }
 
 .icone {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
 }
 
 .btn_ent_grup a p {
     padding: 0px 0px 2px 0px;
-    color: var(--preto_principal);
+    color: var(--texto_principal);
+    font-weight: 600;
 }
 
 

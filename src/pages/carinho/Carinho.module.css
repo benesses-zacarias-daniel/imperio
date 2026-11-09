@@ -45,7 +45,7 @@
     position: fixed;
     top: 90px;
     right: 1px;
-    background: #00000046;
+    background: var(--dourado_transp);
     padding: 5px;
     width: 40px;
     height: 40px;

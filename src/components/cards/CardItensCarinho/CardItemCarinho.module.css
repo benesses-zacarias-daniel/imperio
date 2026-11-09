@@ -44,7 +44,7 @@
 .img_item_car,
 .img_car {
     border-radius: 10px;
-    border: 1px solid var(--dourado_principal);
+    border: 2px solid var(--borda);
 }
 
 .img_item_car {
@@ -72,14 +72,18 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 80px;
-    border: 1px solid var(--dourado_principal);
+    border: 2px solid var(--borda);
     border-radius: 15px;
 
 }
 
+.container_btn_esq {
+    background-color: var(--dourado_transp);
+}
+
 .container_btn_dir {
     width: 95px;
-    border: 1px solid transparent;
+    border: 0px solid red;
 }
 
 .btn_rem {

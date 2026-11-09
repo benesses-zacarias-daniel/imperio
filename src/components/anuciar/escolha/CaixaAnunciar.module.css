@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid rgba(255, 0, 0, 0);
+    border: 2px solid rgba(255, 0, 0, 0);
 }
 
 
@@ -22,7 +22,7 @@
 .form_caixaAnun {
     width: 320px;
     flex: 1;
-    border-color: black;
+    border-color: var(--borda);
     padding: 10px;
     border-radius: 10px;
     gap: 5px;
@@ -40,12 +40,13 @@
     padding: 5px;
     height: 250px;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 2px solid var(--borda);
     cursor: pointer;
 }
 
 .campo_desc_prod {
     resize: none;
+    background-color: transparent;
 }
 
 .area_label {
@@ -78,7 +79,8 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    border: 1px dashed black;
+    border: 2px dashed var(--borda);
+    background-color: var(--texto_principal);
 }
 
 .area_ocultar_input {
@@ -86,8 +88,9 @@
 }
 
 .input_anun {
-    background: white;
-    color: black;
+    background: var(--texto_principal) !important;
+    color: var(--preto_principal);
+    border: 2px solid var(--borda);
 }
 
 .area_btn_anunciar {
@@ -100,4 +103,6 @@
     border-radius: 8px;
     height: inherit;
     background: var(--dourado_principal);
+    color: var(--texto_principal);
+    font-weight: 800;
 }

@@ -5,7 +5,7 @@
 }
 
 .btn_prod {
-    background: var(--dourado_claro);
+    background-color: var(--dourado_principal);
 }
 
 .btn_prod,
@@ -21,6 +21,7 @@
 .btn_con {
     color: var(--dourado_principal);
     border: 2px solid var(--dourado_principal);
+    font-weight: 700;
 }
 
 .container_produtos {
@@ -65,7 +66,8 @@
 }
 
 .link_prods {
-    color: var(--preto_principal);
+    color: var(--texto_principal);
+    font-weight: 800;
 }
 
 .link_con_hero {
@@ -76,7 +78,7 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    color: black;
+    color: var(--preto_principal);
 }
 
 

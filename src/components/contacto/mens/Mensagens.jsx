@@ -14,7 +14,7 @@ const Mensagens = ({ Mensagens }) => {
                 <div className={style.info}>
                     {Mensagens.info}
                 </div>
-                <form method="post">
+                <div className={style.area_form_mens}>
                     <div className={style.area_preencher}>
                         {Mensagens.inputs.map((Inputs) => {
                             return (
@@ -39,12 +39,12 @@ const Mensagens = ({ Mensagens }) => {
                         </div>
                     </div>
                     <div className={style.area_enviar_mens}>
-                        <Button className={style.btn_mens}>
+                        <Button className={style.btn_mens} onClick={() => { }}>
                             <p>{Mensagens.texto_btn}</p>
                             <Img src={Mensagens.src} alt={Mensagens.alt} className={style.icone_mens} />
                         </Button>
                     </div>
-                </form>
+                </div>
             </div>
         </ContainerDiv>
     )

@@ -4,7 +4,7 @@ import style from "./Anunciar.module.css";
 
 //Ícones Input
 import Enviar from "../../assets/icons/enviar.svg";
-import Telefone from "../../assets/icons/chamada.svg";
+// import Telefone from "../../assets/icons/chamada.svg";
 import Publicar from "../../assets/icons/publicar.svg";
 
 const Anunciar = () => {

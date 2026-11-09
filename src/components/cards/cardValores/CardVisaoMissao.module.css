@@ -1,7 +1,7 @@
 .area_visao_missao {
     width: 98%;
     height: 160px;
-    border: 1px solid var(--dourado_secundario);
+    border: 2px solid var(--borda);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,13 +9,13 @@
     gap: 10px;
     border-radius: 20px;
     padding: 15px;
-    background-color: var(--dourado_claro);
+    /* background-color: var(--dourado_transp); */
 }
 
 .area_icone_val_mis {
     width: 38px;
     height: 38px;
-    background: var(--borda);
+    background: var(--dourado_transp);
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@
 }
 
 .titulo_val_mis {
-    color: var(--verdePrimario);
+    color: var(--dourado_secundario);
     padding: 5px 0px 5px 0px;
 }
 

@@ -45,7 +45,7 @@
     border-radius: 100%;
     /* border-top-right-radius: 20px;
     border-bottom-left-radius: 20px; */
-    background-color: #ebe0e0;
+    background-color: var(--dourado_transp);
 }
 
 .areaInfoCat {

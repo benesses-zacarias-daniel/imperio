@@ -7,9 +7,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     border: 2px solid var(--borda);
-    background-color: var(--preto_claro);
+    /* background-color: var(--dourado_transp); */
     border-radius: 10px;
-    color: var(--texto_principal);
+    color: var(--preto_principal);
 }
 
 .titulo_infos {
@@ -46,7 +46,7 @@
 .area_icone_con {
     width: 35px;
     height: 35px;
-    background-color: var(--borda);
+    background-color: var(--dourado_transp);
     display: flex;
     align-items: center;
     flex-direction: column;

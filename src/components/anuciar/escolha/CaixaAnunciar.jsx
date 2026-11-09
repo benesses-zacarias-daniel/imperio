@@ -45,7 +45,7 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                         <div className={style.area_label}>
                             {dadosAnunciar.inputs[3].label}
                         </div>
-                        <div className={`${style.area_icone_input} ${style.area_input_img}`}>
+                        <div className={`${style.area_input_img}`}>
                             <label className={style.lable_img} htmlFor="img_prods">
                                 <Img src={dadosAnunciar.icones[0].icone_src} alt={dadosAnunciar.icones[0].icone_alt} className={style.icone_input_tell} />
                                 <p>{dadosAnunciar.inputs[3].placeholder}</p>

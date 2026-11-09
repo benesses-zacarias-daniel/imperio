@@ -9,7 +9,7 @@
     gap: 5px;
     border-radius: 20px;
     padding: 5px;
-    background: #f9f9fa;
+    background: var(--texto_principal);
     border: 2px solid var(--borda);
 }
 
@@ -120,8 +120,10 @@
 }
 
 .btn_car {
-    background-color: var(--dourado_claro);
+    background-color: var(--dourado_principal);
     border-color: transparent;
+    font-weight: 700;
+    color: var(--texto_principal);
 }
 
 .btn_rm_item {
@@ -146,9 +148,9 @@
 
 .categoria {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #ffffff7d;
+    top: 10px;
+    left: 10px;
+    background: var(--preto_transp);
     padding: 6px;
     border-radius: 15px;
     display: flex;
@@ -156,6 +158,8 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    font-weight: 800;
+    color: var(--texto_secundario);
 }
 
 .preco {
@@ -163,7 +167,7 @@
     display: flex;
     right: 15px;
     bottom: 15px;
-    background: var(--dourado_transp);
+    background: var(--chocolate_claro);
     color: var(--preto_principal);
     padding: 6px;
     border-radius: 7px;

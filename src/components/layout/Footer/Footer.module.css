@@ -65,6 +65,7 @@ footer {
 
 .titulo_nav {
     padding: 5px 0px 0px 0px;
+    color: var(--dourado_claro);
 }
 
 .contaner_footer_menu {
@@ -143,7 +144,6 @@ footer {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    color: #f70505;
 }
 
 .email p,

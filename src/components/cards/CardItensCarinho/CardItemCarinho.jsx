@@ -37,7 +37,7 @@ const CardItemCarrinho = ({ ItensCarinho }) => {
                                     <Img src={Menus} alt={"Ícone de menus"} className={style.icone_qtd_control} />
                                 </Button>
                                 <div className={style.contador_itens}>
-                                    <p>{itensCarinho.quantidade === 10 ? "+9" : itensCarinho.quantidade} </p>
+                                    {itensCarinho.quantidade}
                                 </div>
                                 <Button className={style.btn_car} onClick={() => { onClickAlterarQtdItem(itensCarinho.id, 0) }}>
                                     <Img src={Mais} alt={"Ícone de mais"} className={style.icone_qtd_control} />

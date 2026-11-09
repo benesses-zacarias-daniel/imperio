@@ -14,7 +14,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--preto_claro);
+    background: var(--dourado_transp);
     cursor: pointer;
     z-index: 99999;
 
@@ -50,13 +50,14 @@ nav,
 
 .nome {
     font-weight: 600;
-    color: var(--dourado_principal);
+    color: var(--dourado_claro);
 }
 
 .min_desc {
     font-size: .72rem;
     color: var(--texto_secundario);
     opacity: .7;
+    padding: 8px 0px 0px 0px;
 }
 
 .area_menu {
@@ -123,6 +124,6 @@ nav,
 
 .pagina_activa {
     /* background: #2A2A2A; */
-    background: var(--chocolate_claro);
+    background: var(--dourado_transp);
     border-radius: 10px;
 }

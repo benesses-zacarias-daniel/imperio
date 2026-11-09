@@ -3,7 +3,7 @@ import style from "./Contacto.module.css";
 //Ícones Categorias
 import Telefone from "../../assets/icons/chamada.svg";
 import Contactar from "../../assets/icons/contactarL.svg";
-import WhatsApp from "../../assets/icons/whatsapp.svg";
+import WhatsApp from "../../assets/icons/whatsappA.svg";
 import Periodo from "../../assets/icons/periodo.svg";
 import Informacoes from "../../components/contacto/infos/Informacoes";
 import Mensagens from "../../components/contacto/mens/Mensagens";

@@ -4,7 +4,7 @@ import LogoIcone from "../../../assets/logo/logo.svg";
 import style from "./Footer.module.css";
 import Menu from "../Sidebar/Menu";
 import Img from "../../img/Img";
-import Chamada from "../../../assets/icons/chamada.svg";
+import Chamada from "../../../assets/icons/chamadaF.svg";
 import Email from "../../../assets/icons/email.svg";
 
 const Footer = () => {
