@@ -1,9 +1,14 @@
 .container_card_term {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
+    border: 2px solid var(--preto_principal);
+    padding: 10px;
+    width: 360px;
+    height: 230px;
+    border-radius: 10px;
 }
 
 .area_texto {
@@ -57,4 +62,24 @@
     flex-direction: row;
     flex-wrap: wrap;
     text-align: justify;
+}
+
+.bordaInicial {
+    border-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.bordaFinal {
+    border-radius: 0px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+@media only screen and (min-width:500px) {
+    .container_card_term {
+        width: 430px;
+        height: 240px;
+    }
 }

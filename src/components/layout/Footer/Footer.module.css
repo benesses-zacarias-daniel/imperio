@@ -42,6 +42,10 @@ footer {
     gap: 5px;
 }
 
+.area_marca_nav {
+    width: 100%;
+}
+
 .marca {
     align-items: flex-start;
     gap: 10px;
@@ -175,4 +179,17 @@ footer {
 
 .corFora {
     color: var(--texto_principal);
+}
+
+
+@media only screen and (min-width:900px) {
+    .area_marca_nav {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+
+    .nav {
+        width: 300px;
+    }
 }

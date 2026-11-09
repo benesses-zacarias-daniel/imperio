@@ -1,7 +1,7 @@
 .container_home {
     flex: 1;
     flex-wrap: wrap;
-    padding: 10px 10px 10px 10px;
+    padding: 20px 15px 20px 15px;
 }
 
 .btn_prod {
@@ -54,12 +54,14 @@
     color: var(--dourado_secundario);
 }
 
-.area_produtos_home {
+.area_produtos_home,
+.area_prods_home {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .link_prods {
@@ -75,4 +77,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     color: black;
+}
+
+
+@media only screen and (min-width:500px) {
+    .area_prods_home {
+        flex-direction: row;
+    }
 }

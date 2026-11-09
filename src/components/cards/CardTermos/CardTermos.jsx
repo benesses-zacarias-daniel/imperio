@@ -3,9 +3,9 @@ import style from "./CardTermos.module.css";
 const CardTermos = ({ dadosTermos }) => {
 
     return (
-        dadosTermos.map((termosDados) => {
+        dadosTermos.map((termosDados, pos) => {
             return (
-                <div key={termosDados.id} className={style.container_card_term}>
+                <div key={termosDados.id} className={`${style.container_card_term} ${pos === 0 ? style.bordaInicial : ""} ${pos === dadosTermos.length - 1 ? style.bordaFinal : ""}`}>
                     <div className={style.area_texto}>
                         <div className={style.area_titulo_termos}>
                             <h3 className={style.titulo_termos}>{termosDados.titulo}</h3>

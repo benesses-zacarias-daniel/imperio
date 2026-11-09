@@ -11,30 +11,26 @@ import Suporte from "../../assets/icons/suporte.svg"
 import EstrelaVerificada from "../../assets/icons/estrelaVerif.svg"
 import Eficiente from "../../assets/icons/eficiente.svg"
 //
-import Porque from "../../components/productos/escolha/Porque";
+// import Porque from "../../components/productos/escolha/Porque";
+// import CardValores from "../../components/cards/cardValores/CardVisaoMissao";
+import CardVisaoMissao from "../../components/cards/cardValores/CardVisaoMissao";
 
 const Sobre = () => {
     const Categorias = [
+
         {
             "id": 1,
-            "titulo": "",
-            "min_info": "",
-            "categorias": [
-                {
-                    "id": 1,
-                    "src": Velocidade,
-                    "alt": "Ícone de foguetão",
-                    "titulo": "Missão",
-                    "desc": "Promover hardware de ultra-performance com um design inigualável, elevando a experiência digital ao patamar do luxo absoluto."
-                },
-                {
-                    "id": 2,
-                    "src": Visao,
-                    "alt": "Ícone de olho",
-                    "titulo": "Vião",
-                    "desc": "Ser reconhecida globalmente como o padrão ouro em electrónica premium, onde a tecnologia encontra a exclusividade."
-                }
-            ]
+            "src": Velocidade,
+            "alt": "Ícone de foguetão",
+            "titulo": "Missão",
+            "desc": "Promover hardware de ultra-performance com um design inigualável, elevando a experiência digital ao patamar do luxo absoluto."
+        },
+        {
+            "id": 2,
+            "src": Visao,
+            "alt": "Ícone de olho",
+            "titulo": "Vião",
+            "desc": "Ser reconhecida globalmente como o padrão ouro em electrónica premium, onde a tecnologia encontra a exclusividade."
         }
     ];
 
@@ -78,7 +74,7 @@ const Sobre = () => {
     return (
         <ContainerDiv className={style.container_sobre}>
             <div className={style.container_conteudo}>
-                <div className={style.area_hero_sobre}>
+                {/* <div className={style.area_hero_sobre}>
                     <Img src={"img/pc.jpg"} alt={"Imagem de sala de data center/tecnologia"} className={style.img_fundo_sobre} />
                     <div className={style.info_hero_sobre}>
                         <div className={style.foco_hero}>
@@ -93,7 +89,7 @@ const Sobre = () => {
                             Desde a nossa fundação, a Imperial <br />Electrónicos redefine o conceito de luxo tecnológico, trazendo o fucturo para as mãos dos mais exigentes entusiastas de hardware.
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className={style.historia}>
                     <div className={style.info_historia_sobre}>
                         <div className={style.area_historia}>
@@ -101,10 +97,8 @@ const Sobre = () => {
                                 <h3>Uma Jornada de Inovação</h3>
                             </div>
                             <div className={style.texto_historia}>
-                                <p>
-                                    Fundada no coração do distrito tecnológico, a Imperial Electrónicos nasce de uma visão simples: <i> o hardware de alta performance não deve ser apenas funcional, deve ser uma obra de arte. Começámos como um pequeno atelier de personalizção para workstations de eleite.</i> <br />
-                                    Hoje, somos referência mundial na curadoria de componentes exclusivos e na engenharia de sistemas que desafiam os limites da física. Cada peça que ostenta o selo Imperial passou por rigosos testes de qualidade e estética, garantindo que o prestígio acompanhe a performance.
-                                </p>
+                                Fundada no coração do distrito tecnológico, a Imperial Electrónicos nasce de uma visão simples: <i> o hardware de alta performance não deve ser apenas funcional, deve ser uma obra de arte. Começámos como um pequeno atelier de personalizção para workstations de eleite.</i> <br />
+                                Hoje, somos referência mundial na curadoria de componentes exclusivos e na engenharia de sistemas que desafiam os limites da física. Cada peça que ostenta o selo Imperial passou por rigosos testes de qualidade e estética, garantindo que o prestígio acompanhe a performance.
                             </div>
                         </div>
                         {/* <div className={style.area_logo}>
@@ -112,7 +106,9 @@ const Sobre = () => {
                         </div> */}
                     </div>
                 </div>
-                <CardCategoria classeCatItem={style.valor_missao} iconeCategoria={style.area_img_cat} areaInfoCat={style.areaInfoC} dados={Categorias[0]} />
+                <div className={style.area_vm}>
+                    <CardVisaoMissao dadosVisao={Categorias} />
+                </div>
                 {/* <Porque infosPorque={PorqueDados[0]} /> */}
                 <CardCategoria dados={PorqueDados[0]} />
             </div>

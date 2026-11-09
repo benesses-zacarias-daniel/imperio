@@ -1,7 +1,8 @@
 .container_contacto {
     flex: 1;
     flex-wrap: wrap;
-    background-color: var(--chocolate_claro);
+    padding: 20px 15px 20px 15px;
+    /* background-color: var(--chocolate_claro); */
 }
 
 .area_hero_contacto {
@@ -11,17 +12,19 @@
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px;
 }
 
 .foto_contacto_hero {
     color: var(--dourado_principal);
+    font-weight: 700;
+    padding: 0px 0px 5px 0px;
 }
 
 .area_titulo_hero_con,
 .area_texto_con {
     width: 100%;
     text-align: justify;
+    padding: 0px 0px 5px 0px;
 }
 
 .container_conteudo_contacto {
@@ -34,4 +37,11 @@
     flex-wrap: wrap;
     padding: 10px;
     gap: 20px;
+}
+
+
+@media only screen and (min-width:899px) {
+    .container_conteudo_contacto {
+        flex-direction: row;
+    }
 }

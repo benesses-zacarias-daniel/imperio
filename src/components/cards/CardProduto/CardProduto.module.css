@@ -172,3 +172,17 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+
+
+@media only screen and (min-width:500px) {
+    .container_card {
+        width: 420px;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .container_card {
+        width: 440px;
+    }
+}

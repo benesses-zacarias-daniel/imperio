@@ -1,5 +1,5 @@
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
-import style from "./Carrinho.module.css";
+import style from "./Carinho.module.css";
 import CardItemCarinho from "../../components/cards/CardItensCarinho/CardItemCarinho";
 import Button from "../../components/button/Button";
 import Img from "../../components/img/Img";

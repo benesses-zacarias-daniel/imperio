@@ -4,7 +4,7 @@ import Productos from "../pages/productos/Productos";
 import Sobre from "../pages/sobre/Sobre";
 import Termos from "../pages/termos/Termos";
 import Anunciar from "../pages/anunciar/Anunciar";
-import Carrinho from "../pages/carrinho/Carrinho";
+import Carinho from "../pages/carinho/Carinho";
 import Contacto from "../pages/contacto/Contacto";
 
 const Rotas = () => {
@@ -15,7 +15,7 @@ const Rotas = () => {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/termos" element={<Termos />} />
             <Route path="/anunciar" element={<Anunciar />} />
-            <Route path="/carinho" element={<Carrinho />} />
+            <Route path="/carinho" element={<Carinho />} />
             <Route path="/contacto" element={<Contacto />} />
         </Routes>
     )

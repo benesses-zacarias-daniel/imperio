@@ -55,7 +55,9 @@ const Termos = () => {
                 <h3 className={style.titulo_terms}>Contrato de Serviço</h3>
                 <p>Bem-vindo à Imperial Electrônicos. Ao aceder ao nosso ecossitema de hardware exclusivo, concorda em cumprir estes termos desenhados para garantir a excelência e integridade em cada transação.</p>
             </div>
-            <CardTermos dadosTermos={TermosCondicoesDados} />
+            <div className={style.termos_cont}>
+                <CardTermos dadosTermos={TermosCondicoesDados} />
+            </div>
         </ContainerDiv>
     )
 }

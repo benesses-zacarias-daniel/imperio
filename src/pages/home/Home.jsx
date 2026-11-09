@@ -99,7 +99,7 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-                    <ContainerDiv className={style.area_produtos_home}
+                    <ContainerDiv className={style.area_prods_home}
                         children={
                             <>
                                 <CardProdutos dados={ProdutosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />

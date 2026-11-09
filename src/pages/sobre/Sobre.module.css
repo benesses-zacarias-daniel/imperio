@@ -1,6 +1,7 @@
 .container_sobre {
     flex: 1;
     flex-wrap: wrap;
+    padding: 20px 15px 20px 15px;
 }
 
 .container_conteudo {
@@ -8,6 +9,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.area_vm {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 17px;
+    padding: 15px 5px 15px 5px;
 }
 
 .container_conteudo * img {
@@ -33,11 +43,12 @@
     padding: 0px 0px 0px 10px;
     background: var(--preto_claro);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     color: var(--texto_principal);
+    width: 100%;
 }
 
 .foco_hero,
@@ -126,6 +137,10 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column; */
+}
+
+.texto_historia {
+    text-align: justify;
 }
 
 /* .areaInfoC div {
