@@ -70,8 +70,10 @@ const CardResumo = ({ showResumo }) => {
                     <div className={style.area_btn_finalizar_compra}>
                         <a href={linkWhatsApp} target="_blank">
                             <Button className={style.btn_finalizar} onClick={() => {
-                                limparNavegador();
                                 onClickOcultarResumo();
+                                setTimeout(() => {
+                                    limparNavegador();
+                                }, 3000);
                             }}>
                                 <p>Finalizar Compra</p>
                                 {/* <Img src={Seta} alt={"Ícone de seta"} /> */}
