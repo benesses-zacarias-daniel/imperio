@@ -40,7 +40,7 @@ const Header = () => {
                     <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} />
                 </div>
                 <div className={style.area_carinho}>
-                    <Link to={"/carinho"} onClick={() => { scrollCima() }}>
+                    <Link to={"/carrinho"} onClick={() => { scrollCima() }}>
                         <Button children={
                             <Img src={Carinho} alt={"Ícone de Carinho de compras"} className={style.icone} />
                         } onClick={() => { onClickCarinho(); }} className={`${style.carinho_bnt} ${click && style.clickBtn}`} />

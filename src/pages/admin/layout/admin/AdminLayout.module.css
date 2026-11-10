@@ -1,0 +1,19 @@
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+    background: var(--texto_principal);
+    font-family: var(--fonte, Georgia, serif);
+    color: var(--preto_principal);
+}
+
+.conteudo {
+    padding: 32px;
+    max-width: 960px;
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .layout { grid-template-columns: 1fr; }
+    .conteudo { padding: 20px 16px; }
+}

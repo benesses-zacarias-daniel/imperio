@@ -6,6 +6,9 @@ import Termos from "../pages/termos/Termos";
 import Anunciar from "../pages/anunciar/Anunciar";
 import Carrinho from "../pages/carrinho/Carrinho";
 import Contacto from "../pages/contacto/Contacto";
+import AdminLayout from "../pages/admin/layout/admin/AdminLayout";
+import AdicionarProds from "../pages/admin/pages/admin/AdicionarProduto";
+import GerenciarProds from "../pages/admin/pages/admin/GerenciarProdutos";
 
 const Rotas = () => {
     return (
@@ -17,6 +20,9 @@ const Rotas = () => {
             <Route path="/anunciar" element={<Anunciar />} />
             <Route path="/carrinho" element={<Carrinho />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/admin" element={<AdminLayout />} />
+            <Route path="/admin/adicionar" element={<AdicionarProds />} />
+            <Route path="/admin/gerenciar" element={<GerenciarProds />} />
         </Routes>
     )
 }
