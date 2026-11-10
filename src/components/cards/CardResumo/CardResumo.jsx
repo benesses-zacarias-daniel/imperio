@@ -4,11 +4,11 @@ import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
 import FecharResumo from "../../../assets/icons/fexar_detalhes.svg";
 // import Seta from "../../../assets/icons/seta.svg"
-import useContextCarinho from "../../../hooks/useContextCarinho";
+import useContextCarrinho from "../../../hooks/useContextCarrinho";
 import { useState } from "react";
 
 const CardResumo = ({ showResumo }) => {
-    const { onClickMensagemFinalizarCompra, onClickSubTotal, onClickTotal, limparNavegador } = useContextCarinho();
+    const { onClickMensagemFinalizarCompra, onClickSubTotal, onClickTotal, limparNavegador } = useContextCarrinho();
     const numero = "849754315", mens = onClickMensagemFinalizarCompra();
     const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
     const [fade, setFade] = useState(false);

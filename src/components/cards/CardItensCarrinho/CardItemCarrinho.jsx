@@ -1,14 +1,14 @@
 import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
-import style from "./CardItemCarinho.module.css";
+import style from "./CardItemCarrinho.module.css";
 import Remover from "../../../assets/icons/delete.svg";
-import useContextCarinho from "../../../hooks/useContextCarinho";
+import useContextCarinho from "../../../hooks/useContextCarrinho";
 //Ícones
 import Mais from "../../../assets/icons/mais.svg";
 import Menus from "../../../assets/icons/menus.svg";
 
-const CardItemCarinho = ({ ItensCarinho }) => {
+const CardItemCarrinho = ({ ItensCarinho }) => {
     const { onClickAlterarQtdItem, onClickRemoverItem } = useContextCarinho();
 
     return (
@@ -59,4 +59,4 @@ const CardItemCarinho = ({ ItensCarinho }) => {
     )
 }
 
-export default CardItemCarinho;
+export default CardItemCarrinho;

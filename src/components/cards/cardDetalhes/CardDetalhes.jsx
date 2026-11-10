@@ -6,10 +6,10 @@ import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Button from "../../button/Button";
 import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 import RemoverItem from "../../../assets/icons/delete.svg";
-import useContextCarinho from "../../../hooks/useContextCarinho";
+import useContextCarrinho from "../../../hooks/useContextCarrinho";
 
 const CardDetalhes = ({ onClickOcult, dados }) => {
-    const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
+    const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarrinho();
     //Dados detalhados
     const detalhes = dados[0].detalhes;
     const srcDetalhes = detalhes.srcDetalhes;
@@ -65,7 +65,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
                             <div className={style.loc_detalhes}>{srcDetAct + 1}/{tamanhoSrc}</div>
                         </div>
                         <div className={style.area_info_detalhes}>
-                            {especificacoes && (<h3>O Producto possui:</h3>)}
+                            {especificacoes && (<h3>O Produto possui:</h3>)}
                             <div className={style.area_acessos_detalhes}>
                                 {especificacoes && (
                                     especificacoes.map((esp, pos) => {

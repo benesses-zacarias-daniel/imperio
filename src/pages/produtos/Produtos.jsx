@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
-import style from "./Productos.module.css";
+import style from "./Produtos.module.css";
 import Button from "../../components/button/Button";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 import Img from "../../components/img/Img";
@@ -15,7 +15,7 @@ import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 import scrollCima from "../../utils/scrollCima";
 
-const Productos = () => {
+const Produtos = () => {
 
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
@@ -107,4 +107,4 @@ const Productos = () => {
     )
 }
 
-export default Productos;
+export default Produtos;

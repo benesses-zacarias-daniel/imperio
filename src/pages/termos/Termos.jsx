@@ -31,7 +31,7 @@ const Termos = () => {
             "titulo": "4. Entregas e Logística",
             "src": "",
             "alt": "",
-            "desc": ["Utilizamos apenas parceiros logisticos premium para garantir que o hardware chegue em condições imaculadas. Os prazos de entrega são estimativas e podem variar conforme a exclusividade do producto solicitado.", "O risco de perda ou dano tranfere-se para cliente no momento da entrega física, devendo o mesmo inspecionar a embalagem no acto do recebimento."],
+            "desc": ["Utilizamos apenas parceiros logisticos premium para garantir que o hardware chegue em condições imaculadas. Os prazos de entrega são estimativas e podem variar conforme a exclusividade do produto solicitado.", "O risco de perda ou dano tranfere-se para cliente no momento da entrega física, devendo o mesmo inspecionar a embalagem no acto do recebimento."],
             "proibicoes": []
         }, {
             "id": 5,

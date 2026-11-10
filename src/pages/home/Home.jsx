@@ -93,7 +93,7 @@ const Home = () => {
                                 </h2>
                             </div>
                             <div className={style.area_btn_dest}>
-                                <Link to={"/productos"}>
+                                <Link to={"/produtos"}>
                                     <Button onClick={() => {
                                         scrollCima();
                                     }} className={style.ver_todos_home} children={"Ver Todos"} />

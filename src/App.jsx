@@ -4,13 +4,13 @@ import './style/global.css';
 import Footer from './components/layout/Footer/Footer';
 import Header from './components/layout/Header/Header';
 import Rotas from './routes/Rotas';
-import ContextCarinhoProvider from './context/ContextCarinho';
+import ContextCarrinhoProvider from './context/ContextCarrinho';
 
 const App = () => {
 
   return (
     <BrowserRouter>
-      <ContextCarinhoProvider>
+      <ContextCarrinhoProvider>
         <div className="imperial_container">
           <Header />
           <main id="conteudo">
@@ -18,7 +18,7 @@ const App = () => {
             <Footer />
           </main>
         </div>
-      </ContextCarinhoProvider>
+      </ContextCarrinhoProvider>
     </BrowserRouter>
   )
 }

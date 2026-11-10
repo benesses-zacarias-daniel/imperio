@@ -13,7 +13,7 @@ import Anunciar from "../../../assets/icons/anuncio.svg";
 import Carinho from "../../../assets/icons/carinhoB.svg";
 import Termos from "../../../assets/icons/termos.svg";
 import Contacto from "../../../assets/icons/contactar.svg";
-import Fexar from "../../../assets/icons/fexarMenu.svg";
+// import Fexar from "../../../assets/icons/fexarMenu.svg";
 
 //Ícones de foco
 import HomeActiva from "../../../assets/icons/casaL.svg";
@@ -30,7 +30,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
     const [paginaActiva, setPaginaActiva] = useState(pathname);
     const [fade, setFade] = useState(false);
 
-    const estiloContainer = mostrarMenu ? `${classContaner} ${fade ? style.ocultarMenu : ""}` : style.contaner_footer_menu;
+    const estiloContainer = mostrarIcone ? `${classContaner} ${fade ? style.ocultarMenu : ""}` : style.contaner_footer_menu;
 
     const onClickOcultarMenu = () => {
         setTimeout(() => {
@@ -82,12 +82,12 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                 }} className={classeBtnMenu} />
 
                             </Link>
-                            <Link to={"/productos"} className={`${classeLinkMenu} ${(paginaActiva === "/productos") ? style.pagina_activa : ""}`}>
+                            <Link to={"/produtos"} className={`${classeLinkMenu} ${(paginaActiva === "/produtos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/productos") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/produtos") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
                                         )}
-                                        <p>Productos</p>
+                                        <p>Produtos</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultarMenu();
@@ -138,12 +138,12 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/carinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carinho") ? style.pagina_activa : ""}`}>
+                            <Link to={"/carrinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carrinho") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/carinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/carrinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
                                         )}
-                                        <p>Carinho</p>
+                                        <p>Carrinho</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultarMenu();

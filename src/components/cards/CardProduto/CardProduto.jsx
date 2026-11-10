@@ -4,11 +4,11 @@ import Estrela from "../../../assets/icons/estrelaAval.svg";
 import Carinho from "../../../assets/icons/carinhoadd.svg";
 import Visao from "../../../assets/icons/visao.svg";
 import Button from "../../button/Button";
-import useContextCarinho from "../../../hooks/useContextCarinho";
+import useContextCarrinho from "../../../hooks/useContextCarrinho";
 import RemoverItem from "../../../assets/icons/delete.svg";
 
 const CardProdutos = ({ dados, onClickDetalhes }) => {
-    const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarinho();
+    const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarrinho();
     // const noCarinho = itens.some((prod) => prod.id === dados.id);
 
     return (

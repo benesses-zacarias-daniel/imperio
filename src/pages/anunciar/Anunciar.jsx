@@ -10,7 +10,7 @@ import Publicar from "../../assets/icons/publicar.svg";
 const Anunciar = () => {
     const DadosAnunciar = {
         "id": 1,
-        "texto_btn": "Publicar Producto",
+        "texto_btn": "Publicar Produto",
         "type": [
             "text",
             "number",
@@ -87,7 +87,7 @@ const Anunciar = () => {
             <div className={style.container_cont_anun}>
                 <div className={style.are_info_anun}>
                     <div className={style.titulo_anun}>
-                        <h3>Anunciar Novo Producto</h3>
+                        <h3>Anunciar Novo Produto</h3>
                     </div>
                     <p className={style.anun_min_info}>Complete os detalhes abaixo para listar o seu hardware premium na nossa plataforma exclusiva.</p>
                 </div>

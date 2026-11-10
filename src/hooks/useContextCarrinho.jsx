@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import { ContextCarinho } from "../context/ContextCarinho"
+import { ContextCarinho } from "../context/ContextCarrinho"
 
-const useContextCarinho = () => {
+const useContextCarrinho = () => {
     const context = useContext(ContextCarinho);
 
     if (!context) {
@@ -12,4 +12,4 @@ const useContextCarinho = () => {
 }
 
 
-export default useContextCarinho;
+export default useContextCarrinho;

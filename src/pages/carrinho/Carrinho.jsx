@@ -1,17 +1,17 @@
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
-import style from "./Carinho.module.css";
-import CardItemCarinho from "../../components/cards/CardItensCarinho/CardItemCarinho";
+import style from "./Carrinho.module.css";
+import CardItemCarrinho from "../../components/cards/CardItensCarrinho/CardItemCarrinho";
 import Button from "../../components/button/Button";
 import Img from "../../components/img/Img";
 import Visao from "../../assets/icons/visao.svg"
 import CardResumo from "../../components/cards/CardResumo/CardResumo";
 import { useState } from "react";
-import useContextCarinho from "../../hooks/useContextCarinho";
+import useContextCarrinho from "../../hooks/useContextCarrinho";
 import scrollCima from "../../utils/scrollCima";
 
 const Carrinho = () => {
     const [showResumo, setShowResumo] = useState(false);
-    const { itens } = useContextCarinho();
+    const { itens } = useContextCarrinho();
 
     const onClickResumo = (val) => {
         setShowResumo(val);
@@ -25,7 +25,7 @@ const Carrinho = () => {
                 </div>
                 <div className={style.container_itens_car}>
                     <div className={style.area_controle_scroll}>
-                        <CardItemCarinho ItensCarinho={itens} />
+                        <CardItemCarrinho ItensCarinho={itens} />
                     </div>
                 </div>
                 <div className={style.area_btn_resumo}>
