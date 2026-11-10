@@ -79,29 +79,32 @@ const Productos = () => {
     }, [dadosFiltrados, inicio, fim]);
 
     return (
-        <ContainerDiv className={style.contianer_produtos}>
-            <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
-            <div className={style.container_area_prod}>
-                <div className={style.area_titulo_cont_prod}>
-                    <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
-                    <p className={style.total_prods}>{dadosFiltrados.length} total itens</p>
+        <>
+            <ContainerDiv className={style.contianer_produtos}>
+                <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_productos"} id={"filtrar_productos"} />
+                <div className={style.container_area_prod}>
+                    <div className={style.area_titulo_cont_prod}>
+                        <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
+                        <p className={style.total_prods}>{dadosFiltrados.length} total itens</p>
+                    </div>
+                    <div className={style.area_produtos_pro}>
+                        <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                    </div>
                 </div>
-                <div className={style.area_produtos_pro}>
-                    <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                <div className={style.area_coltrol_exib}>
+                    <Button children={
+                        <Img src={SetaCima} alt={"Ícone de seta par cima"} className={style.icones_btn_control} />
+                    } onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
+                    <Button children={
+                        <Img src={SetaBaixo} alt={"Ícone de seta par baixo"} className={style.icones_btn_control} />
+                    } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
                 </div>
-            </div>
-            <div className={style.area_coltrol_exib}>
-                <Button children={
-                    <Img src={SetaCima} alt={"Ícone de seta par cima"} className={style.icones_btn_control} />
-                } onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
-                <Button children={
-                    <Img src={SetaBaixo} alt={"Ícone de seta par baixo"} className={style.icones_btn_control} />
-                } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
-            </div>
+            </ContainerDiv>
             {showDetalhes && (
                 <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
             )}
-        </ContainerDiv>)
+        </>
+    )
 }
 
 export default Productos;

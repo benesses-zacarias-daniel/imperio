@@ -73,46 +73,48 @@ const Home = () => {
         setShowDetalhes(false);
     }
     return (
-        <ContainerDiv className={style.container_home}>
-            <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={
-                <Link to={"/productos"} className={style.link_prods} onClick={() => { scrollCima(); }}>
-                    Ver Productos
-                </Link>
-            } textoCon={
-                <a href={linkWhatsApp1} className={style.link_con_hero}>
-                    Contactar
-                </a>
-            } classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
-            <ContainerDiv className={style.container_produtos}>
-                <div className={style.area_produtos_home}>
-                    <div className={style.destaque_prod}>
-                        <div className={style.titulo_dest_prod}>
-                            <h2>
-                                Produtos em Destaque
-                            </h2>
+        <>
+            <ContainerDiv className={style.container_home}>
+                <Hero foco={"Imperial"} marca={"Electrónicos"} minInfo={"A excelência em tecnologia. Descubra uma curadoria exclusiva do hardware mais avançado do mundo, onde o desempenho encontra o luxo absoluto."} textoProd={
+                    <Link to={"/productos"} className={style.link_prods} onClick={() => { scrollCima(); }}>
+                        Ver Productos
+                    </Link>
+                } textoCon={
+                    <a href={linkWhatsApp1} className={style.link_con_hero}>
+                        Contactar
+                    </a>
+                } classNameBtnProd={style.btn_prod} classNameBtnCon={style.btn_con} />
+                <ContainerDiv className={style.container_produtos}>
+                    <div className={style.area_produtos_home}>
+                        <div className={style.destaque_prod}>
+                            <div className={style.titulo_dest_prod}>
+                                <h2>
+                                    Produtos em Destaque
+                                </h2>
+                            </div>
+                            <div className={style.area_btn_dest}>
+                                <Link to={"/productos"}>
+                                    <Button onClick={() => {
+                                        scrollCima();
+                                    }} className={style.ver_todos_home} children={"Ver Todos"} />
+                                </Link>
+                            </div>
                         </div>
-                        <div className={style.area_btn_dest}>
-                            <Link to={"/productos"}>
-                                <Button onClick={() => {
-                                    scrollCima();
-                                }} className={style.ver_todos_home} children={"Ver Todos"} />
-                            </Link>
-                        </div>
+                        <ContainerDiv className={style.area_prods_home}
+                            children={
+                                <>
+                                    <CardProdutos dados={ProdutosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                </>
+                            } />
+                        <CardCategoria dados={Categorias[0]} />
                     </div>
-                    <ContainerDiv className={style.area_prods_home}
-                        children={
-                            <>
-                                <CardProdutos dados={ProdutosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
-                            </>
-                        } />
-                    <CardCategoria dados={Categorias[0]} />
-                </div>
+                </ContainerDiv>
+                <ContactarGrupo />
             </ContainerDiv>
-            <ContactarGrupo />
             {showDetalhes && (
                 <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
             )}
-        </ContainerDiv>
+        </>
     )
 }
 
