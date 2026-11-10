@@ -28,6 +28,18 @@ import ContactoActiva from "../../../assets/icons/contactarL.svg";
 const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
     const { pathname } = useLocation();
     const [paginaActiva, setPaginaActiva] = useState(pathname);
+    const [fade, setFade] = useState(false);
+
+    const estiloContainer = mostrarMenu ? `${classContaner} ${fade ? style.ocultarMenu : ""}` : style.contaner_footer_menu;
+
+    const onClickOcultarMenu = () => {
+        setTimeout(() => {
+            setFade(false);
+            onClickOcultar(false);
+        }, 2000);
+
+        setFade(true);
+    }
 
     useEffect(() => {
         // console.log(pathname);
@@ -40,26 +52,22 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
         mostrarMenu && (
             <nav>
 
-                <div className={classContaner} id="contaner_menu" onClick={(evt) => {
+                <div className={estiloContainer} id="contaner_menu" onClick={(evt) => {
                     if (evt.target.id === "contaner_menu") {
-                        onClickOcultar(false);
+                        onClickOcultarMenu();
                     }
                 }}>
                     <div className={style.contedeudo_contaner}>
 
-                        {mostrarIcone && (<div className={style.icone_faxar_menu}>
-                            {/* <Button children={
-                                <Img src={Fexar} alt={"Ícone de Menu com X"} />
-                            } onClick={() => {
-                                onClickOcultar(false);
-                            }} /> */}
-                            <div className={style.nome_marca_menu}>
-                                <div className={style.nome}>
-                                    Imperial Electrónicos
+                        {mostrarIcone && (
+                            <div className={style.icone_faxar_menu}>
+                                <div className={style.nome_marca_menu}>
+                                    <div className={style.nome}>
+                                        Imperial Electrónicos
+                                    </div>
+                                    <span className={style.min_desc}>Hardware Premium</span>
                                 </div>
-                                <span className={style.min_desc}>Hardware Premium</span>
-                            </div>
-                        </div>)}
+                            </div>)}
                         <div className={style.area_menu}>
                             <Link to={"/"} className={`${classeLinkMenu} ${(paginaActiva === "/") ? style.pagina_activa : ""}`}>
                                 <Button children={
@@ -69,7 +77,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Home</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -82,7 +90,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Productos</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -96,7 +104,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Sobre</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -110,7 +118,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Contacto</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -124,7 +132,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Anunciar Produto</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -135,10 +143,10 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/carinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
                                         )}
-                                        <p>Carrinho</p>
+                                        <p>Carinho</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
@@ -152,7 +160,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                         <p>Termos & Condições</p>
                                     </>
                                 } onClick={() => {
-                                    onClickOcultar(false);
+                                    onClickOcultarMenu();
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 

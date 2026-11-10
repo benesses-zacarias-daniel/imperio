@@ -14,10 +14,39 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--dourado_transp);
     cursor: pointer;
     z-index: 99999;
+    animation: entradaMenu .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
+@keyframes entradaMenu {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        background: var(--dourado_transp);
+    }
+}
+
+.ocultarMenu {
+    animation: ocultarMenu .9s ease forwards;
+}
+
+@keyframes ocultarMenu {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+        background: var(--dourado_transp);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
 }
 
 .contedeudo_contaner {
@@ -118,7 +147,7 @@ nav,
 }
 
 .pagina_activa p {
-    color: var(--dourado_principal);
+    color: var(--dourado_claro);
     font-weight: 800;
 }
 

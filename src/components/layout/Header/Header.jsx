@@ -7,7 +7,7 @@ import Logo from "../logo/Logo";
 //Imagens
 import AbrirMenu from "../../../assets/icons/menu.svg";
 import Carinho from "../../../assets/icons/carinho.svg";
-import LogoIcone from "../../../assets/logo/logo.svg";
+import LogoIcone from "../../../assets/logo/logoIET.webp";
 import Menu from "../Sidebar/Menu";
 import useContextCarinho from "../../../hooks/useContextCarinho";
 import scrollCima from "../../../utils/scrollCima";

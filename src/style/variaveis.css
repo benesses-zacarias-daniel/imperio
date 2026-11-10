@@ -1,32 +1,4 @@
 :root {
-    /* Dourado
-    --dourado_principal: #D4AF37;
-    --dourado_secundario: #E9C349;
-    --dourado_claro: #F6D66E;
-    --dourado_transp: #d4af377e;
-    --dourado_: #252114;
-    /*--dourado_transp: #d4af3761;
-    /* Preto *
-    --preto_principal: #0F0D09;
-    --preto_claro: #0000006b;
-    /*Chocolate
-    --chocolate_principal: #1f1b13;
-    --chocolate_claro: #806f4d;
-
-    /* Borda 
-    --borda: #3B342A;
-
-    /* Texto 
-    --texto_principal: #F5F1E8;
-    --texto_secundario: #C9BFAF;
-    --texto_castanho: #8A8175;
-
-    /* Estados 
-    --sucesso: #4CAF50;
-    --info: #4A90E2;
-    --alerta: #F5A623;
-    --perigo: #E74C3C; */
-
     /* "Dourado" → agora AZUL (cor principal do site) */
     --dourado_principal: #1E6BFF;
     /* azul elétrico do logo */
@@ -34,12 +6,12 @@
     /* azul escuro */
     --dourado_claro: #4DA3FF;
     /* azul claro */
-    --dourado_transp: rgba(30, 107, 255, 0.15);
+    --dourado_transp: #1e6bff26;
 
     /* Preto → azul-marinho (fundo do logo: footer, menu lateral) */
     --preto_principal: #070B1A;
     --preto_claro: #0F1630;
-    --preto_transp: rgba(7, 11, 26, 0.42);
+    --preto_transp: #070b1a6b;
 
     /* Chocolate → azul médio (botões secundários, cards) */
     --chocolate_principal: #2F80FF;

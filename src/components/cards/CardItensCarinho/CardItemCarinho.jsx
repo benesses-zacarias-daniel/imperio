@@ -8,7 +8,7 @@ import useContextCarinho from "../../../hooks/useContextCarinho";
 import Mais from "../../../assets/icons/mais.svg";
 import Menus from "../../../assets/icons/menus.svg";
 
-const CardItemCarrinho = ({ ItensCarinho }) => {
+const CardItemCarinho = ({ ItensCarinho }) => {
     const { onClickAlterarQtdItem, onClickRemoverItem } = useContextCarinho();
 
     return (
@@ -59,4 +59,4 @@ const CardItemCarrinho = ({ ItensCarinho }) => {
     )
 }
 
-export default CardItemCarrinho;
+export default CardItemCarinho;

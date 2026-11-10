@@ -32,7 +32,6 @@ const ContextCarinhoProvider = ({ children }) => {
 
     const limparNavegador = () => {
         setItens([]);
-        salvarNoNavegador([]);
     };
 
     const onClickRemoverItem = (idObj) => {
@@ -68,14 +67,23 @@ const ContextCarinhoProvider = ({ children }) => {
         //salvarNoNavegador(objFinal);
     };
 
-    const onClickTotal = () => {
+    const onClickSubTotal = () => {
+        return calculadora();
+    };
+
+    const calculadora = () => {
         let total = 0;
 
         itens.map((item) => {
             total += item.quantidade * item.preco;
         });
 
-        return total + 200;//200 para entrega ao domicílio
+
+        return total;
+    };
+
+    const onClickTotal = () => {
+        return calculadora() + 200;//200 para entrega ao domicílio
     };
 
     const onClickMensagemFinalizarCompra = () => {
@@ -113,7 +121,7 @@ const ContextCarinhoProvider = ({ children }) => {
 
 
     return (
-        <ContextCarinho.Provider value={{ itens, setItens, onClickAdicionarItem, onClickRemoverItem, onClickAlterarQtdItem, onClickTotal, onClickMensagemFinalizarCompra, limparNavegador }}>
+        <ContextCarinho.Provider value={{ itens, setItens, onClickAdicionarItem, onClickRemoverItem, onClickAlterarQtdItem, onClickSubTotal, onClickTotal, onClickMensagemFinalizarCompra, limparNavegador }}>
             {children}
         </ContextCarinho.Provider>
     )

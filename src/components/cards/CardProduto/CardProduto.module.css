@@ -150,7 +150,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    background: var(--preto_transp);
+    background: var(--dourado_principal);
     padding: 6px;
     border-radius: 15px;
     display: flex;
@@ -159,7 +159,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-weight: 800;
-    color: var(--texto_secundario);
+    color: var(--texto_principal);
 }
 
 .preco {
@@ -168,13 +168,14 @@
     right: 15px;
     bottom: 15px;
     background: var(--chocolate_claro);
-    color: var(--preto_principal);
+    color: var(--dourado_secundario);
     padding: 6px;
     border-radius: 7px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    font-weight: 801;
 }
 
 

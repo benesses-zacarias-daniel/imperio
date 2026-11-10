@@ -1,6 +1,6 @@
 import Autor from "../../autor/Autor";
 import Logo from "../logo/Logo";
-import LogoIcone from "../../../assets/logo/logo.svg";
+import LogoIcone from "../../../assets/logo/logoIET.webp";
 import style from "./Footer.module.css";
 import Menu from "../Sidebar/Menu";
 import Img from "../../img/Img";

@@ -38,7 +38,9 @@ const Carrinho = () => {
                 </div>
                 {
                     showResumo && (
-                        <CardResumo showResumo={() => { setShowResumo(false) }} />
+                        itens.length > 0 && (
+                            <CardResumo showResumo={() => { setShowResumo(false) }} />
+                        )
                     )
                 }
             </div>

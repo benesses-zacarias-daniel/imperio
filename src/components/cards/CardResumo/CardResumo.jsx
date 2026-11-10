@@ -5,17 +5,24 @@ import Img from "../../img/Img";
 import FecharResumo from "../../../assets/icons/fexar_detalhes.svg";
 // import Seta from "../../../assets/icons/seta.svg"
 import useContextCarinho from "../../../hooks/useContextCarinho";
+import { useState } from "react";
 
 const CardResumo = ({ showResumo }) => {
-    const { onClickMensagemFinalizarCompra, onClickTotal, limparNavegador } = useContextCarinho();
+    const { onClickMensagemFinalizarCompra, onClickSubTotal, onClickTotal, limparNavegador } = useContextCarinho();
     const numero = "849754315", mens = onClickMensagemFinalizarCompra();
     const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
+    const [fade, setFade] = useState(false);
+
     const onClickOcultarResumo = () => {
-        showResumo(false);
+        setTimeout(() => {
+            showResumo(false);
+            setFade(false);
+        }, 500)
+        setFade(true);
     }
 
     return (
-        <ContainerDiv id={"container_area_resumo"} className={style.container_area_resumo} click={(evt) => {
+        <ContainerDiv id={"container_area_resumo"} className={`${style.container_area_resumo} ${fade ? style.ocultalResumo : ""}`} click={(evt) => {
             if (evt.target === evt.currentTarget) {
                 onClickOcultarResumo();
             }
@@ -39,18 +46,27 @@ const CardResumo = ({ showResumo }) => {
                         </div>
                         <div className={style.val_sub}>
                             <p className={style.total}>
-                                {onClickTotal() === 200 ? 0 : onClickTotal()}
+                                {onClickSubTotal()}
                             </p>
                         </div>
+                    </div>
+                    <div className={style.area_port}>
+                        <p>
+                            Valor Total
+                        </p>
+                        <p className={style.porte}>
+                            {onClickTotal()}
+                        </p>
                     </div>
                     <div className={style.area_port}>
                         <p>
                             Portes de Envio
                         </p>
                         <p className={style.porte}>
-                            Grátis
+                            Incluído
                         </p>
                     </div>
+
                     <div className={style.area_btn_finalizar_compra}>
                         <a href={linkWhatsApp} target="_blank">
                             <Button className={style.btn_finalizar} onClick={() => {
@@ -68,7 +84,7 @@ const CardResumo = ({ showResumo }) => {
                                 A entrega depende de acordo entre o cliente e o entregador.
                             </p> */}
                             <p className={style.total}>
-                                A valor total envolve a entrega dos Productos.
+                                O valor total envolve a entrega dos Produtos.
                             </p>
                         </div>
                     </div>

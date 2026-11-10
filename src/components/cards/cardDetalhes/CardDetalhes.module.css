@@ -13,8 +13,8 @@
     height: 100%;
     width: 100%;
     z-index: 9999;
-    inset: 0;
-    animation: fadeOverlay 2s ease;
+    /* inset: 0; */
+    animation: fadeIn .7s ease;
 }
 
 .area_conteudo_detalhes {
@@ -26,45 +26,34 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;
-    animation: abrirDetalhes 2s ease;
 }
 
-.ocultarDetalhes {
-    animation: ocultarDetalhes 2s ease;
+
+.ocultarCard {
+    animation: fexarCard 0.8s ease;
 }
 
-@keyframes ocultarDetalhes {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translatex(100%) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translatex(0%) scale(1);
+    }
+}
+
+@keyframes fexarCard {
     from {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0px) scale(1);
     }
 
     to {
         opacity: 0;
         transform: translateY(20px) scale(.98);
-    }
-
-}
-
-@keyframes fadeOverlay {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes abrirDetalhes {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
     }
 }
 
@@ -134,11 +123,12 @@
 }
 
 .ponto_verd {
-    background: var(--dourado_principal);
+    background: var(--dourado_secundario);
     width: 8px;
     height: 8px;
     border-radius: 100%;
     margin: 0px 5px 0px 0px;
+    display: none;
 }
 
 .area_legenda_local {
@@ -151,12 +141,12 @@
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
-    background-color: var(--dourado_transp);
+    background-color: var(--dourado_principal);
     border-radius: 20px;
 }
 
 .area_legenda_local h4 {
-    color: var(--preto_principal);
+    color: var(--texto_principal);
 }
 
 .area_imgs_detalhes {

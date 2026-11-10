@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "./CardDetalhes.module.css";
 import Img from "../../img/Img";
 import Fexar from "../../../assets/icons/fexar_detalhes.svg";
@@ -22,17 +22,19 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
     const onClickCasaDetalhes = (pos) => {
         setSrcDetAct(pos);
     }
-
+    const onClickOcultarDetalhes = () => {
+        setTimeout(() => {
+            onClickOcult();
+            setFade(false);
+        }, 700);
+        setFade(true);
+    }
     return (
-        <div className={`${style.container_detalhes} ${fade ? style.ocultarDetalhes : ""}`}>
-            <div className={`${style.area_conteudo_detalhes} ${fade ? style.ocultarDetalhes : ""}`}>
+        <div className={`${style.container_detalhes} ${fade ? style.ocultarCard : ""}`}>
+            <div className={`${style.area_conteudo_detalhes} ${fade ? style.ocultarCard : ""}`}>
                 <div className={style.fexar_detalhes}>
                     <Button estilo={style.btn_fexar_detalhes} onClick={() => {
-                        setTimeout(() => {
-                            onClickOcult();
-                            setFade(false);
-                        }, 1000);
-                        setFade(true);
+                        onClickOcultarDetalhes();
                     }} children={
                         <Img src={Fexar} alt={"Ícone de X"} />
                     } />
@@ -96,6 +98,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
                                         </>
                                     } onClick={() => {
                                         onClickAdicionarItem(dados[0]);
+                                        onClickOcultarDetalhes();
                                     }} className={style.btn_add_resumo} />
                                 )
                             }
