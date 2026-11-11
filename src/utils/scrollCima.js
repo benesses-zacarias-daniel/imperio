@@ -1,5 +1,7 @@
 const scrollCima = () => {
     const conteudo = document.getElementById("conteudo");
+    console.log("Chamado");
+
     if (conteudo) {
         conteudo.scrollTo({ top: 0, behavior: "smooth" });
     }
