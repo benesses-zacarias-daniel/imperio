@@ -1,10 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import './style/global.css';
-import Footer from './components/layout/Footer/Footer';
-import Header from './components/layout/Header/Header';
-import Rotas from './routes/Rotas';
 import ContextCarrinhoProvider from './context/ContextCarrinho';
+import AdminLayout from './pages/admin/AdminLayout';
+import UserLayout from './pages/userLayout/UserLayout';
 
 const App = () => {
 
@@ -12,11 +11,8 @@ const App = () => {
     <BrowserRouter>
       <ContextCarrinhoProvider>
         <div className="imperial_container">
-          <Header />
-          <main id="conteudo">
-            <Rotas />
-            <Footer />
-          </main>
+          <UserLayout />
+          <AdminLayout />
         </div>
       </ContextCarrinhoProvider>
     </BrowserRouter>

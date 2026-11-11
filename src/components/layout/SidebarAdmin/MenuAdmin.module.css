@@ -1,0 +1,158 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.contaner_menu {
+    /* position:; */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 99999;
+    animation: entradaMenu .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes entradaMenu {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        background: var(--dourado_transp);
+    }
+}
+
+.ocultarMenu {
+    animation: ocultarMenu .9s ease forwards;
+}
+
+@keyframes ocultarMenu {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+        background: var(--dourado_transp);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}
+
+.contedeudo_contaner {
+    width: 250px;
+    height: 100%;
+    /* background-color: rgb(57, 57, 57); */
+    background-color: var(--preto_principal);
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    cursor: default;
+}
+
+.icone_faxar_menu {
+    width: 100%;
+    height: 60px;
+}
+
+nav,
+.contedeudo_contaner,
+.icone_faxar_menu,
+.nome_marca_menu,
+.area_menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.nome {
+    font-weight: 600;
+    color: var(--dourado_claro);
+}
+
+.min_desc {
+    font-size: .72rem;
+    color: var(--texto_secundario);
+    opacity: .7;
+    padding: 8px 0px 0px 0px;
+}
+
+.area_menu {
+    flex: 1;
+    width: 100%;
+    gap: 10px;
+}
+
+.link_menu {
+    text-decoration: none;
+    color: var(--texto_principal);
+    /* font-weight: 600; */
+    gap: 10px;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.link_menu:hover {
+    /* background-color: #55545495; */
+    background: var(--preto_claro);
+    border-radius: 10px;
+}
+
+.btn_menu {
+    color: var(--texto_secundario);
+    font-weight: 505;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.img_menu {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.btn_menu p {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pagina_activa p {
+    color: var(--dourado_claro);
+    font-weight: 800;
+}
+
+.pagina_activa {
+    /* background: #2A2A2A; */
+    background: var(--dourado_transp);
+    border-radius: 10px;
+}

@@ -1,0 +1,14 @@
+.cartao {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* padding: 24px; */
+    background: #fff;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+}
+
+.cartao h2 {
+    margin: 0;
+    color: var(--dourado_secundario);
+}

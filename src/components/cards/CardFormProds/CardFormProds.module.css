@@ -1,0 +1,66 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form label { font-weight: 700; font-size: 14px; }
+
+.form input,
+.form textarea {
+    padding: 10px;
+    font: inherit;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+}
+
+.form input:focus,
+.form textarea:focus { outline: 2px solid var(--dourado_principal); }
+
+.form textarea { min-height: 90px; }
+
+.caixa {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: var(--texto_principal);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+}
+
+.caixa h3 { margin: 0; font-size: 16px; }
+
+.linha { display: flex; gap: 8px; }
+.linha input { flex: 1; min-width: 0; }
+
+.adicionar {
+    padding: 10px;
+    font: inherit;
+    font-weight: 700;
+    color: var(--texto_principal);
+    background: var(--chocolate_principal);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.apagar {
+    width: 40px;
+    color: #fff;
+    background: #E5484D;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.enviar {
+    padding: 14px;
+    font: inherit;
+    font-weight: 700;
+    color: var(--texto_principal);
+    background: var(--dourado_principal);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
