@@ -108,6 +108,7 @@ const GerenciarProds = () => {
             }
         }
     ];
+
     const onClickControlModal = (val) => {
         setModalAberto(val);
     }
