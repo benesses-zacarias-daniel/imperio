@@ -39,7 +39,6 @@ const CardFormProds = ({ dadosAct }) => {
         <ContainerDiv className={style.container_prods}>
             <form className={style.form_prods}>
                 <div className={style.container_camp}>
-
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="nome">
@@ -48,7 +47,6 @@ const CardFormProds = ({ dadosAct }) => {
                         </div>
                         <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={dadosAct?.nome ? dadosAct?.nome : ""} />
                     </div>
-
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
@@ -100,7 +98,6 @@ const CardFormProds = ({ dadosAct }) => {
                         </div>
                         <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={dadosAct?.alt ? dadosAct?.alt : ""} defaultValue={""} />
                     </div>
-
                     {/* ----- ESPECIFICAÇÕES ----- */}
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
@@ -120,9 +117,7 @@ const CardFormProds = ({ dadosAct }) => {
                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                             </Button>
                         </div>
-
                     </div>
-
                     {/* ----- OUTRAS IMAGENS ----- */}
                     <div className={style.caixa}>
                         <div className={style.area_esp}>

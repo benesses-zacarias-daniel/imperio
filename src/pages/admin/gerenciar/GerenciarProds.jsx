@@ -16,22 +16,22 @@ const GerenciarProds = () => {
             "bagde": "",
             "limit": 20,
             "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
-            "src": "./img/smartphone03.jpeg",
+            "src": "/img/smartphone03.jpeg",
             "alt": "Imagem de Telemóvel Básico",
             "categorias": "smartphone",
             "detalhes": {
                 "srcDetalhes": [
                     {
                         "id": 1,
-                        "srcDet": "./img/smartphone03.jpeg",
-                        "srcThumb": "./img/smartphone03.jpeg",
+                        "srcDet": "/img/smartphone03.jpeg",
+                        "srcThumb": "/img/smartphone03.jpeg",
                         "alt": "Telemóvel Básico",
                         "localizacao": "Telemóvel Básico"
                     },
                     {
                         "id": 2,
-                        "srcDet": "./img/smartphone04.jpeg",
-                        "srcThumb": "./img/smartphone04.jpeg",
+                        "srcDet": "/img/smartphone04.jpeg",
+                        "srcThumb": "/img/smartphone04.jpeg",
                         "alt": "Telemóvel Clássico",
                         "localizacao": "Telemóvel Clássico"
                     }],
@@ -48,22 +48,22 @@ const GerenciarProds = () => {
             "bagde": "Clássico",
             "limit": 15,
             "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
-            "src": "./img/smartphone04.jpeg",
+            "src": "/img/smartphone04.jpeg",
             "alt": "Imagem de Telemóvel Clássico",
             "categorias": "smartphone",
             "detalhes": {
                 "srcDetalhes": [
                     {
                         "id": 1,
-                        "srcDet": "./img/smartphone04.jpeg",
-                        "srcThumb": "./img/smartphone04.jpeg",
+                        "srcDet": "/img/smartphone04.jpeg",
+                        "srcThumb": "/img/smartphone04.jpeg",
                         "alt": "Telemóvel Clássico",
                         "localizacao": "Telemóvel Clássico"
                     },
                     {
                         "id": 2,
-                        "srcDet": "./img/smartphone01.jpeg",
-                        "srcThumb": "./img/smartphone01.jpeg",
+                        "srcDet": "/img/smartphone01.jpeg",
+                        "srcThumb": "/img/smartphone01.jpeg",
                         "alt": "Smartphone Pro",
                         "localizacao": "Smartphone Pro"
                     }],
@@ -79,22 +79,22 @@ const GerenciarProds = () => {
             "bagde": "",
             "limit": 6,
             "desc": "Televisão LED com imagem nítida para a sala de estar.",
-            "src": "./img/tv01.jpeg",
+            "src": "/img/tv01.jpeg",
             "alt": "Imagem de Televisão LED",
             "categorias": "tv",
             "detalhes": {
                 "srcDetalhes": [
                     {
                         "id": 1,
-                        "srcDet": "./img/tv01.jpeg",
-                        "srcThumb": "./img/tv01.jpeg",
+                        "srcDet": "/img/tv01.jpeg",
+                        "srcThumb": "/img/tv01.jpeg",
                         "alt": "Televisão LED",
                         "localizacao": "Televisão LED"
                     },
                     {
                         "id": 2,
-                        "srcDet": "./img/tv02.jpeg",
-                        "srcThumb": "./img/tv02.jpeg",
+                        "srcDet": "/img/tv02.jpeg",
+                        "srcThumb": "/img/tv02.jpeg",
                         "alt": "Televisão LED Slim",
                         "localizacao": "Televisão LED Slim"
                     }],
