@@ -1,6 +1,6 @@
 import styles from './CardActProds.module.css';
 
-function Modal({ titulo, aberto, onFechar, children }) {
+function CardActProds({ titulo, aberto, onFechar, children }) {
     if (!aberto) return null;
 
     return (
@@ -18,4 +18,4 @@ function Modal({ titulo, aberto, onFechar, children }) {
     );
 }
 
-export default Modal;
+export default CardActProds;

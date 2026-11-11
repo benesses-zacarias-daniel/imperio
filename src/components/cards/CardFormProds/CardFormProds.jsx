@@ -1,6 +1,6 @@
 import styles from './CardFormProds.module.css';
 
-function Formulario() {
+function CardFormProds() {
     return (
         <form className={styles.form}>
             <label>Nome do produto</label>
@@ -55,4 +55,4 @@ function Formulario() {
     );
 }
 
-export default Formulario;
+export default CardFormProds;

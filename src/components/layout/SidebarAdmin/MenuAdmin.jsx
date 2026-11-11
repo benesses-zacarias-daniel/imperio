@@ -64,7 +64,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/adicionar") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
                                         )}
-                                        <p>Home</p>
+                                        <p>Adicionar Produtos</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultarMenu();
@@ -77,7 +77,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/gerenciar") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
                                         )}
-                                        <p>Produtos</p>
+                                        <p>Gerenciar Produtos</p>
                                     </>
                                 } onClick={() => {
                                     onClickOcultarMenu();
@@ -85,7 +85,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                 }} className={classeBtnMenu} />
                             </Link>
 
-                            <a href={"/"} className={classeLinkMenu} target="blank">
+                            <a href={"/"} className={classeLinkMenu} target="_blank" rel="noopener noreferrer">
                                 <Button children={
                                     <>
                                         <Img src={Home} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
