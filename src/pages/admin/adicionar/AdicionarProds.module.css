@@ -1,14 +1,14 @@
 .cartao {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* padding: 24px; */
-    background: #fff;
-    border: 1px solid var(--borda);
-    border-radius: 14px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .cartao h2 {
-    margin: 0;
+    width: 100%;
+    text-align: center;
     color: var(--dourado_secundario);
 }
