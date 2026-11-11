@@ -7,6 +7,7 @@ import Remover from "../../../assets/icons/delete.svg";
 import Editar from "../../../assets/icons/edit.svg";
 
 const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
+    console.log(ItensGeren[0].detalhes.srcDetalhes);
 
     return (
         ItensGeren.map((itensCarinho, pos) => {
@@ -14,7 +15,7 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
 
                 <ContainerDiv key={itensCarinho.id} className={`${style.container_cardItemCar} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensGeren.length - 1 ? style.bordaFinal : ""}`}>
                     <div className={style.img_item_car}>
-                        <Img src={itensCarinho.srcThumb} alt={itensCarinho.altThumb} className={style.img_car} />
+                        <Img src={itensCarinho.detalhes.srcDetalhes[0].srcThumb} alt={itensCarinho.detalhes.srcDetalhes[0].alt} className={style.img_car} />
                     </div>
                     <div className={style.area_infos_item_car}>
                         <div className={style.container_titulo}>

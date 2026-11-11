@@ -6,7 +6,8 @@
 .area_btn_enviar,
 .area_esp,
 .area_control_esp,
-.caixa {
+.caixa,
+.container_ot_img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +16,7 @@
 }
 
 .container_prods {
-    width: 100%;
+    width: 340px;
     flex: 1;
     border-color: var(--borda);
     border-radius: 9px;
@@ -23,7 +24,7 @@
 }
 
 .form_prods {
-    width: 320px;
+    width: 330px;
     flex: 1;
     border-color: transparent;
     border-radius: 10px;
@@ -32,7 +33,7 @@
 
 .container_camp {
     flex: 1;
-    width: 295px;
+    width: 100%;
     gap: 10px;
 }
 
@@ -45,7 +46,7 @@
 .lable_img {
     width: 290px;
     padding: 5px;
-    height: 250px;
+    height: 200px;
     border-radius: 10px;
     border: 2px solid var(--borda);
     cursor: pointer;
@@ -66,7 +67,11 @@
 }
 
 .area_esp {
-    padding: 0px 0px 3px 0px;
+    padding: 0px 0px 3px 3px;
+}
+
+.input_exp {
+    width: 220px;
 }
 
 .select_categoria_anun {
@@ -93,7 +98,8 @@
     border: none;
 }
 
-.lable_img {
+.lable_img,
+.label_img_outras {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,8 +132,20 @@
     height: 30px;
 }
 
-.input_exp {
+.container_ot_img {
+    width: 100%;
+    gap: 10px;
+}
+
+.label_img_outras {
     width: 220px;
+    height: 35px;
+    border-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 6px;
 }
 
 .input_exp_al {
@@ -145,6 +163,7 @@
     width: 100px;
     background-color: var(--dourado_principal);
     color: var(--texto_principal);
+    font-weight: 800;
 }
 
 .btn_mens {

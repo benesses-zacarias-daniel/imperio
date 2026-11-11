@@ -5,6 +5,7 @@ import Button from '../../button/Button';
 import Upload from "../../../assets/icons/enviar.svg";
 import Mais from "../../../assets/icons/maisB.svg";
 import Remover from "../../../assets/icons/delete.svg";
+import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
 
 const CardFormProds = ({ dadosAct }) => {
@@ -16,22 +17,18 @@ const CardFormProds = ({ dadosAct }) => {
             "opcoes": [
                 {
                     "id": 1,
-                    "cat": "Todas as Categorias",
-                    "value": "todas"
-                }, {
-                    "id": 2,
                     "cat": "SmatPhones",
                     "value": "smartphones"
                 }, {
-                    "id": 3,
+                    "id": 2,
                     "cat": "TVs",
                     "value": "tvs"
                 }, {
-                    "id": 4,
+                    "id": 3,
                     "cat": "Electrodomésticos",
                     "value": "electro"
                 }, {
-                    "id": 5,
+                    "id": 4,
                     "cat": "PCs",
                     "value": "pcs"
                 }]
@@ -49,14 +46,14 @@ const CardFormProds = ({ dadosAct }) => {
                                 Nome do produto
                             </label>
                         </div>
-                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={dadosAct.nome ? dadosAct.nome : ""} />
+                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={dadosAct?.nome ? dadosAct?.nome : ""} />
                     </div>
 
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
                         </div>
-                        <input type="number" id="preco" placeholder="Ex: 25500" />
+                        <input type="number" id="preco" placeholder="Ex: 25500" value={dadosAct?.preco ? dadosAct?.preco : ""} />
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
@@ -76,7 +73,7 @@ const CardFormProds = ({ dadosAct }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" />
+                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" value={dadosAct?.bagde ? dadosAct?.bagde : ""} defaultValue={""} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -84,14 +81,14 @@ const CardFormProds = ({ dadosAct }) => {
                                 Descrição
                             </label>
                         </div>
-                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." />
+                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={dadosAct?.desc ? dadosAct?.desc : ""} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="img_prods">Imagem Principal</label>
                         </div>
                         <label className={style.lable_img} htmlFor="img_prods">
-                            <Img src={Upload} alt={""} className={style.icone_input_tell} />
+                            <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
                             <p>Clique para carregar</p>
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
@@ -101,7 +98,7 @@ const CardFormProds = ({ dadosAct }) => {
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} />
+                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={dadosAct?.alt ? dadosAct?.alt : ""} defaultValue={""} />
                     </div>
 
                     {/* ----- ESPECIFICAÇÕES ----- */}
@@ -118,7 +115,7 @@ const CardFormProds = ({ dadosAct }) => {
                             </Button>
                         </div>
                         <div className={style.area_control_esp}>
-                            <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} />
+                            <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={dadosAct?.detalhes?.especificacoes[0] ? dadosAct?.detalhes?.especificacoes[0] : ""} />
                             <Button className={style.btn_apagar}>
                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                             </Button>
@@ -140,19 +137,32 @@ const CardFormProds = ({ dadosAct }) => {
                             </Button>
                         </div>
                         {/* Esta linha é repetida para cada imagem */}
-                        <div className={style.area_control_esp}>
-                            <div className="area_imp_ou">
-                                <input type="file" accept="image/*" className={style.input_exp} />
+                        <div className={style.container_ot_img}>
+                            <div className={style.area_control_esp}>
+                                <div className="area_imp_ou">
+                                    <label htmlFor="img_min" className={style.label_img_outras}>
+                                        <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
+                                        <p>Clique para carregar</p>
+                                    </label>
+                                    <div className={style.area_ocultar_input}>
+                                        <input type="file" id="img_min" accept="image/*" className={style.input_exp} />
+                                    </div>
+                                </div>
+                                <Button className={style.btn_apagar}>
+                                    <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
+                                </Button>
                             </div>
-                            <Button className={style.btn_apagar}>
-                                <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
-                            </Button>
+                            <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={dadosAct?.detalhes.srcDetalhes[0].alt ? dadosAct?.detalhes.srcDetalhes[0].alt : ""} />
                         </div>
-                        <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} />
                     </div>
                 </div>
                 <div className={style.area_btn_enviar}>
-                    <Button className={style.btn_enviar} onClick={() => { }} >Guardar</Button>
+                    <Button className={style.btn_enviar} onClick={() => { }} >
+                        <>
+                            <p>Guardar</p>
+                            <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
+                        </>
+                    </Button>
                 </div>
             </form>
         </ContainerDiv>
