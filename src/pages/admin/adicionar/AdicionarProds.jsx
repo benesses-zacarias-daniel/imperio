@@ -1,13 +1,14 @@
-import styles from './AdicionarProds.module.css';
+import style from './AdicionarProds.module.css';
 import CardFormProds from '../../../components/cards/CardFormProds/CardFormProds';
+import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 
 const AdicionarProds = () => {
     return (
         <>
-            <section className={styles.cartao}>
+            <ContainerDiv className={style.cartao}>
                 <h2>Adicionar produto</h2>
                 <CardFormProds />
-            </section>
+            </ContainerDiv>
         </>
     );
 }

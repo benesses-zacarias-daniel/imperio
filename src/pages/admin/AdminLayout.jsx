@@ -10,7 +10,7 @@ const AdminLayout = () => {
             {(pathname.startsWith("/admin")) && (
                 <div className={styles.layout}>
                     <HeaderAdmin />
-                    <main className={styles.conteudo_admin}>
+                    <main id={"conteudo"} className={styles.conteudo_admin}>
                         <RotasAdmin />
                     </main>
                 </div>

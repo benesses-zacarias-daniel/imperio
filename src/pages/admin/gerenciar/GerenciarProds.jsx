@@ -379,8 +379,8 @@ const GerenciarProds = () => {
         <>
             <h2 className={styles.titulo_geren}>Gerir produtos</h2>
             <ContainerDiv className={styles.area_cont_geren}>
-                <CardProdGeren ItensGeren={ItensTeste} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
                 <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
+                <CardProdGeren ItensGeren={ItensTeste} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
             </ContainerDiv>
         </>
     );
