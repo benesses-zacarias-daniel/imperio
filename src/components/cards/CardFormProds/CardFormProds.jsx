@@ -1,4 +1,5 @@
 import style from './CardFormProds.module.css';
+import { useState } from 'react';
 import Img from '../../img/Img';
 import Button from '../../button/Button';
 //Ícones
@@ -7,7 +8,6 @@ import Mais from "../../../assets/icons/maisB.svg";
 import Remover from "../../../assets/icons/delete.svg";
 import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
-import { useState } from 'react';
 
 const CardFormProds = ({ dadosAct, tipo = false }) => {
     const Opcoes = [
