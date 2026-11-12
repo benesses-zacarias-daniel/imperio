@@ -5,8 +5,8 @@ import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 const AdicionarProds = () => {
     return (
         <>
-            <ContainerDiv className={style.cartao}>
-                <h2>Adicionar produto</h2>
+            <h2 className={style.titulo_add}>Adicionar produto</h2>
+            <ContainerDiv className={style.area_cont_add}>
                 <CardFormProds />
             </ContainerDiv>
         </>
