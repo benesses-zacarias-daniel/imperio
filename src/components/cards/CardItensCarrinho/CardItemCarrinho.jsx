@@ -29,7 +29,7 @@ const CardItemCarrinho = ({ ItensCarinho }) => {
                             </div>
                         </div>
                         <div className={style.area_badge}>
-                            <p>{itensCarinho.bagde}</p>
+                            <p>{itensCarinho.badge}</p>
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>

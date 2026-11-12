@@ -69,7 +69,7 @@ const Anunciar = () => {
             }, {
                 "id": 3,
                 "cat": "TVs",
-                "value": "tvs"
+                "value": "tv"
             }, {
                 "id": 4,
                 "cat": "Electrodomésticos",
@@ -77,7 +77,7 @@ const Anunciar = () => {
             }, {
                 "id": 5,
                 "cat": "PCs",
-                "value": "pcs"
+                "value": "pc"
             }]
         }
     ]

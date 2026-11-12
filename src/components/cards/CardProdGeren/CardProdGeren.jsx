@@ -26,7 +26,7 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
                             </div>
                         </div>
                         <div className={style.area_badge}>
-                            <p>{itensGeren.bagde}</p>
+                            <p>{itensGeren.badge}</p>
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>

@@ -13,7 +13,7 @@ const GerenciarProds = () => {
             "id": 1,
             "nome": "Telemóvel Básico",
             "preco": 1200,
-            "bagde": "",
+            "badge": "",
             "limit": 20,
             "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
             "src": "/img/smartphone03.jpeg",
@@ -26,14 +26,14 @@ const GerenciarProds = () => {
                         "srcDet": "/img/smartphone03.jpeg",
                         "srcThumb": "/img/smartphone03.jpeg",
                         "alt": "Telemóvel Básico",
-                        "localizacao": "Telemóvel Básico"
+                        "badge": "Telemóvel Básico"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/smartphone04.jpeg",
                         "srcThumb": "/img/smartphone04.jpeg",
                         "alt": "Telemóvel Clássico",
-                        "localizacao": "Telemóvel Clássico"
+                        "badge": "Telemóvel Clássico"
                     }],
                 "especificacoes": [
                     "Ecrã LED de alta definição",
@@ -45,7 +45,7 @@ const GerenciarProds = () => {
             "id": 2,
             "nome": "Telemóvel Clássico",
             "preco": 1800,
-            "bagde": "Clássico",
+            "badge": "Clássico",
             "limit": 15,
             "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
             "src": "/img/smartphone04.jpeg",
@@ -58,14 +58,14 @@ const GerenciarProds = () => {
                         "srcDet": "/img/smartphone04.jpeg",
                         "srcThumb": "/img/smartphone04.jpeg",
                         "alt": "Telemóvel Clássico",
-                        "localizacao": "Telemóvel Clássico"
+                        "badge": "Telemóvel Clássico"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/smartphone01.jpeg",
                         "srcThumb": "/img/smartphone01.jpeg",
                         "alt": "Smartphone Pro",
-                        "localizacao": "Smartphone Pro"
+                        "badge": "Smartphone Pro"
                     }],
                 "especificacoes": [
                     "Ecrã LED de alta definição",
@@ -76,7 +76,7 @@ const GerenciarProds = () => {
             "id": 3,
             "nome": "Televisão LED",
             "preco": 18900,
-            "bagde": "",
+            "badge": "",
             "limit": 6,
             "desc": "Televisão LED com imagem nítida para a sala de estar.",
             "src": "/img/tv01.jpeg",
@@ -89,14 +89,14 @@ const GerenciarProds = () => {
                         "srcDet": "/img/tv01.jpeg",
                         "srcThumb": "/img/tv01.jpeg",
                         "alt": "Televisão LED",
-                        "localizacao": "Televisão LED"
+                        "badge": "Televisão LED"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/tv02.jpeg",
                         "srcThumb": "/img/tv02.jpeg",
                         "alt": "Televisão LED Slim",
-                        "localizacao": "Televisão LED Slim"
+                        "badge": "Televisão LED Slim"
                     }],
                 "especificacoes": [
                     "Ecrã LED de alta definição",
@@ -110,7 +110,7 @@ const GerenciarProds = () => {
             "id": 4,
             "nome": "Smart TV",
             "preco": 32000,
-            "bagde": "Destaque",
+            "badge": "Destaque",
             "limit": 4,
             "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
             "src": "/img/tv04.jpeg",
@@ -123,21 +123,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/tv04.jpeg",
                         "srcThumb": "/img/tv04.jpeg",
                         "alt": "Smart TV",
-                        "localizacao": "Smart TV"
+                        "badge": "Smart TV"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/tv01.jpeg",
                         "srcThumb": "/img/tv01.jpeg",
                         "alt": "Televisão LED",
-                        "localizacao": "Televisão LED"
+                        "badge": "Televisão LED"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/tv02.jpeg",
                         "srcThumb": "/img/tv02.jpeg",
                         "alt": "Televisão LED Slim",
-                        "localizacao": "Televisão LED Slim"
+                        "badge": "Televisão LED Slim"
                     }
                 ],
                 "especificacoes": [
@@ -153,7 +153,7 @@ const GerenciarProds = () => {
             "id": 5,
             "nome": "Batedeira de Bancada",
             "preco": 5200,
-            "bagde": "Novo",
+            "badge": "Novo",
             "limit": 10,
             "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
             "src": "/img/electrodomesticos01.jpeg",
@@ -166,21 +166,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/electrodomesticos01.jpeg",
                         "srcThumb": "/img/electrodomesticos01.jpeg",
                         "alt": "Batedeira de Bancada",
-                        "localizacao": "Batedeira de Bancada"
+                        "badge": "Batedeira de Bancada"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/electrodomesticos02.jpeg",
                         "srcThumb": "/img/electrodomesticos02.jpeg",
                         "alt": "Fogão com Forno",
-                        "localizacao": "Fogão com Forno"
+                        "badge": "Fogão com Forno"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/electrodomesticos03.jpeg",
                         "srcThumb": "/img/electrodomesticos03.jpeg",
                         "alt": "Ferro de Engomar",
-                        "localizacao": "Ferro de Engomar"
+                        "badge": "Ferro de Engomar"
                     }
                 ],
                 "especificacoes": [
@@ -196,7 +196,7 @@ const GerenciarProds = () => {
             "id": 6,
             "nome": "Fogão com Forno",
             "preco": 21000,
-            "bagde": "",
+            "badge": "",
             "limit": 5,
             "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
             "src": "/img/electrodomesticos02.jpeg",
@@ -209,21 +209,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/electrodomesticos02.jpeg",
                         "srcThumb": "/img/electrodomesticos02.jpeg",
                         "alt": "Fogão com Forno",
-                        "localizacao": "Fogão com Forno"
+                        "badge": "Fogão com Forno"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/electrodomesticos03.jpeg",
                         "srcThumb": "/img/electrodomesticos03.jpeg",
                         "alt": "Ferro de Engomar",
-                        "localizacao": "Ferro de Engomar"
+                        "badge": "Ferro de Engomar"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/electrodomesticos04.jpeg",
                         "srcThumb": "/img/electrodomesticos04.jpeg",
                         "alt": "Torradeira",
-                        "localizacao": "Torradeira"
+                        "badge": "Torradeira"
                     }
                 ],
                 "especificacoes": [
@@ -239,7 +239,7 @@ const GerenciarProds = () => {
             "id": 7,
             "nome": "Ferro de Engomar",
             "preco": 1500,
-            "bagde": "Promoção",
+            "badge": "Promoção",
             "limit": 25,
             "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
             "src": "/img/electrodomesticos03.jpeg",
@@ -252,21 +252,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/electrodomesticos03.jpeg",
                         "srcThumb": "/img/electrodomesticos03.jpeg",
                         "alt": "Ferro de Engomar",
-                        "localizacao": "Ferro de Engomar"
+                        "badge": "Ferro de Engomar"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/electrodomesticos04.jpeg",
                         "srcThumb": "/img/electrodomesticos04.jpeg",
                         "alt": "Torradeira",
-                        "localizacao": "Torradeira"
+                        "badge": "Torradeira"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/electrodomesticos01.jpeg",
                         "srcThumb": "/img/electrodomesticos01.jpeg",
                         "alt": "Batedeira de Bancada",
-                        "localizacao": "Batedeira de Bancada"
+                        "badge": "Batedeira de Bancada"
                     }
                 ],
                 "especificacoes": [
@@ -282,7 +282,7 @@ const GerenciarProds = () => {
             "id": 8,
             "nome": "Torradeira",
             "preco": 2300,
-            "bagde": "",
+            "badge": "",
             "limit": 12,
             "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
             "src": "/img/electrodomesticos04.jpeg",
@@ -295,21 +295,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/electrodomesticos04.jpeg",
                         "srcThumb": "/img/electrodomesticos04.jpeg",
                         "alt": "Torradeira",
-                        "localizacao": "Torradeira"
+                        "badge": "Torradeira"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/electrodomesticos01.jpeg",
                         "srcThumb": "/img/electrodomesticos01.jpeg",
                         "alt": "Batedeira de Bancada",
-                        "localizacao": "Batedeira de Bancada"
+                        "badge": "Batedeira de Bancada"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/electrodomesticos02.jpeg",
                         "srcThumb": "/img/electrodomesticos02.jpeg",
                         "alt": "Fogão com Forno",
-                        "localizacao": "Fogão com Forno"
+                        "badge": "Fogão com Forno"
                     }
                 ],
                 "especificacoes": [
@@ -325,7 +325,7 @@ const GerenciarProds = () => {
             "id": 9,
             "nome": "Portátil",
             "preco": 28500,
-            "bagde": "Ultra Rápido",
+            "badge": "Ultra Rápido",
             "limit": 7,
             "desc": "Portátil leve e rápido para estudo e trabalho.",
             "src": "/img/pc.jpg",
@@ -338,21 +338,21 @@ const GerenciarProds = () => {
                         "srcDet": "/img/pc.jpg",
                         "srcThumb": "/img/pc.jpg",
                         "alt": "Portátil",
-                        "localizacao": "Portátil"
+                        "badge": "Portátil"
                     },
                     {
                         "id": 2,
                         "srcDet": "/img/pc01.jpeg",
                         "srcThumb": "/img/pc01.jpeg",
                         "alt": "PC Gamer",
-                        "localizacao": "PC Gamer"
+                        "badge": "PC Gamer"
                     },
                     {
                         "id": 3,
                         "srcDet": "/img/pc02.jpeg",
                         "srcThumb": "/img/pc02.jpeg",
                         "alt": "Portátil Gamer",
-                        "localizacao": "Portátil Gamer"
+                        "badge": "Portátil Gamer"
                     }
                 ],
                 "especificacoes": [

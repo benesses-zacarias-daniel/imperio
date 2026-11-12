@@ -18,8 +18,8 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                     <div key={Produto.id} className={style.container_card}>
                         <div className={style.area_imagem}>
                             <Img src={Produto.src} alt={Produto.alt} className={style.img_produto} />
-                            {Produto.bagde && (
-                                <div className={style.categoria}>{Produto.bagde}</div>
+                            {Produto.badge && (
+                                <div className={style.categoria}>{Produto.badge}</div>
                             )}
                             <div className={style.preco}>
                                 <h3>$ {Produto.preco} MT</h3>

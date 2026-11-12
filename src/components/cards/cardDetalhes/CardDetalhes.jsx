@@ -64,7 +64,7 @@ const CardDetalhes = ({ onClickOcult, dados, showDetalhes = false }) => {
                             </div>
                             <div className={style.area_legenda_local}>
                                 <div className={style.ponto_verd}></div>
-                                <h4>{srcDetalhes[srcDetAct].localizacao}</h4>
+                                <h4>{srcDetalhes[srcDetAct].badge}</h4>
                             </div>
                             <div className={style.loc_detalhes}>{srcDetAct + 1}/{tamanhoSrc}</div>
                         </div>

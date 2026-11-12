@@ -19,11 +19,11 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 {
                     "id": 1,
                     "cat": "SmatPhones",
-                    "value": "smartphones"
+                    "value": "smartphone"
                 }, {
                     "id": 2,
                     "cat": "TVs",
-                    "value": "tvs"
+                    "value": "tv"
                 }, {
                     "id": 3,
                     "cat": "Electrodomésticos",
@@ -31,15 +31,17 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 }, {
                     "id": 4,
                     "cat": "PCs",
-                    "value": "pcs"
+                    "value": "pc"
                 }]
         }
     ];
+
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
-    const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 1000);
-    const [bagde, setBagde] = useState(dadosAct?.bagde ? dadosAct?.bagde : "");
-    const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes ? dadosAct?.detalhes?.especificacoes : []);
-    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : []);
+    const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : "");
+    const [badge, setBadge] = useState(dadosAct?.badge ? dadosAct?.badge : "");
+    const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
+    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcThumb: "", alt: "", badge: "" }]);
+    const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : "");
     //Funções
     const onChange = (val) => {
         console.log(val);
@@ -56,9 +58,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         setPreco(val.target.value)
     };
 
-    const onChangeBagde = (val) => {
+    const onChangeBadge = (val) => {
         console.log(val);
-        setBagde(val.target.value)
+        setBadge(val.target.value)
+    };
+
+    const onChangeCategorias = (val) => {
+        console.log(val);
+        setCategorias(val)
     };
 
     const onChangeEspecificacoes = (val) => {
@@ -96,7 +103,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         <label>
                             Selecione a Categoria
                         </label>
-                        <select name={Opcoes[0].nome} id={Opcoes[0].id} className={style.select}>
+                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value) }}>
                             {Opcoes[0].opcoes.map((cat) => {
                                 return (
                                     <option key={cat.id} value={cat.value} className={style.opcao} onClick={(evt) => {
@@ -110,7 +117,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" className={style.input_anun} value={bagde} onChange={(evt) => { onChangeBagde(evt); }} />
+                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -126,7 +133,11 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         </div>
                         <label className={style.lable_img} htmlFor="img_prods">
                             <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
-                            <p>Clique para carregar</p>
+                            {tipo ? (
+                                <p>Clique para mudar a imagem</p>
+                            ) : (
+                                <p>Clique para carregar</p>
+                            )}
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
                         <div className={style.area_ocultar_input}>
@@ -184,7 +195,11 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                         <div className={style.area_imp_ou}>
                                             <label htmlFor={`img_min_${srcDetalhe.id}`} className={style.label_img_outras}>
                                                 <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
-                                                <p>Clique para carregar</p>
+                                                {tipo ? (
+                                                    <p>Clique para mudar a imagem</p>
+                                                ) : (
+                                                    <p>Clique para carregar</p>
+                                                )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
                                                 <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
