@@ -1,22 +1,22 @@
-.fundo {
+.containerAct {
     position: fixed;
     inset: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
     background: var(--preto_transp);
 }
 
 .caixa {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 640px;
-    max-height: 90vh;
-    background: #fff;
-    border: 1px solid var(--borda);
+    align-items: center;
+    justify-content: flex-start;
+    width: 350px;
+    height: 730px;
+    background: var(--texto_principal);
+    border: 2px solid var(--borda);
     border-radius: 14px;
     overflow: hidden;
 }
@@ -25,27 +25,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    color: var(--texto_principal);
-    background: linear-gradient(90deg, var(--preto_principal), var(--dourado_secundario));
+    padding: 5px;
+    width: 100%;
+    color: var(--dourado_principal);
+    /* background: linear-gradient(90deg, var(--preto_principal), var(--dourado_secundario)); */
 }
 
-.topo h2 { margin: 0; font-size: 18px; }
+.topo h2 {
+    margin: 0;
+    font-size: 18px;
+}
 
-.topo button {
+.btn_fexar_act {
     width: 36px;
     height: 36px;
-    font-size: 16px;
     color: var(--texto_secundario);
     background: transparent;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
 }
 
-.topo button:hover { background: var(--dourado_transp); }
+.img_fechar_act {
+    width: 25px;
+    height: 25px;
+}
 
 .corpo {
-    padding: 20px;
+    flex: 1;
+    padding: 10px 0px 10px 0px;
     overflow-y: auto;
 }

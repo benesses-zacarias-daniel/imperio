@@ -7,31 +7,30 @@ import Remover from "../../../assets/icons/delete.svg";
 import Editar from "../../../assets/icons/edit.svg";
 
 const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
-    console.log(ItensGeren[0].detalhes.srcDetalhes);
 
     return (
-        ItensGeren.map((itensCarinho, pos) => {
+        ItensGeren.map((itensGeren, pos) => {
             return (
 
-                <ContainerDiv key={itensCarinho.id} className={`${style.container_cardItemCar} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensGeren.length - 1 ? style.bordaFinal : ""}`}>
+                <ContainerDiv key={itensGeren.id} className={`${style.container_cardItemCar} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensGeren.length - 1 ? style.bordaFinal : ""}`}>
                     <div className={style.img_item_car}>
-                        <Img src={itensCarinho.detalhes.srcDetalhes[0].srcThumb} alt={itensCarinho.detalhes.srcDetalhes[0].alt} className={style.img_car} />
+                        <Img src={itensGeren.detalhes.srcDetalhes[0].srcThumb} alt={itensGeren.detalhes.srcDetalhes[0].alt} className={style.img_car} />
                     </div>
                     <div className={style.area_infos_item_car}>
                         <div className={style.container_titulo}>
                             <div className={style.area_nome_car}>
-                                <h3>{itensCarinho.nome}</h3>
+                                <h3>{itensGeren.nome}</h3>
                             </div>
                             <div className={style.area_preco}>
-                                {itensCarinho.preco} MT
+                                {itensGeren.preco} MT
                             </div>
                         </div>
                         <div className={style.area_badge}>
-                            <p>{itensCarinho.bagde}</p>
+                            <p>{itensGeren.bagde}</p>
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>
-                                <Button className={style.btn_car} onClick={() => { onClickMostrarModal(itensCarinho.id) }}>
+                                <Button className={style.btn_car} onClick={() => { onClickMostrarModal(itensGeren.id) }}>
                                     <>
                                         <Img src={Editar} alt={"Ícone de menus"} className={style.icone_qtd_control} />
                                         <p>Editar</p>
@@ -41,16 +40,16 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
                             <div className={style.container_btn_dir}>
                                 <Button className={style.btn_rem} onClick={() => {
                                 }}>
-                                    <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_btn_car} />
+                                    <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_qtd_control} />
                                     Remover
                                 </Button>
                             </div>
                         </div>
                     </div>
                 </ContainerDiv>
-            )
+            );
         })
-    )
-}
+    );
+};
 
 export default CardProdGeren;

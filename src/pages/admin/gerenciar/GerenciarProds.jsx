@@ -3,9 +3,9 @@ import CardActProds from '../../../components/cards/CardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
 import styles from './GerenciarProds.module.css';
 import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
+import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 
 const GerenciarProds = () => {
-    // true = modal aberto | false = modal fechado
     const [modalAberto, setModalAberto] = useState(false);
     const [dadosModal, setDadosModal] = useState([]);
     const ItensTeste = [
@@ -120,11 +120,11 @@ const GerenciarProds = () => {
 
     return (
         <>
-            <section className={styles.area}>
-                <h2>Gerir produtos</h2>
+            <h2 className={styles.titulo_geren}>Gerir produtos</h2>
+            <ContainerDiv className={styles.area_cont_geren}>
                 <CardProdGeren ItensGeren={ItensTeste} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
-                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds dadosAct={dadosModal} />} />
-            </section>
+                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
+            </ContainerDiv>
         </>
     );
 }

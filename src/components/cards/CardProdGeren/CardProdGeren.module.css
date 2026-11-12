@@ -20,7 +20,6 @@
     gap: 10px;
 }
 
-
 .img_car {
     width: 78px;
     height: 78px;
@@ -76,20 +75,22 @@
 
 }
 
-/* .container_btn_esq {
-} */
-
 .container_btn_dir {
     width: 95px;
     border: 0px solid red;
+    justify-content: flex-end;
 }
 
 .btn_rem {
+    width: 83px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
     gap: 1px;
+    border: 2px solid var(--perigo);
+    border-radius: 10px;
 }
 
 .btn_car {

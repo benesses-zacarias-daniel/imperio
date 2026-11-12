@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 2px solid rgba(255, 0, 0, 0);
+    border: 2px solid transparent;
 }
 
 .container_prods {
@@ -125,7 +125,7 @@
     border: 2px solid var(--perigo);
 }
 
-.btn_mens,
+.btn_add_campo,
 .btn_apagar,
 .btn_enviar {
     border-radius: 8px;
@@ -166,8 +166,8 @@
     font-weight: 800;
 }
 
-.btn_mens {
-    width: 120px;
+.btn_add_campo {
+    width: 98px;
     background: var(--dourado_principal);
     color: var(--texto_principal);
     font-weight: 800;

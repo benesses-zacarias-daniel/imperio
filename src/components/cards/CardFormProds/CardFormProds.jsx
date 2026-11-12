@@ -7,8 +7,9 @@ import Mais from "../../../assets/icons/maisB.svg";
 import Remover from "../../../assets/icons/delete.svg";
 import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
+import { useState } from 'react';
 
-const CardFormProds = ({ dadosAct }) => {
+const CardFormProds = ({ dadosAct, tipo = false }) => {
     const Opcoes = [
         {
             "id": 1,
@@ -34,7 +35,28 @@ const CardFormProds = ({ dadosAct }) => {
                 }]
         }
     ];
+    const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
+    const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 1000);
+    const [bagde, setBagde] = useState(dadosAct?.bagde ? dadosAct?.bagde : "");
+    const onChange = (val) => {
+        console.log(val);
 
+    };
+    const onChangeNome = (val) => {
+        console.log(val);
+        val.target.value = val.target.value;
+        setNome(val.target.value)
+    };
+    const onChangePreco = (val) => {
+        console.log(val);
+        val.target.value = val.target.value;
+        setPreco(val.target.value)
+    };
+    const onChangeBagde = (val) => {
+        console.log(val);
+        val.target.value = val.target.value;
+        setBagde(val.target.value)
+    };
     return (
         <ContainerDiv className={style.container_prods}>
             <form className={style.form_prods}>
@@ -45,13 +67,13 @@ const CardFormProds = ({ dadosAct }) => {
                                 Nome do produto
                             </label>
                         </div>
-                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={dadosAct?.nome ? dadosAct?.nome : ""} />
+                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
                         </div>
-                        <input type="number" id="preco" placeholder="Ex: 25500" value={dadosAct?.preco ? dadosAct?.preco : ""} />
+                        <input type="number" id="preco" placeholder="Ex: 25500" className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} />
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
@@ -71,7 +93,7 @@ const CardFormProds = ({ dadosAct }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" value={dadosAct?.bagde ? dadosAct?.bagde : ""} defaultValue={""} />
+                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" className={style.input_anun} value={bagde} onChange={(evt) => { onChangeBagde(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -79,7 +101,7 @@ const CardFormProds = ({ dadosAct }) => {
                                 Descrição
                             </label>
                         </div>
-                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={dadosAct?.desc ? dadosAct?.desc : ""} />
+                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={dadosAct?.desc ? dadosAct?.desc : ""} onChange={(evt) => { onChange(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -96,13 +118,13 @@ const CardFormProds = ({ dadosAct }) => {
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={dadosAct?.alt ? dadosAct?.alt : ""} defaultValue={""} />
+                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={dadosAct?.alt ? dadosAct?.alt : ""} onChange={(evt) => { onChange(evt); }} />
                     </div>
                     {/* ----- ESPECIFICAÇÕES ----- */}
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
                             <label>Especificações</label>
-                            <Button className={style.btn_mens} onClick={() => { }}>
+                            <Button className={style.btn_add_campo} onClick={() => { }}>
                                 <>
                                     <Img src={Mais} alt={"Ícone de mais"} className={style.icone_input_tell} />
                                     <p>
@@ -112,7 +134,7 @@ const CardFormProds = ({ dadosAct }) => {
                             </Button>
                         </div>
                         <div className={style.area_control_esp}>
-                            <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={dadosAct?.detalhes?.especificacoes[0] ? dadosAct?.detalhes?.especificacoes[0] : ""} />
+                            <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={dadosAct?.detalhes?.especificacoes[0] ? dadosAct?.detalhes?.especificacoes[0] : ""} onChange={(evt) => { onChange(evt); }} />
                             <Button className={style.btn_apagar}>
                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                             </Button>
@@ -122,7 +144,7 @@ const CardFormProds = ({ dadosAct }) => {
                     <div className={style.caixa}>
                         <div className={style.area_esp}>
                             <label>Outras imagens</label>
-                            <Button className={style.btn_mens} onClick={() => { }}>
+                            <Button className={style.btn_add_campo} onClick={() => { }}>
                                 <>
                                     <Img src={Mais} alt={"Ícone de mais"} className={style.icone_input_tell} />
                                     <p>
@@ -147,17 +169,27 @@ const CardFormProds = ({ dadosAct }) => {
                                     <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                 </Button>
                             </div>
-                            <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={dadosAct?.detalhes.srcDetalhes[0].alt ? dadosAct?.detalhes.srcDetalhes[0].alt : ""} />
+                            <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={dadosAct?.detalhes.srcDetalhes[0].alt ? dadosAct?.detalhes.srcDetalhes[0].alt : ""} onChange={(evt) => { onChange(evt); }} />
                         </div>
                     </div>
                 </div>
                 <div className={style.area_btn_enviar}>
-                    <Button className={style.btn_enviar} onClick={() => { }} >
-                        <>
-                            <p>Guardar</p>
-                            <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
-                        </>
-                    </Button>
+                    {tipo ? (
+                        <Button className={style.btn_enviar} onClick={() => { }} >
+                            <>
+                                <p>Actualizar</p>
+                                <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
+                            </>
+                        </Button>
+                    ) : (
+                        <Button className={style.btn_enviar} onClick={() => { }} >
+                            <>
+                                <p>Guardar</p>
+                                <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
+                            </>
+                        </Button>
+                    )
+                    }
                 </div>
             </form>
         </ContainerDiv>
