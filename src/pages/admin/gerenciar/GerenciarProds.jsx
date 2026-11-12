@@ -1,7 +1,7 @@
+import styles from './GerenciarProds.module.css';
 import { useState } from 'react';
 import CardActProds from '../../../components/cards/CardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
-import styles from './GerenciarProds.module.css';
 import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 
