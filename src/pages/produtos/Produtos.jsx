@@ -1,8 +1,8 @@
+import style from "./Produtos.module.css";
 import { useEffect, useState } from "react";
 import CardProdutos from "../../components/cards/CardProduto/CardProduto";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
-import style from "./Produtos.module.css";
 import Button from "../../components/button/Button";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 import Img from "../../components/img/Img";
@@ -91,18 +91,16 @@ const Produtos = () => {
                         <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                     </div>
                 </div>
-                <div className={style.area_coltrol_exib}>
-                    <Button children={
-                        <Img src={SetaCima} alt={"Ícone de seta par cima"} className={style.icones_btn_control} />
-                    } onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
-                    <Button children={
-                        <Img src={SetaBaixo} alt={"Ícone de seta par baixo"} className={style.icones_btn_control} />
-                    } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
-                </div>
             </ContainerDiv>
-            {showDetalhes && (
-                <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
-            )}
+            <div className={style.area_coltrol_exib}>
+                <Button children={
+                    <Img src={SetaCima} alt={"Ícone de seta par cima"} className={style.icones_btn_control} />
+                } onClick={() => { onClickMudarGrupo(0) }} className={style.btn_cont} />
+                <Button children={
+                    <Img src={SetaBaixo} alt={"Ícone de seta par baixo"} className={style.icones_btn_control} />
+                } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
+            </div>
+            <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
         </>
     )
 }

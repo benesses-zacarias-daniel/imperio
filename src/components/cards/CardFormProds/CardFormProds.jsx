@@ -38,25 +38,42 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
     const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 1000);
     const [bagde, setBagde] = useState(dadosAct?.bagde ? dadosAct?.bagde : "");
+    const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes ? dadosAct?.detalhes?.especificacoes : []);
+    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : []);
+    //Funções
     const onChange = (val) => {
         console.log(val);
 
     };
+
     const onChangeNome = (val) => {
         console.log(val);
-        val.target.value = val.target.value;
         setNome(val.target.value)
     };
+
     const onChangePreco = (val) => {
         console.log(val);
-        val.target.value = val.target.value;
         setPreco(val.target.value)
     };
+
     const onChangeBagde = (val) => {
         console.log(val);
-        val.target.value = val.target.value;
         setBagde(val.target.value)
     };
+
+    const onChangeEspecificacoes = (val) => {
+        console.log(val);
+        // setEspecificacoes(val.target.value)
+    };
+
+    const onChangeSrcDetalhes = (val) => {
+        console.log(val);
+        // setSrcDetalhes(val.target.value)
+    };
+
+    console.log(srcDetalhes);
+
+
     return (
         <ContainerDiv className={style.container_prods}>
             <form className={style.form_prods}>
@@ -133,12 +150,18 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 </>
                             </Button>
                         </div>
-                        <div className={style.area_control_esp}>
-                            <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={dadosAct?.detalhes?.especificacoes[0] ? dadosAct?.detalhes?.especificacoes[0] : ""} onChange={(evt) => { onChange(evt); }} />
-                            <Button className={style.btn_apagar}>
-                                <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
-                            </Button>
-                        </div>
+                        {
+                            especificacoes.map((especificao, pos) => {
+                                return (
+                                    <div className={style.area_control_esp} key={pos}>
+                                        <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(evt); }} />
+                                        <Button className={style.btn_apagar} onClick={() => { }}>
+                                            <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
+                                        </Button>
+                                    </div>
+                                );
+                            })
+                        }
                     </div>
                     {/* ----- OUTRAS IMAGENS ----- */}
                     <div className={style.caixa}>
@@ -154,23 +177,28 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             </Button>
                         </div>
                         {/* Esta linha é repetida para cada imagem */}
-                        <div className={style.container_ot_img}>
-                            <div className={style.area_control_esp}>
-                                <div className="area_imp_ou">
-                                    <label htmlFor="img_min" className={style.label_img_outras}>
-                                        <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
-                                        <p>Clique para carregar</p>
-                                    </label>
-                                    <div className={style.area_ocultar_input}>
-                                        <input type="file" id="img_min" accept="image/*" className={style.input_exp} />
+                        {srcDetalhes.map((srcDetalhe) => {
+                            return (
+                                <div className={style.container_ot_img} key={srcDetalhe.id}>
+                                    <div className={style.area_control_esp}>
+                                        <div className={style.area_imp_ou}>
+                                            <label htmlFor={`img_min_${srcDetalhe.id}`} className={style.label_img_outras}>
+                                                <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
+                                                <p>Clique para carregar</p>
+                                            </label>
+                                            <div className={style.area_ocultar_input}>
+                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
+                                            </div>
+                                        </div>
+                                        <Button className={style.btn_apagar}>
+                                            <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
+                                        </Button>
                                     </div>
+                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
                                 </div>
-                                <Button className={style.btn_apagar}>
-                                    <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
-                                </Button>
-                            </div>
-                            <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={dadosAct?.detalhes.srcDetalhes[0].alt ? dadosAct?.detalhes.srcDetalhes[0].alt : ""} onChange={(evt) => { onChange(evt); }} />
-                        </div>
+                            );
+                        })
+                        }
                     </div>
                 </div>
                 <div className={style.area_btn_enviar}>

@@ -73,7 +73,7 @@ const GerenciarProds = () => {
                     "Sintonizador digital"]
             }
         }, {
-            "id": 5,
+            "id": 3,
             "nome": "Televisão LED",
             "preco": 18900,
             "bagde": "",
@@ -104,6 +104,263 @@ const GerenciarProds = () => {
                     "Sintonizador digital",
                     "Colunas integradas",
                     "Comando à distância"
+                ]
+            }
+        }, {
+            "id": 4,
+            "nome": "Smart TV",
+            "preco": 32000,
+            "bagde": "Destaque",
+            "limit": 4,
+            "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
+            "src": "/img/tv04.jpeg",
+            "alt": "Imagem de Smart TV",
+            "categorias": "tv",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/tv04.jpeg",
+                        "srcThumb": "/img/tv04.jpeg",
+                        "alt": "Smart TV",
+                        "localizacao": "Smart TV"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/tv01.jpeg",
+                        "srcThumb": "/img/tv01.jpeg",
+                        "alt": "Televisão LED",
+                        "localizacao": "Televisão LED"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/tv02.jpeg",
+                        "srcThumb": "/img/tv02.jpeg",
+                        "alt": "Televisão LED Slim",
+                        "localizacao": "Televisão LED Slim"
+                    }
+                ],
+                "especificacoes": [
+                    "Ecrã LED de alta resolução",
+                    "Aplicações de streaming",
+                    "Wi-Fi integrado",
+                    "Entradas HDMI e USB",
+                    "Comando à distância"
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "nome": "Batedeira de Bancada",
+            "preco": 5200,
+            "bagde": "Novo",
+            "limit": 10,
+            "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
+            "src": "/img/electrodomesticos01.jpeg",
+            "alt": "Imagem de Batedeira de Bancada",
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/electrodomesticos01.jpeg",
+                        "srcThumb": "/img/electrodomesticos01.jpeg",
+                        "alt": "Batedeira de Bancada",
+                        "localizacao": "Batedeira de Bancada"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/electrodomesticos02.jpeg",
+                        "srcThumb": "/img/electrodomesticos02.jpeg",
+                        "alt": "Fogão com Forno",
+                        "localizacao": "Fogão com Forno"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/electrodomesticos03.jpeg",
+                        "srcThumb": "/img/electrodomesticos03.jpeg",
+                        "alt": "Ferro de Engomar",
+                        "localizacao": "Ferro de Engomar"
+                    }
+                ],
+                "especificacoes": [
+                    "Taça em aço inoxidável",
+                    "Várias velocidades de batimento",
+                    "Inclui batedor, gancho e globo",
+                    "Base antiderrapante",
+                    "Fácil de limpar"
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "nome": "Fogão com Forno",
+            "preco": 21000,
+            "bagde": "",
+            "limit": 5,
+            "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
+            "src": "/img/electrodomesticos02.jpeg",
+            "alt": "Imagem de Fogão com Forno",
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/electrodomesticos02.jpeg",
+                        "srcThumb": "/img/electrodomesticos02.jpeg",
+                        "alt": "Fogão com Forno",
+                        "localizacao": "Fogão com Forno"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/electrodomesticos03.jpeg",
+                        "srcThumb": "/img/electrodomesticos03.jpeg",
+                        "alt": "Ferro de Engomar",
+                        "localizacao": "Ferro de Engomar"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/electrodomesticos04.jpeg",
+                        "srcThumb": "/img/electrodomesticos04.jpeg",
+                        "alt": "Torradeira",
+                        "localizacao": "Torradeira"
+                    }
+                ],
+                "especificacoes": [
+                    "Forno integrado",
+                    "Queimadores com acendimento automático",
+                    "Porta de vidro temperado",
+                    "Termóstato regulável",
+                    "Estrutura em aço inoxidável"
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "nome": "Ferro de Engomar",
+            "preco": 1500,
+            "bagde": "Promoção",
+            "limit": 25,
+            "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
+            "src": "/img/electrodomesticos03.jpeg",
+            "alt": "Imagem de Ferro de Engomar",
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/electrodomesticos03.jpeg",
+                        "srcThumb": "/img/electrodomesticos03.jpeg",
+                        "alt": "Ferro de Engomar",
+                        "localizacao": "Ferro de Engomar"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/electrodomesticos04.jpeg",
+                        "srcThumb": "/img/electrodomesticos04.jpeg",
+                        "alt": "Torradeira",
+                        "localizacao": "Torradeira"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/electrodomesticos01.jpeg",
+                        "srcThumb": "/img/electrodomesticos01.jpeg",
+                        "alt": "Batedeira de Bancada",
+                        "localizacao": "Batedeira de Bancada"
+                    }
+                ],
+                "especificacoes": [
+                    "Base antiaderente",
+                    "Temperatura regulável",
+                    "Função vapor",
+                    "Cabo ergonómico",
+                    "Depósito de água"
+                ]
+            }
+        },
+        {
+            "id": 8,
+            "nome": "Torradeira",
+            "preco": 2300,
+            "bagde": "",
+            "limit": 12,
+            "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
+            "src": "/img/electrodomesticos04.jpeg",
+            "alt": "Imagem de Torradeira",
+            "categorias": "electro",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/electrodomesticos04.jpeg",
+                        "srcThumb": "/img/electrodomesticos04.jpeg",
+                        "alt": "Torradeira",
+                        "localizacao": "Torradeira"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/electrodomesticos01.jpeg",
+                        "srcThumb": "/img/electrodomesticos01.jpeg",
+                        "alt": "Batedeira de Bancada",
+                        "localizacao": "Batedeira de Bancada"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/electrodomesticos02.jpeg",
+                        "srcThumb": "/img/electrodomesticos02.jpeg",
+                        "alt": "Fogão com Forno",
+                        "localizacao": "Fogão com Forno"
+                    }
+                ],
+                "especificacoes": [
+                    "Ranhuras largas",
+                    "Vários níveis de tostagem",
+                    "Função descongelar",
+                    "Bandeja de migalhas removível",
+                    "Corpo em aço inoxidável"
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "nome": "Portátil",
+            "preco": 28500,
+            "bagde": "Ultra Rápido",
+            "limit": 7,
+            "desc": "Portátil leve e rápido para estudo e trabalho.",
+            "src": "/img/pc.jpg",
+            "alt": "Imagem de Portátil",
+            "categorias": "pc",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "/img/pc.jpg",
+                        "srcThumb": "/img/pc.jpg",
+                        "alt": "Portátil",
+                        "localizacao": "Portátil"
+                    },
+                    {
+                        "id": 2,
+                        "srcDet": "/img/pc01.jpeg",
+                        "srcThumb": "/img/pc01.jpeg",
+                        "alt": "PC Gamer",
+                        "localizacao": "PC Gamer"
+                    },
+                    {
+                        "id": 3,
+                        "srcDet": "/img/pc02.jpeg",
+                        "srcThumb": "/img/pc02.jpeg",
+                        "alt": "Portátil Gamer",
+                        "localizacao": "Portátil Gamer"
+                    }
+                ],
+                "especificacoes": [
+                    "Ecrã LED",
+                    "Processador multinúcleo",
+                    "Memória RAM e disco SSD",
+                    "Teclado e touchpad",
+                    "Bateria recarregável e Wi-Fi"
                 ]
             }
         }

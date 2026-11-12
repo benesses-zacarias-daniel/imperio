@@ -1,5 +1,5 @@
-import { useState } from "react";
 import style from "./Home.module.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
@@ -111,9 +111,7 @@ const Home = () => {
                 </ContainerDiv>
                 <ContactarGrupo />
             </ContainerDiv>
-            {showDetalhes && (
-                <CardDetalhes dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
-            )}
+            <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
         </>
     )
 }

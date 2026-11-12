@@ -8,7 +8,10 @@ import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 import RemoverItem from "../../../assets/icons/delete.svg";
 import useContextCarrinho from "../../../hooks/useContextCarrinho";
 
-const CardDetalhes = ({ onClickOcult, dados }) => {
+const CardDetalhes = ({ onClickOcult, dados, showDetalhes = false }) => {
+    if (!showDetalhes) {
+        return null;
+    }
     const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarrinho();
     //Dados detalhados
     const detalhes = dados[0].detalhes;
@@ -29,6 +32,7 @@ const CardDetalhes = ({ onClickOcult, dados }) => {
         }, 700);
         setFade(true);
     }
+
     return (
         <div className={`${style.container_detalhes} ${fade ? style.ocultarCard : ""}`}>
             <div className={`${style.area_conteudo_detalhes} ${fade ? style.ocultarCard : ""}`}>

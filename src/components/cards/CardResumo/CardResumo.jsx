@@ -7,7 +7,10 @@ import FecharResumo from "../../../assets/icons/fexar_detalhes.svg";
 import useContextCarrinho from "../../../hooks/useContextCarrinho";
 import { useState } from "react";
 
-const CardResumo = ({ showResumo }) => {
+const CardResumo = ({ showResumo, onClickOcultarR = () => { } }) => {
+    if (!showResumo) {
+        return null;
+    }
     const { onClickMensagemFinalizarCompra, onClickSubTotal, onClickTotal, limparNavegador } = useContextCarrinho();
     const numero = "849754315", mens = onClickMensagemFinalizarCompra();
     const linkWhatsApp = `https://wa.me/${numero}?text=${mens}`;
@@ -15,7 +18,7 @@ const CardResumo = ({ showResumo }) => {
 
     const onClickOcultarResumo = () => {
         setTimeout(() => {
-            showResumo(false);
+            onClickOcultarR(false);
             setFade(false);
         }, 500)
         setFade(true);
