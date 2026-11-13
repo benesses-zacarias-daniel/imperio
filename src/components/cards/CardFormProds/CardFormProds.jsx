@@ -19,7 +19,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
             "opcoes": [
                 {
                     "id": 1,
-                    "cat": "SmatPhones",
+                    "cat": "SmartPhones",
                     "value": "smartphone"
                 }, {
                     "id": 2,
@@ -40,13 +40,16 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
     const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : "");
     const [badge, setBadge] = useState(dadosAct?.badge ? dadosAct?.badge : "");
+    const [desc, setDesc] = useState(dadosAct?.desc ? dadosAct?.desc : "");
+    const [src, setSrc] = useState(dadosAct?.src ? dadosAct?.src : "");
+    const [alt, setAlt] = useState(dadosAct?.alt ? dadosAct?.alt : "");
     const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
     const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcThumb: "", alt: "", badge: "" }]);
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : "");
     //Funções
-    const onChange = (val) => {
+    const onChangeTextarea = (val) => {
         console.log(val);
-
+        setDesc(val);
     };
 
     const onChangeNome = (val) => {
@@ -78,23 +81,39 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         });
     };
 
-    const onChangeSrcDetalhes = (pos, val) => {
+    const onChangeSrc = (pos, val, tipo) => {
         console.log(val);
-        setSrcDetalhes((prevImgs) => {
+        if (tipo === 1) {
+            setSrcDetalhes((prevImgs) => {
+                const novasImgs = [...prevImgs]
+                novasImgs[pos] = val;
+                return novasImgs;
+            });
+            return;
+        }
+
+        setSrc((prevImgs) => {
             const novasImgs = [...prevImgs]
             novasImgs[pos] = val;
             return novasImgs;
-        });
+        })
+
     };
 
-    const onChangeAltImgsDetalhes = (pos, val) => {
+    const onChangeAltImgs = (pos, val, tipo) => {
         console.log(val);
-        setSrcDetalhes((prevImgs) => {
-            const novasImgs = [...prevImgs]
-            novasImgs[pos].alt = val;
-            novasImgs[pos].badge = val;
-            return novasImgs;
-        });
+        if (tipo === 0) {
+            setSrcDetalhes((prevImgs) => {
+                const novasImgs = [...prevImgs]
+                novasImgs[pos].alt = val;
+                novasImgs[pos].badge = val;
+                return novasImgs;
+            });
+            return;
+        }
+
+        setAlt(val);
+
     };
 
     const onClickRemoverEsp = (posEsp) => {
@@ -112,8 +131,45 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     };
 
     const onClickAdicionarImgDetalhes = () => {
-
         setSrcDetalhes([...srcDetalhes, { id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
+    };
+
+    const onClickPublicar = () => {
+        const objDados = {
+            nome: nome,
+            preco: preco,
+            badge: badge,
+            desc: desc,
+            src: src,
+            alt: alt,
+            categorias: categorias,
+            detalhes: {
+                srcDetalhes: [{ id: crypto.randomUUID(), srcDet: src, alt: alt, srcThumb: src }, ...srcDetalhes],
+                especificoes: [...especificacoes]
+            }
+        };
+
+        localStorage.setItem("prodsGeren", JSON.stringify(objDados));
+    };
+
+    const onClickSalvarAlteracoes = (idProd) => {
+        const novosDados = {
+            id: idProd,
+            nome: nome,
+            preco: preco,
+            badge: badge,
+            desc: desc,
+            src: src,
+            alt: alt,
+            categorias: categorias,
+            detalhes: {
+                srcDetalhes: [{ id: crypto.randomUUID(), srcDet: src, alt: alt, srcThumb: src }, ...srcDetalhes],
+                especificoes: [...especificacoes]
+            }
+        }
+
+        const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
+        localStorage.setItem("prodsGeren", JSON.stringify(dados));
     };
 
     return (
@@ -160,7 +216,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 Descrição
                             </label>
                         </div>
-                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={dadosAct?.desc ? dadosAct?.desc : ""} onChange={(evt) => { onChange(evt); }} />
+                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={desc} onChange={(evt) => { onChangeTextarea(evt.target.value); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -176,14 +232,13 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
                         <div className={style.area_ocultar_input}>
-                            <input type={"file"} id="img_prods" placeholder={""} className={style.input_imagem} accept="image/*" />
+                            <input type={"file"} id="img_prods" placeholder={""} className={style.input_imagem} accept="image/*" onChange={(evt) => { onChangeSrc(1, evt.target.value, 1) }} />
                         </div>
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={dadosAct?.alt ? dadosAct?.alt : ""} onChange={(evt) => { onChange(evt); }} />
+                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={alt} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 1); }} />
                     </div>
-                    {/* ----- ESPECIFICAÇÕES ----- */}
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
                             <label>Especificações</label>
@@ -209,7 +264,6 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             })
                         }
                     </div>
-                    {/* ----- OUTRAS IMAGENS ----- */}
                     <div className={style.caixa}>
                         <div className={style.area_esp}>
                             <label>Outras imagens</label>
@@ -237,14 +291,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                                 )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
-                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(pos, evt.target.value); }} />
+                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrc(pos, evt.target.value, 0); }} />
                                             </div>
                                         </div>
                                         <Button className={style.btn_apagar} onClick={() => { onClickRemoverOutrsImg(pos) }}>
                                             <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                         </Button>
                                     </div>
-                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgsDetalhes(pos, evt.target.value); }} />
+                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt.target.value, 0); }} />
                                 </div>
                             );
                         })
@@ -253,14 +307,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 </div>
                 <div className={style.area_btn_acao_form}>
                     {tipo ? (
-                        <Button className={style.btn_actualizar} onClick={() => { }} >
+                        <Button className={style.btn_actualizar} onClick={() => { onClickSalvarAlteracoes(dadosAct.id) }} >
                             <>
                                 <p>Salvar Alterações</p>
                                 <Img src={Guardar} alt={"Ícone de salvar arquivo"} className={style.icone_input_tell} />
                             </>
                         </Button>
                     ) : (
-                        <Button className={style.btn_publicar} onClick={() => { }} >
+                        <Button className={style.btn_publicar} onClick={() => { onClickPublicar(); }} >
                             <>
                                 <p>Publicar</p>
                                 <Img src={Publicar} alt={"Ícone de upload"} className={style.icone_input_tell} />

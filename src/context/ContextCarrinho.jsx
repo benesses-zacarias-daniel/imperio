@@ -101,22 +101,8 @@ const ContextCarinhoProvider = ({ children }) => {
         return mensagem;
     };
 
-    // useEffect(() => {
-    //     const dadosItens = JSON.parse(localStorage.getItem("productos")) || []
-    //     console.log(dadosItens);
-
-    //     if (dadosItens.length > 0) {
-
-    //         setItens(dadosItens);
-    //         return;
-    //     }
-
-    //     localStorage.setItem("productos", JSON.stringify(dadosItens));
-    // }, [])
-
     useEffect(() => {
         localStorage.setItem("productos", JSON.stringify(itens));
-        // salvarNoNavegador(itens)
     }, [itens])
 
 

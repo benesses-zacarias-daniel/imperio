@@ -64,7 +64,7 @@ const Anunciar = () => {
                 "value": "todas"
             }, {
                 "id": 2,
-                "cat": "SmatPhones",
+                "cat": "SmartPhones",
                 "value": "smartphones"
             }, {
                 "id": 3,

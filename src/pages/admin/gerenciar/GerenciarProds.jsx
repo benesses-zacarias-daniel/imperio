@@ -1,5 +1,5 @@
 import styles from './GerenciarProds.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardActProds from '../../../components/cards/CardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
 import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
@@ -367,7 +367,13 @@ const GerenciarProds = () => {
             }
         }
     ];
-    const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
+
+    const [dadosFiltrados, setDadosFiltrados] = useState(() => {
+
+        const itensSalvos = localStorage.getItem("prodsGeren");
+
+        return itensSalvos ? JSON.parse(itensSalvos) || [] : [];
+    });
 
     const onClickControlModal = (val) => {
         setModalAberto(val);
@@ -385,6 +391,10 @@ const GerenciarProds = () => {
             setDadosFiltrados(ItensTeste);
         }
     };
+
+    useEffect(() => {
+        localStorage.setItem("prodsGeren", JSON.stringify(ItensTeste));
+    }, []);
 
     return (
         <>
