@@ -71,12 +71,31 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
 
     const onChangeEspecificacoes = (val) => {
         console.log(val);
-        // setEspecificacoes(val.target.value)
+        setEspecificacoes([...especificacoes, val]);
     };
 
     const onChangeSrcDetalhes = (val) => {
         console.log(val);
-        // setSrcDetalhes(val.target.value)
+        setSrcDetalhes([...srcDetalhes, val]);
+    };
+
+    const onClickRemoverEsp = (posEsp) => {
+        const novasEsp = especificacoes.filter((esp, pos) => pos !== posEsp);
+        setEspecificacoes([...novasEsp]);
+    };
+
+    const onClickRemoverOutrsImg = (posImp) => {
+        const novasImgs = srcDetalhes.filter((imgDet, pos) => pos !== posImp);
+        setSrcDetalhes([...novasImgs]);
+    };
+
+    const onClickAdicionarEsps = () => {
+        setEspecificacoes([...especificacoes, ""]);
+    };
+
+    const onClickAdicionarImgDetalhes = () => {
+
+        setSrcDetalhes([...srcDetalhes, { id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
     };
 
     console.log(srcDetalhes);
@@ -84,7 +103,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <form className={style.form_prods}>
+            <div className={style.form_prods}> {/*Depois devolvo o form*/}
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -153,7 +172,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
                             <label>Especificações</label>
-                            <Button className={style.btn_add_campo} onClick={() => { }}>
+                            <Button className={style.btn_add_campo} onClick={() => { onClickAdicionarEsps() }}>
                                 <>
                                     <Img src={Mais} alt={"Ícone de mais"} className={style.icone_input_tell} />
                                     <p>
@@ -167,7 +186,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 return (
                                     <div className={style.area_control_esp} key={pos}>
                                         <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(evt); }} />
-                                        <Button className={style.btn_apagar} onClick={() => { }}>
+                                        <Button className={style.btn_apagar} onClick={() => { onClickRemoverEsp(pos); }}>
                                             <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                         </Button>
                                     </div>
@@ -179,7 +198,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                     <div className={style.caixa}>
                         <div className={style.area_esp}>
                             <label>Outras imagens</label>
-                            <Button className={style.btn_add_campo} onClick={() => { }}>
+                            <Button className={style.btn_add_campo} onClick={() => { onClickAdicionarImgDetalhes() }}>
                                 <>
                                     <Img src={Mais} alt={"Ícone de mais"} className={style.icone_input_tell} />
                                     <p>
@@ -189,7 +208,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             </Button>
                         </div>
                         {/* Esta linha é repetida para cada imagem */}
-                        {srcDetalhes.map((srcDetalhe) => {
+                        {srcDetalhes.map((srcDetalhe, pos) => {
                             return (
                                 <div className={style.container_ot_img} key={srcDetalhe.id}>
                                     <div className={style.area_control_esp}>
@@ -206,7 +225,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                                 <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
                                             </div>
                                         </div>
-                                        <Button className={style.btn_apagar}>
+                                        <Button className={style.btn_apagar} onClick={() => { onClickRemoverOutrsImg(pos) }}>
                                             <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                         </Button>
                                     </div>
@@ -235,7 +254,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                     )
                     }
                 </div>
-            </form>
+            </div >
         </ContainerDiv>
     );
 }

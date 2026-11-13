@@ -4,6 +4,8 @@ import CardActProds from '../../../components/cards/CardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
 import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
+import Filtros from "../../../components/productos/Filtros";
+import Categorias from "../../../components/data/Categorias.json";
 
 const GerenciarProds = () => {
     const [modalAberto, setModalAberto] = useState(false);
@@ -365,22 +367,32 @@ const GerenciarProds = () => {
             }
         }
     ];
+    const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
     const onClickControlModal = (val) => {
         setModalAberto(val);
-    }
+    };
 
     const onClickMostrarModal = (idProd) => {
         setDadosModal(ItensTeste.find((Prod) => Prod.id === idProd));
         onClickControlModal(true);
-    }
+    };
+
+    const onChangeFiltros = (categoria) => {
+        if (categoria !== "todas") {
+            setDadosFiltrados(ItensTeste.filter((iten) => iten.categorias === categoria));
+        } else {
+            setDadosFiltrados(ItensTeste);
+        }
+    };
 
     return (
         <>
+            <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
             <h2 className={styles.titulo_geren}>Gerir produtos</h2>
             <ContainerDiv className={styles.area_cont_geren}>
                 <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
-                <CardProdGeren ItensGeren={ItensTeste} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
+                <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
             </ContainerDiv>
         </>
     );

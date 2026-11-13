@@ -98,7 +98,7 @@
     height: 28px;
     font-weight: 800;
     color: var(--texto_principal);
-    background-color: var(--dourado_secundario);
+    background-color: var(--dourado_principal);
     border-radius: 10px;
 }
 

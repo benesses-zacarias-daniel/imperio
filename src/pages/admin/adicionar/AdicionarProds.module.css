@@ -26,6 +26,6 @@
 .titulo_add {
     width: 100%;
     text-align: center;
-    padding: 0px 0px 8px 0px;
+    padding: 10px 0px 8px 0px;
     color: var(--dourado_secundario);
 }
