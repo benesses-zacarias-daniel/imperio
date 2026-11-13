@@ -69,9 +69,13 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         setCategorias(val)
     };
 
-    const onChangeEspecificacoes = (val) => {
+    const onChangeEspecificacoes = (pos, val) => {
         console.log(val);
-        setEspecificacoes([...especificacoes, val]);
+        setEspecificacoes((prevEsp) => {
+            const novasImgs = [...prevEsp]
+            novasImgs[pos] = val;
+            return novasImgs;
+        });
     };
 
     const onChangeSrcDetalhes = (val) => {
@@ -185,7 +189,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             especificacoes.map((especificao, pos) => {
                                 return (
                                     <div className={style.area_control_esp} key={pos}>
-                                        <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(evt); }} />
+                                        <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(pos, evt.target.value); }} />
                                         <Button className={style.btn_apagar} onClick={() => { onClickRemoverEsp(pos); }}>
                                             <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                         </Button>
