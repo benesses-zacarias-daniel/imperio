@@ -28,6 +28,11 @@
     padding: 5px 0px 5px 0px;
 }
 
+.icone_mens {
+    padding: 2px 0px 0px 0px;
+    transform: rotate(-10deg);
+}
+
 .info {
     width: 100%;
     padding: 5px 0px 5px 0px;

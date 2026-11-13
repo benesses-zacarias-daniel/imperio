@@ -1,7 +1,7 @@
+import style from "./Mensagens.module.css";
 import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
-import style from "./Mensagens.module.css";
 
 const Mensagens = ({ Mensagens }) => {
 

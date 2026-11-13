@@ -1,6 +1,5 @@
-import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import style from "./Sobre.module.css";
-import Img from "../../components/img/Img";
+import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 //Ícones Categorias
 import Velocidade from "../../assets/icons/veloc.svg"
@@ -10,9 +9,6 @@ import EstrelaCircular from "../../assets/icons/estrelaCircular.svg"
 import Suporte from "../../assets/icons/suporte.svg"
 import EstrelaVerificada from "../../assets/icons/estrelaVerif.svg"
 import Eficiente from "../../assets/icons/eficiente.svg"
-//
-// import Porque from "../../components/productos/escolha/Porque";
-// import CardValores from "../../components/cards/cardValores/CardVisaoMissao";
 import CardVisaoMissao from "../../components/cards/cardValores/CardVisaoMissao";
 
 const Sobre = () => {

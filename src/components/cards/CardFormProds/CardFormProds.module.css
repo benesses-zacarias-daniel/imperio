@@ -3,7 +3,7 @@
 .container_camp,
 .area_input_anun,
 .area_input_img,
-.area_btn_enviar,
+.area_btn_acao_form,
 .area_esp,
 .area_control_esp,
 .caixa,
@@ -127,7 +127,8 @@
 
 .btn_add_campo,
 .btn_apagar,
-.btn_enviar {
+.btn_publicar,
+.btn_actualizar {
     border-radius: 8px;
     height: 30px;
 }
@@ -152,18 +153,23 @@
     width: 295px;
 }
 
-.area_btn_enviar {
+.area_btn_acao_form {
     width: 100%;
     height: 50px;
     padding: 10px 0px 0px 0px;
 }
 
-.btn_enviar {
+.btn_publicar,
+.btn_actualizar {
     height: 33px;
     width: 100px;
     background-color: var(--dourado_principal);
     color: var(--texto_principal);
     font-weight: 800;
+}
+
+.btn_actualizar {
+    width: 150px;
 }
 
 .btn_add_campo {

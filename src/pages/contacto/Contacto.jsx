@@ -7,7 +7,7 @@ import WhatsApp from "../../assets/icons/whatsappA.svg";
 import Periodo from "../../assets/icons/periodo.svg";
 import Informacoes from "../../components/contacto/infos/Informacoes";
 import Mensagens from "../../components/contacto/mens/Mensagens";
-import Enviar from "../../assets/icons/publicar.svg"
+import Enviar from "../../assets/icons/enviarMens.svg"
 
 const Contacto = () => {
     const InformacoesDirectas = [{

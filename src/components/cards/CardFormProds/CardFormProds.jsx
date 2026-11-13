@@ -6,6 +6,7 @@ import Button from '../../button/Button';
 import Upload from "../../../assets/icons/enviar.svg";
 import Mais from "../../../assets/icons/maisB.svg";
 import Remover from "../../../assets/icons/delete.svg";
+import Guardar from "../../../assets/icons/guardar.svg";
 import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
 
@@ -216,19 +217,19 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         }
                     </div>
                 </div>
-                <div className={style.area_btn_enviar}>
+                <div className={style.area_btn_acao_form}>
                     {tipo ? (
-                        <Button className={style.btn_enviar} onClick={() => { }} >
+                        <Button className={style.btn_actualizar} onClick={() => { }} >
                             <>
-                                <p>Actualizar</p>
-                                <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
+                                <p>Salvar Alterações</p>
+                                <Img src={Guardar} alt={"Ícone de salvar arquivo"} className={style.icone_input_tell} />
                             </>
                         </Button>
                     ) : (
-                        <Button className={style.btn_enviar} onClick={() => { }} >
+                        <Button className={style.btn_publicar} onClick={() => { }} >
                             <>
-                                <p>Guardar</p>
-                                <Img src={Publicar} alt={"Ícone de envio"} className={style.icone_input_tell} />
+                                <p>Publicar</p>
+                                <Img src={Publicar} alt={"Ícone de upload"} className={style.icone_input_tell} />
                             </>
                         </Button>
                     )

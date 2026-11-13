@@ -5,15 +5,15 @@ import Button from "../../button/Button";
 import Img from "../../img/Img";
 
 import scrollCima from "../../../utils/scrollCima";
-
+//
 import Home from "../../../assets/icons/casa.svg";
-import Productos from "../../../assets/icons/produto.svg";
-
+import Dashboard from "../../../assets/icons/dashboard.svg";
+import BancoDados from "../../../assets/icons/bancoDados.svg";
 // import Fexar from "../../../assets/icons/fexarMenu.svg";
 
 //Ícones de foco
-import HomeActiva from "../../../assets/icons/casaL.svg";
-import ProductosActiva from "../../../assets/icons/produtoL.svg";
+import DashboardActiva from "../../../assets/icons/dashboardA.svg";
+import BancoDadosActiva from "../../../assets/icons/bancoDadosA.svg";
 
 
 const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
@@ -56,13 +56,14 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                     <div className={style.nome}>
                                         Imperial Admin
                                     </div>
+                                    <span className={style.min_desc}>Seu painal administrativo</span>
                                 </div>
                             </div>)}
                         <div className={style.area_menu}>
                             <Link to={"/admin/adicionar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/adicionar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/adicionar") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/adicionar") ? DashboardActiva : Dashboard} alt={"Ícone de Casa"} className={style.img_menu} />
                                         )}
                                         <p>Adicionar Produtos</p>
                                     </>
@@ -75,7 +76,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                             <Link to={"/admin/gerenciar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/gerenciar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/gerenciar") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/gerenciar") ? BancoDadosActiva : BancoDados} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
                                         )}
                                         <p>Gerenciar Produtos</p>
                                     </>
