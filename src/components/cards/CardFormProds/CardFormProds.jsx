@@ -116,9 +116,6 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         setSrcDetalhes([...srcDetalhes, { id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
     };
 
-    console.log(srcDetalhes);
-
-
     return (
         <ContainerDiv className={style.container_prods}>
             <div className={style.form_prods}> {/*Depois devolvo o form*/}
@@ -139,7 +136,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
-                            Selecione a Categoria
+                            Selecione a Categoria :
                         </label>
                         <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value) }}>
                             {Opcoes[0].opcoes.map((cat) => {

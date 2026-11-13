@@ -6,7 +6,7 @@ const Filtros = ({ onChange, nome, id, categorias }) => {
         <ContainerDiv className={style.container_hero_prods}>
             <div className={style.container_conteudo}>
                 <div className={style.conteudo}>
-                    <p>Fitrar Por</p>
+                    <p>Fitrar Por : </p>
                     <select name={nome} id={id} className={style.select} onChange={(evt) => {
                         const catFilt = evt.target.value;
                         onChange(catFilt);

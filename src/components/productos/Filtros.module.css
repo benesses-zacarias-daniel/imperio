@@ -27,12 +27,7 @@
 
 .select {
     border-radius: 6px;
-    border: 1px solid rgba(255, 0, 0, 0);
-    /* background: var(--preto_claro); */
+    border: 0px solid transparent;
+    background: none;
     padding: 5px;
-}
-
-.opcao {
-    /* background: var(--alerta) !important; */
-    color: blue;
 }
