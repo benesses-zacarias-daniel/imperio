@@ -78,9 +78,23 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         });
     };
 
-    const onChangeSrcDetalhes = (val) => {
+    const onChangeSrcDetalhes = (pos, val) => {
         console.log(val);
-        setSrcDetalhes([...srcDetalhes, val]);
+        setSrcDetalhes((prevImgs) => {
+            const novasImgs = [...prevImgs]
+            novasImgs[pos] = val;
+            return novasImgs;
+        });
+    };
+
+    const onChangeAltImgsDetalhes = (pos, val) => {
+        console.log(val);
+        setSrcDetalhes((prevImgs) => {
+            const novasImgs = [...prevImgs]
+            novasImgs[pos].alt = val;
+            novasImgs[pos].badge = val;
+            return novasImgs;
+        });
     };
 
     const onClickRemoverEsp = (posEsp) => {
@@ -226,14 +240,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                                 )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
-                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
+                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrcDetalhes(pos, evt.target.value); }} />
                                             </div>
                                         </div>
                                         <Button className={style.btn_apagar} onClick={() => { onClickRemoverOutrsImg(pos) }}>
                                             <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                         </Button>
                                     </div>
-                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeSrcDetalhes(evt); }} />
+                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgsDetalhes(pos, evt.target.value); }} />
                                 </div>
                             );
                         })
