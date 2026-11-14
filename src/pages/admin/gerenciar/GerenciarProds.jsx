@@ -1,5 +1,5 @@
 import styles from './GerenciarProds.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import CardActProds from '../../../components/cards/CardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
 import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
@@ -368,12 +368,7 @@ const GerenciarProds = () => {
         }
     ];
 
-    const [dadosFiltrados, setDadosFiltrados] = useState(() => {
-
-        const itensSalvos = localStorage.getItem("prodsGeren");
-
-        return itensSalvos ? JSON.parse(itensSalvos) || [] : [];
-    });
+    const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
     const onClickControlModal = (val) => {
         setModalAberto(val);
@@ -392,17 +387,17 @@ const GerenciarProds = () => {
         }
     };
 
-    useEffect(() => {
-        localStorage.setItem("prodsGeren", JSON.stringify(ItensTeste));
-    }, []);
+    // useEffect(() => {
+    //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
+    // }, []);
 
     return (
         <>
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
             <h2 className={styles.titulo_geren}>Gerir produtos</h2>
             <ContainerDiv className={styles.area_cont_geren}>
-                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
                 <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
+                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
             </ContainerDiv>
         </>
     );

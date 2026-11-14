@@ -1,8 +1,8 @@
 import style from "./Button.module.css";
 
-const Button = ({ children, onClick, className }) => {
+const Button = ({ children, onClick, className, type = "button" }) => {
     return (
-        <button onClick={() => { onClick(); }} className={`${style.estilo_padrao} ${className}`}>
+        <button onClick={() => { onClick(); }} type={type} className={`${style.estilo_padrao} ${className}`}>
             {children}
         </button>
     )

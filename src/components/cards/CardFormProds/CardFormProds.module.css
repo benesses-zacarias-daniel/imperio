@@ -178,3 +178,8 @@
     color: var(--texto_principal);
     font-weight: 800;
 }
+
+.icone_input_tell {
+    width: 25px;
+    height: 25px;
+}

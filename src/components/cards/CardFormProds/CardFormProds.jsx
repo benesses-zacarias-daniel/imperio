@@ -9,13 +9,14 @@ import Remover from "../../../assets/icons/delete.svg";
 import Guardar from "../../../assets/icons/guardar.svg";
 import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
+import criarURLsImgs from '../../../utils/criarURLsImg';
 
 const CardFormProds = ({ dadosAct, tipo = false }) => {
     const Opcoes = [
         {
             "id": 1,
             "nome": "categorias",
-            "label": "Categoria",
+            "label": "Selecione a Categoria : ",
             "opcoes": [
                 {
                     "id": 1,
@@ -38,14 +39,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     ];
 
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
-    const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : "");
+    const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 0);
     const [badge, setBadge] = useState(dadosAct?.badge ? dadosAct?.badge : "");
     const [desc, setDesc] = useState(dadosAct?.desc ? dadosAct?.desc : "");
     const [src, setSrc] = useState(dadosAct?.src ? dadosAct?.src : "");
     const [alt, setAlt] = useState(dadosAct?.alt ? dadosAct?.alt : "");
     const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
-    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcThumb: "", alt: "", badge: "" }]);
-    const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : "");
+    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
+    const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
     //Funções
     const onChangeTextarea = (val) => {
         console.log(val);
@@ -82,38 +83,37 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     };
 
     const onChangeSrc = (pos, val, tipo) => {
-        console.log(val);
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
-                const novasImgs = [...prevImgs]
-                novasImgs[pos] = val;
-                return novasImgs;
+                const todasImgs = [...prevImgs]
+                todasImgs[pos] = {
+                    ...todasImgs[pos],
+                    srcDet: val,
+                    srcThumb: val
+                };
+                return todasImgs;
             });
             return;
         }
 
-        setSrc((prevImgs) => {
-            const novasImgs = [...prevImgs]
-            novasImgs[pos] = val;
-            return novasImgs;
-        })
+        setSrc(val);
 
     };
 
     const onChangeAltImgs = (pos, val, tipo) => {
         console.log(val);
-        if (tipo === 0) {
+        if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const novasImgs = [...prevImgs]
                 novasImgs[pos].alt = val;
                 novasImgs[pos].badge = val;
-                return novasImgs;
+                return [...novasImgs];
             });
+
             return;
         }
 
         setAlt(val);
-
     };
 
     const onClickRemoverEsp = (posEsp) => {
@@ -135,6 +135,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     };
 
     const onClickPublicar = () => {
+        const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
         const objDados = {
             nome: nome,
             preco: preco,
@@ -144,12 +145,12 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
             alt: alt,
             categorias: categorias,
             detalhes: {
-                srcDetalhes: [{ id: crypto.randomUUID(), srcDet: src, alt: alt, srcThumb: src }, ...srcDetalhes],
+                srcDetalhes: [{ ...srcDetalhes[0], srcDet: src, alt: alt, srcThumb: src }, ...ajusteSrC],
                 especificoes: [...especificacoes]
             }
         };
 
-        localStorage.setItem("prodsGeren", JSON.stringify(objDados));
+        console.log(objDados);
     };
 
     const onClickSalvarAlteracoes = (idProd) => {
@@ -167,14 +168,15 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 especificoes: [...especificacoes]
             }
         }
+        console.log(novosDados);
 
-        const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
-        localStorage.setItem("prodsGeren", JSON.stringify(dados));
+        // const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
+        // localStorage.setItem("prodsGeren", JSON.stringify(dados));
     };
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <div className={style.form_prods}> {/*Depois devolvo o form*/}
+            <form className={style.form_prods} onSubmit={() => { tipo ? () => { } : onClickSalvarAlteracoes(dadosAct.id) }}> {/*Depois devolvo o form*/}
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -182,24 +184,22 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 Nome do produto
                             </label>
                         </div>
-                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} />
+                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} required={true} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
                         </div>
-                        <input type="number" id="preco" placeholder="Ex: 25500" className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} />
+                        <input type="number" id="preco" placeholder={"Ex: 25500"} required={true} className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} />
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
-                            Selecione a Categoria :
+                            {Opcoes[0].label}
                         </label>
-                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value) }}>
+                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value) }} required={true}>
                             {Opcoes[0].opcoes.map((cat) => {
                                 return (
-                                    <option key={cat.id} value={cat.value} className={style.opcao} onClick={(evt) => {
-                                        console.log(evt.target.value);
-                                    }}>{cat.cat}</option>
+                                    <option key={cat.id} value={cat.value} className={style.opcao}>{cat.cat}</option>
                                 )
                             })}
                         </select>
@@ -208,7 +208,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <input type={"text"} id="badge" placeholder="Ex: Novo, Promoção" className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} />
+                        <input type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} required={true} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -216,14 +216,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 Descrição
                             </label>
                         </div>
-                        <textarea id="desc" className={style.campo_desc_prod} placeholder="Pequena descrição do produto..." value={desc} onChange={(evt) => { onChangeTextarea(evt.target.value); }} />
+                        <textarea id="desc" className={style.campo_desc_prod} placeholder={"Pequena descrição do produto..."} required={true} value={desc} onChange={(evt) => { onChangeTextarea(evt.target.value); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="img_prods">Imagem Principal</label>
                         </div>
                         <label className={style.lable_img} htmlFor="img_prods">
-                            <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
+                            <Img src={src ? src : Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
                             {tipo ? (
                                 <p>Clique para mudar a imagem</p>
                             ) : (
@@ -232,12 +232,15 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
                         <div className={style.area_ocultar_input}>
-                            <input type={"file"} id="img_prods" placeholder={""} className={style.input_imagem} accept="image/*" onChange={(evt) => { onChangeSrc(1, evt.target.value, 1) }} />
+                            <input type={"file"} id="img_prods" placeholder={""} hidden={true} className={style.input_imagem} accept="image/*" onChange={(evt) => {
+                                const img = criarURLsImgs(evt.target.files[0]);
+                                onChangeSrc(1, img, 0)
+                            }} />
                         </div>
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <input placeholder="Alt da imagem principal" type={"text"} id="altPrincipal" className={style.input_anun} value={alt} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 1); }} />
+                        <input placeholder={"Alt da imagem principal"} required={true} type={"text"} id="altPrincipal" className={style.input_anun} value={alt} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
@@ -255,10 +258,12 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             especificacoes.map((especificao, pos) => {
                                 return (
                                     <div className={style.area_control_esp} key={pos}>
-                                        <input type={"text"} placeholder="Ex: 128 GB" className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(pos, evt.target.value); }} />
-                                        <Button className={style.btn_apagar} onClick={() => { onClickRemoverEsp(pos); }}>
-                                            <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
-                                        </Button>
+                                        <input type={"text"} placeholder={"Ex: 128 GB"} required={true} className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(pos, evt.target.value); }} />
+                                        {especificacoes.length === 1 ? (null) : (
+                                            <Button className={style.btn_apagar} onClick={() => { onClickRemoverEsp(pos); }}>
+                                                <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
+                                            </Button>
+                                        )}
                                     </div>
                                 );
                             })
@@ -283,7 +288,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                     <div className={style.area_control_esp}>
                                         <div className={style.area_imp_ou}>
                                             <label htmlFor={`img_min_${srcDetalhe.id}`} className={style.label_img_outras}>
-                                                <Img src={Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
+                                                <Img src={srcDetalhe?.srcThumb ? srcDetalhe?.srcThumb : Upload} alt={"Ícone de upload (Núvem)"} className={style.icone_input_tell} />
                                                 {tipo ? (
                                                     <p>Clique para mudar a imagem</p>
                                                 ) : (
@@ -291,14 +296,18 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                                 )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
-                                                <input type="file" id={`img_min_${srcDetalhe.id}`} accept="image/*" className={style.input_exp} onChange={(evt) => { onChangeSrc(pos, evt.target.value, 0); }} />
+                                                <input type="file" id={`img_min_${srcDetalhe.id}`} hidden={true} accept="image/*" className={style.input_exp} onChange={(evt) => {
+                                                    const img = criarURLsImgs(evt.target.files[0]);
+                                                    onChangeSrc(pos, img, 1);
+                                                }} />
                                             </div>
                                         </div>
-                                        <Button className={style.btn_apagar} onClick={() => { onClickRemoverOutrsImg(pos) }}>
-                                            <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
-                                        </Button>
+                                        {srcDetalhes.length === 1 ? (null) : (
+                                            <Button className={style.btn_apagar} onClick={() => { onClickRemoverOutrsImg(pos) }}>
+                                                <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
+                                            </Button>)}
                                     </div>
-                                    <input type={"text"} placeholder="Alt da imagem" className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt.target.value, 0); }} />
+                                    <input type={"text"} placeholder={"Alt da imagem"} required={true} className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt.target.value, 1); }} />
                                 </div>
                             );
                         })
@@ -307,14 +316,14 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 </div>
                 <div className={style.area_btn_acao_form}>
                     {tipo ? (
-                        <Button className={style.btn_actualizar} onClick={() => { onClickSalvarAlteracoes(dadosAct.id) }} >
+                        <Button className={style.btn_actualizar} type={"submit"} onClick={() => { }} >
                             <>
                                 <p>Salvar Alterações</p>
                                 <Img src={Guardar} alt={"Ícone de salvar arquivo"} className={style.icone_input_tell} />
                             </>
                         </Button>
                     ) : (
-                        <Button className={style.btn_publicar} onClick={() => { onClickPublicar(); }} >
+                        <Button className={style.btn_publicar} type={"submit"} onClick={() => { }} >
                             <>
                                 <p>Publicar</p>
                                 <Img src={Publicar} alt={"Ícone de upload"} className={style.icone_input_tell} />
@@ -323,7 +332,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                     )
                     }
                 </div>
-            </div >
+            </form >
         </ContainerDiv>
     );
 }
