@@ -2,6 +2,7 @@
 .form_prods,
 .container_camp,
 .area_input_anun,
+.area_input_anun_tP,
 .area_input_img,
 .area_btn_acao_form,
 .area_esp,
@@ -58,7 +59,8 @@
 }
 
 .area_esp,
-.area_control_esp {
+.area_control_esp,
+.area_input_anun_tP {
     width: 300px;
     border: none;
     flex-direction: row;
@@ -113,10 +115,36 @@
     display: none;
 }
 
-.input_anun {
+.input_anun,
+.input_anun_rad {
     background: var(--texto_principal) !important;
     color: var(--preto_principal);
     border: 2px solid var(--borda);
+}
+
+.area_input_anun_tP {
+    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.area_radio {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px 0px 0px 8px;
+}
+
+.area_label_rad {
+    width: 40px;
+}
+
+.input_anun_rad {
+    width: 15px;
+    height: 15px;
 }
 
 .btn_apagar {
@@ -136,6 +164,10 @@
 .container_ot_img {
     width: 100%;
     gap: 10px;
+}
+
+.area_label {
+    width: 100%;
 }
 
 .label_img_outras {

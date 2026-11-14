@@ -4,7 +4,7 @@
         "nome": "Smartphone Pro",
         "preco": 25500,
         "badge": "Novo",
-        "limit": 5,
+        "primeiros": true,
         "desc": "Smartphone de design elegante, com ecrã tátil e câmara de alta qualidade.",
         "src": "./img/smartphone01.jpeg",
         "alt": "Imagem de Smartphone Pro",
@@ -15,22 +15,19 @@
                     "id": 1,
                     "srcDet": "./img/smartphone01.jpeg",
                     "srcThumb": "./img/smartphone01.jpeg",
-                    "alt": "Smartphone Pro",
-                    "badge": "Smartphone Pro"
+                    "alt": "Smartphone Pro"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/smartphone02.jpeg",
                     "srcThumb": "./img/smartphone02.jpeg",
-                    "alt": "Smartphone Android",
-                    "badge": "Smartphone Android"
+                    "alt": "Smartphone Android"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/smartphone03.jpeg",
                     "srcThumb": "./img/smartphone03.jpeg",
-                    "alt": "Telemóvel Básico",
-                    "badge": "Telemóvel Básico"
+                    "alt": "Telemóvel Básico"
                 }
             ],
             "especificacoes": [
@@ -47,7 +44,7 @@
         "nome": "Smartphone Android",
         "preco": 14500,
         "badge": "Promoção",
-        "limit": 8,
+        "primeiros": true,
         "desc": "Smartphone Android com ecrã grande, ideal para o dia a dia.",
         "src": "./img/smartphone02.jpeg",
         "alt": "Imagem de Smartphone Android",
@@ -58,22 +55,19 @@
                     "id": 1,
                     "srcDet": "./img/smartphone02.jpeg",
                     "srcThumb": "./img/smartphone02.jpeg",
-                    "alt": "Smartphone Android",
-                    "badge": "Smartphone Android"
+                    "alt": "Smartphone Android"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/smartphone03.jpeg",
                     "srcThumb": "./img/smartphone03.jpeg",
-                    "alt": "Telemóvel Básico",
-                    "badge": "Telemóvel Básico"
+                    "alt": "Telemóvel Básico"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/smartphone04.jpeg",
                     "srcThumb": "./img/smartphone04.jpeg",
-                    "alt": "Telemóvel Clássico",
-                    "badge": "Telemóvel Clássico"
+                    "alt": "Telemóvel Clássico"
                 }
             ],
             "especificacoes": [
@@ -90,7 +84,7 @@
         "nome": "Telemóvel Básico",
         "preco": 1200,
         "badge": "",
-        "limit": 20,
+        "primeiros": false,
         "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
         "src": "./img/smartphone03.jpeg",
         "alt": "Imagem de Telemóvel Básico",
@@ -101,22 +95,19 @@
                     "id": 1,
                     "srcDet": "./img/smartphone03.jpeg",
                     "srcThumb": "./img/smartphone03.jpeg",
-                    "alt": "Telemóvel Básico",
-                    "badge": "Telemóvel Básico"
+                    "alt": "Telemóvel Básico"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/smartphone04.jpeg",
                     "srcThumb": "./img/smartphone04.jpeg",
-                    "alt": "Telemóvel Clássico",
-                    "badge": "Telemóvel Clássico"
+                    "alt": "Telemóvel Clássico"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/smartphone01.jpeg",
                     "srcThumb": "./img/smartphone01.jpeg",
-                    "alt": "Smartphone Pro",
-                    "badge": "Smartphone Pro"
+                    "alt": "Smartphone Pro"
                 }
             ],
             "especificacoes": [
@@ -133,7 +124,7 @@
         "nome": "Telemóvel Clássico",
         "preco": 1800,
         "badge": "Clássico",
-        "limit": 15,
+        "primeiros": true,
         "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
         "src": "./img/smartphone04.jpeg",
         "alt": "Imagem de Telemóvel Clássico",
@@ -144,22 +135,19 @@
                     "id": 1,
                     "srcDet": "./img/smartphone04.jpeg",
                     "srcThumb": "./img/smartphone04.jpeg",
-                    "alt": "Telemóvel Clássico",
-                    "badge": "Telemóvel Clássico"
+                    "alt": "Telemóvel Clássico"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/smartphone01.jpeg",
                     "srcThumb": "./img/smartphone01.jpeg",
-                    "alt": "Smartphone Pro",
-                    "badge": "Smartphone Pro"
+                    "alt": "Smartphone Pro"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/smartphone02.jpeg",
                     "srcThumb": "./img/smartphone02.jpeg",
-                    "alt": "Smartphone Android",
-                    "badge": "Smartphone Android"
+                    "alt": "Smartphone Android"
                 }
             ],
             "especificacoes": [
@@ -176,7 +164,7 @@
         "nome": "Televisão LED",
         "preco": 18900,
         "badge": "",
-        "limit": 6,
+        "primeiros": false,
         "desc": "Televisão LED com imagem nítida para a sala de estar.",
         "src": "./img/tv01.jpeg",
         "alt": "Imagem de Televisão LED",
@@ -187,22 +175,19 @@
                     "id": 1,
                     "srcDet": "./img/tv01.jpeg",
                     "srcThumb": "./img/tv01.jpeg",
-                    "alt": "Televisão LED",
-                    "badge": "Televisão LED"
+                    "alt": "Televisão LED"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/tv02.jpeg",
                     "srcThumb": "./img/tv02.jpeg",
-                    "alt": "Televisão LED Slim",
-                    "badge": "Televisão LED Slim"
+                    "alt": "Televisão LED Slim"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/tv03.jpeg",
                     "srcThumb": "./img/tv03.jpeg",
-                    "alt": "Televisão Retro",
-                    "badge": "Televisão Retro"
+                    "alt": "Televisão Retro"
                 }
             ],
             "especificacoes": [
@@ -219,7 +204,7 @@
         "nome": "Televisão LED Slim",
         "preco": 22500,
         "badge": "Mais vendido",
-        "limit": 6,
+        "primeiros": false,
         "desc": "Televisão LED de design fino, com bordas reduzidas e ótimo contraste.",
         "src": "./img/tv02.jpeg",
         "alt": "Imagem de Televisão LED Slim",
@@ -230,22 +215,19 @@
                     "id": 1,
                     "srcDet": "./img/tv02.jpeg",
                     "srcThumb": "./img/tv02.jpeg",
-                    "alt": "Televisão LED Slim",
-                    "badge": "Televisão LED Slim"
+                    "alt": "Televisão LED Slim"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/tv03.jpeg",
                     "srcThumb": "./img/tv03.jpeg",
-                    "alt": "Televisão Retro",
-                    "badge": "Televisão Retro"
+                    "alt": "Televisão Retro"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/tv04.jpeg",
                     "srcThumb": "./img/tv04.jpeg",
-                    "alt": "Smart TV",
-                    "badge": "Smart TV"
+                    "alt": "Smart TV"
                 }
             ],
             "especificacoes": [
@@ -262,7 +244,7 @@
         "nome": "Televisão Retro",
         "preco": 4500,
         "badge": "Retro",
-        "limit": 3,
+        "primeiros": false,
         "desc": "Televisão de estilo clássico, ideal para colecionadores e decoração.",
         "src": "./img/tv03.jpeg",
         "alt": "Imagem de Televisão Retro",
@@ -273,22 +255,19 @@
                     "id": 1,
                     "srcDet": "./img/tv03.jpeg",
                     "srcThumb": "./img/tv03.jpeg",
-                    "alt": "Televisão Retro",
-                    "badge": "Televisão Retro"
+                    "alt": "Televisão Retro"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/tv04.jpeg",
                     "srcThumb": "./img/tv04.jpeg",
-                    "alt": "Smart TV",
-                    "badge": "Smart TV"
+                    "alt": "Smart TV"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/tv01.jpeg",
                     "srcThumb": "./img/tv01.jpeg",
-                    "alt": "Televisão LED",
-                    "badge": "Televisão LED"
+                    "alt": "Televisão LED"
                 }
             ],
             "especificacoes": [
@@ -305,7 +284,7 @@
         "nome": "Smart TV",
         "preco": 32000,
         "badge": "Destaque",
-        "limit": 4,
+        "primeiros": false,
         "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
         "src": "./img/tv04.jpeg",
         "alt": "Imagem de Smart TV",
@@ -316,22 +295,19 @@
                     "id": 1,
                     "srcDet": "./img/tv04.jpeg",
                     "srcThumb": "./img/tv04.jpeg",
-                    "alt": "Smart TV",
-                    "badge": "Smart TV"
+                    "alt": "Smart TV"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/tv01.jpeg",
                     "srcThumb": "./img/tv01.jpeg",
-                    "alt": "Televisão LED",
-                    "badge": "Televisão LED"
+                    "alt": "Televisão LED"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/tv02.jpeg",
                     "srcThumb": "./img/tv02.jpeg",
-                    "alt": "Televisão LED Slim",
-                    "badge": "Televisão LED Slim"
+                    "alt": "Televisão LED Slim"
                 }
             ],
             "especificacoes": [
@@ -348,7 +324,7 @@
         "nome": "Batedeira de Bancada",
         "preco": 5200,
         "badge": "Novo",
-        "limit": 10,
+        "primeiros": false,
         "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
         "src": "./img/electrodomesticos01.jpeg",
         "alt": "Imagem de Batedeira de Bancada",
@@ -359,22 +335,19 @@
                     "id": 1,
                     "srcDet": "./img/electrodomesticos01.jpeg",
                     "srcThumb": "./img/electrodomesticos01.jpeg",
-                    "alt": "Batedeira de Bancada",
-                    "badge": "Batedeira de Bancada"
+                    "alt": "Batedeira de Bancada"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/electrodomesticos02.jpeg",
                     "srcThumb": "./img/electrodomesticos02.jpeg",
-                    "alt": "Fogão com Forno",
-                    "badge": "Fogão com Forno"
+                    "alt": "Fogão com Forno"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/electrodomesticos03.jpeg",
                     "srcThumb": "./img/electrodomesticos03.jpeg",
-                    "alt": "Ferro de Engomar",
-                    "badge": "Ferro de Engomar"
+                    "alt": "Ferro de Engomar"
                 }
             ],
             "especificacoes": [
@@ -391,7 +364,7 @@
         "nome": "Fogão com Forno",
         "preco": 21000,
         "badge": "",
-        "limit": 5,
+        "primeiros": false,
         "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
         "src": "./img/electrodomesticos02.jpeg",
         "alt": "Imagem de Fogão com Forno",
@@ -402,22 +375,19 @@
                     "id": 1,
                     "srcDet": "./img/electrodomesticos02.jpeg",
                     "srcThumb": "./img/electrodomesticos02.jpeg",
-                    "alt": "Fogão com Forno",
-                    "badge": "Fogão com Forno"
+                    "alt": "Fogão com Forno"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/electrodomesticos03.jpeg",
                     "srcThumb": "./img/electrodomesticos03.jpeg",
-                    "alt": "Ferro de Engomar",
-                    "badge": "Ferro de Engomar"
+                    "alt": "Ferro de Engomar"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/electrodomesticos04.jpeg",
                     "srcThumb": "./img/electrodomesticos04.jpeg",
-                    "alt": "Torradeira",
-                    "badge": "Torradeira"
+                    "alt": "Torradeira"
                 }
             ],
             "especificacoes": [
@@ -434,7 +404,7 @@
         "nome": "Ferro de Engomar",
         "preco": 1500,
         "badge": "Promoção",
-        "limit": 25,
+        "primeiros": false,
         "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
         "src": "./img/electrodomesticos03.jpeg",
         "alt": "Imagem de Ferro de Engomar",
@@ -445,22 +415,19 @@
                     "id": 1,
                     "srcDet": "./img/electrodomesticos03.jpeg",
                     "srcThumb": "./img/electrodomesticos03.jpeg",
-                    "alt": "Ferro de Engomar",
-                    "badge": "Ferro de Engomar"
+                    "alt": "Ferro de Engomar"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/electrodomesticos04.jpeg",
                     "srcThumb": "./img/electrodomesticos04.jpeg",
-                    "alt": "Torradeira",
-                    "badge": "Torradeira"
+                    "alt": "Torradeira"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/electrodomesticos01.jpeg",
                     "srcThumb": "./img/electrodomesticos01.jpeg",
-                    "alt": "Batedeira de Bancada",
-                    "badge": "Batedeira de Bancada"
+                    "alt": "Batedeira de Bancada"
                 }
             ],
             "especificacoes": [
@@ -477,7 +444,7 @@
         "nome": "Torradeira",
         "preco": 2300,
         "badge": "",
-        "limit": 12,
+        "primeiros": false,
         "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
         "src": "./img/electrodomesticos04.jpeg",
         "alt": "Imagem de Torradeira",
@@ -488,22 +455,19 @@
                     "id": 1,
                     "srcDet": "./img/electrodomesticos04.jpeg",
                     "srcThumb": "./img/electrodomesticos04.jpeg",
-                    "alt": "Torradeira",
-                    "badge": "Torradeira"
+                    "alt": "Torradeira"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/electrodomesticos01.jpeg",
                     "srcThumb": "./img/electrodomesticos01.jpeg",
-                    "alt": "Batedeira de Bancada",
-                    "badge": "Batedeira de Bancada"
+                    "alt": "Batedeira de Bancada"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/electrodomesticos02.jpeg",
                     "srcThumb": "./img/electrodomesticos02.jpeg",
-                    "alt": "Fogão com Forno",
-                    "badge": "Fogão com Forno"
+                    "alt": "Fogão com Forno"
                 }
             ],
             "especificacoes": [
@@ -520,7 +484,7 @@
         "nome": "Portátil",
         "preco": 28500,
         "badge": "",
-        "limit": 7,
+        "primeiros": false,
         "desc": "Portátil leve e rápido para estudo e trabalho.",
         "src": "./img/pc.jpg",
         "alt": "Imagem de Portátil",
@@ -531,22 +495,19 @@
                     "id": 1,
                     "srcDet": "./img/pc.jpg",
                     "srcThumb": "./img/pc.jpg",
-                    "alt": "Portátil",
-                    "badge": "Portátil"
+                    "alt": "Portátil"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/pc01.jpeg",
                     "srcThumb": "./img/pc01.jpeg",
-                    "alt": "PC Gamer",
-                    "badge": "PC Gamer"
+                    "alt": "PC Gamer"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/pc02.jpeg",
                     "srcThumb": "./img/pc02.jpeg",
-                    "alt": "Portátil Gamer",
-                    "badge": "Portátil Gamer"
+                    "alt": "Portátil Gamer"
                 }
             ],
             "especificacoes": [
@@ -563,7 +524,7 @@
         "nome": "PC Gamer",
         "preco": 65000,
         "badge": "Destaque",
-        "limit": 3,
+        "primeiros": false,
         "desc": "Computador gamer completo, com iluminação RGB e desempenho para jogos exigentes.",
         "src": "./img/pc01.jpeg",
         "alt": "Imagem de PC Gamer",
@@ -574,22 +535,19 @@
                     "id": 1,
                     "srcDet": "./img/pc01.jpeg",
                     "srcThumb": "./img/pc01.jpeg",
-                    "alt": "PC Gamer",
-                    "badge": "PC Gamer"
+                    "alt": "PC Gamer"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/pc02.jpeg",
                     "srcThumb": "./img/pc02.jpeg",
-                    "alt": "Portátil Gamer",
-                    "badge": "Portátil Gamer"
+                    "alt": "Portátil Gamer"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/pc03.jpeg",
                     "srcThumb": "./img/pc03.jpeg",
-                    "alt": "Computador de Secretária",
-                    "badge": "Computador de Secretária"
+                    "alt": "Computador de Secretária"
                 }
             ],
             "especificacoes": [
@@ -606,7 +564,7 @@
         "nome": "Portátil Gamer",
         "preco": 58000,
         "badge": "Novo",
-        "limit": 4,
+        "primeiros": false,
         "desc": "Portátil gamer com teclado retroiluminado e ventilação reforçada.",
         "src": "./img/pc02.jpeg",
         "alt": "Imagem de Portátil Gamer",
@@ -617,22 +575,19 @@
                     "id": 1,
                     "srcDet": "./img/pc02.jpeg",
                     "srcThumb": "./img/pc02.jpeg",
-                    "alt": "Portátil Gamer",
-                    "badge": "Portátil Gamer"
+                    "alt": "Portátil Gamer"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/pc03.jpeg",
                     "srcThumb": "./img/pc03.jpeg",
-                    "alt": "Computador de Secretária",
-                    "badge": "Computador de Secretária"
+                    "alt": "Computador de Secretária"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/pc.jpg",
                     "srcThumb": "./img/pc.jpg",
-                    "alt": "Portátil",
-                    "badge": "Portátil"
+                    "alt": "Portátil"
                 }
             ],
             "especificacoes": [
@@ -649,7 +604,7 @@
         "nome": "Computador de Secretária",
         "preco": 24500,
         "badge": "",
-        "limit": 6,
+        "primeiros": false,
         "desc": "Computador de secretária com monitor incluído, ideal para casa e escritório.",
         "src": "./img/pc03.jpeg",
         "alt": "Imagem de Computador de Secretária",
@@ -660,22 +615,19 @@
                     "id": 1,
                     "srcDet": "./img/pc03.jpeg",
                     "srcThumb": "./img/pc03.jpeg",
-                    "alt": "Computador de Secretária",
-                    "badge": "Computador de Secretária"
+                    "alt": "Computador de Secretária"
                 },
                 {
                     "id": 2,
                     "srcDet": "./img/pc.jpg",
                     "srcThumb": "./img/pc.jpg",
-                    "alt": "Portátil",
-                    "badge": "Portátil"
+                    "alt": "Portátil"
                 },
                 {
                     "id": 3,
                     "srcDet": "./img/pc01.jpeg",
                     "srcThumb": "./img/pc01.jpeg",
-                    "alt": "PC Gamer",
-                    "badge": "PC Gamer"
+                    "alt": "PC Gamer"
                 }
             ],
             "especificacoes": [

@@ -16,7 +16,7 @@ const GerenciarProds = () => {
             "nome": "Telemóvel Básico",
             "preco": 1200,
             "badge": "",
-            "limit": 20,
+            "primeiros": true,
             "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
             "src": "/img/smartphone03.jpeg",
             "alt": "Imagem de Telemóvel Básico",
@@ -48,7 +48,7 @@ const GerenciarProds = () => {
             "nome": "Telemóvel Clássico",
             "preco": 1800,
             "badge": "Clássico",
-            "limit": 15,
+            "primeiros": true,
             "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
             "src": "/img/smartphone04.jpeg",
             "alt": "Imagem de Telemóvel Clássico",
@@ -79,7 +79,6 @@ const GerenciarProds = () => {
             "nome": "Televisão LED",
             "preco": 18900,
             "badge": "",
-            "limit": 6,
             "desc": "Televisão LED com imagem nítida para a sala de estar.",
             "src": "/img/tv01.jpeg",
             "alt": "Imagem de Televisão LED",
@@ -113,7 +112,7 @@ const GerenciarProds = () => {
             "nome": "Smart TV",
             "preco": 32000,
             "badge": "Destaque",
-            "limit": 4,
+            "primeiros": true,
             "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
             "src": "/img/tv04.jpeg",
             "alt": "Imagem de Smart TV",
@@ -156,7 +155,7 @@ const GerenciarProds = () => {
             "nome": "Batedeira de Bancada",
             "preco": 5200,
             "badge": "Novo",
-            "limit": 10,
+            "primeiros": false,
             "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
             "src": "/img/electrodomesticos01.jpeg",
             "alt": "Imagem de Batedeira de Bancada",
@@ -199,7 +198,7 @@ const GerenciarProds = () => {
             "nome": "Fogão com Forno",
             "preco": 21000,
             "badge": "",
-            "limit": 5,
+            "primeiros": false,
             "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
             "src": "/img/electrodomesticos02.jpeg",
             "alt": "Imagem de Fogão com Forno",
@@ -242,7 +241,7 @@ const GerenciarProds = () => {
             "nome": "Ferro de Engomar",
             "preco": 1500,
             "badge": "Promoção",
-            "limit": 25,
+            "primeiros": false,
             "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
             "src": "/img/electrodomesticos03.jpeg",
             "alt": "Imagem de Ferro de Engomar",
@@ -285,7 +284,7 @@ const GerenciarProds = () => {
             "nome": "Torradeira",
             "preco": 2300,
             "badge": "",
-            "limit": 12,
+            "primeiros": false,
             "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
             "src": "/img/electrodomesticos04.jpeg",
             "alt": "Imagem de Torradeira",
@@ -328,7 +327,7 @@ const GerenciarProds = () => {
             "nome": "Portátil",
             "preco": 28500,
             "badge": "Ultra Rápido",
-            "limit": 7,
+            "primeiros": false,
             "desc": "Portátil leve e rápido para estudo e trabalho.",
             "src": "/img/pc.jpg",
             "alt": "Imagem de Portátil",
@@ -367,7 +366,8 @@ const GerenciarProds = () => {
             }
         }
     ];
-
+    const contarPrimeiros = ItensTeste.filter((prod) => prod.primeiros === true);
+    console.log(contarPrimeiros.length);
     const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
     const onClickControlModal = (val) => {
@@ -397,7 +397,7 @@ const GerenciarProds = () => {
             <h2 className={styles.titulo_geren}>Gerir produtos</h2>
             <ContainerDiv className={styles.area_cont_geren}>
                 <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
-                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
+                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
             </ContainerDiv>
         </>
     );

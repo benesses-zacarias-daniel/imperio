@@ -10,7 +10,7 @@ import Img from "../../components/img/Img";
 import SetaCima from "../../assets/icons/setaCim.svg";
 import SetaBaixo from "../../assets/icons/setaBaix.svg";
 //Dados
-import ProductoDados from "../../components/data/ProductosDados.json";
+import ProdutoDados from "../../components/data/ProdutosDados.json";
 import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 import scrollCima from "../../utils/scrollCima";
@@ -19,16 +19,16 @@ const Produtos = () => {
 
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
-    const [dadosFiltrados, setDadosFiltrados] = useState(ProductoDados);
+    const [dadosFiltrados, setDadosFiltrados] = useState(ProdutoDados);
     const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            setDadosFiltrados(ProductoDados.filter((iten) => iten.categorias === categoria));
+            setDadosFiltrados(ProdutoDados.filter((iten) => iten.categorias === categoria));
         } else {
-            setDadosFiltrados(ProductoDados);
+            setDadosFiltrados(ProdutoDados);
         }
 
         setInicio(0);
@@ -36,7 +36,7 @@ const Produtos = () => {
     };
 
     const onClickMostrarDetalhes = (id) => {
-        const dadosDetalhes = ProductoDados.filter((Prod) => Prod.id === id);
+        const dadosDetalhes = ProdutoDados.filter((Prod) => Prod.id === id);
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);

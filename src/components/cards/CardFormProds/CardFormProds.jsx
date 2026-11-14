@@ -11,7 +11,7 @@ import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
 import criarURLsImgs from '../../../utils/criarURLsImg';
 
-const CardFormProds = ({ dadosAct, tipo = false }) => {
+const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const Opcoes = [
         {
             "id": 1,
@@ -37,10 +37,12 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                 }]
         }
     ];
+    console.log(dadosAct?.primeiros);
 
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
     const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 0);
     const [badge, setBadge] = useState(dadosAct?.badge ? dadosAct?.badge : "");
+    const [primeiros, setPrimeiros] = useState(dadosAct?.primeiros ? dadosAct?.primeiros : false);
     const [desc, setDesc] = useState(dadosAct?.desc ? dadosAct?.desc : "");
     const [src, setSrc] = useState(dadosAct?.src ? dadosAct?.src : "");
     const [alt, setAlt] = useState(dadosAct?.alt ? dadosAct?.alt : "");
@@ -67,7 +69,9 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         console.log(val);
         setBadge(val.target.value)
     };
-
+    const onChangePrimeiros = (val) => {
+        setPrimeiros(val)
+    };
     const onChangeCategorias = (val) => {
         console.log(val);
         setCategorias(val)
@@ -140,6 +144,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
             nome: nome,
             preco: preco,
             badge: badge,
+            primeiros: primeiros,
             desc: desc,
             src: src,
             alt: alt,
@@ -159,6 +164,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
             nome: nome,
             preco: preco,
             badge: badge,
+            primeiros: primeiros,
             desc: desc,
             src: src,
             alt: alt,
@@ -176,7 +182,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <form className={style.form_prods} onSubmit={() => { tipo ? () => { } : onClickSalvarAlteracoes(dadosAct.id) }}> {/*Depois devolvo o form*/}
+            <form className={style.form_prods} onSubmit={() => { tipo ? onClickPublicar() : onClickSalvarAlteracoes(dadosAct.id) }}> {/*Depois devolvo o form*/}
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -210,6 +216,26 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         </div>
                         <input type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} required={true} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} />
                     </div>
+                    {
+                        (contaPrimeiros > 0 && dadosAct?.primeiros !== true) ? (null) : (
+                            <div className={style.area_input_anun_tP}>
+                                <div className={style.area_label}>
+                                    <label>Em destaque</label>
+                                </div>
+                                <div className={style.area_radio}>
+                                    <input type={"radio"} name={"destaque"} id="sim" placeholder={""} required={true} className={style.input_anun_rad} checked={primeiros === true} onChange={(evt) => { onChangePrimeiros(true); }} />
+                                    <div className={style.area_label_rad}>
+                                        <label htmlFor="sim">Sim</label>
+                                    </div>
+                                </div>
+                                <div className={style.area_radio}>
+                                    <input type={"radio"} name={"destaque"} id="nao" placeholder={""} required={true} className={style.input_anun_rad} checked={primeiros === false} onChange={(evt) => { onChangePrimeiros(false); }} />
+                                    <div className={style.area_label_rad}>
+                                        <label htmlFor="nao">Não</label>
+                                    </div>
+                                </div>
+                            </div>)
+                    }
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="desc">

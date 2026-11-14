@@ -15,10 +15,10 @@ import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
 import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 //Dados
-import ProductoDados from "../../components/data/ProductosDados.json";
+import ProdutoDados from "../../components/data/ProdutosDados.json";
 
 const Home = () => {
-    const ProdutosDestaque = ProductoDados.filter((prodFiltrado) => prodFiltrado.id === 1 || prodFiltrado.id === 2 || prodFiltrado.id === 4);
+    const produtosDestaque = ProdutoDados.filter((prodFiltrado) => prodFiltrado.primeiros === true);
     const num1 = "258 84 975 4315";
     const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
 
@@ -67,11 +67,12 @@ const Home = () => {
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);
-    }
+    };
 
     const onClickOcultar = () => {
         setShowDetalhes(false);
-    }
+    };
+
     return (
         <>
             <ContainerDiv className={style.container_home}>
@@ -103,7 +104,7 @@ const Home = () => {
                         <ContainerDiv className={style.area_prods_home}
                             children={
                                 <>
-                                    <CardProdutos dados={ProdutosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                    <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                                 </>
                             } />
                         <CardCategoria dados={Categorias[0]} />

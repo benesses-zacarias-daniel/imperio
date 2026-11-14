@@ -27,7 +27,7 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                         </div>
                         <div className={style.area_info_accao}>
                             <div className={style.classificacao}>
-                                <p>{Produto.limit}</p>
+                                <p></p>
                                 <div className={style.area_estrela}>
                                     <Img src={Estrela} alt={"Ícone de Estrela"} className={style.icone} />
                                     <Img src={Estrela} alt={"Ícone de Estrela"} className={style.icone} />
