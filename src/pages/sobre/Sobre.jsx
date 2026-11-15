@@ -1,6 +1,6 @@
 import style from "./Sobre.module.css";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
-import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
+import CardCategoria from "../../components/cards/cardCategoria/CardCategoria";
 //Ícones Categorias
 import Velocidade from "../../assets/icons/veloc.svg"
 import Visao from "../../assets/icons/visao2.svg"
@@ -70,22 +70,6 @@ const Sobre = () => {
     return (
         <ContainerDiv className={style.container_sobre}>
             <div className={style.container_conteudo}>
-                {/* <div className={style.area_hero_sobre}>
-                    <Img src={"img/pc.jpg"} alt={"Imagem de sala de data center/tecnologia"} className={style.img_fundo_sobre} />
-                    <div className={style.info_hero_sobre}>
-                        <div className={style.foco_hero}>
-                            <p className={style.jor_tit}>
-                                A Nossa Essência
-                            </p>
-                        </div>
-                        <div className={style.titulo_hero}>
-                            <h4>A Excelência em cada Transistor</h4>
-                        </div>
-                        <div className={style.texto_sobre_hero}>
-                            Desde a nossa fundação, a Imperial <br />Electrónicos redefine o conceito de luxo tecnológico, trazendo o fucturo para as mãos dos mais exigentes entusiastas de hardware.
-                        </div>
-                    </div>
-                </div> */}
                 <div className={style.historia}>
                     <div className={style.info_historia_sobre}>
                         <div className={style.area_historia}>

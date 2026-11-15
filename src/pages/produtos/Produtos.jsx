@@ -1,6 +1,6 @@
 import style from "./Produtos.module.css";
 import { useEffect, useState } from "react";
-import CardProdutos from "../../components/cards/CardProduto/CardProduto";
+import CardProdutos from "../../components/cards/cardProduto/CardProduto";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import Filtros from "../../components/productos/Filtros";
 import Button from "../../components/button/Button";

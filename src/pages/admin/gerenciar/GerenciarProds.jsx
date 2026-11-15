@@ -1,8 +1,8 @@
 import styles from './GerenciarProds.module.css';
 import { useState } from 'react';
-import CardActProds from '../../../components/cards/CardActProds/CardActProds';
-import CardFormProds from "../../../components/cards/CardFormProds/CardFormProds"
-import CardProdGeren from '../../../components/cards/CardProdGeren/CardProdGeren';
+import CardActProds from '../../../components/cards/cardActProds/CardActProds';
+import CardFormProds from "../../../components/cards/cardFormProds/CardFormProds"
+import CardProdGeren from '../../../components/cards/cardProdGeren/CardProdGeren';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 import Filtros from "../../../components/productos/Filtros";
 import Categorias from "../../../components/data/Categorias.json";

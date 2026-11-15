@@ -1,10 +1,10 @@
 import style from "./Carrinho.module.css";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
-import CardItemCarrinho from "../../components/cards/CardItensCarrinho/CardItemCarrinho";
+import CardItemCarrinho from "../../components/cards/cardItensCarrinho/CardItemCarrinho";
 import Button from "../../components/button/Button";
 import Img from "../../components/img/Img";
 import Visao from "../../assets/icons/visao.svg"
-import CardResumo from "../../components/cards/CardResumo/CardResumo";
+import CardResumo from "../../components/cards/cardResumo/CardResumo";
 import { useState } from "react";
 import useContextCarrinho from "../../hooks/useContextCarrinho";
 import scrollCima from "../../utils/scrollCima";

@@ -5,13 +5,13 @@ import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import scrollCima from "../../utils/scrollCima";
-import CardProdutos from "../../components/cards/CardProduto/CardProduto";
+import CardProdutos from "../../components/cards/cardProduto/CardProduto";
 //Ícones Categorias
 import EstrelaVerify from "../../assets/icons/verificado.svg"
 import CarroEntrega from "../../assets/icons/carroEntrega.svg"
 import EscudoVerificado from "../../assets/icons/escudoVerificado.svg"
 import Suporte from "../../assets/icons/suporte.svg"
-import CardCategoria from "../../components/cards/CardCategoria/CardCategoria";
+import CardCategoria from "../../components/cards/cardCategoria/CardCategoria";
 import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 //Dados

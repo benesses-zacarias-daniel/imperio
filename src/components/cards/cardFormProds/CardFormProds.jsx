@@ -10,6 +10,11 @@ import Guardar from "../../../assets/icons/guardar.svg";
 import Publicar from "../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../Common/container/ContainerDiv';
 import criarURLsImgs from '../../../utils/criarURLsImg';
+import ContainerForm from '../../Common/containerForms/ContainerForms';
+import InputNormal from '../../form/inputNomal/InputNormal';
+import Textarea from '../../form/textarea/Textarea';
+import InputRadio from '../../form/inputRadio/InputRadio';
+import InputFile from '../../form/inputFile/InputFile';
 
 const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const Opcoes = [
@@ -37,7 +42,6 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                 }]
         }
     ];
-    console.log(dadosAct?.primeiros);
 
     const [nome, setNome] = useState(dadosAct?.nome ? dadosAct?.nome : "");
     const [preco, setPreco] = useState(dadosAct?.preco ? dadosAct?.preco : 0);
@@ -50,14 +54,15 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
     //Funções
-    const onChangeTextarea = (val) => {
-        console.log(val);
-        setDesc(val);
+    const onChangeTextarea = (evt) => {
+        console.log(evt);
+        console.log(evt.target);
+        setDesc(evt.target.value);
     };
 
-    const onChangeNome = (val) => {
-        console.log(val);
-        setNome(val.target.value)
+    const onChangeNome = (evt) => {
+        console.log(evt);
+        setNome(evt.target.value)
     };
 
     const onChangePreco = (val) => {
@@ -77,47 +82,48 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         setCategorias(val)
     };
 
-    const onChangeEspecificacoes = (pos, val) => {
-        console.log(val);
+    const onChangeEspecificacoes = (pos, evt) => {
+        console.log(evt);
+        console.log(evt.target.value);
         setEspecificacoes((prevEsp) => {
             const novasImgs = [...prevEsp]
-            novasImgs[pos] = val;
+            novasImgs[pos] = evt.target.value;
             return novasImgs;
         });
     };
 
-    const onChangeSrc = (pos, val, tipo) => {
+    const onChangeSrc = (pos, src, tipo) => {
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const todasImgs = [...prevImgs]
                 todasImgs[pos] = {
                     ...todasImgs[pos],
-                    srcDet: val,
-                    srcThumb: val
+                    srcDet: src,
+                    srcThumb: src
                 };
                 return todasImgs;
             });
             return;
         }
 
-        setSrc(val);
+        setSrc(src);
 
     };
 
-    const onChangeAltImgs = (pos, val, tipo) => {
-        console.log(val);
+    const onChangeAltImgs = (pos, evt, tipo) => {
+        console.log(evt);
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const novasImgs = [...prevImgs]
-                novasImgs[pos].alt = val;
-                novasImgs[pos].badge = val;
+                novasImgs[pos].alt = evt.target.value;
+                novasImgs[pos].badge = evt.target.value;
                 return [...novasImgs];
             });
 
             return;
         }
 
-        setAlt(val);
+        setAlt(evt.target.value);
     };
 
     const onClickRemoverEsp = (posEsp) => {
@@ -179,10 +185,19 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         // const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
         // localStorage.setItem("prodsGeren", JSON.stringify(dados));
     };
+    //Funções de Controle dos Inputs
+    const onInvalid = (evt, msg) => {
+        evt.target.setCustomValidity(msg);
+    }
+
+    const onInput = (evt) => {
+        evt.target.setCustomValidity("");
+    }
+
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <form className={style.form_prods} onSubmit={() => { tipo ? onClickPublicar() : onClickSalvarAlteracoes(dadosAct.id) }}> {/*Depois devolvo o form*/}
+            <ContainerForm className={style.form_prods} onSubmit={() => { tipo ? onClickPublicar() : onClickSalvarAlteracoes(dadosAct.id) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -190,13 +205,28 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                 Nome do produto
                             </label>
                         </div>
-                        <input type={"text"} id="nome" placeholder={"Ex: Smartphone Pro"} required={true} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} />
+                        <InputNormal type={"text"} id={"nome"} placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} minLength={10} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                            if (evt.target.validity.valueMissing) {
+                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                            } else if (evt.target.validity.tooShort) {
+                                let tam_actual = evt.target.value.length;
+
+                                onInvalid(evt, `O nome do produto deve ter no mínimo 10 caracteres, você tem ${tam_actual} caracteres!`);
+                            }
+                        }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
                         </div>
-                        <input type="number" id="preco" placeholder={"Ex: 25500"} required={true} className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} />
+                        <InputNormal type={"number"} id={"preco"} placeholder={"Ex: 25500"} className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} minLength={100} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                            if (evt.target.validity.valueMissing) {
+                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                            } else if (evt.target.validity.tooShort) {
+                                let tam_actual = evt.target.value.length;
+                                onInvalid(evt, `O preço do produto deve ser no mínimo 100, você tem ${tam_actual} Mt!`);
+                            }
+                        }} />
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
@@ -214,7 +244,15 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <input type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} required={true} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} />
+                        <InputNormal type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} minLength={10} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                            if (evt.target.validity.valueMissing) {
+                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                            } else if (evt.target.validity.tooShort) {
+                                let tam_actual = evt.target.value.length;
+
+                                onInvalid(evt, `O badge do produto deve ter no mínimo 10 caracteres, você tem ${tam_actual} caracteres!`);
+                            }
+                        }} />
                     </div>
                     {
                         (contaPrimeiros > 0 && dadosAct?.primeiros !== true) ? (null) : (
@@ -223,18 +261,19 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                     <label>Em destaque</label>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <input type={"radio"} name={"destaque"} id="sim" placeholder={""} required={true} className={style.input_anun_rad} checked={primeiros === true} onChange={(evt) => { onChangePrimeiros(true); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"sim"} checked={primeiros === true} onChange={() => { onChangePrimeiros(true); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="sim">Sim</label>
                                     </div>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <input type={"radio"} name={"destaque"} id="nao" placeholder={""} required={true} className={style.input_anun_rad} checked={primeiros === false} onChange={(evt) => { onChangePrimeiros(false); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"nao"} checked={primeiros === false} onChange={() => { onChangePrimeiros(false); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="nao">Não</label>
                                     </div>
                                 </div>
-                            </div>)
+                            </div>
+                        )
                     }
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -242,7 +281,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                 Descrição
                             </label>
                         </div>
-                        <textarea id="desc" className={style.campo_desc_prod} placeholder={"Pequena descrição do produto..."} required={true} value={desc} onChange={(evt) => { onChangeTextarea(evt.target.value); }} />
+                        <Textarea id="desc" className={style.campo_desc_prod} placeholder={"Pequena descrição do produto..."} value={desc} onChange={(evt) => { onChangeTextarea(evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -258,7 +297,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
                         <div className={style.area_ocultar_input}>
-                            <input type={"file"} id="img_prods" placeholder={""} hidden={true} className={style.input_imagem} accept="image/*" onChange={(evt) => {
+                            <InputFile type={"file"} id={"img_prods"} placeholder={""} className={style.input_imagem} onChange={(evt) => {
                                 const img = criarURLsImgs(evt.target.files[0]);
                                 onChangeSrc(1, img, 0)
                             }} />
@@ -266,7 +305,15 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <input placeholder={"Alt da imagem principal"} required={true} type={"text"} id="altPrincipal" className={style.input_anun} value={alt} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0); }} />
+                        <InputNormal placeholder={"Alt da imagem principal"} type={"text"} id={"altPrincipal"} className={style.input_anun} value={alt} minLength={15} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                            if (evt.target.validity.valueMissing) {
+                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                            } else if (evt.target.validity.tooShort) {
+                                let tam_actual = evt.target.value.length;
+
+                                onInvalid(evt, `O texto do Alt (Texto Alternativo) do produto deve ter no mínimo 15 caracteres, você tem ${tam_actual} caracteres!`);
+                            }
+                        }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_esp}>
@@ -284,7 +331,15 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                             especificacoes.map((especificao, pos) => {
                                 return (
                                     <div className={style.area_control_esp} key={pos}>
-                                        <input type={"text"} placeholder={"Ex: 128 GB"} required={true} className={style.input_exp} value={especificao} onChange={(evt) => { onChangeEspecificacoes(pos, evt.target.value); }} />
+                                        <InputNormal type={"text"} id={pos} placeholder={"Ex: 128 GB"} className={style.input_exp} value={especificao} minLength={15} onChange={(evt) => { onChangeEspecificacoes(pos, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                                            if (evt.target.validity.valueMissing) {
+                                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                                            } else if (evt.target.validity.tooShort) {
+                                                let tam_actual = evt.target.value.length;
+
+                                                onInvalid(evt, `A especificação do produto deve ter no mínimo 15 caracteres, você tem ${tam_actual} caracteres!`);
+                                            }
+                                        }} />
                                         {especificacoes.length === 1 ? (null) : (
                                             <Button className={style.btn_apagar} onClick={() => { onClickRemoverEsp(pos); }}>
                                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
@@ -307,7 +362,6 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                 </>
                             </Button>
                         </div>
-                        {/* Esta linha é repetida para cada imagem */}
                         {srcDetalhes.map((srcDetalhe, pos) => {
                             return (
                                 <div className={style.container_ot_img} key={srcDetalhe.id}>
@@ -322,7 +376,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                                 )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
-                                                <input type="file" id={`img_min_${srcDetalhe.id}`} hidden={true} accept="image/*" className={style.input_exp} onChange={(evt) => {
+                                                <InputFile type={"file"} id={`img_min_${srcDetalhe.id}`} className={style.input_exp} onChange={(evt) => {
                                                     const img = criarURLsImgs(evt.target.files[0]);
                                                     onChangeSrc(pos, img, 1);
                                                 }} />
@@ -333,11 +387,18 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                             </Button>)}
                                     </div>
-                                    <input type={"text"} placeholder={"Alt da imagem"} required={true} className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt.target.value, 1); }} />
+                                    <InputNormal type={"text"} placeholder={"Alt da imagem"} className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt, 1); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                                        if (evt.target.validity.valueMissing) {
+                                            onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                                        } else if (evt.target.validity.tooShort) {
+                                            let tam_actual = evt.target.value.length;
+
+                                            onInvalid(evt, `A especificação do produto deve ter no mínimo 15 caracteres, você tem ${tam_actual} caracteres!`);
+                                        }
+                                    }} />
                                 </div>
                             );
-                        })
-                        }
+                        })}
                     </div>
                 </div>
                 <div className={style.area_btn_acao_form}>
@@ -355,10 +416,9 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                 <Img src={Publicar} alt={"Ícone de upload"} className={style.icone_input_tell} />
                             </>
                         </Button>
-                    )
-                    }
+                    )}
                 </div>
-            </form >
+            </ContainerForm >
         </ContainerDiv>
     );
 }

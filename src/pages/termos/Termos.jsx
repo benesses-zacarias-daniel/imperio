@@ -1,4 +1,4 @@
-import CardTermos from "../../components/cards/CardTermos/CardTermos";
+import CardTermos from "../../components/cards/cardTermos/CardTermos";
 import ContainerDiv from "../../components/Common/container/ContainerDiv";
 import style from "./Termos.module.css";
 

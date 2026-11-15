@@ -115,8 +115,7 @@
     display: none;
 }
 
-.input_anun,
-.input_anun_rad {
+.input_anun {
     background: var(--texto_principal) !important;
     color: var(--preto_principal);
     border: 2px solid var(--borda);
@@ -140,11 +139,6 @@
 
 .area_label_rad {
     width: 40px;
-}
-
-.input_anun_rad {
-    width: 15px;
-    height: 15px;
 }
 
 .btn_apagar {
