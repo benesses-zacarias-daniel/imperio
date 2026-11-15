@@ -5,9 +5,9 @@ import Cadastrar from "../components/cadastrar/Cadastrar";
 const RotasAutenticar = () => {
     return (
         <Routes>
-            <Route path="/autenticar" element={<Navigate to={"/autenticar/login"} replace />} />
-            <Route path="/autenticar/login" element={<Login />} />
-            <Route path="/autenticar/cadastrar" element={<Cadastrar />} />
+            <Route path="/" element={<Navigate to={"login"} replace />} />
+            <Route path="login" element={<Login />} />
+            <Route path="cadastrar" element={<Cadastrar />} />
         </Routes>
     );
 };

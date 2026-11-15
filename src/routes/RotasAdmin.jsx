@@ -4,9 +4,9 @@ import GerenciarProds from "../pages/admin/gerenciar/GerenciarProds";
 const RotasAdmin = () => {
     return (
         <Routes>
-            <Route path="/admin" element={<Navigate to="/admin/adicionar" replace />} />
-            <Route path="/admin/adicionar" element={<AdicionarProds />} />
-            <Route path="/admin/gerenciar" element={<GerenciarProds />} />
+            <Route path="/" element={<Navigate to="adicionar" replace />} />
+            <Route path="adicionar" element={<AdicionarProds />} />
+            <Route path="gerenciar" element={<GerenciarProds />} />
         </Routes>
     );
 };
