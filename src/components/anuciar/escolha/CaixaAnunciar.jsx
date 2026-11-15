@@ -2,6 +2,8 @@ import ContainerDiv from "../../Common/container/ContainerDiv";
 import style from "./CaixaAnunciar.module.css";
 import Img from "../../img/Img";
 import Button from "../../button/Button";
+import InputNormal from "../../form/inputNomal/InputNormal";
+import InputFile from "../../form/inputFile/InputFile";
 
 
 const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
@@ -17,7 +19,15 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                                 {dadosAnunciar.inputs[0].label}
                             </label>
                         </div>
-                        <input type={dadosAnunciar.type[0]} id="nome" placeholder={dadosAnunciar.inputs[0].placeholder} className={style.input_anun} />
+                        <InputNormal type={dadosAnunciar.type[0]} id="nome" placeholder={dadosAnunciar.inputs[0].placeholder} className={style.input_anun} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                            if (evt.target.validity.valueMissing) {
+                                onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                            } else if (evt.target.validity.tooShort) {
+                                let tam_actual = evt.target.value.length;
+
+                                onInvalid(evt, `O badge do produto deve ter no mínimo 10 caracteres, você tem ${tam_actual} caracteres!`);
+                            }
+                        }} />
                     </div>
                     <div className={style.select_categoria_anun}>
                         <label>
@@ -53,7 +63,7 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                             </label>
                         </div>
                         <div className={style.area_ocultar_input}>
-                            <input type={dadosAnunciar.type[2]} id="img_prods" placeholder={""} className={style.input_imagem} />
+                            <InputFile type={dadosAnunciar.type[2]} id="img_prods" className={style.input_imagem} onChange={(evt) => { }} />
                         </div>
                     </div>
                     <div className={style.area_input_anun}>
@@ -64,7 +74,15 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                         </div>
                         <div className={style.area_icone_input}>
                             {/* <Img src={dadosAnunciar.icones[1].icone_src} alt={dadosAnunciar.icones[1].icone_alt} className={style.icone_input_tell} /> */}
-                            <input type={dadosAnunciar.type[4]} id={"contacto_"} placeholder={dadosAnunciar.inputs[4].placeholder} className={style.input_anun} />
+                            <InputNormal type={dadosAnunciar.type[4]} id={"contacto_"} placeholder={dadosAnunciar.inputs[4].placeholder} className={style.input_anun} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                                if (evt.target.validity.valueMissing) {
+                                    onInvalid(evt, "Campo obrigatório. Preencha por favor!")
+                                } else if (evt.target.validity.tooShort) {
+                                    let tam_actual = evt.target.value.length;
+
+                                    onInvalid(evt, `O badge do produto deve ter no mínimo 10 caracteres, você tem ${tam_actual} caracteres!`);
+                                }
+                            }} />
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 //Dados
 import ProdutoDados from "../../components/data/ProdutosDados.json";
+import CardDepoimentos from "../../components/cards/carDepoimentos/CardDepoimentos";
 
 const Home = () => {
     const produtosDestaque = ProdutoDados.filter((prodFiltrado) => prodFiltrado.primeiros === true);
@@ -56,6 +57,22 @@ const Home = () => {
                     "desc": "Concierge dedicado para resolver qualquer dúvida a qualquer momento."
                 }
             ]
+        }
+    ];
+
+    const DepoimentosClientes = [
+        {
+            "id": 1,
+            "nome": "Ntxuphí Namoro",
+            "depoimento": "A NearHomes ajudou-me a encontrar o lugar perfeito para o escritório da minha empresa em tempo recorde. Profissionalismo puro!"
+        }, {
+            "id": 2,
+            "nome": "Paulo Santos",
+            "depoimento": "O processo de Compra da nossa moradia de férias foi extremamente transparente. Recomendo vivamente a equipa."
+        }, {
+            "id": 3,
+            "nome": "Benesses Flora",
+            "depoimento": "Encontrei a casa dos meus sonhos em Napipine. A NearHomes tem as melhores listagens do mercado sem dúvida."
         }
     ];
 
@@ -108,6 +125,7 @@ const Home = () => {
                         <CardCategoria dados={Categorias[0]} />
                     </div>
                 </ContainerDiv>
+                <CardDepoimentos depoimentos={DepoimentosClientes} minInfoDep={"A confiança dos nossos parceiros é o nosso maior património."} tituloDep={"O que dizem os nossos clientes"} />
                 <ContactarGrupo />
             </ContainerDiv>
             <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />

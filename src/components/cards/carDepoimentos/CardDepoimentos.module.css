@@ -1,0 +1,95 @@
+.depoimentos_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 15px 10px 15px 10px;
+}
+
+.titulo_dep {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+}
+
+.minInfoDep {
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+}
+
+.depoimentos {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0px 0px 15px 0px;
+}
+
+.area_depoimento {
+    width: 95%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8px;
+    background-color: var(--dourado_transp);
+    border: 2px solid var(--borda);
+    border-top: 2px solid var(--borda);
+    border-right: 2px solid var(--borda);
+    border-radius: 0px 20px 0px 20px;
+}
+
+.estrela {
+    width: 100%;
+    text-align: justify;
+}
+
+.depoimento_cli {
+    text-align: justify;
+    font-style: oblique;
+    padding: 5px 0px 5px 0px;
+}
+
+.depoimento_info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 6px;
+    width: 100%;
+}
+
+.area_nome {
+    width: 42px;
+    height: 42px;
+    padding: 2px;
+    border-radius: 100%;
+    background: var(--dourado_claro);
+    color: var(--texto_principal);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.area_nome,
+.nome {
+    font-weight: 500;
+}
+
+@media only screen and (min-width:900px) {
+    .depoimentos {
+        flex-direction: row;
+    }
+
+    .area_depoimento {
+        flex: 1;
+        height: 170px;
+    }
+}

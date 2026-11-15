@@ -45,17 +45,15 @@
 
 .campo_desc_prod,
 .lable_img {
-    width: 290px;
-    padding: 5px;
     height: 200px;
-    border-radius: 10px;
-    border: 2px solid var(--borda);
-    cursor: pointer;
 }
 
-.campo_desc_prod {
-    resize: none;
-    background-color: transparent;
+.lable_img {
+    width: 290px;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px solid var(--borda);
+    cursor: pointer;
 }
 
 .area_esp,

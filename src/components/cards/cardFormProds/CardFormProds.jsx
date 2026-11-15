@@ -188,12 +188,11 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
         evt.target.setCustomValidity(msg);
-    }
+    };
 
     const onInput = (evt) => {
         evt.target.setCustomValidity("");
-    }
-
+    };
 
     return (
         <ContainerDiv className={style.container_prods}>

@@ -78,22 +78,7 @@
     text-align: justify;
 }
 
-input,
-.campo_mens {
-    width: 290px;
-    padding: 5px;
-    background-color: transparent;
-    border: 2px solid var(--borda);
-    color: var(--preto_principal);
-}
-
-input {
-    height: 35px;
-}
-
-input,
-.btn_mens,
-.campo_mens {
+.btn_mens {
     border-radius: 6px;
 }
 
@@ -103,7 +88,6 @@ input,
 
 .campo_mens {
     height: 190px;
-    resize: none;
 }
 
 .area_enviar_mens {
