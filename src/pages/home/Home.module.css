@@ -74,7 +74,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     flex-wrap: wrap;
 }
 
@@ -94,8 +94,7 @@
     color: var(--preto_principal);
 }
 
-
-@media only screen and (min-width:500px) {
+@media only screen and (min-width:900px) {
     .area_prods_home {
         flex-direction: row;
     }
