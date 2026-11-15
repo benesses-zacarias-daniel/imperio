@@ -45,14 +45,14 @@ const Autenticar = () => {
                     {info ? (
                         <div>
                             Não tem uma conta?
-                            <Link to={"autenticar/cadastrar"}>
+                            <Link to={"/autenticar/cadastrar"}>
                                 <Button type="button" className={style.activa_} onClick={() => { onClickCriar(false) }} children={"Cadastrar"} />
                             </Link>
                         </div>
                     ) : (
                         <div>
                             Já tem uma conta? Fazer
-                            <Link to={"autenticar/login"}>
+                            <Link to={"/autenticar/login"}>
                                 <Button type="button" className={style.activa_} onClick={() => { onClickLogin(true) }} children={"Login"} />
                             </Link>
                         </div>

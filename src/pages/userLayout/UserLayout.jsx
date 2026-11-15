@@ -11,7 +11,7 @@ const UserLayout = () => {
   return (
     <>{
 
-      (!pathname.startsWith("/admin")) && (
+      (!pathname.startsWith("/admin") && !pathname.startsWith("/autenticar")) && (
         <>
           <Header />
           <main id={"conteudo"}>
