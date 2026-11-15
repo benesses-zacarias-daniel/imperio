@@ -5,7 +5,6 @@ import ProdutosDados from "./../../../components/data/ProdutosDados.json";
 
 const AdicionarProds = () => {
     const contarPrimeiros = ProdutosDados.filter((prod) => prod.primeiros === true);
-    console.log(contarPrimeiros.length);
 
     return (
         <>

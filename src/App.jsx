@@ -9,12 +9,12 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <ContextCarrinhoProvider>
-        <div className="imperial_container">
+      <div className="imperial_container">
+        <ContextCarrinhoProvider>
           <UserLayout />
-          <AdminLayout />
-        </div>
-      </ContextCarrinhoProvider>
+        </ContextCarrinhoProvider>
+        <AdminLayout />
+      </div>
     </BrowserRouter>
   )
 }
