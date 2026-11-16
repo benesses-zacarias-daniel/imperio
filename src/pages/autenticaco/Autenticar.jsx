@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Img from "../../components/img/Img";
 import LogoImperial from "../../assets/logo/logoIET.webp"
-import Login from "../../components/login/Login";
-import Cadastrar from "../../components/cadastrar/Cadastrar";
+import Login from "../../components/autenticar/login/Login";
+import Cadastrar from "../../components/autenticar/cadastrar/Cadastrar";
 import Button from "../../components/button/Button";
 
 const Autenticar = () => {
@@ -14,7 +14,6 @@ const Autenticar = () => {
     const onClickLogin = (val) => {
         setInfo(val);
         console.log(info);
-
     }
 
     const onClickCriar = (val) => {

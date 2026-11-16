@@ -1,7 +1,7 @@
 import { useState } from "react";
-import InputNormal from "../../components/form/inputNomal/InputNormal";
-import Button from "../../components/button/Button";
-import style from "../../components/form/Input.module.css";
+import InputNormal from "../../form/inputNomal/InputNormal";
+import Button from "../../button/Button";
+import style from "../LoginCadastrar.module.css"
 
 const Cadastrar = () => {
     const [usuarioPadrao, setUsuarioPadrao] = useState({ id: null, email: "", password: "", userName: "" });//Usuário Padrão Pra Ser Preenchido
@@ -86,7 +86,7 @@ const Cadastrar = () => {
                 </div>
             </form>
             <div className={style.area_btn_criar}>
-                <Button type="submit" estilo={""} form="form_cr" onClick={null} texto={"Criar Conta"} />
+                <Button type="submit" className={""} onClick={null} children={"Criar Conta"} />
             </div>
         </div >
     );

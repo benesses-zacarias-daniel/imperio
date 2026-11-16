@@ -1,8 +1,8 @@
 import { useState } from "react";
-import InputNormal from "../../components/form/inputNomal/InputNormal";
-import Button from "../../components/button/Button";
 import { useNavigate } from "react-router-dom";
-import style from "../../components/form/Input.module.css"
+import InputNormal from "../../form/inputNomal/InputNormal";
+import Button from "../../button/Button";
+import style from "../LoginCadastrar.module.css"
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -69,7 +69,7 @@ const Login = () => {
             </form>
             <div className={style.msg_cl}>{msg_info}</div>
             <div className={style.area_btn_log}>
-                <Button type="submit" estilo={""} form="form_log" onClick={(evt) => { }} texto="Entrar" />
+                <Button type="submit" className={""} onClick={(evt) => { }} children="Entrar" />
             </div>
         </div>
     )
