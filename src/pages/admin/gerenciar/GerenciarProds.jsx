@@ -1,4 +1,4 @@
-import styles from './GerenciarProds.module.css';
+import style from './GerenciarProds.module.css';
 import { useState } from 'react';
 import CardActProds from '../../../components/cards/cardActProds/CardActProds';
 import CardFormProds from "../../../components/cards/cardFormProds/CardFormProds"
@@ -394,9 +394,12 @@ const GerenciarProds = () => {
     return (
         <>
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
-            <h2 className={styles.titulo_geren}>Gerir produtos</h2>
-            <ContainerDiv className={styles.area_cont_geren}>
-                <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
+            <h2 className={style.titulo_geren}>Gerir produtos</h2>
+            <ContainerDiv className={style.area_cont_geren}>
+                <div className={style.area_scroll}>
+
+                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
+                </div>
                 <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
             </ContainerDiv>
         </>
