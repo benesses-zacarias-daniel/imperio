@@ -69,10 +69,10 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                 </div>
                             </div>)}
                         <div className={style.area_menu}>
-                            <Link to={"/"} className={`${classeLinkMenu} ${(paginaActiva === "/") ? style.pagina_activa : ""}`}>
+                            <Link to={"/"} className={`${classeLinkMenu} ${(paginaActiva === "/home") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/home") ? HomeActiva : Home} alt={"Ícone de Casa"} className={style.img_menu} />
                                         )}
                                         <p>Home</p>
                                     </>
@@ -82,7 +82,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                 }} className={classeBtnMenu} />
 
                             </Link>
-                            <Link to={"/produtos"} className={`${classeLinkMenu} ${(paginaActiva === "/produtos") ? style.pagina_activa : ""}`}>
+                            <Link to={"produtos"} className={`${classeLinkMenu} ${(paginaActiva === "/produtos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/produtos") ? ProductosActiva : Productos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
@@ -96,7 +96,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/sobre"} className={`${classeLinkMenu} ${(paginaActiva === "/sobre") ? style.pagina_activa : ""}`}>
+                            <Link to={"sobre"} className={`${classeLinkMenu} ${(paginaActiva === "/sobre") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/sobre") ? SobreActiva : Sobre} alt={"Ícone de Info"} className={style.img_menu} />
@@ -110,7 +110,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/contacto"} className={`${classeLinkMenu} ${(paginaActiva === "/contacto") ? style.pagina_activa : ""}`}>
+                            <Link to={"contacto"} className={`${classeLinkMenu} ${(paginaActiva === "/contacto") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/contacto") ? ContactoActiva : Contacto} alt={"Ícone de Email"} className={style.img_menu} />
@@ -124,7 +124,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/anunciar"} className={`${classeLinkMenu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
+                            <Link to={"anunciar"} className={`${classeLinkMenu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/anunciar") ? AnunciarActiva : Anunciar} alt={"Ícone de Casa com um Mais no Canto"} className={style.img_menu} />
@@ -138,7 +138,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/carrinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carrinho") ? style.pagina_activa : ""}`}>
+                            <Link to={"carrinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carrinho") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/carrinho") ? CarinhoActiva : Carinho} alt={"Ícone de Carinho"} className={style.img_menu} />
@@ -152,7 +152,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"/termos"} className={`${classeLinkMenu} ${(paginaActiva === "/termos") ? style.pagina_activa : ""}`}>
+                            <Link to={"termos"} className={`${classeLinkMenu} ${(paginaActiva === "/termos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/termos") ? TermosActiva : Termos} alt={"Ícone de Doc"} className={style.img_menu} />
@@ -171,7 +171,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
             </nav>
         )
 
-    )
+    );
 }
 
 

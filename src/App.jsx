@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import './style/global.css';
 import ContextCarrinhoProvider from './context/ContextCarrinho';
-import AdminLayout from './pages/admin/AdminLayout';
-import UserLayout from './pages/userLayout/UserLayout';
 import RotasAutenticar from './routes/RotasAutenticar';
+import RotasAdmin from './routes/RotasAdmin';
+import RotasCliente from './routes/RotasCliente';
 
 const App = () => {
 
@@ -12,12 +12,11 @@ const App = () => {
     <BrowserRouter>
       <div className="imperial_container">
         <Routes>
-          <Route path={"/admin/*"} element={<AdminLayout />} />
+          <Route path={"/admin/*"} element={<RotasAdmin />} />
           <Route path={"/autenticar/*"} element={<RotasAutenticar />} />
-
           <Route path={"/*"} element={
             <ContextCarrinhoProvider>
-              <UserLayout />
+              <RotasCliente />
             </ContextCarrinhoProvider>
           } />
         </Routes>

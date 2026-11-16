@@ -1,7 +1,7 @@
 import Header from "../../components/layout/Header/Header";
 import Footer from "../../components/layout/Footer/Footer";
-import Rotas from "../../routes/Rotas"
-import "./UserLayout.css"
+import "./UserLayout.css";
+import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
 
@@ -9,7 +9,7 @@ const UserLayout = () => {
     <>
       <Header />
       <main id={"conteudo"}>
-        <Rotas />
+        <Outlet />
         <Footer />
       </main>
     </>

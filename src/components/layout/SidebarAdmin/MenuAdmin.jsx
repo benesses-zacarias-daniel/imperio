@@ -60,7 +60,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                 </div>
                             </div>)}
                         <div className={style.area_menu}>
-                            <Link to={"/admin/adicionar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/adicionar") ? style.pagina_activa : ""}`}>
+                            <Link to={"adicionar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/adicionar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/adicionar") ? DashboardActiva : Dashboard} alt={"Ícone de Casa"} className={style.img_menu} />
@@ -73,7 +73,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                 }} className={classeBtnMenu} />
 
                             </Link>
-                            <Link to={"/admin/gerenciar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/gerenciar") ? style.pagina_activa : ""}`}>
+                            <Link to={"gerenciar"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/gerenciar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/gerenciar") ? BancoDadosActiva : BancoDados} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
@@ -103,7 +103,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
             </nav>
         )
 
-    )
+    );
 }
 
 
