@@ -63,16 +63,19 @@ const Home = () => {
     const DepoimentosClientes = [
         {
             "id": 1,
-            "nome": "Ntxuphí Namoro",
-            "depoimento": "A NearHomes ajudou-me a encontrar o lugar perfeito para o escritório da minha empresa em tempo recorde. Profissionalismo puro!"
+            "nome": "Benesses Da Flora Daniel",
+            "iniciais": "BF",
+            "depoimento": "Encontrei o smartphone e a TV que procurava com ótimo preço e garantia. A Imperial Electrónicos tem os melhores produtos do mercado sem dúvida."
         }, {
             "id": 2,
-            "nome": "Paulo Santos",
-            "depoimento": "O processo de Compra da nossa moradia de férias foi extremamente transparente. Recomendo vivamente a equipa."
+            "nome": "Ntxuphí Namoro",
+            "iniciais": "NN",
+            "depoimento": "A Imperial Electrónicos ajudou-me a equipar o escritório da minha empresa com computadores e impressoras em tempo recorde. Profissionalismo puro!"
         }, {
             "id": 3,
-            "nome": "Benesses Flora",
-            "depoimento": "Encontrei a casa dos meus sonhos em Napipine. A NearHomes tem as melhores listagens do mercado sem dúvida."
+            "nome": "Sesseneb Zacarias Daniel",
+            "iniciais": "SD",
+            "depoimento": "O processo de compra da nossa geleira e máquina de lavar foi extremamente transparente e com entrega rápida. Recomendo vivamente a equipa."
         }
     ];
 
@@ -80,7 +83,7 @@ const Home = () => {
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const onClickMostrarDetalhes = (id) => {
-        const dadosDetalhes = ProdutosDestaque.filter((Prod) => Prod.id === id);
+        const dadosDetalhes = produtosDestaque.filter((Prod) => Prod.id === id);
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);
