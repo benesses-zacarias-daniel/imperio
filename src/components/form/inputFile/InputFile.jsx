@@ -1,4 +1,4 @@
-import "../Input.module.css";
+import "../Input.css";
 
 const InputFile = ({ type, id, className = "", onChange, value }) => {
 

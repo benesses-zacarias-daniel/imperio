@@ -1,4 +1,4 @@
-import "../Input.module.css";
+import "../Input.css";
 
 const Textarea = ({ id, className = "", placeholder = "", value, onChange = () => { } }) => {
     return (

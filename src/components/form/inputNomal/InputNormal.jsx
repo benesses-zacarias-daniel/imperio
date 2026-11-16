@@ -1,4 +1,4 @@
-import "../Input.module.css";
+import "../Input.css";
 
 const InputNormal = ({ type, id, placeholder, value, className = "", onChange = () => { }, onInvalid = () => { }, onInput = () => { }, minLength }) => {
 

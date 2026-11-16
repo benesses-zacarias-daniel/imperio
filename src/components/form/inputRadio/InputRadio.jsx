@@ -1,4 +1,4 @@
-import "../Input.module.css";
+import "../Input.css";
 
 const InputRadio = ({ type, id, name, value, className = "", checked, onChange = () => { } }) => {
 
