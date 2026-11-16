@@ -1,10 +1,8 @@
 import style from "./Autenticar.module.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 import Img from "../../components/img/Img";
 import LogoImperial from "../../assets/logo/logoIET.webp"
-import Login from "../../components/autenticar/login/Login";
-import Cadastrar from "../../components/autenticar/cadastrar/Cadastrar";
 import Button from "../../components/button/Button";
 
 const Autenticar = () => {
@@ -35,11 +33,7 @@ const Autenticar = () => {
                         <h2>Crie sua conta  </h2>
                         <span>E fique à par das maiores notícias do Universo Tech</span>
                     </div>)}
-                {info ? (
-                    <Login />
-                ) : (
-                    <Cadastrar />
-                )}
+                <Outlet />
                 <div className={style.area_btn_escolha}>
                     {info ? (
                         <div>

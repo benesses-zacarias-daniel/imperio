@@ -7,7 +7,7 @@ const RotasAutenticar = () => {
     return (
         <Routes>
             <Route path="/" element={<Autenticar />}>
-                <Route idex element={<Navigate to={"login"} replace />} />
+                <Route index element={<Navigate to={"login"} replace />} />
                 <Route path="login" element={<Login />} />
                 <Route path="cadastrar" element={<Cadastrar />} />
             </Route>
