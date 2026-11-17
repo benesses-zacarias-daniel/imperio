@@ -12,7 +12,7 @@ import Menu from "../../Sidebar/SidebarUser/MenuUser";
 import useContextCarrinho from "../../../../hooks/useContextCarrinho";
 import scrollCima from "../../../../utils/scrollCima";
 
-const Header = () => {
+const HeaderUser = () => {
     const [click, setClick] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const { itens } = useContextCarrinho();
@@ -62,4 +62,4 @@ const Header = () => {
 }
 
 
-export default Header;
+export default HeaderUser;

@@ -1,13 +1,13 @@
 import "./UserLayout.css";
 import { Outlet } from "react-router-dom";
-import HeaderAdmin from "../../components/layout/Header/HeaderAdmin/HeaderAdmin";
+import HeaderUser from "../../components/layout/Header/HeaderUser/HeaderUser";
 import FooterUser from "../../components/layout/Footer/FooterUser/FooterUser";
 
 const UserLayout = () => {
 
   return (
     <>
-      <HeaderAdmin />
+      <HeaderUser />
       <main id={"conteudo"}>
         <Outlet />
         <FooterUser />

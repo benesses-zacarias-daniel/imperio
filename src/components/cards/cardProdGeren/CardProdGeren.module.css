@@ -89,13 +89,13 @@
 }
 
 .btn_rem {
-    width: 83px;
+    width: 88px;
     height: 28px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-direction: row;
-    gap: 1px;
+    /* gap: px; */
     border: 2px solid var(--perigo);
     border-radius: 10px;
 }

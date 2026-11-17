@@ -22,7 +22,7 @@ const FooterAdmin = () => {
                 <div className={style.area_marca_nav}>
                     <div className={style.marca}>
                         <div className={style.desc_footer}>
-                            <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} className={style.corFora} />
+                            <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} className={style.corFora} />
                             <div className={style.desc_texto}>
                                 A sua autoridade em hardware premium e soluções tecnológicas de luxo.
                             </div>

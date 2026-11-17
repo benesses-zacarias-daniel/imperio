@@ -140,7 +140,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
                     ) : (
                         <Button className={style.btn_guardar_dep} type={"submit"} onClick={() => { }} >
                             <>
-                                <p>Guadar Depoimento</p>
+                                <p>Guardar Depoimento</p>
                                 <Img src={Publicar} alt={"Ícone de upload"} className={style.icone_input_tell} />
                             </>
                         </Button>

@@ -8,7 +8,7 @@ import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 //Ícones
 import Editar from "../../../assets/icons/edit.svg";
 
-const CardProdGeren = ({ ItensGeren, onClickMostrarModal, onClickPrimeiros }) => {
+const CardProdGeren = ({ ItensGeren, onClickMostrarModal = () => { }, onClickPrimeiros = () => { }, onClickApagarProd = () => { } }) => {
 
     return (
         ItensGeren.map((itensGeren, pos) => {
@@ -43,7 +43,9 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal, onClickPrimeiros }) =>
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>
-                                <Button className={style.btn_car} onClick={() => { onClickMostrarModal(itensGeren.id) }}>
+                                <Button className={style.btn_car} onClick={() => {
+                                    onClickMostrarModal(itensGeren.id);
+                                }}>
                                     <>
                                         <Img src={Editar} alt={"Ícone de menus"} className={style.icone_qtd_control} />
                                         <p>Editar</p>
@@ -52,6 +54,7 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal, onClickPrimeiros }) =>
                             </div>
                             <div className={style.container_btn_dir}>
                                 <Button className={style.btn_rem} onClick={() => {
+                                    onClickApagarProd(itensGeren.id);
                                 }}>
                                     <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_qtd_control} />
                                     Remover

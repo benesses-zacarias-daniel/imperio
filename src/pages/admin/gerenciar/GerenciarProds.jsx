@@ -6,10 +6,13 @@ import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 import Filtros from "../../../components/productos/Filtros";
 import Categorias from "../../../components/data/Categorias.json";
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
+import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 
 const GerenciarProds = () => {
     const [modalAberto, setModalAberto] = useState(false);
+    const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosModal, setDadosModal] = useState([]);
+    const [dadosMsg, setDadosMsg] = useState([]);
     const ItensTeste = [
         {
             "id": 1,
@@ -423,6 +426,18 @@ const GerenciarProds = () => {
 
         setDadosFiltrados(objPrimeirosAdicionar);
     };
+
+    const onClickFiltrar = (id) => {
+        const dadosEliminar = dadosFiltrados.filter((dados) => dados.id === id);
+        setDadosMsg(dadosEliminar);
+        setShowCardMsg(true);
+    };
+
+    const onClickEliminarProd = () => {
+        const dadosEliminar = dadosFiltrados.filter((dados) => dados.id !== dadosMsg[0]?.id);
+        setDadosFiltrados(dadosEliminar);
+        setShowCardMsg(false);
+    };
     // useEffect(() => {
     //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
     // }, []);
@@ -433,10 +448,10 @@ const GerenciarProds = () => {
             <h2 className={style.titulo_geren}>Gerir produtos</h2>
             <ContainerDiv className={style.area_cont_geren}>
                 <div className={style.area_scroll}>
-
-                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} />
+                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />
                 </div>
                 <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
+                <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminarProd={() => { onClickEliminarProd(); }} />
             </ContainerDiv>
         </>
     );

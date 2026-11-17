@@ -112,7 +112,7 @@ const Depoimentos = () => {
                         <div className={style.area_scroll_dep}>
                             <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
                         </div>
-                        <CardAct showModal={showModal} onClickControlModal={() => { onClickShow(false, 0) }} children={
+                        <CardAct showModal={showModal} tipo={true} onClickControlModal={() => { onClickShow(false, 0) }} children={
                             <CardFormDepoimentos depoimentoCliente={depAlterar[0]} contaVisivel={contaVisivel.length} tipo={true} />
                         } />
                     </>

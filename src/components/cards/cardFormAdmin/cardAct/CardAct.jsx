@@ -4,7 +4,7 @@ import ContainerDiv from '../../../Common/container/ContainerDiv';
 import Img from '../../../img/Img';
 import Fexar from "../../../../assets/icons/fexar_detalhes.svg";
 
-const CardAct = ({ showModal, children, onClickControlModal }) => {
+const CardAct = ({ showModal, children, onClickControlModal, tipo = false }) => {
     if (!showModal) return null;
 
     return (
@@ -13,9 +13,9 @@ const CardAct = ({ showModal, children, onClickControlModal }) => {
                 onClickControlModal(false);
             }
         }}>
-            <div className={styles.caixa}>
+            <div className={tipo ? styles.caixa_dep : styles.caixa}>
                 <div className={styles.topo}>
-                    <h2>Actualizar Produto</h2>
+                    <h2>{tipo ? "Actualizar Depoimento" : "Actualizar Produto"}</h2>
                     <Button className={styles.btn_fexar_act} onClick={() => { onClickControlModal(false) }}>
                         <Img src={Fexar} alt={"Ícone de X"} className={styles.img_fechar_act} />
                     </Button>
