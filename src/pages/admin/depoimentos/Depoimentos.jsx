@@ -8,6 +8,7 @@ import { useState } from 'react';
 import CardDepGeren from '../../../components/cards/cardDepGeren/CardDepGeren';
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import scrollCima from '../../../utils/scrollCima';
+import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 
 const Depoimentos = () => {
     const DepoimentosClientes = [
@@ -47,7 +48,8 @@ const Depoimentos = () => {
     const [depAlterar, setDepAltera] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const contaVisivel = depoimentos.filter((dep) => dep.visivel === true);
-
+    const [showCardMsg, setShowCardMsg] = useState(false);
+    const [dadosMsg, setDadosMsg] = useState([]);
     const onClickShow = (val, tipo) => {
         if (tipo === 1) {
             setShowGerenciar(val);
@@ -103,6 +105,20 @@ const Depoimentos = () => {
         setDepoimentos(objPrimeirosAdicionar);
     };
 
+    const onClickFiltrar = (id) => {
+        const dadosEliminar = depoimentos.filter((dados) => dados.id === id);
+        setDadosMsg(dadosEliminar[0]);
+        setShowCardMsg(true);
+    };
+
+    const onClickElminarDep = () => {
+        const dadosEliminar = depoimentos.filter((dados) => dados.id !== dadosMsg?.id);
+        setDepoimentos(dadosEliminar);
+        setShowCardMsg(false);
+        console.log(dadosEliminar);
+
+    };
+
     return (
         <>
             <h2 className={style.titulo_dep}> {showGerenciar ? ("Gerenciar Depoimentos") : ("Adicionar Depoimentos")}</h2>
@@ -110,11 +126,12 @@ const Depoimentos = () => {
                 {showGerenciar ? (
                     <>
                         <div className={style.area_scroll_dep}>
-                            <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
+                            <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
                         </div>
                         <CardAct showModal={showModal} tipo={true} onClickControlModal={() => { onClickShow(false, 0) }} children={
                             <CardFormDepoimentos depoimentoCliente={depAlterar[0]} contaVisivel={contaVisivel.length} tipo={true} />
                         } />
+                        <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickElminarDep(); }} mensagem={"Realmente tem certeza de que deseja eliminar o este depoimento?"} />
                     </>
                 ) : (
                     <CardFormDepoimentos dadodo={depoimentos} contaVisivel={contaVisivel.length} />

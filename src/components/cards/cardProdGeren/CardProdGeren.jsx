@@ -57,7 +57,7 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal = () => { }, onClickPri
                                     onClickApagarProd(itensGeren.id);
                                 }}>
                                     <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_qtd_control} />
-                                    Remover
+                                    Eliminar
                                 </Button>
                             </div>
                         </div>

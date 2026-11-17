@@ -7,7 +7,7 @@ import Apagar from "../../../assets/icons/delete.svg";
 import { useState } from "react";
 import scrollCima from "../../../utils/scrollCima";
 
-const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminarProd = () => { } }) => {
+const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "" }) => {
     if (!showCardMsg) {
         return null;
     }
@@ -35,7 +35,7 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
                 </div>
                 <div className={style.area_mensagem}>
                     <div className={style.mensagem}>
-                        Tem certeza de que deseja eliminar o produto <span className={style.nome_prod_eliminar}>{dadosProd[0]?.nome}</span> ? Essa oporação não pode ser revertida uma vez feita.
+                        {mensagem} ? Essa oporação não pode ser revertida uma vez feita.
                     </div>
                 </div>
                 <div className={style.area_btn_oper}>
@@ -49,7 +49,7 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
                     />
 
                     <Button className={style.btn_apagar} onClick={() => {
-                        onClickEliminarProd(dadosProd[0]?.id);
+                        onClickEliminar(dadosProd[0]?.id);
                         scrollCima();
                     }} children={
                         <>

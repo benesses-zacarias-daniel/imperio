@@ -8,7 +8,7 @@ import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 //Ícones
 import Editar from "../../../assets/icons/edit.svg";
 
-const CardDepGeren = ({ deppoimentos, onClickMostrarModal, onClickVisivel }) => {
+const CardDepGeren = ({ deppoimentos, onClickMostrarModal = () => { }, onClickVisivel = () => { }, onClickFiltrar = () => { } }) => {
 
     return (
         deppoimentos.map((dep) => {
@@ -48,10 +48,10 @@ const CardDepGeren = ({ deppoimentos, onClickMostrarModal, onClickVisivel }) => 
                                 />
                             </div>
                             <div className={style.container_btn_dir}>
-                                <Button className={style.btn_rem} onClick={() => { }} children={
+                                <Button className={style.btn_rem} onClick={() => { onClickFiltrar(dep.id) }} children={
                                     <>
                                         <Img src={Remover} alt={"Ícone de lixeira"} className={style.icone_qtd_control} />
-                                        <p>Remover </p>
+                                        <p>Eliminar</p>
                                     </>
                                 }
                                 />
