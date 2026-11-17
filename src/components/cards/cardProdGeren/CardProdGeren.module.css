@@ -10,7 +10,14 @@
 }
 
 .area_badge {
+    width: 100%;
     font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
 
 .container_cardItemCar {

@@ -9,12 +9,13 @@ import scrollCima from "../../../../utils/scrollCima";
 import Home from "../../../../assets/icons/casa.svg";
 import Dashboard from "../../../../assets/icons/dashboard.svg";
 import BancoDados from "../../../../assets/icons/bancoDados.svg";
-// import Fexar from "../../../assets/icons/fexarMenu.svg";
-
+import Depoimentos from "../../../../assets/icons/feedback.svg";
+import Ajuda from "../../../../assets/icons/psychology.svg";
 //Ícones de foco
 import DashboardActiva from "../../../../assets/icons/dashboardA.svg";
 import BancoDadosActiva from "../../../../assets/icons/bancoDadosA.svg";
-
+import DepoimentosActiva from "../../../../assets/icons/feedbackA.svg";
+import AjudaActiva from "../../../../assets/icons/psychologyA.svg";
 
 const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
     const { pathname } = useLocation();
@@ -85,7 +86,30 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                     scrollCima();
                                 }} className={classeBtnMenu} />
                             </Link>
-
+                            <Link to={"depoimentos"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/depoimentos") ? style.pagina_activa : ""}`}>
+                                <Button children={
+                                    <>
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/depoimentos") ? DepoimentosActiva : Depoimentos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        )}
+                                        <p>Depoimentos</p>
+                                    </>
+                                } onClick={() => {
+                                    onClickOcultarMenu();
+                                    scrollCima();
+                                }} className={classeBtnMenu} />
+                            </Link>
+                            <Link to={"ajuda"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/ajuda") ? style.pagina_activa : ""}`}>
+                                <Button children={
+                                    <>
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/ajuda") ? AjudaActiva : Ajuda} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        )}
+                                        <p>Ajuda</p>
+                                    </>
+                                } onClick={() => {
+                                    onClickOcultarMenu();
+                                    scrollCima();
+                                }} className={classeBtnMenu} />
+                            </Link>
                             <a href={"/"} className={classeLinkMenu} target="_blank" rel="noopener noreferrer">
                                 <Button children={
                                     <>

@@ -1,10 +1,10 @@
-import styles from './CardActProds.module.css';
-import Button from '../../button/Button';
-import ContainerDiv from '../../Common/container/ContainerDiv';
-import Img from '../../img/Img';
-import Fexar from "../../../assets/icons/fexar_detalhes.svg";
+import styles from './CardAct.module.css';
+import Button from '../../../button/Button';
+import ContainerDiv from '../../../Common/container/ContainerDiv';
+import Img from '../../../img/Img';
+import Fexar from "../../../../assets/icons/fexar_detalhes.svg";
 
-const CardActProds = ({ showModal, children, onClickControlModal }) => {
+const CardAct = ({ showModal, children, onClickControlModal }) => {
     if (!showModal) return null;
 
     return (
@@ -26,4 +26,4 @@ const CardActProds = ({ showModal, children, onClickControlModal }) => {
     );
 }
 
-export default CardActProds;
+export default CardAct;

@@ -16,7 +16,8 @@ import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 //Dados
 import ProdutoDados from "../../components/data/ProdutosDados.json";
-import CardDepoimentos from "../../components/cards/carDepoimentos/CardDepoimentos";
+import DepoimentosClientes from "../../components/data/DepoimentosClientes.json";
+import CardDepoimentos from "../../components/cards/cardDepoimentos/CardDepoimentos";
 
 const Home = () => {
     const produtosDestaque = ProdutoDados.filter((prodFiltrado) => prodFiltrado.primeiros === true);
@@ -57,25 +58,6 @@ const Home = () => {
                     "desc": "Concierge dedicado para resolver qualquer dúvida a qualquer momento."
                 }
             ]
-        }
-    ];
-
-    const DepoimentosClientes = [
-        {
-            "id": 1,
-            "nome": "Benesses Da Flora Daniel",
-            "iniciais": "BF",
-            "depoimento": "Encontrei o smartphone e a TV que procurava com ótimo preço e garantia. A Imperial Electrónicos tem os melhores produtos do mercado sem dúvida."
-        }, {
-            "id": 2,
-            "nome": "Ntxuphí Namoro",
-            "iniciais": "NN",
-            "depoimento": "A Imperial Electrónicos ajudou-me a equipar o escritório da minha empresa com computadores e impressoras em tempo recorde. Profissionalismo puro!"
-        }, {
-            "id": 3,
-            "nome": "Sesseneb Zacarias Daniel",
-            "iniciais": "SD",
-            "depoimento": "O processo de compra da nossa geleira e máquina de lavar foi extremamente transparente e com entrega rápida. Recomendo vivamente a equipa."
         }
     ];
 

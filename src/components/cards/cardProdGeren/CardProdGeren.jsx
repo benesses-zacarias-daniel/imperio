@@ -3,10 +3,12 @@ import Button from "../../button/Button";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
 import Remover from "../../../assets/icons/delete.svg";
+import EstrelaSimples from "../../../assets/icons/estrelaSimples.svg";
+import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 //Ícones
 import Editar from "../../../assets/icons/edit.svg";
 
-const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
+const CardProdGeren = ({ ItensGeren, onClickMostrarModal, onClickPrimeiros }) => {
 
     return (
         ItensGeren.map((itensGeren, pos) => {
@@ -27,6 +29,17 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal }) => {
                         </div>
                         <div className={style.area_badge}>
                             <p>{itensGeren.badge}</p>
+                            {
+                                itensGeren.primeiros ?
+                                    (
+                                        <Button className={style.btn_prim} onClick={() => { onClickPrimeiros(itensGeren.id, 0) }} children={
+                                            <Img src={EstrelaAval} alt={"Ícone de Estrela"} className={style.icone_prim} />} />
+                                    ) : (
+                                        <Button className={style.btn_prim} onClick={() => { onClickPrimeiros(itensGeren.id, 1) }} children={
+                                            <Img src={EstrelaSimples} alt={"Ícone de Estrela"} className={style.icone_prim} />
+                                        } />
+                                    )
+                            }
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>

@@ -2,6 +2,8 @@ import { Route, Routes, Navigate } from "react-router-dom"
 import AdicionarProds from "../pages/admin/adicionar/AdicionarProds";
 import GerenciarProds from "../pages/admin/gerenciar/GerenciarProds";
 import AdminLayout from "../pages/admin/AdminLayout";
+import Depoimentos from "../pages/admin/depoimentos/Depoimentos";
+import Ajuda from "../pages/admin/ajuda/Ajuda";
 
 const RotasAdmin = () => {
     return (
@@ -10,6 +12,8 @@ const RotasAdmin = () => {
                 <Route index element={<Navigate to="adicionar" replace />} />
                 <Route path="adicionar" element={<AdicionarProds />} />
                 <Route path="gerenciar" element={<GerenciarProds />} />
+                <Route path="depoimentos" element={<Depoimentos />} />
+                <Route path="ajuda" element={<Ajuda />} />
             </Route>
         </Routes>
     );

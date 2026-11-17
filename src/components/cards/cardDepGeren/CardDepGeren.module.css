@@ -1,0 +1,136 @@
+.container_cardItemCar,
+.container_titulo,
+.area_badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 30px;
+}
+
+.area_badge {
+    width: 100%;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.container_cardItemCar {
+    width: 340px;
+    height: 100px;
+    padding: 5px;
+    gap: 10px;
+    border: 2px solid var(--borda);
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.img_car {
+    width: 78px;
+    height: 78px;
+}
+
+.area_infos_item_car {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.container_titulo {
+    width: 100%;
+}
+
+.iniciais,
+.img_car {
+    border-radius: 10px;
+    border: 2px solid var(--borda);
+}
+
+.iniciais {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: var(--borda);
+    border-radius: 90px;
+    background-color: var(--dourado_transp);
+}
+
+.iniciais_p {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.area_btn_acao_car {
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_btn_esq,
+.container_btn_dir {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80px;
+    border-radius: 10px;
+
+}
+
+.container_btn_dir {
+    width: 95px;
+    border: 0px solid red;
+    justify-content: flex-end;
+}
+
+.btn_rem {
+    width: 83px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 1px;
+    border: 2px solid var(--perigo);
+    border-radius: 10px;
+}
+
+.btn_car {
+    width: 120px;
+    height: 28px;
+    font-weight: 800;
+    color: var(--texto_principal);
+    background-color: var(--dourado_principal);
+    border-radius: 10px;
+}
+
+.icone_qtd_control {
+    width: 20px;
+    height: 20px;
+}
+
+.bordaInicial {
+    border-radius: 0px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.bordaFinal {
+    border-radius: 0px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}

@@ -1,11 +1,11 @@
 import style from './GerenciarProds.module.css';
 import { useState } from 'react';
-import CardActProds from '../../../components/cards/cardActProds/CardActProds';
-import CardFormProds from "../../../components/cards/cardFormProds/CardFormProds"
+import CardFormProds from "../../../components/cards/cardFormAdmin/cardFormProds/CardFormProds"
 import CardProdGeren from '../../../components/cards/cardProdGeren/CardProdGeren';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 import Filtros from "../../../components/productos/Filtros";
 import Categorias from "../../../components/data/Categorias.json";
+import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 
 const GerenciarProds = () => {
     const [modalAberto, setModalAberto] = useState(false);
@@ -387,6 +387,42 @@ const GerenciarProds = () => {
         }
     };
 
+    const onClickPrimeiros = (id, tipo) => {
+        console.log(id + " " + tipo);
+
+        if (tipo === 0) {
+            onClickRemoverPrimeiros(id);
+            return;
+        }
+
+        onClickAdicionarPrimeiros(id);
+    }
+
+    const onClickRemoverPrimeiros = (id) => {
+        console.log(dadosFiltrados);
+
+        const objPrimeirosRemovido = dadosFiltrados.map((item) => {
+            if (item.id === id) {
+                return { ...item, primeiros: false }
+            }
+
+            return item;
+        });
+
+        setDadosFiltrados(objPrimeirosRemovido);
+    };
+
+    const onClickAdicionarPrimeiros = (id) => {
+        const objPrimeirosAdicionar = dadosFiltrados.map((item) => {
+            if (item.id === id) {
+                return { ...item, primeiros: true }
+            }
+
+            return item;
+        });
+
+        setDadosFiltrados(objPrimeirosAdicionar);
+    };
     // useEffect(() => {
     //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
     // }, []);
@@ -398,9 +434,9 @@ const GerenciarProds = () => {
             <ContainerDiv className={style.area_cont_geren}>
                 <div className={style.area_scroll}>
 
-                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} />
+                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} />
                 </div>
-                <CardActProds showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
+                <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
             </ContainerDiv>
         </>
     );

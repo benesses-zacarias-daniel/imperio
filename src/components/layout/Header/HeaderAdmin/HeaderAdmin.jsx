@@ -5,6 +5,7 @@ import Img from "../../../img/Img";
 import Logo from "../../Logo/Logo";
 //Imagens
 import AbrirMenu from "../../../../assets/icons/menu.svg";
+import Sair from "../../../../assets/icons/sair.svg";
 import LogoIcone from "../../../../assets/logo/logoIET.webp";
 import MenuAdmin from "../../Sidebar/SidebarAdmin/MenuAdmin";
 
@@ -25,6 +26,11 @@ const HeaderAdmin = () => {
                 </div>
                 <div className={style.area_logo_topo}>
                     <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} />
+                </div>
+                <div className={style.area_carinho}>
+                    <Button children={
+                        <Img src={Sair} alt={"Ícone de Deslogar"} className={style.icone} />
+                    } onClick={() => { }} />
                 </div>
             </header >
             <MenuAdmin mostrarMenu={showMenu} mostrarIcone={true} mostrarIconesMenu={true} onClickOcultar={(val) => {

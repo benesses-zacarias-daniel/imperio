@@ -1,7 +1,7 @@
 import style from './AdicionarProds.module.css';
-import CardFormProds from '../../../components/cards/cardFormProds/CardFormProds';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
 import ProdutosDados from "./../../../components/data/ProdutosDados.json";
+import CardFormProds from '../../../components/cards/cardFormAdmin/cardFormProds/CardFormProds';
 
 const AdicionarProds = () => {
     const contarPrimeiros = ProdutosDados.filter((prod) => prod.primeiros === true);

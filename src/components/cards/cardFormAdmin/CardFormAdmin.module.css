@@ -148,7 +148,8 @@
 .btn_add_campo,
 .btn_apagar,
 .btn_publicar,
-.btn_actualizar {
+.btn_actualizar,
+.btn_guardar_dep {
     border-radius: 8px;
     height: 30px;
 }
@@ -184,6 +185,7 @@
 }
 
 .btn_publicar,
+.btn_guardar_dep,
 .btn_actualizar {
     height: 33px;
     width: 100px;
@@ -194,6 +196,10 @@
 
 .btn_actualizar {
     width: 150px;
+}
+
+.btn_guardar_dep {
+    width: 170px;
 }
 
 .btn_add_campo {

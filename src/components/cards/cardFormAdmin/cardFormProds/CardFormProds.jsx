@@ -1,21 +1,21 @@
-import style from './CardFormProds.module.css';
+import style from '../CardFormAdmin.module.css';
 // import '../../form/Input.module.css';
 import { useState } from 'react';
-import Img from '../../img/Img';
-import Button from '../../button/Button';
+import Img from '../../../img/Img';
+import Button from '../../../button/Button';
 //Ícones
-import Upload from "../../../assets/icons/enviar.svg";
-import Mais from "../../../assets/icons/maisB.svg";
-import Remover from "../../../assets/icons/delete.svg";
-import Guardar from "../../../assets/icons/guardar.svg";
-import Publicar from "../../../assets/icons/publicar.svg";
-import ContainerDiv from '../../Common/container/ContainerDiv';
-import criarURLsImgs from '../../../utils/criarURLsImg';
-import ContainerForm from '../../Common/containerForms/ContainerForms';
-import InputNormal from '../../form/inputNomal/InputNormal';
-import Textarea from '../../form/textarea/Textarea';
-import InputRadio from '../../form/inputRadio/InputRadio';
-import InputFile from '../../form/inputFile/InputFile';
+import Upload from "../../../../assets/icons/enviar.svg";
+import Mais from "../../../../assets/icons/maisB.svg";
+import Remover from "../../../../assets/icons/delete.svg";
+import Guardar from "../../../../assets/icons/guardar.svg";
+import Publicar from "../../../../assets/icons/publicar.svg";
+import ContainerDiv from '../../../Common/container/ContainerDiv';
+import criarURLsImgs from '../../../../utils/criarURLsImg';
+import ContainerForm from '../../../Common/containerForms/ContainerForms';
+import InputNormal from '../../../form/inputNomal/InputNormal';
+import Textarea from '../../../form/textarea/Textarea';
+import InputRadio from '../../../form/inputRadio/InputRadio';
+import InputFile from '../../../form/inputFile/InputFile';
 
 const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const Opcoes = [
