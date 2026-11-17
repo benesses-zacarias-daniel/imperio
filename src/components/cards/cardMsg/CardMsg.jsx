@@ -7,7 +7,7 @@ import Apagar from "../../../assets/icons/delete.svg";
 import { useState } from "react";
 import scrollCima from "../../../utils/scrollCima";
 
-const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "" }) => {
+const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "", tipo = false }) => {
     if (!showCardMsg) {
         return null;
     }
@@ -35,7 +35,7 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
                 </div>
                 <div className={style.area_mensagem}>
                     <div className={style.mensagem}>
-                        {mensagem} ? Essa oporação não pode ser revertida uma vez feita.
+                        {mensagem}{tipo ? <span className={style.nome_prod_eliminar}>{dadosProd[0]?.nome}</span> : null} ? Essa oporação não pode ser revertida uma vez feita.
                     </div>
                 </div>
                 <div className={style.area_btn_oper}>
