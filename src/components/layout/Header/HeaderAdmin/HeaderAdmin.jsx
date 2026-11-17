@@ -1,12 +1,12 @@
+import style from "../Header.module.css";
 import { useState } from "react";
-import style from "./HeaderAdmin.module.css";
-import Button from "../../button/Button";
-import Img from "../../img/Img";
-import Logo from "../logo/Logo";
+import Button from "../../../button/Button";
+import Img from "../../../img/Img";
+import Logo from "../../Logo/Logo";
 //Imagens
-import AbrirMenu from "../../../assets/icons/menu.svg";
-import LogoIcone from "../../../assets/logo/logoIET.webp";
-import MenuAdmin from "../SidebarAdmin/MenuAdmin";
+import AbrirMenu from "../../../../assets/icons/menu.svg";
+import LogoIcone from "../../../../assets/logo/logoIET.webp";
+import MenuAdmin from "../../Sidebar/SidebarAdmin/MenuAdmin";
 
 const HeaderAdmin = () => {
     const [showMenu, setShowMenu] = useState(false);

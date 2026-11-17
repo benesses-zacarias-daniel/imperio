@@ -1,7 +1,8 @@
-import styles from './AdminLayout.module.css';
+import style from './AdminLayout.module.css';
 import { Navigate, Outlet } from 'react-router-dom';
-import HeaderAdmin from '../../components/layout/HeaderAdmin/HeaderAdmin';
 import { useState } from 'react';
+import HeaderAdmin from '../../components/layout/Header/HeaderAdmin/HeaderAdmin';
+import FooterAdmin from '../../components/layout/Footer/FooterAdmin/FooterAdmin';
 
 const AdminLayout = () => {
     const [adminStaus, setAdminStatus] = useState(false);
@@ -11,12 +12,15 @@ const AdminLayout = () => {
     // }
 
     return (
-        <div className={styles.layout}>
-            <HeaderAdmin />
-            <main id={"conteudo_admin"} className={styles.conteudo_admin}>
-                <Outlet />
-            </main>
-        </div>
+        <>
+            <div className={style.layout}>
+                <HeaderAdmin />
+                <main id={"conteudo_admin"} className={style.conteudo_admin}>
+                    <Outlet />
+                    <FooterAdmin />
+                </main>
+            </div>
+        </>
     );
 }
 

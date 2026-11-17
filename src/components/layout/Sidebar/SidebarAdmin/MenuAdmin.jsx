@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import style from "./MenuAdmin.module.css";
-import Button from "../../button/Button";
-import Img from "../../img/Img";
+import style from "../Menu.module.css";
+import Button from "../../../button/Button";
+import Img from "../../../img/Img";
 
-import scrollCima from "../../../utils/scrollCima";
+import scrollCima from "../../../../utils/scrollCima";
 //
-import Home from "../../../assets/icons/casa.svg";
-import Dashboard from "../../../assets/icons/dashboard.svg";
-import BancoDados from "../../../assets/icons/bancoDados.svg";
+import Home from "../../../../assets/icons/casa.svg";
+import Dashboard from "../../../../assets/icons/dashboard.svg";
+import BancoDados from "../../../../assets/icons/bancoDados.svg";
 // import Fexar from "../../../assets/icons/fexarMenu.svg";
 
 //Ícones de foco
-import DashboardActiva from "../../../assets/icons/dashboardA.svg";
-import BancoDadosActiva from "../../../assets/icons/bancoDadosA.svg";
+import DashboardActiva from "../../../../assets/icons/dashboardA.svg";
+import BancoDadosActiva from "../../../../assets/icons/bancoDadosA.svg";
 
 
 const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
@@ -89,7 +89,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                             <a href={"/"} className={classeLinkMenu} target="_blank" rel="noopener noreferrer">
                                 <Button children={
                                     <>
-                                        <Img src={Home} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={Home} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />)}
                                         <p>Voltar Para o Imperio</p>
                                     </>
                                 } onClick={() => {

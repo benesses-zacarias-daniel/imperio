@@ -1,19 +1,14 @@
-import Autor from "../../autor/Autor";
-import Logo from "../logo/Logo";
-import LogoIcone from "../../../assets/logo/logoIET.webp";
-import style from "./Footer.module.css";
-import Menu from "../Sidebar/Menu";
-import Img from "../../img/Img";
-import Chamada from "../../../assets/icons/chamadaF.svg";
-import Email from "../../../assets/icons/email.svg";
+import style from "../Footer.module.css";
+import Autor from "../../../autor/Autor";
+import Logo from "../../Logo/Logo";
+import LogoIcone from "../../../../assets/logo/logoIET.webp";
+import MenuAdmin from "../../Sidebar/SidebarAdmin/MenuAdmin";
+import Img from "../../../img/Img";
+import Chamada from "../../../../assets/icons/chamadaF.svg";
+import Email from "../../../../assets/icons/email.svg";
+import DadosAutor from "../../../data/DadosAutor.json";
 
-const Footer = () => {
-    const DadosAutor = [{
-        "id": 1,
-        "nomeAutor": "BZD",
-        "linkSobre": "https://sobrebzd.vercel.app",
-        "textos": ["Desenvolvido por ", " © 2026 - Imperial Electronicos . Todos os direiros reservados."]
-    }];
+const FooterAdmin = () => {
 
     const linkEmail = `mailto:imperialelectronicoscontacto@gmail.com`;
     const num1 = "258 84 975 4315";
@@ -52,7 +47,7 @@ const Footer = () => {
                         <h4 className={style.titulo_nav}>
                             Navegação Rápida
                         </h4>
-                        <Menu mostrarMenu={true} onClickOcultar={() => { }} classContaner={style.contaner_footer_menu} classeLinkMenu={style.link_footer} classeBtnMenu={style.btn_footer_menu} />
+                        <MenuAdmin mostrarMenu={true} onClickOcultar={() => { }} classContaner={style.contaner_footer_menu} classeLinkMenu={style.link_footer} classeBtnMenu={style.btn_footer_menu} />
                     </div>
                 </div>
                 <hr className={style.linha} />
@@ -62,4 +57,4 @@ const Footer = () => {
 }
 
 
-export default Footer;
+export default FooterAdmin;

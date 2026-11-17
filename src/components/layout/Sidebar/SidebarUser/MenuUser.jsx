@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import style from "./Menu.module.css";
-import Button from "../../button/Button";
-import Img from "../../img/Img";
+import style from "../Menu.module.css";
+import Button from "../../../button/Button";
+import Img from "../../../img/Img";
 
-import scrollCima from "../../../utils/scrollCima";
+import scrollCima from "../../../../utils/scrollCima";
 
-import Home from "../../../assets/icons/casa.svg";
-import Productos from "../../../assets/icons/produto.svg";
-import Sobre from "../../../assets/icons/sobre.svg";
-import Anunciar from "../../../assets/icons/anuncio.svg";
-import Carinho from "../../../assets/icons/carinhoB.svg";
-import Termos from "../../../assets/icons/termos.svg";
-import Contacto from "../../../assets/icons/contactar.svg";
+import Home from "../../../../assets/icons/casa.svg";
+import Productos from "../../../../assets/icons/produto.svg";
+import Sobre from "../../../../assets/icons/sobre.svg";
+import Anunciar from "../../../../assets/icons/anuncio.svg";
+import Carinho from "../../../../assets/icons/carinhoB.svg";
+import Termos from "../../../../assets/icons/termos.svg";
+import Contacto from "../../../../assets/icons/contactar.svg";
 // import Fexar from "../../../assets/icons/fexarMenu.svg";
 
 //Ícones de foco
-import HomeActiva from "../../../assets/icons/casaL.svg";
-import ProductosActiva from "../../../assets/icons/produtoL.svg";
-import SobreActiva from "../../../assets/icons/sobreL.svg";
-import AnunciarActiva from "../../../assets/icons/anuncioL.svg";
-import CarinhoActiva from "../../../assets/icons/carinho.svg";
-import TermosActiva from "../../../assets/icons/termosL.svg";
-import ContactoActiva from "../../../assets/icons/contactarL.svg";
+import HomeActiva from "../../../../assets/icons/casaL.svg";
+import ProductosActiva from "../../../../assets/icons/produtoL.svg";
+import SobreActiva from "../../../../assets/icons/sobreL.svg";
+import AnunciarActiva from "../../../../assets/icons/anuncioL.svg";
+import CarinhoActiva from "../../../../assets/icons/carinho.svg";
+import TermosActiva from "../../../../assets/icons/termosL.svg";
+import ContactoActiva from "../../../../assets/icons/contactarL.svg";
 
 
 const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {

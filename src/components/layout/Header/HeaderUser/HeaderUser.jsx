@@ -1,16 +1,16 @@
+import style from "../Header.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import style from "./Header.module.css";
-import Button from "../../button/Button";
-import Img from "../../img/Img";
-import Logo from "../logo/Logo";
+import Button from "../../../button/Button";
+import Img from "../../../img/Img";
+import Logo from "../../Logo/Logo";
 //Imagens
-import AbrirMenu from "../../../assets/icons/menu.svg";
-import Carinho from "../../../assets/icons/carinho.svg";
-import LogoIcone from "../../../assets/logo/logoIET.webp";
-import Menu from "../Sidebar/Menu";
-import useContextCarrinho from "../../../hooks/useContextCarrinho";
-import scrollCima from "../../../utils/scrollCima";
+import AbrirMenu from "../../../../assets/icons/menu.svg";
+import Carinho from "../../../../assets/icons/carinho.svg";
+import LogoIcone from "../../../../assets/logo/logoIET.webp";
+import Menu from "../../Sidebar/SidebarUser/MenuUser";
+import useContextCarrinho from "../../../../hooks/useContextCarrinho";
+import scrollCima from "../../../../utils/scrollCima";
 
 const Header = () => {
     const [click, setClick] = useState(false);
