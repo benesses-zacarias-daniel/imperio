@@ -14,13 +14,13 @@ const CardDepGeren = ({ deppoimentos, onClickMostrarModal = () => { }, onClickVi
         deppoimentos.map((dep) => {
             return (
 
-                <ContainerDiv key={dep.id} className={style.container_cardItemCar}>
+                <ContainerDiv key={dep.id} className={style.container_card_dep}>
                     <div className={style.iniciais}>
                         <p className={style.iniciais_p}>{dep.iniciais}</p>
                     </div>
-                    <div className={style.area_infos_item_car}>
+                    <div className={style.container_infos_prin}>
                         <div className={style.container_titulo}>
-                            <div className={style.area_nome_car}>
+                            <div>
                                 <h3>{dep.nome}</h3>
                             </div>
                             <div className={style.area_preco}>
@@ -39,7 +39,7 @@ const CardDepGeren = ({ deppoimentos, onClickMostrarModal = () => { }, onClickVi
                         </div>
                         <div className={style.area_btn_acao_car}>
                             <div className={style.container_btn_esq}>
-                                <Button className={style.btn_car} onClick={() => { onClickMostrarModal(dep.id) }} children={
+                                <Button className={style.btn_edit} onClick={() => { onClickMostrarModal(dep.id) }} children={
                                     <>
                                         <Img src={Editar} alt={"Ícone de menus"} className={style.icone_qtd_control} />
                                         <p>Editar</p>

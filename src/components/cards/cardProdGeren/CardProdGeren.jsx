@@ -14,16 +14,16 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal = () => { }, onClickPri
         ItensGeren.map((itensGeren, pos) => {
             return (
 
-                <ContainerDiv key={itensGeren.id} className={`${style.container_cardItemCar} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensGeren.length - 1 ? style.bordaFinal : ""}`}>
-                    <div className={style.img_item_car}>
-                        <Img src={itensGeren.detalhes.srcDetalhes[0].srcThumb} alt={itensGeren.detalhes.srcDetalhes[0].alt} className={style.img_car} />
+                <ContainerDiv key={itensGeren.id} className={`${style.container_card_prod_geren} ${pos === 0 ? style.bordaInicial : ""} ${pos === ItensGeren.length - 1 ? style.bordaFinal : ""}`}>
+                    <div className={style.img_prod_thumb}>
+                        <Img src={itensGeren.detalhes.srcDetalhes[0].srcThumb} alt={itensGeren.detalhes.srcDetalhes[0].alt} className={style.img_thumb} />
                     </div>
-                    <div className={style.area_infos_item_car}>
+                    <div className={style.area_info_prod_geren}>
                         <div className={style.container_titulo}>
-                            <div className={style.area_nome_car}>
+                            <div>
                                 <h3>{itensGeren.nome}</h3>
                             </div>
-                            <div className={style.area_preco}>
+                            <div>
                                 {itensGeren.preco} MT
                             </div>
                         </div>
@@ -41,9 +41,9 @@ const CardProdGeren = ({ ItensGeren, onClickMostrarModal = () => { }, onClickPri
                                     )
                             }
                         </div>
-                        <div className={style.area_btn_acao_car}>
+                        <div className={style.area_btn_acao_geren}>
                             <div className={style.container_btn_esq}>
-                                <Button className={style.btn_car} onClick={() => {
+                                <Button className={style.btn_edit_prod} onClick={() => {
                                     onClickMostrarModal(itensGeren.id);
                                 }}>
                                     <>
