@@ -6,7 +6,7 @@ import ContainerForm from "../../Common/containerForm/ContainerForm";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 
 const Cadastrar = () => {
-    const [usuarioPadrao, setUsuarioPadrao] = useState({ id: null, email: "", password: "", userName: "" });//Usuário Padrão Pra Ser Preenchido
+    const [usuarioPadrao, setUsuarioPadrao] = useState({ id: null, email: "", password: "", userName: "" });
 
     const onChangeEmail = (val) => {
         setUsuarioPadrao((ant) => ({ ...ant, email: val }));
