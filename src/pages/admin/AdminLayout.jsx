@@ -8,7 +8,7 @@ const AdminLayout = () => {
 
     const { adminStatus } = useContextAdminLogado();
 
-    if (true === false) {
+    if (!adminStatus) {
         return <Navigate to={"/autenticar/login"} replace />
     }
 
