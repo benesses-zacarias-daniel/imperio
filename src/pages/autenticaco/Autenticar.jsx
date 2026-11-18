@@ -26,26 +26,32 @@ const Autenticar = () => {
                 </div>
                 {info ? (
                     <div className={style.saudacao_login}>
-                        <h2>Bem-vindo de volta ao </h2>
-                        <span>Faça Login e continue a explorar o Mundo Tech</span>
+                        <div className={style.titulo_imperial}>
+                            Bem-vindo de volta à
+                            <h2 className={style.nome_imp}> Imperial </h2>
+                        </div>
+                        <span>Entre na sua conta para gerenciar o catálogo de produtos e os depoimentos da loja com facilidade.</span>
                     </div>) : (
                     <div className={style.saudacao_login}>
-                        <h2>Crie sua conta  </h2>
-                        <span>E fique à par das maiores notícias do Universo Tech</span>
+                        <div className={style.titulo_imperial}>
+                            Junte-se à
+                            <h2 className={style.nome_imp}>Imperial Electrónicos</h2>
+                        </div>
+                        <span>Crie o seu acesso administrativo em segundos e mantenha os produtos e depoimentos actualizados.</span>
                     </div>)}
                 <Outlet />
                 <div className={style.area_btn_escolha}>
                     {info ? (
-                        <div>
-                            Não tem uma conta?
-                            <Link to={"/autenticar/cadastrar"}>
+                        <div className={style.area_escolha}>
+                            <p>Não tem uma conta?</p>
+                            <Link to={"cadastrar"}>
                                 <Button type="button" className={style.activa_} onClick={() => { onClickCriar(false) }} children={"Cadastrar"} />
                             </Link>
                         </div>
                     ) : (
-                        <div>
-                            Já tem uma conta? Fazer
-                            <Link to={"/autenticar/login"}>
+                        <div className={style.area_escolha}>
+                            <p>Já tem uma conta? Fazer</p>
+                            <Link to={"login"}>
                                 <Button type="button" className={style.activa_} onClick={() => { onClickLogin(true) }} children={"Login"} />
                             </Link>
                         </div>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import InputNormal from "../../form/inputNomal/InputNormal";
 import Button from "../../button/Button";
 import style from "../LoginCadastrar.module.css"
+import ContainerForm from "../../Common/containerForm/ContainerForm";
+import ContainerDiv from "../../Common/container/ContainerDiv";
 
 const Cadastrar = () => {
     const [usuarioPadrao, setUsuarioPadrao] = useState({ id: null, email: "", password: "", userName: "" });//Usuário Padrão Pra Ser Preenchido
@@ -62,8 +64,8 @@ const Cadastrar = () => {
     }
 
     return (
-        <div className={style.area_forms}>
-            <form id="form_cr" onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
+        <ContainerDiv className={style.area_forms}>
+            <ContainerForm onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
                 <div className={style.div_input}>
                     <span>E-mail</span>
                     <InputNormal type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { evt.preventDefault(); onChangeEmail(evt.target.value) }} placeHolder={"exemplo@gmail.com"} value={usuarioPadrao.email} />
@@ -78,17 +80,17 @@ const Cadastrar = () => {
 
                             onInvalid(evt, `A senha deve ter no mínimo 8 caracteres, você tem ${tam_actual} caracteres!`);
                         }
-                    }} onInput={(evt) => { onInput(evt) }} required placeHolder={"••••••••"} value={usuarioPadrao.password} onChange={(evt) => { evt.preventDefault(); onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} placeHolder={"••••••••"} value={usuarioPadrao.password} onChange={(evt) => { evt.preventDefault(); onChangePassword(evt.target.value) }} />
                 </div>
                 <div className={style.div_input}>
                     <span>Nome de Usuário</span>
-                    <InputNormal type="text" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required="Campo Obrigatório" placeHolder={"benesses_dev"} value={usuarioPadrao.userName} onChange={(evt) => { evt.preventDefault(); onChangeUserName(evt.target.value) }} />
+                    <InputNormal type="text" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required="Campo Obrigatório" placeHolder={"benesses_dev"} value={usuarioPadrao.userName} onChange={(evt) => { onChangeUserName(evt.target.value) }} />
                 </div>
-            </form>
-            <div className={style.area_btn_criar}>
-                <Button type="submit" className={""} onClick={null} children={"Criar Conta"} />
-            </div>
-        </div >
+                <div className={style.area_btn_criar}>
+                    <Button type="submit" className={style.btn_log_cad} onClick={() => { }} children={"Criar Conta"} />
+                </div>
+            </ContainerForm>
+        </ContainerDiv >
     );
 }
 

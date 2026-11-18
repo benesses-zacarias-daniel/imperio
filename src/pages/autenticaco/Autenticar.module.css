@@ -1,19 +1,33 @@
 .area_user {
     width: 100%;
     min-height: 100%;
-    background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
+    /* background: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%); */
+    background: linear-gradient(135deg, var(--dourado_principal) 0%, var(--dourado_claro) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.nome_imp {
+    color: var(--dourado_principal);
+    font-size: .9rem !important;
+}
+
+.titulo_imperial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    font-weight: 800;
+}
+
 .area_geral {
     width: 90%;
-    height: 540px;
     border-radius: 30px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: var(--texto_principal);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +41,7 @@
 }
 
 .area_img img {
-    height: 130px;
+    height: 120px;
     width: auto;
 }
 
@@ -49,28 +63,35 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
     padding: 5px 0px 5px 0px;
-    text-align: center;
 }
 
-.area_btn_escolha div {
+.area_escolha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 5px;
+
+}
+
+.area_escolha p {
+    padding: 0px 0px 4px 0px;
+}
+
+.area_btn_escolha {
     width: 100%;
 }
 
-.area_btn_escolha button {
+.activa_ {
     background: none;
     border: none;
     width: 90px;
     height: 28px;
     border-radius: 20px;
-    font-size: 16px;
-    padding: 1px;
-    cursor: pointer;
-}
-
-.activa_ {
     border: 2px solid rgba(0, 102, 255) !important;
 }
 

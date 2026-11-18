@@ -1,13 +1,15 @@
+import style from "../LoginCadastrar.module.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputNormal from "../../form/inputNomal/InputNormal";
 import Button from "../../button/Button";
-import style from "../LoginCadastrar.module.css"
+import ContainerForm from "../../Common/containerForm/ContainerForm";
+import ContainerDiv from "../../Common/container/ContainerDiv";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [msg_info, setMsg] = useState("");
+    const [msgInfo, setMsg] = useState("");
     const navegar = useNavigate();
 
     const onChangeEmail = (val) => {
@@ -50,28 +52,28 @@ const Login = () => {
     }
 
     return (
-        <div className={style.area_forms}>
-            <form id="form_log" onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
+        <ContainerDiv className={style.area_forms}>
+            <ContainerForm onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
                 <div className={style.div_input}>
-                    <span>E-mail</span>
-                    <InputNormal type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { evt.preventDefault(); onChangeEmail(evt.target.value) }} placeHolder={"exemplo@gmail.com"} value={email} />
+                    <label htmlFor={"email_login"}>E-mail</label>
+                    <InputNormal id={"email_login"} type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={email} />
                 </div>
                 <div className={style.div_input}>
-                    <span>Senha</span>
-                    <InputNormal type="password" minLength={null} onInvalid={(evt) => {
+                    <label htmlFor={"senha_login"}>Senha</label>
+                    <InputNormal id={"senha_login"} type="password" minLength={null} onInvalid={(evt) => {
                         if (evt.target.validity.valueMissin) {
                             onInvalid(evt, "Campo obrigatório. Preencha por favor!");
                         } else if (evt.target.validity.tooShort) {
                             onInvalid(evt, "A senha deve ter no mínimo 8 caracteres");
                         }
-                    }} onInput={(evt) => { onInput(evt) }} required placeHolder={"••••••••"} value={password} onChange={(evt) => { evt.preventDefault(); onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} required placeholder={"**********"} value={password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
                 </div>
-            </form>
-            <div className={style.msg_cl}>{msg_info}</div>
-            <div className={style.area_btn_log}>
-                <Button type="submit" className={""} onClick={(evt) => { }} children="Entrar" />
-            </div>
-        </div>
+                {msgInfo && (<div className={style.msg_cl}>{msgInfo}</div>)}
+                <div className={style.area_btn_log}>
+                    <Button type="submit" className={style.btn_log_cad} onClick={() => { }} children="Entrar" />
+                </div>
+            </ContainerForm>
+        </ContainerDiv>
     )
 }
 

@@ -11,7 +11,7 @@ import Guardar from "../../../../assets/icons/guardar.svg";
 import Publicar from "../../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../../Common/container/ContainerDiv';
 import criarURLsImgs from '../../../../utils/criarURLsImg';
-import ContainerForm from '../../../Common/containerForms/ContainerForms';
+import ContainerForm from '../../../Common/containerForm/ContainerForm';
 import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
@@ -56,34 +56,41 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
     //Funções
     const onChangeTextarea = (evt) => {
+        evt.preventDefault();
         console.log(evt);
         console.log(evt.target);
         setDesc(evt.target.value);
     };
 
     const onChangeNome = (evt) => {
+        evt.preventDefault();
         console.log(evt);
         setNome(evt.target.value)
     };
 
-    const onChangePreco = (val) => {
+    const onChangePreco = (val, evt) => {
+        evt.preventDefault();
         console.log(val);
         setPreco(val.target.value)
     };
 
-    const onChangeBadge = (val) => {
+    const onChangeBadge = (val, evt) => {
+        evt.preventDefault();
         console.log(val);
         setBadge(val.target.value)
     };
-    const onChangePrimeiros = (val) => {
+    const onChangePrimeiros = (val, evt) => {
+        evt.preventDefault();
         setPrimeiros(val)
     };
-    const onChangeCategorias = (val) => {
+    const onChangeCategorias = (val, evt) => {
+        evt.preventDefault();
         console.log(val);
         setCategorias(val)
     };
 
     const onChangeEspecificacoes = (pos, evt) => {
+        evt.preventDefault();
         console.log(evt);
         console.log(evt.target.value);
         setEspecificacoes((prevEsp) => {
@@ -93,7 +100,8 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         });
     };
 
-    const onChangeSrc = (pos, src, tipo) => {
+    const onChangeSrc = (pos, src, tipo, evt) => {
+        evt.preventDefault();
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const todasImgs = [...prevImgs]
@@ -111,41 +119,47 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
 
     };
 
-    const onChangeAltImgs = (pos, evt, tipo) => {
-        console.log(evt);
+    const onChangeAltImgs = (pos, val, tipo, evt) => {
+        evt.preventDefault();
+        console.log(val)
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const novasImgs = [...prevImgs]
-                novasImgs[pos].alt = evt.target.value;
-                novasImgs[pos].badge = evt.target.value;
+                novasImgs[pos].alt = val;
+                novasImgs[pos].badge = val;
                 return [...novasImgs];
             });
 
             return;
         }
 
-        setAlt(evt.target.value);
+        setAlt(val);
     };
 
-    const onClickRemoverEsp = (posEsp) => {
+    const onClickRemoverEsp = (posEsp, evt) => {
+        evt.preventDefault();
         const novasEsp = especificacoes.filter((esp, pos) => pos !== posEsp);
         setEspecificacoes([...novasEsp]);
     };
 
-    const onClickRemoverOutrsImg = (posImp) => {
+    const onClickRemoverOutrsImg = (posImp, evt) => {
+        evt.preventDefault();
         const novasImgs = srcDetalhes.filter((imgDet, pos) => pos !== posImp);
         setSrcDetalhes([...novasImgs]);
     };
 
-    const onClickAdicionarEsps = () => {
+    const onClickAdicionarEsps = (evt) => {
+        evt.preventDefault();
         setEspecificacoes([...especificacoes, ""]);
     };
 
-    const onClickAdicionarImgDetalhes = () => {
+    const onClickAdicionarImgDetalhes = (evt) => {
+        evt.preventDefault();
         setSrcDetalhes([...srcDetalhes, { id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
     };
 
-    const onClickPublicar = () => {
+    const onClickPublicar = (evt) => {
+        evt.preventDefault();
         const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
         const objDados = {
             nome: nome,
@@ -165,7 +179,8 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         console.log(objDados);
     };
 
-    const onClickSalvarAlteracoes = (idProd) => {
+    const onClickSalvarAlteracoes = (idProd, evt) => {
+        evt.preventDefault();
         const novosDados = {
             id: idProd,
             nome: nome,
@@ -197,7 +212,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <ContainerForm className={style.form_prods} onSubmit={() => { tipo ? onClickPublicar() : onClickSalvarAlteracoes(dadosAct.id) }}>
+            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickPublicar(evt) : onClickSalvarAlteracoes(dadosAct.id, evt) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -232,7 +247,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <label>
                             {Opcoes[0].label}
                         </label>
-                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value) }} required={true}>
+                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value, evt) }} required={true}>
                             {Opcoes[0].opcoes.map((cat) => {
                                 return (
                                     <option key={cat.id} value={cat.value} className={style.opcao}>{cat.cat}</option>
@@ -244,7 +259,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <InputNormal type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} minLength={10} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} minLength={10} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -261,13 +276,13 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                     <label>Em destaque</label>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <InputRadio type={"radio"} name={"destaque"} id={"sim"} checked={primeiros === true} onChange={() => { onChangePrimeiros(true); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"sim"} checked={primeiros === true} onChange={() => { onChangePrimeiros(true, evt); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="sim">Sim</label>
                                     </div>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <InputRadio type={"radio"} name={"destaque"} id={"nao"} checked={primeiros === false} onChange={() => { onChangePrimeiros(false); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"nao"} checked={primeiros === false} onChange={() => { onChangePrimeiros(false, evt); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="nao">Não</label>
                                     </div>
@@ -281,7 +296,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                 Descrição
                             </label>
                         </div>
-                        <Textarea id="desc" className={style.campo_desc_prod} placeholder={"Pequena descrição do produto..."} value={desc} onChange={(evt) => { onChangeTextarea(evt); }} />
+                        <Textarea id="desc" className={style.campo_desc_prod} placeholder={"Pequena descrição do produto..."} value={desc} onChange={(evt) => { onChangeTextarea(evt, evt); }} />
                     </div>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -299,13 +314,13 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <div className={style.area_ocultar_input}>
                             <InputFile type={"file"} id={"img_prods"} placeholder={""} className={style.input_imagem} onChange={(evt) => {
                                 const img = criarURLsImgs(evt.target.files[0]);
-                                onChangeSrc(1, img, 0)
+                                onChangeSrc(1, img, 0, evt)
                             }} />
                         </div>
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <InputNormal placeholder={"Alt da imagem principal"} type={"text"} id={"altPrincipal"} className={style.input_anun} value={alt} minLength={15} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal placeholder={"Alt da imagem principal"} type={"text"} id={"altPrincipal"} className={style.input_anun} value={alt} minLength={15} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -387,7 +402,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                                 <Img src={Remover} alt={"Ícone de caixa de lixo"} className={style.icone_input_tell} />
                                             </Button>)}
                                     </div>
-                                    <InputNormal type={"text"} placeholder={"Alt da imagem"} className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt, 1); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                                    <InputNormal type={"text"} placeholder={"Alt da imagem"} className={style.input_exp_al} value={srcDetalhe.alt} onChange={(evt) => { onChangeAltImgs(pos, evt.target.value, 1, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                                         if (evt.target.validity.valueMissing) {
                                             onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                                         } else if (evt.target.validity.tooShort) {

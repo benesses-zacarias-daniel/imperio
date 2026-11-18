@@ -6,13 +6,12 @@ import Button from '../../../button/Button';
 import Guardar from "../../../../assets/icons/guardar.svg";
 import Publicar from "../../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../../Common/container/ContainerDiv';
-import ContainerForm from '../../../Common/containerForms/ContainerForms';
+import ContainerForm from '../../../Common/containerForm/ContainerForm';
 import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
 
 const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false }) => {
-
 
     const [nome, setNome] = useState(depoimentoCliente?.nome ? depoimentoCliente?.nome : "");
     const [iniciais, setBadge] = useState(depoimentoCliente?.iniciais ? depoimentoCliente?.iniciais : "");
@@ -20,18 +19,20 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
     const [depoimento, setDepoimento] = useState(depoimentoCliente?.depoimento ? depoimentoCliente?.depoimento : "");
     //Funções
     const onChangeDepoimento = (evt) => {
+        evt.preventDefault();
         console.log(evt);
         console.log(evt.target);
         setDepoimento(evt.target.value);
     };
 
     const onChangeNome = (evt) => {
+        evt.preventDefault();
         console.log(evt);
         setNome(evt.target.value)
     };
 
-
     const onChangeIniciais = (evt) => {
+        evt.preventDefault();
         console.log(evt);
         setBadge(evt.target.value)
     };
@@ -40,7 +41,8 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
         setVisivel(val)
     };
 
-    const onClickGuardarDepoimento = () => {
+    const onClickGuardarDepoimento = (evt) => {
+        evt.preventDefault();
         const objDados = {
             nome: nome,
             iniciais: iniciais,
@@ -52,7 +54,8 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
         return;
     };
 
-    const onClickSalvarAlteracoes = (idProd) => {
+    const onClickSalvarAlteracoes = (idProd, evt) => {
+        evt.preventDefault();
         const novosDados = {
             id: idProd,
             nome: nome,
@@ -76,7 +79,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <ContainerForm className={style.form_prods} onSubmit={() => { tipo ? onChangeDepoimento() : onClickSalvarAlteracoes(depoimentoCliente.id) }}>
+            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickGuardarDepoimento(evt) : onClickSalvarAlteracoes(depoimentoCliente.id, evt) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
