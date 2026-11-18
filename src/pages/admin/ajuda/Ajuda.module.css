@@ -15,6 +15,10 @@
     padding: 10px 10px 20px 10px;
 }
 
+.container_ajuda {
+    justify-content: center;
+}
+
 .titulo_area {
     color: var(--chocolate_principal);
     font-weight: 700;
@@ -23,7 +27,7 @@
 .lista_dicas {
     padding: 0;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .card_dica {
@@ -73,6 +77,14 @@
     height: 5px;
     border-radius: 10px;
     background-color: var(--dourado_principal);
+}
+
+@media only screen and (min-width:500px) {
+    .lista_dicas {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
 }
 
 @media only screen and (min-width:899px) {

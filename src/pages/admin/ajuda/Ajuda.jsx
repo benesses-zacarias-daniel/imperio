@@ -27,11 +27,11 @@ const Ajuda = () => {
                 },
                 {
                     nome: "Primeiras (Destaque inicial)",
-                    texto: "Define se o produto aparece logo nas primeiras posições da página inicial. Por padrão é possível escolher no máximo 3 produtos de destaque por vez (Caso necessário mostrar mais depoimentos contacte o Desenvolvedor)."
+                    texto: "Define se o produto aparece logo nas primeiras posições da página inicial. Por padrão é possível escolher no máximo 3 produtos de destaque por vez (Caso necessário mostrar mais produtos contacte o Desenvolvedor)."
                 },
                 {
                     nome: "Descrição do Produto",
-                    texto: "Pequena descriçã do produto em poucas palavras. Essa descrião aparece o cartão do produto na loja e nos detalhes do produto."
+                    texto: "Pequena descriçã do produto em poucas palavras. Essa descrição aparece o cartão do produto na loja e nos detalhes do produto."
                 },
                 {
                     nome: "Imagem Principal e Alt Principal",
@@ -85,7 +85,7 @@ const Ajuda = () => {
                 },
                 {
                     nome: "Mostrar depoimento (Sim / Não)",
-                    texto: "Controla se o comentário fica público na página inicial ou guardado apenas no painel. Por padrão é possível escolher no máximo 3 depoimentos que seram exibidos por vez (Caso necessário mostrar mais depoimentos contacte o Desenvolvedor)."
+                    texto: "Controla se o comentário fica público na página inicial ou guardado apenas no painel. Por padrão é possível escolher no máximo 3 depoimentos que serão exibidos por vez (Caso necessário mostrar mais depoimentos contacte o Desenvolvedor)."
                 },
                 {
                     nome: "Depoimento & Botão Guardar Dep",
@@ -99,7 +99,7 @@ const Ajuda = () => {
         },
         {
             id: 4,
-            titulo: "Dica 4: Que este Sistema Seja Um Benção",
+            titulo: "Dica 4: Que este Sistema Seja Uma Benção",
             descricao: "Este sistema foi feito com o objectivo de te ser muito útil no teu negócio. Faça bom uso:",
             itens: [
                 {
