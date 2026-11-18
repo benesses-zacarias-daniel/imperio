@@ -393,7 +393,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                             <div className={style.area_ocultar_input}>
                                                 <InputFile type={"file"} id={`img_min_${srcDetalhe.id}`} className={style.input_exp} onChange={(evt) => {
                                                     const img = criarURLsImgs(evt.target.files[0]);
-                                                    onChangeSrc(pos, img, 1);
+                                                    onChangeSrc(pos, img, 1, evt);
                                                 }} />
                                             </div>
                                         </div>
