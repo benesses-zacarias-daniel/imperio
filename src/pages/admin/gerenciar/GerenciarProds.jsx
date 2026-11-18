@@ -9,6 +9,7 @@ import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 
 const GerenciarProds = () => {
+
     const [modalAberto, setModalAberto] = useState(false);
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosModal, setDadosModal] = useState([]);
@@ -369,8 +370,8 @@ const GerenciarProds = () => {
             }
         }
     ];
+
     const contarPrimeiros = ItensTeste.filter((prod) => prod.primeiros === true);
-    console.log(contarPrimeiros.length);
     const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
     const onClickControlModal = (val) => {
@@ -444,8 +445,8 @@ const GerenciarProds = () => {
 
     return (
         <>
-            <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
             <h2 className={style.titulo_geren}>Gerir produtos</h2>
+            <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
             <ContainerDiv className={style.area_cont_geren}>
                 <div className={style.area_scroll}>
                     <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />

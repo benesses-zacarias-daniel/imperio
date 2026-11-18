@@ -1,7 +1,7 @@
 .area_cont_geren {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
@@ -25,7 +25,7 @@
 .titulo_geren {
     width: 100%;
     text-align: center;
-    padding: 0px 0px 8px 0px;
+    padding: 10px 0px 8px 0px;
     color: var(--dourado_secundario);
 }
 

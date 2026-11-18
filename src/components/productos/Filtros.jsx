@@ -1,5 +1,5 @@
-import ContainerDiv from "../Common/container/ContainerDiv";
 import style from "./Filtros.module.css";
+import ContainerDiv from "../Common/container/ContainerDiv";
 
 const Filtros = ({ onChange, nome, id, categorias }) => {
     return (

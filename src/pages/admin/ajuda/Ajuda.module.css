@@ -1,27 +1,82 @@
-.cartao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.container_ajuda,
+.lista_dicas,
+.card_dica,
+.container_texto_dica,
+.min_info,
+.desc_dica,
+.nome_dica {
     width: 100%;
-    flex: 1;
-}
-
-.area_cont_add {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 0px 0px 15px 0px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 10px 20px 10px;
 }
 
-.titulo_add {
+.titulo_area {
+    color: var(--chocolate_principal);
+    font-weight: 700;
+}
+
+.lista_dicas {
+    padding: 0;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card_dica {
+    width: 340px;
+    padding: 8px;
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+    gap: 5px;
+    padding: 10px;
+}
+
+.titulo_dica {
     width: 100%;
+    color: var(--dourado_principal);
+    font-weight: 600;
     text-align: center;
-    padding: 10px 0px 8px 0px;
-    color: var(--dourado_secundario);
+}
+
+.container_texto_dica {
+    flex: 1;
+    gap: 5px;
+    padding: 3px;
+}
+
+.min_info {
+    padding: 0;
+    text-align: justify;
+}
+
+.desc_dica {
+    padding: 0;
+    text-align: justify;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.nome_dica {
+    color: var(--dourado_principal);
+    padding: 2px;
+    font-weight: 600;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.ponto {
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    background-color: var(--dourado_principal);
+}
+
+@media only screen and (min-width:899px) {
+    .lista_dicas {
+        flex-direction: row;
+    }
 }
