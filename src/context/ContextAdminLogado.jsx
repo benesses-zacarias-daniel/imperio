@@ -5,7 +5,7 @@ const ContextAdminLogado = createContext();
 
 
 const ContextAdminLogadoProvider = ({ children }) => {
-    const [adminStatus, setAdminStatus] = useState(true);
+    const [adminStatus, setAdminStatus] = useState(false);
 
     const onClickLogar = (userInfo) => {
 
