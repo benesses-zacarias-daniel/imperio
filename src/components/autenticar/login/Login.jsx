@@ -58,7 +58,7 @@ const Login = () => {
             <ContainerForm onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
                 <div className={style.div_input}>
                     <label htmlFor={"email_login"}>E-mail</label>
-                    <InputNormal id={"email_login"} type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={usuario.email} />
+                    <InputNormal id={"email_login"} type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} onChange={(evt) => { onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={usuario.email} />
                 </div>
                 <div className={style.div_input}>
                     <label htmlFor={"senha_login"}>Senha</label>
@@ -68,7 +68,7 @@ const Login = () => {
                         } else if (evt.target.validity.tooShort) {
                             onInvalid(evt, "A senha deve ter no mínimo 8 caracteres");
                         }
-                    }} onInput={(evt) => { onInput(evt) }} required placeholder={"**********"} value={usuario.password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} placeholder={"**********"} value={usuario.password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
                 </div>
                 {msgInfo && (<div className={style.msg_cl}>{msgInfo}</div>)}
                 <div className={style.area_btn_log}>

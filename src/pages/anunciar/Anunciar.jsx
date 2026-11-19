@@ -15,7 +15,7 @@ const Anunciar = () => {
             "text",
             "number",
             "file",
-            "phone"
+            "tel"
         ],
         "icones": [
             {
