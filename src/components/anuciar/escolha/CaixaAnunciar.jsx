@@ -4,6 +4,7 @@ import Img from "../../img/Img";
 import Button from "../../button/Button";
 import InputNormal from "../../form/inputNomal/InputNormal";
 import InputFile from "../../form/inputFile/InputFile";
+import ContainerForm from "../../Common/containerForm/ContainerForm";
 
 
 const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
@@ -11,7 +12,7 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
 
     return (
         <ContainerDiv className={style.container_caixaAnun}>
-            <div className={style.form_caixaAnun}>
+            <ContainerForm className={style.form_caixaAnun} onSubmit={() => { }}>
                 <div className={style.container_anun}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -92,7 +93,7 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                         <Img src={dadosAnunciar.icones[1].icone_src} alt={dadosAnunciar.icones[1].icone_alt} className={style.icone_mens} />
                     </Button>
                 </div>
-            </div>
+            </ContainerForm>
         </ContainerDiv>
     )
 }
