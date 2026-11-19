@@ -24,7 +24,7 @@
 }
 
 .area_geral {
-    width: 90%;
+    width: 340px;
     border-radius: 30px;
     padding: 20px;
     background-color: var(--texto_principal);
@@ -92,7 +92,7 @@
     width: 90px;
     height: 28px;
     border-radius: 20px;
-    border: 2px solid rgba(0, 102, 255) !important;
+    border: 2px solid var(--dourado_principal) !important;
 }
 
 /*CSS pra Media Querys*/
@@ -104,9 +104,6 @@
 }
 
 @media only screen and (min-width:651px) {
-    .area_geral {
-        width: 90%;
-    }
 
     .saudacao_login h2 {
         font-size: 25px;
