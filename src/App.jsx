@@ -6,26 +6,51 @@ import RotasAutenticar from './routes/RotasAutenticar';
 import RotasAdmin from './routes/RotasAdmin';
 import RotasCliente from './routes/RotasCliente';
 import ContextAdminLogadoProvider from './context/ContextAdminLogado';
+import ContainerDiv from './components/Common/container/ContainerDiv';
 
 const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="imperial_container">
-        <Routes>
-          <Route path={"/admin/*"} element={
-            <ContextAdminLogadoProvider>
-              <RotasAdmin />
-            </ContextAdminLogadoProvider>
-          } />
-          <Route path={"/autenticar/*"} element={<RotasAutenticar />} />
-          <Route path={"/*"} element={
-            <ContextCarrinhoProvider>
+
+      <ContainerDiv className="imperial_container">
+
+        <ContextCarrinhoProvider>
+
+          <Routes>
+
+            <Route path={"/*"} element={
+
               <RotasCliente />
-            </ContextCarrinhoProvider>
-          } />
-        </Routes>
-      </div>
+
+            } />
+
+          </Routes>
+
+        </ContextCarrinhoProvider>
+
+        <ContextAdminLogadoProvider>
+
+          <Routes>
+
+            <Route path={"/admin/*"} element={
+
+              <RotasAdmin />
+
+            } />
+
+            <Route path={"/autenticar/*"} element={
+
+              <RotasAutenticar />
+
+            } />
+
+          </Routes>
+
+        </ContextAdminLogadoProvider>
+
+      </ContainerDiv>
+
     </BrowserRouter>
   )
 }

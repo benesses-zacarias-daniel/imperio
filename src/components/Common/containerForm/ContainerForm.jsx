@@ -1,7 +1,7 @@
-const ContainerForm = ({ children, className = "", onSubtmit = () => { } }) => {
+const ContainerForm = ({ children, className = "", onSubmit = () => { } }) => {
 
     return (
-        <form className={className} onSubmit={(evt) => { onSubtmit(evt) }}>
+        <form className={className} onSubmit={(evt) => { onSubmit(evt) }}>
             {children}
         </form>
     )

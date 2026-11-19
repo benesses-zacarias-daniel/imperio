@@ -5,40 +5,40 @@ import InputNormal from "../../form/inputNomal/InputNormal";
 import Button from "../../button/Button";
 import ContainerForm from "../../Common/containerForm/ContainerForm";
 import ContainerDiv from "../../Common/container/ContainerDiv";
+import useContextAdminLogado from "../../../hooks/useContextAdminLogado";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [msgInfo, setMsg] = useState("");
-    const navegar = useNavigate();
+    const [usuario, setUsuario] = useState({ id: null, email: "", password: "", userName: "" });
+    const { onClickLogar } = useContextAdminLogado();
+    const [msgInfo, setMsgInfo] = useState("");
+    const navigate = useNavigate();
 
     const onChangeEmail = (val) => {
-        setEmail(val);
-        console.log(val);
+        setUsuario((ant) => ({ ...ant, email: val.replace(" ", "") }));
     }
 
     const onChangePassword = (val) => {
-        setPassword(val);
+        setUsuario((ant) => ({ ...ant, password: val.replace(" ", "") }));
     }
 
     const onSubmit = (evt) => {
         evt.preventDefault();
         const linha = localStorage.getItem("usuarios");
-        const usuario = linha ? JSON.parse(linha) : [];
+        const usuarioLogin = linha ? JSON.parse(linha) : [];
 
-        if (!usuario) {
-            setMsg("Nenhum Usuário Cadastrado");
+        if (usuarioLogin.email !== usuario.email) {
+            setMsgInfo("Nenhum Usuário Cadastrado");
             return;
         }
 
-        const usuarioEncontrado = null;
-
-        if (usuarioEncontrado) {
+        if (usuarioLogin.email === usuario.email && usuarioLogin.senha === usuario.email) {
             // guardaInformacoes(usuarioEncontrado);
-            navegar("/admin");
+            onClickLogar(true);
+            navigate("/admin/adicionar");
+
         } else {
-            setMsg("E-mail ou Senha incorretos");
-            setTimeout(() => { setMsg("") }, 4000);
+            setMsgInfo("E-mail ou Senha incorretos");
+            setTimeout(() => { setMsgInfo("") }, 4000);
         }
 
     }
@@ -56,7 +56,7 @@ const Login = () => {
             <ContainerForm onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
                 <div className={style.div_input}>
                     <label htmlFor={"email_login"}>E-mail</label>
-                    <InputNormal id={"email_login"} type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={email} />
+                    <InputNormal id={"email_login"} type="email" minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={usuario.email} />
                 </div>
                 <div className={style.div_input}>
                     <label htmlFor={"senha_login"}>Senha</label>
@@ -66,7 +66,7 @@ const Login = () => {
                         } else if (evt.target.validity.tooShort) {
                             onInvalid(evt, "A senha deve ter no mínimo 8 caracteres");
                         }
-                    }} onInput={(evt) => { onInput(evt) }} required placeholder={"**********"} value={password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} required placeholder={"**********"} value={usuario.password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
                 </div>
                 {msgInfo && (<div className={style.msg_cl}>{msgInfo}</div>)}
                 <div className={style.area_btn_log}>

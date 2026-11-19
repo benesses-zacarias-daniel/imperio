@@ -5,18 +5,23 @@ const ContextAdminLogado = createContext();
 
 
 const ContextAdminLogadoProvider = ({ children }) => {
-    const [adminStatus, setAdminStatus] = useState(false);
+    const [adminStatus, setAdminStatus] = useState(() => {
+        const usuarioLogado = localStorage.getItem("usuarioLogado");
 
-    const onClickLogar = (userInfo) => {
+        return usuarioLogado ? true : false;
+    });
 
+    const onClickLogar = (val) => {
+        setAdminStatus(val);
     };
 
     const onClickSair = () => {
         setAdminStatus(false);
+        localStorage.clear()
     };
 
     return (
-        <ContextAdminLogado.Provider value={{ adminStatus, setAdminStatus, onClickLogar, onClickSair }}>
+        <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair }}>
             {children}
         </ContextAdminLogado.Provider>
     )
