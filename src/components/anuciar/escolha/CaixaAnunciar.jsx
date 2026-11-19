@@ -60,11 +60,11 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
         evt.preventDefault();
 
         const dadosAnunciar = {
-            nome: nome,
-            opcao: opcao,
-            desc: textarea,
-            srcImg: srcImg,
-            contacto: contacto
+            "nome": nome,
+            "opcao": opcao,
+            "desc": textarea,
+            "srcImg": srcImg,
+            "contacto": contacto
         }
 
         console.log(dadosAnunciar);
