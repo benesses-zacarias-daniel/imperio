@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "titulo": "Dica 1: Área Adicionar Produtos",
+        "titulo": "Dica 1 A : Área Adicionar Produtos",
         "descricao": "Como preencher cada campo para publicar um novo equipamento na loja:",
         "itens": [
             {
@@ -23,7 +23,14 @@
             {
                 "nome": "Primeiras (Destaque inicial)",
                 "texto": "Define se o produto aparece logo nas primeiras posições da página inicial. Por padrão é possível escolher no máximo 3 produtos de destaque por vez (Caso necessário mostrar mais produtos contacte o Desenvolvedor)."
-            },
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "titulo": "Dica 1 B :  Área Adicionar Produto",
+        "descricao": "Como preencher cada campo para publicar um novo equipamento na loja:",
+        "itens": [
             {
                 "nome": "Descrição do Produto",
                 "texto": "Pequena descriçã do produto em poucas palavras. Essa descrição aparece o cartão do produto na loja e nos detalhes do produto."
@@ -47,7 +54,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": 3,
         "titulo": "Dica 2: Área Gerenciar Produtos",
         "descricao": "Como organizar, atualizar ou remover produtos já cadastrados:",
         "itens": [
@@ -70,7 +77,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": 4,
         "titulo": "Dica 3: Área Depoimentos",
         "descricao": "Como cadastrar e moderar as avaliações dos clientes:",
         "itens": [
@@ -93,7 +100,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": 5,
         "titulo": "Dica 4: Que este Sistema Seja Uma Benção",
         "descricao": "Este sistema foi feito com o objectivo de te ser muito útil no teu negócio. Faça bom uso:",
         "itens": [
