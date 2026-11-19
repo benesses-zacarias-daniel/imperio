@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 const ContextAdminLogado = createContext();
@@ -19,6 +19,15 @@ const ContextAdminLogadoProvider = ({ children }) => {
         setAdminStatus(false);
         localStorage.clear()
     };
+
+    useEffect(() => {
+        const usuarioLog = localStorage.getItem("usuarioLogado");;
+        if (!usuarioLog) {
+
+            localStorage.setItem("usuarioLogado", false);
+            return;
+        };
+    }, [])
 
     return (
         <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair }}>

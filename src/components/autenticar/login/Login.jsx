@@ -25,17 +25,19 @@ const Login = () => {
         evt.preventDefault();
         const linha = localStorage.getItem("usuarios");
         const usuarioLogin = linha ? JSON.parse(linha) : [];
+        console.log(linha);
+        console.log(usuarioLogin[0]);
 
-        if (usuarioLogin.email !== usuario.email) {
+
+        if (!usuarioLogin) {
             setMsgInfo("Nenhum Usuário Cadastrado");
             return;
         }
 
-        if (usuarioLogin.email === usuario.email && usuarioLogin.senha === usuario.email) {
+        if (usuarioLogin[0].email === usuario.email && usuarioLogin[0].password === usuario.password) {
             // guardaInformacoes(usuarioEncontrado);
             onClickLogar(true);
             navigate("/admin/adicionar");
-
         } else {
             setMsgInfo("E-mail ou Senha incorretos");
             setTimeout(() => { setMsgInfo("") }, 4000);
