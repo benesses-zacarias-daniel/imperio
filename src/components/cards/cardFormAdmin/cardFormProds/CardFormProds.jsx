@@ -1,5 +1,4 @@
 import style from '../CardFormAdmin.module.css';
-// import '../../form/Input.module.css';
 import { useState } from 'react';
 import Img from '../../../img/Img';
 import Button from '../../../button/Button';
@@ -16,8 +15,9 @@ import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
 import InputFile from '../../../form/inputFile/InputFile';
+import conversorWebp from '../../../../utils/conversorWebp';
 
-const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
+const CardFormProds = ({ dadosAct, tipo = false }) => {
     const Opcoes = [
         {
             "id": 1,
@@ -52,8 +52,15 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const [src, setSrc] = useState(dadosAct?.src ? dadosAct?.src : "");
     const [alt, setAlt] = useState(dadosAct?.alt ? dadosAct?.alt : "");
     const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
-    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
+    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
+    const [contaPrim, setContaPrim] = useState(() => {
+        const produtosTeste = localStorage.getItem("produtosBanco");
+        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
+        const primeiro = dadosProds.filter((prods) => prods.primeiros === true);
+
+        return primeiro.length;
+    });
     //Funções
     const onChangeTextarea = (evt) => {
         evt.preventDefault();
@@ -68,25 +75,24 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         setNome(evt.target.value)
     };
 
-    const onChangePreco = (val, evt) => {
+    const onChangePreco = (evt) => {
         evt.preventDefault();
-        console.log(val);
-        setPreco(val.target.value)
+        setPreco(evt.target.value)
     };
 
-    const onChangeBadge = (val, evt) => {
+    const onChangeBadge = (evt) => {
         evt.preventDefault();
-        console.log(val);
-        setBadge(val.target.value)
+        setBadge(evt.target.value)
     };
+
     const onChangePrimeiros = (val, evt) => {
-        evt.preventDefault();
-        setPrimeiros(val)
+        // evt.preventDefault();
+        setPrimeiros(val);
     };
-    const onChangeCategorias = (val, evt) => {
+
+    const onChangeCategorias = (evt) => {
         evt.preventDefault();
-        console.log(val);
-        setCategorias(val)
+        setCategorias(evt.value)
     };
 
     const onChangeEspecificacoes = (pos, evt) => {
@@ -100,22 +106,22 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         });
     };
 
-    const onChangeSrc = (pos, src, tipo, evt) => {
+    const onChangeSrc = (pos, { srcDet = null, srcThumb = null } = {}, tipo, evt) => {
         evt.preventDefault();
         if (tipo === 1) {
             setSrcDetalhes((prevImgs) => {
                 const todasImgs = [...prevImgs]
                 todasImgs[pos] = {
                     ...todasImgs[pos],
-                    srcDet: src,
-                    srcThumb: src
+                    "srcDet": srcDet,
+                    "srcThumb": srcThumb
                 };
                 return todasImgs;
             });
             return;
         }
 
-        setSrc(src);
+        setSrc(srcDet);
 
     };
 
@@ -136,70 +142,82 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
         setAlt(val);
     };
 
-    const onClickRemoverEsp = (posEsp, evt) => {
-        evt.preventDefault();
+    const onClickRemoverEsp = (posEsp) => {
         const novasEsp = especificacoes.filter((esp, pos) => pos !== posEsp);
         setEspecificacoes([...novasEsp]);
     };
 
-    const onClickRemoverOutrsImg = (posImp, evt) => {
-        evt.preventDefault();
+    const onClickRemoverOutrsImg = (posImp) => {
         const novasImgs = srcDetalhes.filter((imgDet, pos) => pos !== posImp);
         setSrcDetalhes([...novasImgs]);
     };
 
-    const onClickAdicionarEsps = (evt) => {
-        evt.preventDefault();
+    const onClickAdicionarEsps = () => {
         setEspecificacoes([...especificacoes, ""]);
     };
 
-    const onClickAdicionarImgDetalhes = (evt) => {
-        evt.preventDefault();
-        setSrcDetalhes([...srcDetalhes, { id: crypto.randomUUID(), srcDet: "", srcThumb: "", alt: "", badge: "" }]);
+    const onClickAdicionarImgDetalhes = () => {
+        setSrcDetalhes([...srcDetalhes, { "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
     };
 
     const onClickPublicar = (evt) => {
         evt.preventDefault();
         const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
+        const id = Math.floor(Math.random() * 10000000000000)
         const objDados = {
-            nome: nome,
-            preco: preco,
-            badge: badge,
-            primeiros: primeiros,
-            desc: desc,
-            src: src,
-            alt: alt,
-            categorias: categorias,
-            detalhes: {
-                srcDetalhes: [{ ...srcDetalhes[0], srcDet: src, alt: alt, srcThumb: src }, ...ajusteSrC],
-                especificoes: [...especificacoes]
+            "id": id,
+            "nome": nome,
+            "preco": preco,
+            "badge": badge,
+            "primeiros": primeiros,
+            "desc": desc,
+            "src": src,
+            "alt": alt,
+            "categorias": categorias,
+            "detalhes": {
+                "srcDetalhes": [{ ...srcDetalhes[0], "srcDet": src, "alt": alt, "srcThumb": src }, ...ajusteSrC],
+                "especificacoes": [...especificacoes]
             }
         };
 
         console.log(objDados);
+        const produtosTeste = localStorage.getItem("produtosBanco");
+        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
+        dadosProds.push(objDados);
+
+        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+        setContaPrim(dadosProds.length);
     };
 
     const onClickSalvarAlteracoes = (idProd, evt) => {
         evt.preventDefault();
         const novosDados = {
-            id: idProd,
-            nome: nome,
-            preco: preco,
-            badge: badge,
-            primeiros: primeiros,
-            desc: desc,
-            src: src,
-            alt: alt,
-            categorias: categorias,
-            detalhes: {
-                srcDetalhes: [{ id: crypto.randomUUID(), srcDet: src, alt: alt, srcThumb: src }, ...srcDetalhes],
-                especificoes: [...especificacoes]
+            "id": idProd,
+            "nome": nome,
+            "preco": preco,
+            "badge": badge,
+            "primeiros": primeiros,
+            "desc": desc,
+            "src": src,
+            "alt": alt,
+            "categorias": categorias,
+            "detalhes": {
+                "srcDetalhes": [{ "id": crypto.randomUUID(), "srcDet": src, "alt": alt, "srcThumb": src }, ...srcDetalhes],
+                "especificacoes": [...especificacoes]
             }
         }
-        console.log(novosDados);
 
-        // const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
-        // localStorage.setItem("prodsGeren", JSON.stringify(dados));
+        const dadosStorage = JSON.parse(localStorage.getItem("produtosBanco"));
+        const dados = dadosStorage.map((prod) => {
+            if (prod.id === idProd) {
+                return novosDados;
+            }
+
+            return prod;
+        });
+
+        localStorage.setItem("produtosBanco", JSON.stringify(dados));
+        setContaPrim(dados.length)
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
@@ -209,10 +227,11 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
     const onInput = (evt) => {
         evt.target.setCustomValidity("");
     };
+    console.log(contaPrim);
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickPublicar(evt) : onClickSalvarAlteracoes(dadosAct.id, evt) }}>
+            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickSalvarAlteracoes(dadosAct.id, evt) : onClickPublicar(evt) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -234,7 +253,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="preco">Preço (MT)</label>
                         </div>
-                        <InputNormal type={"number"} id={"preco"} placeholder={"Ex: 25500"} className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} minLength={100} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal type={"number"} id={"preco"} placeholder={"Ex: 25500"} className={style.input_anun} value={preco} onChange={(evt) => { onChangePreco(evt); }} minLength={null} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -247,7 +266,7 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         <label>
                             {Opcoes[0].label}
                         </label>
-                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt.value, evt) }} required={true}>
+                        <select name={Opcoes[0].nome} id={Opcoes[0].id} value={categorias} className={style.select} onChange={(evt) => { onChangeCategorias(evt) }} required={true}>
                             {Opcoes[0].opcoes.map((cat) => {
                                 return (
                                     <option key={cat.id} value={cat.value} className={style.opcao}>{cat.cat}</option>
@@ -270,19 +289,19 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                         }} />
                     </div>
                     {
-                        (contaPrimeiros > 0 && dadosAct?.primeiros !== true) ? (null) : (
+                        (contaPrim === 3 && dadosAct?.primeiros !== true) ? (null) : (
                             <div className={style.area_input_anun_tP}>
                                 <div className={style.area_label}>
                                     <label>Em destaque</label>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <InputRadio type={"radio"} name={"destaque"} id={"sim"} checked={primeiros === true} onChange={() => { onChangePrimeiros(true, evt); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"sim"} checked={primeiros === true} onChange={(evt) => { onChangePrimeiros(true, evt); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="sim">Sim</label>
                                     </div>
                                 </div>
                                 <div className={style.area_radio}>
-                                    <InputRadio type={"radio"} name={"destaque"} id={"nao"} checked={primeiros === false} onChange={() => { onChangePrimeiros(false, evt); }} />
+                                    <InputRadio type={"radio"} name={"destaque"} id={"nao"} checked={primeiros === false} onChange={(evt) => { onChangePrimeiros(false, evt); }} />
                                     <div className={style.area_label_rad}>
                                         <label htmlFor="nao">Não</label>
                                     </div>
@@ -312,9 +331,11 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                             <p>JPG,PNG (Máx 5 MB por foto)</p>
                         </label>
                         <div className={style.area_ocultar_input}>
-                            <InputFile type={"file"} id={"img_prods"} placeholder={""} className={style.input_imagem} onChange={(evt) => {
-                                const img = criarURLsImgs(evt.target.files[0]);
-                                onChangeSrc(1, img, 0, evt)
+                            <InputFile type={"file"} id={"img_prods"} placeholder={""} className={style.input_imagem} onChange={async (evt) => {
+                                //const img = criarURLsImgs(evt.target.files[0]);
+                                const srcDet = await conversorWebp(evt.target.files[0], { qualidade: 0.8, larguraMax: 1200 });
+                                const srcThumb = await conversorWebp(evt.target.files[0], { qualidade: 0.75, larguraMax: 400 });
+                                onChangeSrc(1, { srcDet: srcDet.base64, srcThumb: srcThumb.base64 }, 0, evt);
                             }} />
                         </div>
                         <div className={style.area_label}>
@@ -391,9 +412,12 @@ const CardFormProds = ({ dadosAct, contaPrimeiros = 0, tipo = false }) => {
                                                 )}
                                             </label>
                                             <div className={style.area_ocultar_input}>
-                                                <InputFile type={"file"} id={`img_min_${srcDetalhe.id}`} className={style.input_exp} onChange={(evt) => {
-                                                    const img = criarURLsImgs(evt.target.files[0]);
-                                                    onChangeSrc(pos, img, 1, evt);
+                                                <InputFile type={"file"} id={`img_min_${srcDetalhe.id}`} className={style.input_exp} onChange={async (evt) => {
+                                                    //const img = criarURLsImgs(evt.target.files[0]);
+                                                    const srcDet = await conversorWebp(evt.target.files[0], { qualidade: 0.8, larguraMax: 1200 });
+                                                    const srcThumb = await conversorWebp(evt.target.files[0], { qualidade: 0.75, larguraMax: 400 });
+                                                    console.log(srcDet);
+                                                    onChangeSrc(pos, { srcDet: srcDet.base64, srcThumb: srcThumb.base64 }, 1, evt);
                                                 }} />
                                             </div>
                                         </div>

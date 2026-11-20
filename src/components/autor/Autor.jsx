@@ -1,7 +1,6 @@
 import style from "./Autor.module.css";
 
 const Autor = ({ dadosAutor }) => {
-    console.log(dadosAutor);
 
     return (
         <div key={dadosAutor.id} className={style.area_autor}>

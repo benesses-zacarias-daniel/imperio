@@ -11,12 +11,19 @@ import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
 
-const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false }) => {
+const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onClickAtualizacao = () => { }, tipo = false }) => {
 
     const [nome, setNome] = useState(depoimentoCliente?.nome ? depoimentoCliente?.nome : "");
-    const [iniciais, setBadge] = useState(depoimentoCliente?.iniciais ? depoimentoCliente?.iniciais : "");
+    const [iniciais, setIniciais] = useState(depoimentoCliente?.iniciais ? depoimentoCliente?.iniciais : "");
     const [visivel, setVisivel] = useState(depoimentoCliente?.visivel ? depoimentoCliente?.visivel : false);
     const [depoimento, setDepoimento] = useState(depoimentoCliente?.depoimento ? depoimentoCliente?.depoimento : "");
+    const [contaVisivel, setContaVisivel] = useState(() => {
+        const depsTestes = localStorage.getItem("depoimentosBancos");
+        const dadosProds = depsTestes ? JSON.parse(depsTestes) : [];
+        const visivel = dadosProds.filter((prods) => prods.visivel === true);
+
+        return visivel.length;
+    });
     //Funções
     const onChangeDepoimento = (evt) => {
         evt.preventDefault();
@@ -34,39 +41,68 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
     const onChangeIniciais = (evt) => {
         evt.preventDefault();
         console.log(evt);
-        setBadge(evt.target.value)
+        setIniciais(evt.target.value)
     };
 
     const onChangeVisivel = (val) => {
         setVisivel(val)
     };
 
+    const limparCampos = () => {
+        setNome("");
+        setIniciais("")
+        setDepoimento("");
+    };
+
     const onClickGuardarDepoimento = (evt) => {
         evt.preventDefault();
+        const id = Math.floor(Math.random() * 10000000000000)
         const objDados = {
-            nome: nome,
-            iniciais: iniciais,
-            visivel: visivel,
-            depoimento: depoimento
+            "id": id,
+            "nome": nome,
+            "iniciais": iniciais,
+            "visivel": visivel,
+            "depoimento": depoimento
         };
 
         console.log(objDados);
-        return;
+        console.log(objDados);
+        const depTestes = localStorage.getItem("depoimentosBancos");
+        const dep = depTestes ? JSON.parse(depTestes) : [];
+        dep.push(objDados);
+
+        localStorage.setItem("depoimentosBancos", JSON.stringify(dep));
+        setContaVisivel(dep.length);
+        limparCampos();
+        onClickShow();
     };
 
-    const onClickSalvarAlteracoes = (idProd, evt) => {
+    const onClickSalvarAlteracoes = (idDep, evt) => {
         evt.preventDefault();
         const novosDados = {
-            id: idProd,
-            nome: nome,
-            iniciais: iniciais,
-            visivel: visivel,
-            depoimento: depoimento
-        }
-        console.log(novosDados);
+            "id": idDep,
+            "nome": nome,
+            "iniciais": iniciais,
+            "visivel": visivel,
+            "depoimento": depoimento
+        };
 
-        // const dados = [...JSON.pase(localStorage.getItem("prodsGeren")), novosDados];
-        // localStorage.setItem("prodsGeren", JSON.stringify(dados));
+        const depTestes = localStorage.getItem("depoimentosBancos");
+
+        const dep = depTestes ? JSON.parse(depTestes) : [];
+        const dadosNovos = dep.map((deps) => {
+
+            if (deps.id === idDep) {
+                return novosDados;
+            }
+
+            return deps;
+        })
+
+        localStorage.setItem("depoimentosBancos", JSON.stringify(dadosNovos));
+        setContaVisivel(dep.length);
+        limparCampos();
+        onClickAtualizacao();
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
@@ -79,7 +115,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, contaVisivel = 0, tipo = false
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickGuardarDepoimento(evt) : onClickSalvarAlteracoes(depoimentoCliente.id, evt) }}>
+            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickSalvarAlteracoes(depoimentoCliente.id, evt) : onClickGuardarDepoimento(evt) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>

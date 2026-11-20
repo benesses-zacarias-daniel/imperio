@@ -1,5 +1,5 @@
 import style from './GerenciarProds.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardFormProds from "../../../components/cards/cardFormAdmin/cardFormProds/CardFormProds"
 import CardProdGeren from '../../../components/cards/cardProdGeren/CardProdGeren';
 import ContainerDiv from '../../../components/Common/container/ContainerDiv';
@@ -14,364 +14,32 @@ const GerenciarProds = () => {
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosModal, setDadosModal] = useState([]);
     const [dadosMsg, setDadosMsg] = useState([]);
-    const ItensTeste = [
+    const produtosTeste = localStorage.getItem("produtosBanco");
+    const ItensTeste = produtosTeste ? JSON.parse(produtosTeste) : [
         {
-            "id": 1,
-            "nome": "Telemóvel Básico",
-            "preco": 1200,
-            "badge": "",
-            "primeiros": true,
-            "desc": "Telemóvel simples e resistente, perfeito para chamadas e mensagens.",
-            "src": "/img/smartphone03.jpeg",
-            "alt": "Imagem de Telemóvel Básico",
-            "categorias": "smartphone",
+            "id": 0,
+            "nome": "Ainda Sem Produtos",
+            "preco": 0,
+            "badge": "Sem badge",
+            "primeiros": false,
+            "desc": "",
+            "src": "",
+            "alt": "",
+            "categorias": "",
             "detalhes": {
                 "srcDetalhes": [
                     {
                         "id": 1,
-                        "srcDet": "/img/smartphone03.jpeg",
-                        "srcThumb": "/img/smartphone03.jpeg",
-                        "alt": "Telemóvel Básico",
-                        "badge": "Telemóvel Básico"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/smartphone04.jpeg",
-                        "srcThumb": "/img/smartphone04.jpeg",
-                        "alt": "Telemóvel Clássico",
-                        "badge": "Telemóvel Clássico"
+                        "srcDet": "",
+                        "srcThumb": "",
+                        "alt": "",
+                        "badge": ""
                     }],
-                "especificacoes": [
-                    "Ecrã LED de alta definição",
-                    "Entradas HDMI e USB",
-                    "Sintonizador digital"]
-            }
-        },
-        {
-            "id": 2,
-            "nome": "Telemóvel Clássico",
-            "preco": 1800,
-            "badge": "Clássico",
-            "primeiros": true,
-            "desc": "Telemóvel de design clássico, durável e com bateria que dura dias.",
-            "src": "/img/smartphone04.jpeg",
-            "alt": "Imagem de Telemóvel Clássico",
-            "categorias": "smartphone",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/smartphone04.jpeg",
-                        "srcThumb": "/img/smartphone04.jpeg",
-                        "alt": "Telemóvel Clássico",
-                        "badge": "Telemóvel Clássico"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/smartphone01.jpeg",
-                        "srcThumb": "/img/smartphone01.jpeg",
-                        "alt": "Smartphone Pro",
-                        "badge": "Smartphone Pro"
-                    }],
-                "especificacoes": [
-                    "Ecrã LED de alta definição",
-                    "Entradas HDMI e USB",
-                    "Sintonizador digital"]
-            }
-        }, {
-            "id": 3,
-            "nome": "Televisão LED",
-            "preco": 18900,
-            "badge": "",
-            "desc": "Televisão LED com imagem nítida para a sala de estar.",
-            "src": "/img/tv01.jpeg",
-            "alt": "Imagem de Televisão LED",
-            "categorias": "tv",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/tv01.jpeg",
-                        "srcThumb": "/img/tv01.jpeg",
-                        "alt": "Televisão LED",
-                        "badge": "Televisão LED"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/tv02.jpeg",
-                        "srcThumb": "/img/tv02.jpeg",
-                        "alt": "Televisão LED Slim",
-                        "badge": "Televisão LED Slim"
-                    }],
-                "especificacoes": [
-                    "Ecrã LED de alta definição",
-                    "Entradas HDMI e USB",
-                    "Sintonizador digital",
-                    "Colunas integradas",
-                    "Comando à distância"
-                ]
-            }
-        }, {
-            "id": 4,
-            "nome": "Smart TV",
-            "preco": 32000,
-            "badge": "Destaque",
-            "primeiros": true,
-            "desc": "Smart TV com aplicações de streaming e imagem de alta resolução.",
-            "src": "/img/tv04.jpeg",
-            "alt": "Imagem de Smart TV",
-            "categorias": "tv",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/tv04.jpeg",
-                        "srcThumb": "/img/tv04.jpeg",
-                        "alt": "Smart TV",
-                        "badge": "Smart TV"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/tv01.jpeg",
-                        "srcThumb": "/img/tv01.jpeg",
-                        "alt": "Televisão LED",
-                        "badge": "Televisão LED"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/tv02.jpeg",
-                        "srcThumb": "/img/tv02.jpeg",
-                        "alt": "Televisão LED Slim",
-                        "badge": "Televisão LED Slim"
-                    }
-                ],
-                "especificacoes": [
-                    "Ecrã LED de alta resolução",
-                    "Aplicações de streaming",
-                    "Wi-Fi integrado",
-                    "Entradas HDMI e USB",
-                    "Comando à distância"
-                ]
-            }
-        },
-        {
-            "id": 5,
-            "nome": "Batedeira de Bancada",
-            "preco": 5200,
-            "badge": "Novo",
-            "primeiros": false,
-            "desc": "Batedeira potente para massas, bolos e cremes, com taça em aço inoxidável.",
-            "src": "/img/electrodomesticos01.jpeg",
-            "alt": "Imagem de Batedeira de Bancada",
-            "categorias": "electro",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/electrodomesticos01.jpeg",
-                        "srcThumb": "/img/electrodomesticos01.jpeg",
-                        "alt": "Batedeira de Bancada",
-                        "badge": "Batedeira de Bancada"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/electrodomesticos02.jpeg",
-                        "srcThumb": "/img/electrodomesticos02.jpeg",
-                        "alt": "Fogão com Forno",
-                        "badge": "Fogão com Forno"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/electrodomesticos03.jpeg",
-                        "srcThumb": "/img/electrodomesticos03.jpeg",
-                        "alt": "Ferro de Engomar",
-                        "badge": "Ferro de Engomar"
-                    }
-                ],
-                "especificacoes": [
-                    "Taça em aço inoxidável",
-                    "Várias velocidades de batimento",
-                    "Inclui batedor, gancho e globo",
-                    "Base antiderrapante",
-                    "Fácil de limpar"
-                ]
-            }
-        },
-        {
-            "id": 6,
-            "nome": "Fogão com Forno",
-            "preco": 21000,
-            "badge": "",
-            "primeiros": false,
-            "desc": "Fogão com forno integrado, perfeito para cozinhar e assar com segurança.",
-            "src": "/img/electrodomesticos02.jpeg",
-            "alt": "Imagem de Fogão com Forno",
-            "categorias": "electro",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/electrodomesticos02.jpeg",
-                        "srcThumb": "/img/electrodomesticos02.jpeg",
-                        "alt": "Fogão com Forno",
-                        "badge": "Fogão com Forno"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/electrodomesticos03.jpeg",
-                        "srcThumb": "/img/electrodomesticos03.jpeg",
-                        "alt": "Ferro de Engomar",
-                        "badge": "Ferro de Engomar"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/electrodomesticos04.jpeg",
-                        "srcThumb": "/img/electrodomesticos04.jpeg",
-                        "alt": "Torradeira",
-                        "badge": "Torradeira"
-                    }
-                ],
-                "especificacoes": [
-                    "Forno integrado",
-                    "Queimadores com acendimento automático",
-                    "Porta de vidro temperado",
-                    "Termóstato regulável",
-                    "Estrutura em aço inoxidável"
-                ]
-            }
-        },
-        {
-            "id": 7,
-            "nome": "Ferro de Engomar",
-            "preco": 1500,
-            "badge": "Promoção",
-            "primeiros": false,
-            "desc": "Ferro de engomar com vapor e base antiaderente para uma roupa sem vincos.",
-            "src": "/img/electrodomesticos03.jpeg",
-            "alt": "Imagem de Ferro de Engomar",
-            "categorias": "electro",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/electrodomesticos03.jpeg",
-                        "srcThumb": "/img/electrodomesticos03.jpeg",
-                        "alt": "Ferro de Engomar",
-                        "badge": "Ferro de Engomar"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/electrodomesticos04.jpeg",
-                        "srcThumb": "/img/electrodomesticos04.jpeg",
-                        "alt": "Torradeira",
-                        "badge": "Torradeira"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/electrodomesticos01.jpeg",
-                        "srcThumb": "/img/electrodomesticos01.jpeg",
-                        "alt": "Batedeira de Bancada",
-                        "badge": "Batedeira de Bancada"
-                    }
-                ],
-                "especificacoes": [
-                    "Base antiaderente",
-                    "Temperatura regulável",
-                    "Função vapor",
-                    "Cabo ergonómico",
-                    "Depósito de água"
-                ]
-            }
-        },
-        {
-            "id": 8,
-            "nome": "Torradeira",
-            "preco": 2300,
-            "badge": "",
-            "primeiros": false,
-            "desc": "Torradeira com vários níveis de tostagem para um pequeno-almoço perfeito.",
-            "src": "/img/electrodomesticos04.jpeg",
-            "alt": "Imagem de Torradeira",
-            "categorias": "electro",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/electrodomesticos04.jpeg",
-                        "srcThumb": "/img/electrodomesticos04.jpeg",
-                        "alt": "Torradeira",
-                        "badge": "Torradeira"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/electrodomesticos01.jpeg",
-                        "srcThumb": "/img/electrodomesticos01.jpeg",
-                        "alt": "Batedeira de Bancada",
-                        "badge": "Batedeira de Bancada"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/electrodomesticos02.jpeg",
-                        "srcThumb": "/img/electrodomesticos02.jpeg",
-                        "alt": "Fogão com Forno",
-                        "badge": "Fogão com Forno"
-                    }
-                ],
-                "especificacoes": [
-                    "Ranhuras largas",
-                    "Vários níveis de tostagem",
-                    "Função descongelar",
-                    "Bandeja de migalhas removível",
-                    "Corpo em aço inoxidável"
-                ]
-            }
-        },
-        {
-            "id": 9,
-            "nome": "Portátil",
-            "preco": 28500,
-            "badge": "Ultra Rápido",
-            "primeiros": false,
-            "desc": "Portátil leve e rápido para estudo e trabalho.",
-            "src": "/img/pc.jpg",
-            "alt": "Imagem de Portátil",
-            "categorias": "pc",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "/img/pc.jpg",
-                        "srcThumb": "/img/pc.jpg",
-                        "alt": "Portátil",
-                        "badge": "Portátil"
-                    },
-                    {
-                        "id": 2,
-                        "srcDet": "/img/pc01.jpeg",
-                        "srcThumb": "/img/pc01.jpeg",
-                        "alt": "PC Gamer",
-                        "badge": "PC Gamer"
-                    },
-                    {
-                        "id": 3,
-                        "srcDet": "/img/pc02.jpeg",
-                        "srcThumb": "/img/pc02.jpeg",
-                        "alt": "Portátil Gamer",
-                        "badge": "Portátil Gamer"
-                    }
-                ],
-                "especificacoes": [
-                    "Ecrã LED",
-                    "Processador multinúcleo",
-                    "Memória RAM e disco SSD",
-                    "Teclado e touchpad",
-                    "Bateria recarregável e Wi-Fi"
-                ]
+                "especificacoes": []
             }
         }
     ];
 
-    const contarPrimeiros = ItensTeste.filter((prod) => prod.primeiros === true);
     const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
     const onClickControlModal = (val) => {
@@ -392,8 +60,6 @@ const GerenciarProds = () => {
     };
 
     const onClickPrimeiros = (id, tipo) => {
-        console.log(id + " " + tipo);
-
         if (tipo === 0) {
             onClickRemoverPrimeiros(id);
             return;
@@ -404,6 +70,11 @@ const GerenciarProds = () => {
 
     const onClickRemoverPrimeiros = (id) => {
         console.log(dadosFiltrados);
+        const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
+        if (listaPrimeiros.length < 2) {
+            alert("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
+            return;
+        }
 
         const objPrimeirosRemovido = dadosFiltrados.map((item) => {
             if (item.id === id) {
@@ -413,10 +84,28 @@ const GerenciarProds = () => {
             return item;
         });
 
+
         setDadosFiltrados(objPrimeirosRemovido);
+        // const produtosTeste = localStorage.getItem("produtosBanco");
+        localStorage.setItem("produtosBanco", JSON.stringify(objPrimeirosRemovido));
     };
 
     const onClickAdicionarPrimeiros = (id) => {
+        console.log("Entrou");
+
+        const prod = ItensTeste.find((prod) => prod.id === id);
+
+        if (!prod) {
+            return;
+        };
+
+        const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
+
+        if (!prod.primeiros && listaPrimeiros.length >= 3) {
+            alert("Limite máximo de 3 produtos em destaque atingido. Remova um primeiro!");
+            return;
+        }
+
         const objPrimeirosAdicionar = dadosFiltrados.map((item) => {
             if (item.id === id) {
                 return { ...item, primeiros: true }
@@ -426,9 +115,16 @@ const GerenciarProds = () => {
         });
 
         setDadosFiltrados(objPrimeirosAdicionar);
+        localStorage.setItem("produtosBanco", JSON.stringify(objPrimeirosAdicionar));
     };
 
     const onClickFiltrar = (id) => {
+        const prims = dadosFiltrados.filter((visivel) => visivel.primeiros === true);
+
+        if (prims.length < 2) {
+            alert("Pra eliminar o último produto em destaque. Primeiro destaque um outro produto no lugar dele.");
+            return;
+        };
         const dadosEliminar = dadosFiltrados.filter((dados) => dados.id === id);
         setDadosMsg(dadosEliminar);
         setShowCardMsg(true);
@@ -438,6 +134,7 @@ const GerenciarProds = () => {
         const dadosEliminar = dadosFiltrados.filter((dados) => dados.id !== dadosMsg[0]?.id);
         setDadosFiltrados(dadosEliminar);
         setShowCardMsg(false);
+        localStorage.setItem("produtosBanco", JSON.stringify(dadosEliminar));
     };
     // useEffect(() => {
     //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
@@ -451,7 +148,7 @@ const GerenciarProds = () => {
                 <div className={style.area_scroll}>
                     <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />
                 </div>
-                <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds contaPrimeiros={contarPrimeiros.length} tipo={true} dadosAct={dadosModal} />} />
+                <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
                 <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickEliminarProd(); }} mensagem={`Tem certeza de que deseja eliminar o produto `} tipo={true} />
             </ContainerDiv>
         </>
