@@ -43,7 +43,7 @@ const Produtos = () => {
             }
         }
     ];
-
+    //Pequena alteração pra fazer o push
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
     const produtosDestaque = Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true);
