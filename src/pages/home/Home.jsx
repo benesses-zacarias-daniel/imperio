@@ -15,12 +15,51 @@ import CardCategoria from "../../components/cards/cardCategoria/CardCategoria";
 import ContactarGrupo from "../../components/home/ContactarGrupo";
 import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 //Dados
-import ProdutoDados from "../../components/data/ProdutosDados.json";
-import DepoimentosClientes from "../../components/data/DepoimentosClientes.json";
+// import ProdutoDados from "../../components/data/ProdutosDados.json";
+// import DepoimentosClientes from "../../components/data/DepoimentosClientes.json";
 import CardDepoimentos from "../../components/cards/cardDepoimentos/CardDepoimentos";
 
 const Home = () => {
-    const produtosDestaque = ProdutoDados.filter((prodFiltrado) => prodFiltrado.primeiros === true);
+    //Testes Usando o LocalStorage
+    const produtosTeste = localStorage.getItem("produtosBanco");
+    const Prods = produtosTeste ? JSON.parse(produtosTeste) : [
+        {
+            "id": 0,
+            "nome": "Ainda Sem Produtos",
+            "preco": 0,
+            "badge": "Sem badge",
+            "primeiros": false,
+            "desc": "",
+            "src": "",
+            "alt": "",
+            "categorias": "",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "",
+                        "srcThumb": "",
+                        "alt": "",
+                        "badge": ""
+                    }],
+                "especificacoes": []
+            }
+        }
+    ];
+
+    const depTestes = localStorage.getItem("depoimentosBancos");
+    const DepoimentosClientes = depTestes ? JSON.parse(depTestes) : [
+        {
+            "id": 0,
+            "nome": "Sem Depoimentos",
+            "iniciais": "SD",
+            "visivel": false,
+            "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
+        }
+    ];
+    const depsMostrar = DepoimentosClientes.filter((deps) => deps.visivel === true)
+    ///
+    const produtosDestaque = Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true);
     const num1 = "258 84 975 4315";
     const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
 
@@ -110,7 +149,7 @@ const Home = () => {
                         <CardCategoria dados={Categorias[0]} />
                     </div>
                 </ContainerDiv>
-                <CardDepoimentos depoimentos={DepoimentosClientes} minInfoDep={"A confiança dos nossos parceiros é o nosso maior património."} tituloDep={"O que dizem os nossos clientes"} />
+                <CardDepoimentos depoimentos={depsMostrar} minInfoDep={"A confiança dos nossos parceiros é o nosso maior património."} tituloDep={"O que dizem os nossos clientes"} />
                 <ContactarGrupo />
             </ContainerDiv>
             <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />

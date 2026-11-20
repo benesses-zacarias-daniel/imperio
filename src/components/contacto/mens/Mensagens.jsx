@@ -40,8 +40,9 @@ const Mensagens = ({ Mensagens }) => {
 
     const onSubmit = (evt) => {
         evt.preventDefault();
-
+        const id = Math.floor(Math.random() * 10000000000000)
         const dadosMens = {
+            "id": id,
             "nome": nome,
             "telefone": contacto,
             "email": email,
@@ -49,9 +50,20 @@ const Mensagens = ({ Mensagens }) => {
             "mens": textarea
         }
 
-        console.log(dadosMens);
+        const mensSalvas = localStorage.getItem("mensagensBanco");
+        const mens = mensSalvas ? JSON.parse(mensSalvas) : [];
+        mens.push(dadosMens);
+        localStorage.setItem("mensagensBanco", JSON.stringify(mens));
+        limparCampos()
 
     };
+
+    const limparCampos = () => {
+        setNome("");
+        setEmail("");
+        setContacto("");
+        setTextarea("");
+    }
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
         evt.target.setCustomValidity(msg);
@@ -70,7 +82,7 @@ const Mensagens = ({ Mensagens }) => {
                 <div className={style.info}>
                     {Mensagens.info}
                 </div>
-                <ContainerForm className={style.area_form_mens} onSubmit={(evt) => { onSubmit(evt) }}>
+                <ContainerForm className={style.area_form_mens} onSubmit={async (evt) => { onSubmit(evt) }}>
                     <div className={style.area_preencher}>
                         <div className={style.area_inputs}>
                             <div className={style.label_input}>

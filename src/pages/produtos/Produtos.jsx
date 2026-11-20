@@ -10,25 +10,53 @@ import Img from "../../components/img/Img";
 import SetaCima from "../../assets/icons/setaCim.svg";
 import SetaBaixo from "../../assets/icons/setaBaix.svg";
 //Dados
-import ProdutoDados from "../../components/data/ProdutosDados.json";
+// import ProdutoDados from "../../components/data/ProdutosDados.json";
 import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 import scrollCima from "../../utils/scrollCima";
 
 const Produtos = () => {
 
+    //Testes Usando o LocalStorage
+    const produtosTeste = localStorage.getItem("produtosBanco");
+    const Prods = produtosTeste ? JSON.parse(produtosTeste) : [
+        {
+            "id": 0,
+            "nome": "Ainda Sem Produtos",
+            "preco": 0,
+            "badge": "Sem badge",
+            "primeiros": false,
+            "desc": "",
+            "src": "",
+            "alt": "",
+            "categorias": "",
+            "detalhes": {
+                "srcDetalhes": [
+                    {
+                        "id": 1,
+                        "srcDet": "",
+                        "srcThumb": "",
+                        "alt": "",
+                        "badge": ""
+                    }],
+                "especificacoes": []
+            }
+        }
+    ];
+
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
-    const [dadosFiltrados, setDadosFiltrados] = useState(ProdutoDados);
+    const produtosDestaque = Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true);
+    const [dadosFiltrados, setDadosFiltrados] = useState([...produtosDestaque, ...Prods]);
     const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            setDadosFiltrados(ProdutoDados.filter((iten) => iten.categorias === categoria));
+            setDadosFiltrados(Prods.filter((iten) => iten.categorias === categoria));
         } else {
-            setDadosFiltrados(ProdutoDados);
+            setDadosFiltrados(Prods);
         }
 
         setInicio(0);
@@ -36,7 +64,7 @@ const Produtos = () => {
     };
 
     const onClickMostrarDetalhes = (id) => {
-        const dadosDetalhes = ProdutoDados.filter((Prod) => Prod.id === id);
+        const dadosDetalhes = Prods.filter((Prod) => Prod.id === id);
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);

@@ -3,6 +3,7 @@ import ContainerDiv from "../../../components/Common/container/ContainerDiv";
 import CardMensContacto from "../../../components/cards/cardMensContacto/CardMensContacto";
 import { useState } from "react";
 import CardDetMens from "../../../components/cards/cardDetMens/CardDetMens";
+import scrollCima from "../../../utils/scrollCima";
 
 const MensagensContacto = () => {
 
@@ -31,6 +32,7 @@ const MensagensContacto = () => {
 
         setMsgAberta(filtradas[0]);
         setShowDetMens(true);
+        scrollCima();
     };
 
     const onClickAdicionarLidas = (idMens) => {
@@ -53,6 +55,7 @@ const MensagensContacto = () => {
     const onClickFexar = () => {
         onClickAdicionarLidas(msgAberta?.id);
         setShowDetMens(false);
+        scrollCima();
     };
 
     return (
