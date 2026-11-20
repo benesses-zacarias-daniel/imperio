@@ -1,0 +1,65 @@
+.card {
+    width: 340px;
+    background-color: var(--texto_principal);
+    border: 2px solid var(--borda);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.nome {
+    color: var(--dourado_principal);
+    font-size: 1rem;
+}
+
+.telefone {
+    font-size: 0.88rem;
+    color: var(--preto_transp);
+    font-weight: 500;
+}
+
+.resumo {
+    font-size: 0.9rem;
+    color: var(--preto_claro);
+    margin: 4px 0 8px;
+    line-height: 1.4;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.btnVer {
+    background-color: var(--dourado_principal);
+    color: var(--texto_principal);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btnVer,
+.btnExcluir {
+    width: 120px;
+}
+
+.btnExcluir {
+    background-color: transparent;
+    border: 2px solid var(--perigo);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}

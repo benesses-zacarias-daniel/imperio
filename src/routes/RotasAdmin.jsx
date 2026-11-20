@@ -4,6 +4,7 @@ import GerenciarProds from "../pages/admin/gerenciar/GerenciarProds";
 import AdminLayout from "../pages/admin/AdminLayout";
 import Depoimentos from "../pages/admin/depoimentos/Depoimentos";
 import Ajuda from "../pages/admin/ajuda/Ajuda";
+import MensagensContacto from "../pages/admin/mensContacto/MensagensContacto";
 
 const RotasAdmin = () => {
     return (
@@ -12,6 +13,7 @@ const RotasAdmin = () => {
                 <Route index element={<Navigate to="adicionar" replace />} />
                 <Route path="adicionar" element={<AdicionarProds />} />
                 <Route path="gerenciar" element={<GerenciarProds />} />
+                <Route path="mensagens" element={<MensagensContacto />} />
                 <Route path="depoimentos" element={<Depoimentos />} />
                 <Route path="ajuda" element={<Ajuda />} />
             </Route>

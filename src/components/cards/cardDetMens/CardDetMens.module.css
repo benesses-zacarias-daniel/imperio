@@ -1,0 +1,83 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #ffffff;
+    border: 1px solid #d0dceb;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 460px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+.header h3 {
+    margin: 0;
+    color: #0b4db7;
+    font-size: 1.15rem;
+}
+
+.data {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.infoGrupo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.infoGrupo label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.infoGrupo p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.caixaTexto {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.btnFechar {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+}

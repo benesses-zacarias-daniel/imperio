@@ -86,6 +86,18 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                     scrollCima();
                                 }} className={classeBtnMenu} />
                             </Link>
+                            <Link to={"mensagens"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/mensagens") ? style.pagina_activa : ""}`}>
+                                <Button children={
+                                    <>
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/mensagens") ? DepoimentosActiva : Depoimentos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        )}
+                                        <p>Mensagens</p>
+                                    </>
+                                } onClick={() => {
+                                    onClickOcultarMenu();
+                                    scrollCima();
+                                }} className={classeBtnMenu} />
+                            </Link>
                             <Link to={"depoimentos"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/depoimentos") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>

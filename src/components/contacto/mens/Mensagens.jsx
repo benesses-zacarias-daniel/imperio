@@ -45,6 +45,7 @@ const Mensagens = ({ Mensagens }) => {
             "nome": nome,
             "telefone": contacto,
             "email": email,
+            "lida": false,
             "mens": textarea
         }
 
