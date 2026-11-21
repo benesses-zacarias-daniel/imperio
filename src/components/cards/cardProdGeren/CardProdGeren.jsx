@@ -10,6 +10,8 @@ import Editar from "../../../assets/icons/edit.svg";
 
 const CardProdGeren = ({ ItensGeren, onClickMostrarModal = () => { }, onClickPrimeiros = () => { }, onClickApagarProd = () => { } }) => {
 
+    console.log(ItensGeren);
+
     return (
         ItensGeren.map((itensGeren, pos) => {
             return (

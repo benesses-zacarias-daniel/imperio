@@ -11,11 +11,13 @@ import Dashboard from "../../../../assets/icons/dashboard.svg";
 import BancoDados from "../../../../assets/icons/bancoDados.svg";
 import Depoimentos from "../../../../assets/icons/feedback.svg";
 import Ajuda from "../../../../assets/icons/psychology.svg";
+import Embalagem from "../../../../assets/icons/embalagem.svg";
 //Ícones de foco
 import DashboardActiva from "../../../../assets/icons/dashboardA.svg";
 import BancoDadosActiva from "../../../../assets/icons/bancoDadosA.svg";
 import DepoimentosActiva from "../../../../assets/icons/feedbackA.svg";
 import AjudaActiva from "../../../../assets/icons/psychologyA.svg";
+import EmbalagemActiva from "../../../../assets/icons/embalagemA.svg";
 
 const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
     const { pathname } = useLocation();
@@ -89,7 +91,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                             <Link to={"mensagens"} className={`${classeLinkMenu} ${(paginaActiva === "/admin/mensagens") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
-                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/mensagens") ? DepoimentosActiva : Depoimentos} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
+                                        {mostrarIconesMenu && (<Img src={(paginaActiva === "/admin/mensagens") ? EmbalagemActiva : Embalagem} alt={"Ícone de Sacola de Compras"} className={style.img_menu} />
                                         )}
                                         <p>Mensagens</p>
                                     </>

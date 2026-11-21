@@ -16,8 +16,9 @@ import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
 import InputFile from '../../../form/inputFile/InputFile';
 import conversorWebp from '../../../../utils/conversorWebp';
+import scrollCima from '../../../../utils/scrollCima';
 
-const CardFormProds = ({ dadosAct, tipo = false }) => {
+const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }) => {
     const Opcoes = [
         {
             "id": 1,
@@ -88,11 +89,12 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
     const onChangePrimeiros = (val, evt) => {
         // evt.preventDefault();
         setPrimeiros(val);
+        contaPrimeiros();
     };
 
     const onChangeCategorias = (evt) => {
         evt.preventDefault();
-        setCategorias(evt.value)
+        setCategorias(evt.target.value);
     };
 
     const onChangeEspecificacoes = (pos, evt) => {
@@ -160,6 +162,30 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         setSrcDetalhes([...srcDetalhes, { "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
     };
 
+    const limparCampos = () => {
+        setNome("");
+        setPreco(0);
+        setBadge("");
+        setCategorias("smartphone");
+        setPrimeiros(false);
+        setDesc("");
+        setSrc(null);
+        setAlt("")
+        setEspecificacoes([""]);
+        setSrcDetalhes([{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
+        scrollCima();
+    };
+
+    const contaPrimeiros = () => {
+        const produtosTeste = localStorage.getItem("produtosBanco");
+        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
+        dadosProds.push(objDados);
+
+        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+        const primeiro = dadosProds.filter((prods) => prods.primeiros === true)
+        setContaPrim(primeiro.length);
+    };
+
     const onClickPublicar = (evt) => {
         evt.preventDefault();
         const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
@@ -186,7 +212,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
         dadosProds.push(objDados);
 
         localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
-        setContaPrim(dadosProds.length);
+        contaPrimeiros();
     };
 
     const onClickSalvarAlteracoes = (idProd, evt) => {
@@ -216,8 +242,13 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
             return prod;
         });
 
-        localStorage.setItem("produtosBanco", JSON.stringify(dados));
-        setContaPrim(dados.length)
+        const produtosTeste = localStorage.getItem("produtosBanco");
+        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
+        dadosProds.push(dados);
+
+        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+        contaPrimeiros();
+        onClickFecharCard();
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
@@ -231,7 +262,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
 
     return (
         <ContainerDiv className={style.container_prods}>
-            <ContainerForm className={style.form_prods} onSubmit={(evt) => { tipo ? onClickSalvarAlteracoes(dadosAct.id, evt) : onClickPublicar(evt) }}>
+            <ContainerForm className={style.form_prods} onSubmit={async (evt) => { tipo ? onClickSalvarAlteracoes(dadosAct.id, evt) : onClickPublicar(evt) }}>
                 <div className={style.container_camp}>
                     <div className={style.area_input_anun}>
                         <div className={style.area_label}>
@@ -239,7 +270,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                                 Nome do produto
                             </label>
                         </div>
-                        <InputNormal type={"text"} id={"nome"} placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} minLength={10} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal type={"text"} id={"nome"} placeholder={"Ex: Smartphone Pro"} className={style.input_anun} value={nome} onChange={(evt) => { onChangeNome(evt); }} minLength={null} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -278,7 +309,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="badge">Badge/Tag</label>
                         </div>
-                        <InputNormal type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} minLength={10} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal type={"text"} id="badge" placeholder={"Ex: Novo, Promoção"} minLength={null} className={style.input_anun} value={badge} onChange={(evt) => { onChangeBadge(evt, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -289,7 +320,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         }} />
                     </div>
                     {
-                        (contaPrim === 3 && dadosAct?.primeiros !== true) ? (null) : (
+                        (contaPrim >= 3 && dadosAct?.primeiros !== true) ? (null) : (
                             <div className={style.area_input_anun_tP}>
                                 <div className={style.area_label}>
                                     <label>Em destaque</label>
@@ -341,7 +372,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                         <div className={style.area_label}>
                             <label htmlFor="altPrincipal">Alt Principal</label>
                         </div>
-                        <InputNormal placeholder={"Alt da imagem principal"} type={"text"} id={"altPrincipal"} className={style.input_anun} value={alt} minLength={15} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                        <InputNormal placeholder={"Alt da imagem principal"} type={"text"} id={"altPrincipal"} className={style.input_anun} value={alt} minLength={null} onChange={(evt) => { onChangeAltImgs(1, evt.target.value, 0, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                             if (evt.target.validity.valueMissing) {
                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                             } else if (evt.target.validity.tooShort) {
@@ -367,7 +398,7 @@ const CardFormProds = ({ dadosAct, tipo = false }) => {
                             especificacoes.map((especificao, pos) => {
                                 return (
                                     <div className={style.area_control_esp} key={pos}>
-                                        <InputNormal type={"text"} id={pos} placeholder={"Ex: 128 GB"} className={style.input_exp} value={especificao} minLength={15} onChange={(evt) => { onChangeEspecificacoes(pos, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
+                                        <InputNormal type={"text"} id={pos} placeholder={"Ex: 128 GB"} className={style.input_exp} value={especificao} minLength={null} onChange={(evt) => { onChangeEspecificacoes(pos, evt); }} onInput={(evt) => { onInput(evt); }} onInvalid={(evt) => {
                                             if (evt.target.validity.valueMissing) {
                                                 onInvalid(evt, "Campo obrigatório. Preencha por favor!")
                                             } else if (evt.target.validity.tooShort) {

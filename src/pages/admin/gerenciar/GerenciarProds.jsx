@@ -39,6 +39,7 @@ const GerenciarProds = () => {
             }
         }
     ];
+    console.log(ItensTeste);
 
     const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
 
@@ -91,7 +92,6 @@ const GerenciarProds = () => {
     };
 
     const onClickAdicionarPrimeiros = (id) => {
-        console.log("Entrou");
 
         const prod = ItensTeste.find((prod) => prod.id === id);
 
@@ -148,7 +148,7 @@ const GerenciarProds = () => {
                 <div className={style.area_scroll}>
                     <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />
                 </div>
-                <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} />} />
+                <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} onClickFecharCard={() => { onClickControlModal(false) }} />} />
                 <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickEliminarProd(); }} mensagem={`Tem certeza de que deseja eliminar o produto `} tipo={true} />
             </ContainerDiv>
         </>

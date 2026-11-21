@@ -42,7 +42,7 @@ const CardProdutos = ({ dados, onClickDetalhes }) => {
                                         {Produto.nome}
                                     </h2>
                                     <p className={style.desc_produto}>
-                                        {Produto.desc}
+                                        {Produto.desc.length > 75 ? `${Produto.desc.slice(0, 75)}...` : Produto.desc}
                                     </p>
                                 </div>
                                 <div className={style.area_acao}>
