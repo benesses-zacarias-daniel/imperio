@@ -18,8 +18,11 @@ import BancoDadosActiva from "../../../../assets/icons/bancoDadosA.svg";
 import DepoimentosActiva from "../../../../assets/icons/feedbackA.svg";
 import AjudaActiva from "../../../../assets/icons/psychologyA.svg";
 import EmbalagemActiva from "../../../../assets/icons/embalagemA.svg";
+import useContextAdminLogado from "../../../../hooks/useContextAdminLogado";
 
 const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, classContaner = style.contaner_menu, classeLinkMenu = style.link_menu, classeBtnMenu = style.btn_menu, mostrarIconesMenu = false }) => {
+
+    const { onClickSair } = useContextAdminLogado();
     const { pathname } = useLocation();
     const [paginaActiva, setPaginaActiva] = useState(pathname);
     const [fade, setFade] = useState(false);
@@ -133,6 +136,7 @@ const MenuAdmin = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, 
                                 } onClick={() => {
                                     onClickOcultarMenu();
                                     scrollCima();
+                                    onClickSair();
                                 }} className={classeBtnMenu} />
                             </a>
                         </div>
