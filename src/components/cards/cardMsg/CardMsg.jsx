@@ -37,11 +37,11 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
             }
         }} >
             <div className={style.container_mens}>
-                <div className={style.area_alerta_icone}>
+                {/* <div className={style.area_alerta_icone}>
                     <Button className={style.btn_fexar_resumo} onClick={() => { onClickFexarCardMsg() }}>
                         <Img src={Perigo} alt={"Ícone de X"} className={style.icone_fechar_resumo} />
                     </Button>
-                </div>
+                </div> */}
                 <div className={style.area_mensagem}>
                     <div className={style.mensagem}>
                         {Mensagens[tipo]}

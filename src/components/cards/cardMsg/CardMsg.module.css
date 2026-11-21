@@ -57,6 +57,7 @@
     height: 190px;
     background-color: var(--texto_principal);
     padding: 10px;
+    border-radius: 10px;
 }
 
 .area_alerta_icone {
@@ -76,6 +77,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     flex: 1;
+    text-align: center;
 }
 
 .area_btn_oper {

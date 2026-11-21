@@ -37,7 +37,11 @@ const HeaderUser = () => {
                     } onClick={() => { onClickMenu(true); }} className={""} />
                 </div>
                 <div className={style.area_logo_topo}>
-                    <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} />
+                    <Link to={"home"} onClick={() => {
+                        scrollCima();
+                    }}>
+                        <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} />
+                    </Link>
                 </div>
                 <div className={style.area_carinho}>
                     <Link to={"/carrinho"} onClick={() => { scrollCima() }}>

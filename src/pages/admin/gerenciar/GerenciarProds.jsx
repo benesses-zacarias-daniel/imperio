@@ -7,6 +7,7 @@ import Filtros from "../../../components/productos/Filtros";
 import Categorias from "../../../components/data/Categorias.json";
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
+import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
 
 const GerenciarProds = () => {
 
@@ -14,6 +15,8 @@ const GerenciarProds = () => {
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosModal, setDadosModal] = useState([]);
     const [dadosMsg, setDadosMsg] = useState([]);
+    const [msg, setMsg] = useState("");
+
     const produtosTeste = localStorage.getItem("produtosBanco");
     const ItensTeste = produtosTeste ? JSON.parse(produtosTeste) : [
         {
@@ -23,15 +26,15 @@ const GerenciarProds = () => {
             "badge": "Sem badge",
             "primeiros": false,
             "desc": "",
-            "src": "",
+            "src": "#",
             "alt": "",
             "categorias": "",
             "detalhes": {
                 "srcDetalhes": [
                     {
                         "id": 1,
-                        "srcDet": "",
-                        "srcThumb": "",
+                        "srcDet": "#",
+                        "srcThumb": "#",
                         "alt": "",
                         "badge": ""
                     }],
@@ -72,7 +75,8 @@ const GerenciarProds = () => {
         console.log(dadosFiltrados);
         const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
         if (listaPrimeiros.length < 2) {
-            alert("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
+            //alert("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
+            setMsg("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
             return;
         }
 
@@ -101,7 +105,7 @@ const GerenciarProds = () => {
         const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
 
         if (!prod.primeiros && listaPrimeiros.length >= 3) {
-            alert("Limite máximo de 3 produtos em destaque atingido. Remova um primeiro!");
+            setMsg("Limite máximo de 3 produtos em destaque atingido. Remova um primeiro!");
             return;
         }
 
@@ -121,7 +125,8 @@ const GerenciarProds = () => {
         const prims = dadosFiltrados.filter((visivel) => visivel.primeiros === true);
 
         if (prims.length < 2) {
-            alert("Pra eliminar o último produto em destaque. Primeiro destaque um outro produto no lugar dele.");
+            setMsg("Pra eliminar o último produto em destaque. Primeiro destaque um outro produto no lugar dele.");
+
             return;
         };
         const dadosEliminar = dadosFiltrados.filter((dados) => dados.id === id);
@@ -135,6 +140,11 @@ const GerenciarProds = () => {
         setShowCardMsg(false);
         localStorage.setItem("produtosBanco", JSON.stringify(dadosEliminar));
     };
+
+    const onClickFechar = () => {
+        setMsg("")
+    };
+
     // useEffect(() => {
     //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
     // }, []);
@@ -149,6 +159,7 @@ const GerenciarProds = () => {
                 </div>
                 <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} onClickFecharCard={() => { onClickControlModal(false) }} />} />
                 <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickEliminarProd(); }} tipo={0} />
+                <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFechar() }} />
             </ContainerDiv>
         </>
     );

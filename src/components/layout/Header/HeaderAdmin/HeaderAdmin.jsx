@@ -9,14 +9,29 @@ import Sair from "../../../../assets/icons/sair.svg";
 import LogoIcone from "../../../../assets/logo/logoIET.webp";
 import MenuAdmin from "../../Sidebar/SidebarAdmin/MenuAdmin";
 import useContextAdminLogado from "../../../../hooks/useContextAdminLogado";
+import CardMensGeral from "../../../cards/cardMensGeral/CardMensGeral";
+import { Link } from "react-router-dom";
+import scrollCima from "../../../../utils/scrollCima";
 
 const HeaderAdmin = () => {
     const [showMenu, setShowMenu] = useState(false);
     const { onClickSair } = useContextAdminLogado();
+    const [msg, setMsg] = useState("");
 
     const onClickMenu = (val) => {
         setShowMenu(val);
     }
+    const onClickSairMsg = () => {
+        setMsg("Realmente deseja sair? Se sim clique em Sair, se não clique na área azul fora do Botão Sair!")
+    }
+
+    const onClickSairAdmin = () => {
+        onClickSair();
+    }
+
+    const onClickFecharAdmin = () => {
+        setMsg("")
+    };
 
     return (
         <>
@@ -27,10 +42,14 @@ const HeaderAdmin = () => {
                     } />
                 </div>
                 <div className={style.area_logo_topo}>
-                    <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} />
+                    <Link to={"adicionar"} onClick={() => {
+                        scrollCima();
+                    }}>
+                        <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} />
+                    </Link>
                 </div>
                 <div className={style.area_carinho}>
-                    <Button onClick={() => { onClickSair() }} children={
+                    <Button onClick={() => { onClickSairMsg() }} children={
                         <Img src={Sair} alt={"Ícone de Deslogar"} className={style.icone} />
                     } />
                 </div>
@@ -38,6 +57,8 @@ const HeaderAdmin = () => {
             <MenuAdmin mostrarMenu={showMenu} mostrarIcone={true} mostrarIconesMenu={true} onClickOcultar={(val) => {
                 onClickMenu(val);
             }} />
+
+            <CardMensGeral mens={msg} textoBtn={"Okay"} controlSair={false} onClickFecharAdmin={() => { onClickFecharAdmin() }} onClickFechar={() => { onClickSairAdmin() }} />
         </>
     )
 }

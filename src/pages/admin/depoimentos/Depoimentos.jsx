@@ -9,6 +9,7 @@ import CardDepGeren from '../../../components/cards/cardDepGeren/CardDepGeren';
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import scrollCima from '../../../utils/scrollCima';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
+import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
 
 const Depoimentos = () => {
 
@@ -26,6 +27,7 @@ const Depoimentos = () => {
     const [showGerenciar, setShowGerenciar] = useState(false);
     const [depoimentos, setDepoimentos] = useState(DepoimentosClientes);
     const [depAlterar, setDepAltera] = useState([]);
+    const [msg, setMsg] = useState("");
     const [showModal, setShowModal] = useState(false);
     const contaVisivel = depoimentos.filter((dep) => dep.visivel === true);
     const [showCardMsg, setShowCardMsg] = useState(false);
@@ -65,7 +67,7 @@ const Depoimentos = () => {
         const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
 
         if (visiveis.length < 2) {
-            alert("No mínimo você precisa ter um depoimento para mostrar.");
+            setMsg("No mínimo você precisa ter um depoimento para mostrar.");
             return;
         };
 
@@ -91,7 +93,7 @@ const Depoimentos = () => {
         const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
 
         if (!existe.visivel && visiveis.length >= 3) {
-            alert("Limite máximo de 3 depoimentos em visíveis. Remova um primeiro!");
+            seMsg("Limite máximo de 3 depoimentos em visíveis. Remova um primeiro!");
             return;
         }
 
@@ -111,7 +113,7 @@ const Depoimentos = () => {
         const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
         const depVisivel = depoimentos.filter((visivel) => visivel.id === id)
         if (visiveis.length < 2 && depVisivel.visivel !== true) {
-            alert("Pra eliminar o último depoimento visível. Primeiro marque um outro depoimento como visível.");
+            setMsg("Pra eliminar o último depoimento visível. Primeiro marque um outro depoimento como visível.");
             return;
         };
 
@@ -126,6 +128,10 @@ const Depoimentos = () => {
         setShowCardMsg(false);
         console.log(dadosEliminar);
         localStorage.setItem("depoimentosBancos", JSON.stringify(dadosEliminar));
+    };
+
+    const onClickFechar = () => {
+        setMsg("")
     };
 
     return (
@@ -169,6 +175,7 @@ const Depoimentos = () => {
                             }} depoimentoCliente={depAlterar[0]} contaVisivel={contaVisivel.length} tipo={true} />
                         } />
                         <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickElminarDep() }} tipo={1} />
+                        <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFechar() }} />
                     </>
                 ) : (
                     <CardFormDepoimentos onClickShow={() => {

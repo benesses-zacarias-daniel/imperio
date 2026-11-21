@@ -101,17 +101,6 @@
     },
     {
         "id": 5,
-        "titulo": "Dica 4: Que este Sistema Seja Uma Benção",
-        "descricao": "Este sistema foi feito com o objectivo de te ser muito útil no teu negócio. Faça bom uso:",
-        "itens": [
-            {
-                "nome": "Desenvolvido por Benesses Zacarias Daniel",
-                "texto": "Aspirante a Programador (Desenvolvedor Web e Mobile)"
-            }
-        ]
-    },
-    {
-        "id": 5,
         "titulo": "Dica 4 : Área Mensagens de Clientes",
         "descricao": "Como visualizar, responder e organizar os contactos enviados pelos clientes na loja.",
         "itens": [
@@ -130,6 +119,17 @@
             {
                 "nome": "Eliminar",
                 "texto": "Remove definitivamente a mensagem da lista depois de o atendimento já ter sido concluído."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "titulo": "Dica 5: Que este Sistema Seja Uma Benção",
+        "descricao": "Este sistema foi feito com o objectivo de te ser muito útil no teu negócio. Faça bom uso:",
+        "itens": [
+            {
+                "nome": "Desenvolvido por Benesses Zacarias Daniel",
+                "texto": "Aspirante a Programador (Desenvolvedor Web && Mobile)"
             }
         ]
     }
