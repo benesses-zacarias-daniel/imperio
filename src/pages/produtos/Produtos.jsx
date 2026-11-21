@@ -43,11 +43,34 @@ const Produtos = () => {
             }
         }
     ];
+
+    const [produtosDestaque, setProdutosDestaque] = useState(Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true));
+    const [dadosFiltrados, setDadosFiltrados] = useState([...produtosDestaque, ...Prods]);
+
+    useEffect(async () => {
+
+        try {
+
+            const { data, error } = await supabase().from("produtos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar produtos: " + error.message);
+                return;
+            }
+
+            console.log("Produtos buscados com sucesso", data);
+            setProdutosDestaque(data.filter((prodDest) => prodDest.visivel === true));
+            setDadosFiltrados([...produtosDestaque, ...data]);
+
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+
+    }, []);
+
     //Pequena alteração pra fazer o push
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
-    const produtosDestaque = Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true);
-    const [dadosFiltrados, setDadosFiltrados] = useState([...produtosDestaque, ...Prods]);
     const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);

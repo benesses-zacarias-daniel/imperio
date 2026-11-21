@@ -17,6 +17,7 @@ import InputRadio from '../../../form/inputRadio/InputRadio';
 import InputFile from '../../../form/inputFile/InputFile';
 import conversorWebp from '../../../../utils/conversorWebp';
 import scrollCima from '../../../../utils/scrollCima';
+import supabase from '../../../../../services/supabase';
 
 const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }) => {
     const Opcoes = [
@@ -176,21 +177,37 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
         scrollCima();
     };
 
-    const contaPrimeiros = () => {
+    const contaPrimeiros = async () => {
+
         const produtosTeste = localStorage.getItem("produtosBanco");
         const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
 
-        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
-        const primeiro = dadosProds.filter((prods) => prods.primeiros === true)
-        setContaPrim(primeiro.length);
+        try {
+
+            const { data, error } = await supabase().from("produtos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar produtos em destaque: " + error.message);
+                return;
+            }
+
+            const buscaVisiveis = JSON.parse(data);
+            localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+            const primeiro = buscaVisiveis.filter((prods) => prods.primeiros === true);
+
+            setContaPrim(primeiro.length);
+
+        } catch (error) {
+            console.error("Erro ao buscar produtos em destaque: " + error.message);
+        }
+
     };
 
-    const onClickPublicar = (evt) => {
+    const onClickPublicar = async (evt) => {
+
         evt.preventDefault();
         const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
-        const id = Math.floor(Math.random() * 10000000000000)
         const objDados = {
-            "id": id,
             "nome": nome,
             "preco": preco,
             "badge": badge,
@@ -205,16 +222,31 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             }
         };
 
-        console.log(objDados);
-        const produtosTeste = localStorage.getItem("produtosBanco");
-        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-        dadosProds.push(objDados);
+        try {
+            const { data, error } = await supabase().from("produtos").insert(objDados);
 
-        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
-        contaPrimeiros();
+            if (error) {
+                console.error("Erro ao adicionar produto: " + error.message);
+                return;
+            }
+
+            console.log("Produto adicionado com sucesso: ", data);
+            console.log(objDados);
+            const produtosTeste = localStorage.getItem("produtosBanco");
+            const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
+            dadosProds.push(objDados);
+
+            localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+            limparCampos();
+            await contaPrimeiros();
+
+        } catch (error) {
+            console.error("Erro ao adicionar produto: " + error.message);
+        }
+
     };
 
-    const onClickSalvarAlteracoes = (idProd, evt) => {
+    const onClickSalvarAlteracoes = async (idProd, evt) => {
         evt.preventDefault();
         const novosDados = {
             "id": idProd,
@@ -241,9 +273,26 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             return prod;
         });
 
-        localStorage.setItem("produtosBanco", JSON.stringify(dados));
-        contaPrimeiros();
-        onClickFecharCard();
+        try {
+
+            const { data, error } = await supabase().from("produtos").update(dados).eq("id", idProd).select();
+
+            if (error) {
+                console.error("Erro ao actualizar Produto: " + error.message);
+                return;
+            }
+
+            console.log("Produto actualizado com sucesso: ", data);
+
+            localStorage.setItem("produtosBanco", JSON.stringify(dados));
+            limparCampos();
+            await contaPrimeiros();
+            onClickFecharCard();
+
+        } catch (error) {
+            console.error("Erro ao actualizar Produto: " + error.message);
+        }
+
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {

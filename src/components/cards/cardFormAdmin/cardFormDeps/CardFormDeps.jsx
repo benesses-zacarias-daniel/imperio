@@ -10,6 +10,7 @@ import ContainerForm from '../../../Common/containerForm/ContainerForm';
 import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
+import supabase from '../../../../../services/supabase';
 
 const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onClickAtualizacao = () => { }, tipo = false }) => {
 
@@ -61,39 +62,71 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
         setDepoimento("");
     };
 
-    const contaVisiveis = () => {
+    const contaVisiveis = async () => {
         const depoimentosTeste = localStorage.getItem("depoimentosBancos");
         const depsV = depoimentosTeste ? JSON.parse(depoimentosTeste) : [{ "id": 0, "nome": "Benesses Zacarias Daniel", "iniciais": "BZD", "visivel": false, "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento." }];
 
-        localStorage.setItem("depoimentosBancos", JSON.stringify(depsV));
-        const visiveis = depsV.filter((prods) => prods.visiveis === true)
-        setContaVisivel(visiveis.length);
+        try {
+
+            const { data, error } = await supabase().from("depoimentos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar depoimentos visíveis: " + error.message);
+                return;
+            }
+
+            console.log("Depoimentos buscados com sucesso", data);
+
+            const buscaVisiveis = JSON.parse(data);
+
+            localStorage.setItem("depoimentosBancos", JSON.stringify(depsV));
+            const visiveis = buscaVisiveis.filter((prods) => prods.visiveis === true)
+
+            setContaVisivel(visiveis.length);
+        } catch (error) {
+            console.error("Erro ao buscar depoimentos visíveis: " + error.message);
+        }
+
+
     };
 
-    const onClickGuardarDepoimento = (evt) => {
+    const onClickGuardarDepoimento = async (evt) => {
         evt.preventDefault();
-        const id = Math.floor(Math.random() * 10000000000000)
+
         const objDados = {
-            "id": id,
             "nome": nome,
             "iniciais": iniciais,
             "visivel": visivel,
             "depoimento": depoimento
         };
 
-        console.log(objDados);
-        console.log(objDados);
-        const depTestes = localStorage.getItem("depoimentosBancos");
-        const dep = depTestes ? JSON.parse(depTestes) : [];
-        dep.push(objDados);
+        try {
 
-        localStorage.setItem("depoimentosBancos", JSON.stringify(dep));
-        contaVisiveis();
-        limparCampos();
-        onClickShow();
+            const { data, error } = await supabase().from("depoimentos").insert([objDados]).select();
+
+            if (error) {
+                console.error("Erro ao guardar depoimento: " + error.message);
+                return;
+            }
+
+            console.log("Depoimento guardado com sucesso: ", data);
+
+            const depTestes = localStorage.getItem("depoimentosBancos");
+            const dep = depTestes ? JSON.parse(depTestes) : [];
+            dep.push(objDados);
+
+            localStorage.setItem("depoimentosBancos", JSON.stringify(dep));
+
+            await contaVisiveis();
+            limparCampos();
+            onClickShow();
+
+        } catch (error) {
+            console.error("Erro ao guardar depoimento: " + error.message);
+        }
     };
 
-    const onClickSalvarAlteracoes = (idDep, evt) => {
+    const onClickSalvarAlteracoes = async (idDep, evt) => {
         evt.preventDefault();
         const novosDados = {
             "id": idDep,
@@ -115,10 +148,24 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
             return deps;
         })
 
-        localStorage.setItem("depoimentosBancos", JSON.stringify(dadosNovos));
-        onClickAtualizacao();
-        contaVisiveis();
-        limparCampos();
+        try {
+            const { data, error } = await supabase().from("depoimentos").update(dadosNovos).eq("id", idDep).select();
+
+            if (error) {
+                console.error("Erro ao actualizar depoimento: " + error.message);
+                return;
+            }
+
+            console.log("Depoimento actualizado com sucesso: ", data);
+
+            localStorage.setItem("depoimentosBancos", JSON.stringify(dadosNovos));
+            onClickAtualizacao();
+            await contaVisiveis();
+            limparCampos();
+        } catch (error) {
+            console.error("Erro ao actualizar depoimento: " + error.message);
+        }
+
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {

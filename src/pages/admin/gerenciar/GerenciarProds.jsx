@@ -8,6 +8,7 @@ import Categorias from "../../../components/data/Categorias.json";
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
+import supabase from '../../../../services/supabase';
 
 const GerenciarProds = () => {
 
@@ -43,22 +44,42 @@ const GerenciarProds = () => {
         }
     ];
 
-    const [dadosFiltrados, setDadosFiltrados] = useState(ItensTeste);
+    const [dadosImutaveis, setDadosImutaveis] = useState(null);
+    useEffect(async () => {
+
+        try {
+
+            const { data, error } = await supabase().from("produtos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar produtos: " + error.message);
+                return;
+            }
+
+            console.log("Produtos buscados com sucesso", data);
+            setDadosImutaveis(data);
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+
+    }, []);
+
+    const [dadosFiltrados, setDadosFiltrados] = useState(dadosImutaveis);
 
     const onClickControlModal = (val) => {
         setModalAberto(val);
     };
 
     const onClickMostrarModal = (idProd) => {
-        setDadosModal(ItensTeste.find((Prod) => Prod.id === idProd));
+        setDadosModal(dadosImutaveis.find((Prod) => Prod.id === idProd));
         onClickControlModal(true);
     };
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            setDadosFiltrados(ItensTeste.filter((iten) => iten.categorias === categoria));
+            setDadosFiltrados(dadosImutaveis.filter((iten) => iten.categorias === categoria));
         } else {
-            setDadosFiltrados(ItensTeste);
+            setDadosFiltrados(dadosImutaveis);
         }
     };
 
@@ -96,7 +117,7 @@ const GerenciarProds = () => {
 
     const onClickAdicionarPrimeiros = (id) => {
 
-        const prod = ItensTeste.find((prod) => prod.id === id);
+        const prod = dadosImutaveis.find((prod) => prod.id === id);
 
         if (!prod) {
             return;

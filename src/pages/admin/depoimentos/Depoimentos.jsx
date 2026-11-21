@@ -4,14 +4,16 @@ import CardFormDepoimentos from '../../../components/cards/cardFormAdmin/cardFor
 import Button from '../../../components/button/Button';
 import Img from '../../../components/img/Img';
 import Trocar from "../../../assets/icons/trocar.svg";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CardDepGeren from '../../../components/cards/cardDepGeren/CardDepGeren';
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import scrollCima from '../../../utils/scrollCima';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
+import supabase from '../../../../services/supabase';
 
 const Depoimentos = () => {
+
 
     const depTestes = localStorage.getItem("depoimentosBancos");
     const DepoimentosClientes = depTestes ? JSON.parse(depTestes) : [
@@ -24,8 +26,30 @@ const Depoimentos = () => {
         }
     ];
 
-    const [showGerenciar, setShowGerenciar] = useState(false);
     const [depoimentos, setDepoimentos] = useState(DepoimentosClientes);
+
+    useEffect(async () => {
+
+        try {
+
+            const { data, error } = await supabase().from("depoimentos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar depoimentos: " + error.message);
+                return;
+            }
+
+            console.log("Depoimentos buscados com sucesso", data);
+
+            setDepoimentos(data);
+
+        } catch (error) {
+            console.error("Erro ao buscar depoimentos: " + error.message);
+        }
+
+    }, [])
+
+    const [showGerenciar, setShowGerenciar] = useState(false);
     const [depAlterar, setDepAltera] = useState([]);
     const [msg, setMsg] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -93,7 +117,7 @@ const Depoimentos = () => {
         const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
 
         if (!existe.visivel && visiveis.length >= 3) {
-            seMsg("Limite máximo de 3 depoimentos em visíveis. Remova um primeiro!");
+            setMsg("Limite máximo de 3 depoimentos em visíveis. Remova um primeiro!");
             return;
         }
 

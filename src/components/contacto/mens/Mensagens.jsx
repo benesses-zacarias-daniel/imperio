@@ -38,11 +38,10 @@ const Mensagens = ({ Mensagens }) => {
         setContacto(evt.target.value);
     };
 
-    const onSubmit = (evt) => {
+    const onSubmit = async (evt) => {
         evt.preventDefault();
-        const id = Math.floor(Math.random() * 10000000000000)
+
         const dadosMens = {
-            "id": id,
             "nome": nome,
             "telefone": contacto,
             "email": email,
@@ -50,11 +49,26 @@ const Mensagens = ({ Mensagens }) => {
             "mens": textarea
         }
 
-        const mensSalvas = localStorage.getItem("mensagensBanco");
-        const mens = mensSalvas ? JSON.parse(mensSalvas) : [];
-        mens.push(dadosMens);
-        localStorage.setItem("mensagensBanco", JSON.stringify(mens));
-        limparCampos()
+        try {
+
+            const { data, error } = await supabase().from("mensagens").insert([dadosMens]);
+
+            if (error) {
+                console.error("Erro ao enviar mensagen: " + error.message);
+                return;
+            }
+
+            console.log("Mensagens enviada com sucesso", data);
+            limparCampos();
+            // const mensSalvas = localStorage.getItem("mensagensBanco");
+            // const mens = mensSalvas ? JSON.parse(mensSalvas) : [];
+            // mens.push(dadosMens);
+            // localStorage.setItem("mensagensBanco", JSON.stringify(mens));
+            // limparCampos()
+        } catch (error) {
+            console.error("Erro ao enviar Mensagen: " + error.message);
+        }
+
 
     };
 

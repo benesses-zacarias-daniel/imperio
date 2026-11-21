@@ -1,5 +1,5 @@
 import style from "./Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Hero from "../../components/cards/Hero/Hero";
@@ -18,6 +18,7 @@ import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 // import ProdutoDados from "../../components/data/ProdutosDados.json";
 // import DepoimentosClientes from "../../components/data/DepoimentosClientes.json";
 import CardDepoimentos from "../../components/cards/cardDepoimentos/CardDepoimentos";
+import supabase from "../../../services/supabase";
 
 const Home = () => {
     //Testes Usando o LocalStorage
@@ -57,9 +58,44 @@ const Home = () => {
             "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
         }
     ];
-    const depsMostrar = DepoimentosClientes.filter((deps) => deps.visivel === true)
+    const [depsMostrar, setDepoimentos] = useState(DepoimentosClientes.filter((deps) => deps.visivel === true))
     ///
-    const produtosDestaque = Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true);
+    const [produtosDestaque, setProdutosDestaque] = useState(Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true));
+
+    useEffect(async () => {
+
+        try {
+
+            const { data, error } = await supabase().from("produtos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar produtos: " + error.message);
+                return;
+            }
+
+            console.log("Produtos buscados com sucesso", data);
+            setProdutosDestaque(data);
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+
+        try {
+
+            const { data, error } = await supabase().from("depoimentos").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar depoimentos: " + error.message);
+                return;
+            }
+
+            console.log("Depoimentos buscados com sucesso", data);
+            setDepoimentos(data);
+        } catch (error) {
+            console.error("Erro ao buscar depoimentos: " + error.message);
+        }
+
+    }, []);
+
     const num1 = "258 84 975 4315";
     const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
 

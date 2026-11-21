@@ -9,7 +9,7 @@ import scrollCima from "../../../../utils/scrollCima";
 import Home from "../../../../assets/icons/casa.svg";
 import Productos from "../../../../assets/icons/produto.svg";
 import Sobre from "../../../../assets/icons/sobre.svg";
-import Anunciar from "../../../../assets/icons/anuncio.svg";
+// import Anunciar from "../../../../assets/icons/anuncio.svg";
 import Carinho from "../../../../assets/icons/carinhoB.svg";
 import Termos from "../../../../assets/icons/termos.svg";
 import Contacto from "../../../../assets/icons/contactar.svg";
@@ -19,7 +19,7 @@ import Contacto from "../../../../assets/icons/contactar.svg";
 import HomeActiva from "../../../../assets/icons/casaL.svg";
 import ProductosActiva from "../../../../assets/icons/produtoL.svg";
 import SobreActiva from "../../../../assets/icons/sobreL.svg";
-import AnunciarActiva from "../../../../assets/icons/anuncioL.svg";
+// import AnunciarActiva from "../../../../assets/icons/anuncioL.svg";
 import CarinhoActiva from "../../../../assets/icons/carinho.svg";
 import TermosActiva from "../../../../assets/icons/termosL.svg";
 import ContactoActiva from "../../../../assets/icons/contactarL.svg";
@@ -124,7 +124,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
 
                             </Link>
 
-                            <Link to={"anunciar"} className={`${classeLinkMenu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
+                            {/* <Link to={"anunciar"} className={`${classeLinkMenu} ${(paginaActiva === "/anunciar") ? style.pagina_activa : ""}`}>
                                 <Button children={
                                     <>
                                         {mostrarIconesMenu && (<Img src={(paginaActiva === "/anunciar") ? AnunciarActiva : Anunciar} alt={"Ícone de Casa com um Mais no Canto"} className={style.img_menu} />
@@ -136,7 +136,7 @@ const Menu = ({ mostrarIcone = false, mostrarMenu = false, onClickOcultar, class
                                     scrollCima();
                                 }} className={classeBtnMenu} />
 
-                            </Link>
+                            </Link> */}
 
                             <Link to={"carrinho"} className={`${classeLinkMenu} ${(paginaActiva === "/carrinho") ? style.pagina_activa : ""}`}>
                                 <Button children={

@@ -8,21 +8,51 @@ import CardMsg from "../../../components/cards/cardMsg/CardMsg";
 
 const MensagensContacto = () => {
 
-    const [mensagens, setMensagens] = useState(
-        () => JSON.parse(localStorage.getItem("mensagensBanco")) || [{ "id": 0, "telefone": 11111111, "email": "Ainda sem nenhum email de mesagem recebida.", "mens": "Ainda sem nenhuma mensagem", "lida": false }]
-    );
+    const [mensImutaveis, setMensImutaveis] = useState();
+    useEffect(async () => {
 
+        try {
+
+            const { data, error } = await supabase().from("mensagens").select("*");
+
+            if (error) {
+                console.error("Erro ao buscar mensagens: " + error.message);
+                return;
+            }
+
+            console.log("Mensagens buscados com sucesso", data);
+            setMensImutaveis(data);
+        } catch (error) {
+            console.error("Erro ao buscar Mensagens: " + error.message);
+        }
+
+    }, []);
+
+    const [mensagens, setMensagens] = useState(mensImutaveis);
     const [msgAberta, setMsgAberta] = useState(null);
     const [showDetMens, setShowDetMens] = useState(false);
 
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosMsg, setDadosMsg] = useState([]);
 
-    const onClickEliminar = (idMens) => {
-        const filtradas = mensagens.filter((mens) => mens.id !== idMens);
-        setMensagens(filtradas);
-        localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
-        setShowCardMsg(false);
+    const onClickEliminar = async (idMens) => {
+        try {
+
+            const { data, error } = await supabase().from("mensagens").delete().eq("id", idMens);
+
+            if (error) {
+                console.error("Erro ao eliminar mensagem: " + error.message);
+                return;
+            }
+
+            localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
+            const filtradas = mensagens.filter((mens) => mens.id !== idMens);
+            setMensagens(data);
+            setShowCardMsg(false);
+        } catch (error) {
+            console.error("Erro ao buscar produtos em destaque: " + error.message);
+        }
+
     };
 
     const onClickFiltrar = (idMens) => {
@@ -42,21 +72,33 @@ const MensagensContacto = () => {
         scrollCima();
     };
 
-    const onClickAdicionarLidas = (idMens) => {
+    const onClickAdicionarLidas = async (idMens) => {
+        try {
 
-        const mensGuardadas = localStorage.getItem("mensagensBanco");
-        const mensG = mensGuardadas ? JSON.parse(mensGuardadas) : [{ "id": 0, "nome": "Benesses Zacarias Daniel", "telefone": 870006914, "email": "benesses@teste.com", "mens": "Ainda sem nenhuma mensagem", "lida": false }];
 
-        const novasMens = mensG.map((mens) => {
-            if (mens.id === idMens) {
-                return { ...mens, "lida": true }
+            const novasMens = mensagens.map((mens) => {
+                if (mens.id === idMens) {
+                    return { ...mens, "lida": true }
+                }
+
+                return mens;
+            })
+
+            const { data, error } = await supabase().from("mensagens").update(novasMens).eq("id", idMens);
+
+            if (error) {
+                console.error("Erro ao adicionar mensagem lida: " + error.message);
+                return;
             }
 
-            return mens;
-        })
+            localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
+            const filtradas = mensagens.filter((mens) => mens.id !== idMens);
+            setMensagens(data);
+            setShowCardMsg(false);
+        } catch (error) {
+            console.error("Erro ao adicionar mensagem em lida: " + error.message);
+        }
 
-        setMensagens(novasMens);
-        localStorage.setItem("mensagensBanco", JSON.stringify(novasMens));
     };
 
     const onClickFexar = () => {
