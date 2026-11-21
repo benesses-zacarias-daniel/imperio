@@ -7,7 +7,7 @@ import Apagar from "../../../assets/icons/delete.svg";
 import { useState } from "react";
 import scrollCima from "../../../utils/scrollCima";
 
-const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "", tipo = null }) => {
+const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, tipo = null }) => {
     if (!showCardMsg) {
         return null;
     }
