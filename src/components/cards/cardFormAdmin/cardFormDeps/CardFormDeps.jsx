@@ -19,7 +19,13 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
     const [depoimento, setDepoimento] = useState(depoimentoCliente?.depoimento ? depoimentoCliente?.depoimento : "");
     const [contaVisivel, setContaVisivel] = useState(() => {
         const depsTestes = localStorage.getItem("depoimentosBancos");
-        const dadosProds = depsTestes ? JSON.parse(depsTestes) : [];
+        const dadosProds = depsTestes ? JSON.parse(depsTestes) : [{
+            "id": 0,
+            "nome": "Benesses Zacarias Daniel",
+            "iniciais": "BZD",
+            "visivel": false,
+            "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento."
+        }];
         const visivel = dadosProds.filter((prods) => prods.visivel === true);
 
         return visivel.length;
@@ -45,13 +51,23 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
     };
 
     const onChangeVisivel = (val) => {
-        setVisivel(val)
+        setVisivel(val);
+        contaVisiveis();
     };
 
     const limparCampos = () => {
         setNome("");
         setIniciais("")
         setDepoimento("");
+    };
+
+    const contaVisiveis = () => {
+        const depoimentosTeste = localStorage.getItem("depoimentosBancos");
+        const depsV = depoimentosTeste ? JSON.parse(depoimentosTeste) : [{ "id": 0, "nome": "Benesses Zacarias Daniel", "iniciais": "BZD", "visivel": false, "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento." }];
+
+        localStorage.setItem("depoimentosBancos", JSON.stringify(depsV));
+        const visiveis = depsV.filter((prods) => prods.visiveis === true)
+        setContaVisivel(visiveis.length);
     };
 
     const onClickGuardarDepoimento = (evt) => {
@@ -72,7 +88,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
         dep.push(objDados);
 
         localStorage.setItem("depoimentosBancos", JSON.stringify(dep));
-        setContaVisivel(dep.length);
+        contaVisiveis();
         limparCampos();
         onClickShow();
     };
@@ -100,9 +116,9 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
         })
 
         localStorage.setItem("depoimentosBancos", JSON.stringify(dadosNovos));
-        setContaVisivel(dep.length);
-        limparCampos();
         onClickAtualizacao();
+        contaVisiveis();
+        limparCampos();
     };
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {

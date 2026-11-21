@@ -4,6 +4,7 @@ import CardMensContacto from "../../../components/cards/cardMensContacto/CardMen
 import { useState } from "react";
 import CardDetMens from "../../../components/cards/cardDetMens/CardDetMens";
 import scrollCima from "../../../utils/scrollCima";
+import CardMsg from "../../../components/cards/cardMsg/CardMsg";
 
 const MensagensContacto = () => {
 
@@ -14,14 +15,20 @@ const MensagensContacto = () => {
     const [msgAberta, setMsgAberta] = useState(null);
     const [showDetMens, setShowDetMens] = useState(false);
 
+    const [showCardMsg, setShowCardMsg] = useState(false);
+    const [dadosMsg, setDadosMsg] = useState([]);
+
     const onClickEliminar = (idMens) => {
-        if (idMens) {
-            alert("Tem certeza que quer eliminar esta mensagem? Uma vez eliminada não pode voltar pra traz!");
-            // return;
-        }
         const filtradas = mensagens.filter((mens) => mens.id !== idMens);
         setMensagens(filtradas);
         localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
+        setShowCardMsg(false);
+    };
+
+    const onClickFiltrar = (idMens) => {
+        const filtradas = mensagens.filter((mens) => mens.id !== idMens);
+        setDadosMsg(filtradas);
+        setShowCardMsg(true);
     };
 
     const onClickVerDetalhes = (idMens) => {
@@ -63,9 +70,10 @@ const MensagensContacto = () => {
             <h2 className={style.titulo_mens}> Mensagens </h2>
             <ContainerDiv className={style.container_mens}>
                 <div className={style.area_scroll_mens}>
-                    <CardMensContacto mensagens={mensagens} onClickEliminar={(idMens) => { onClickEliminar(idMens) }} onClickVerDetalhes={(id) => { onClickVerDetalhes(id) }} onClickAdicionarLidas={(id) => { onClickAdicionarLidas(id) }} />
+                    <CardMensContacto mensagens={mensagens} onClickEliminar={(idMens) => { onClickFiltrar(idMens) }} onClickVerDetalhes={(id) => { onClickVerDetalhes(id) }} onClickAdicionarLidas={(id) => { onClickAdicionarLidas(id) }} />
                 </div>
                 <CardDetMens showDetMens={showDetMens} mensagem={msgAberta} onClickFecar={() => { onClickFexar() }} />
+                <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} tipo={2} onClickEliminar={(idMens) => { onClickEliminar(idMens) }} />
             </ContainerDiv>
         </>
     )

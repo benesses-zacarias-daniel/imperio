@@ -109,5 +109,28 @@
                 "texto": "Aspirante a Programador (Desenvolvedor Web e Mobile)"
             }
         ]
+    },
+    {
+        "id": 5,
+        "titulo": "Dica 4 : Área Mensagens de Clientes",
+        "descricao": "Como visualizar, responder e organizar os contactos enviados pelos clientes na loja.",
+        "itens": [
+            {
+                "nome": "Ver Tudo",
+                "texto": "Abre uma janela com os dados completos do cliente (nome, telefone, e-mail) e o texto integral da mensagem enviada."
+            },
+            {
+                "nome": "Conversar",
+                "texto": "Botão dentro dos detalhes da mensagem que abre diretamente o WhatsApp do cliente para responder rapidamente."
+            },
+            {
+                "nome": "Estrela (Marcar como Lida)",
+                "texto": "Identifica visualmente as mensagens que já foram verificadas ou respondidas. Estrela amarela indica mensagem lida e cinza indica nova."
+            },
+            {
+                "nome": "Eliminar",
+                "texto": "Remove definitivamente a mensagem da lista depois de o atendimento já ter sido concluído."
+            }
+        ]
     }
 ]

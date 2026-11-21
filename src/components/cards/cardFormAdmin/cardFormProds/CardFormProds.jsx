@@ -179,7 +179,6 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     const contaPrimeiros = () => {
         const produtosTeste = localStorage.getItem("produtosBanco");
         const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-        dadosProds.push(objDados);
 
         localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
         const primeiro = dadosProds.filter((prods) => prods.primeiros === true)
@@ -242,11 +241,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             return prod;
         });
 
-        const produtosTeste = localStorage.getItem("produtosBanco");
-        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-        dadosProds.push(dados);
-
-        localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
+        localStorage.setItem("produtosBanco", JSON.stringify(dados));
         contaPrimeiros();
         onClickFecharCard();
     };
@@ -320,7 +315,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
                         }} />
                     </div>
                     {
-                        (contaPrim >= 3 && dadosAct?.primeiros !== true) ? (null) : (
+                        (contaPrim === 3 && dadosAct?.primeiros !== true) ? (null) : (
                             <div className={style.area_input_anun_tP}>
                                 <div className={style.area_label}>
                                     <label>Em destaque</label>

@@ -168,7 +168,7 @@ const Depoimentos = () => {
                                 setDepoimentos(deps);
                             }} depoimentoCliente={depAlterar[0]} contaVisivel={contaVisivel.length} tipo={true} />
                         } />
-                        <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickElminarDep() }} mensagem={"Realmente tem certeza de que deseja eliminar o este depoimento?"} />
+                        <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickElminarDep() }} mensagem={"Realmente tem certeza de que deseja eliminar o este depoimento?"} tipo={1} />
                     </>
                 ) : (
                     <CardFormDepoimentos onClickShow={() => {

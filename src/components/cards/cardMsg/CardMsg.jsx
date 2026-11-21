@@ -7,10 +7,11 @@ import Apagar from "../../../assets/icons/delete.svg";
 import { useState } from "react";
 import scrollCima from "../../../utils/scrollCima";
 
-const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "", tipo = false }) => {
+const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onClickEliminar = () => { }, mensagem = "", tipo = null }) => {
     if (!showCardMsg) {
         return null;
     }
+
     const [fade, setFade] = useState(false);
 
     const onClickFexarCardMsg = () => {
@@ -19,7 +20,15 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
             setFade(false);
         }, 500)
         setFade(true);
-    }
+    };
+
+    const nome = dadosProd[0]?.nome;
+
+    const Mensagens = [
+        `Tem certeza de que deseja eliminar o produto ${nome} ? Essa oporação não pode ser revertida uma vez feita.`,
+        `Realmente tem certeza de que deseja eliminar o este depoimento? Essa oporação não pode ser revertida uma vez feita.`,
+        `Tem certeza que quer eliminar esta mensagem? Essa oporação não pode ser revertida uma vez feita!`
+    ];
 
     return (
         <ContainerDiv id={"container_area_msg"} className={`${style.container_area_msg} ${fade ? style.ocultalResumo : ""}`} click={(evt) => {
@@ -35,7 +44,7 @@ const CardMsg = ({ showCardMsg, onClickOcultarCadMsg = () => { }, dadosProd, onC
                 </div>
                 <div className={style.area_mensagem}>
                     <div className={style.mensagem}>
-                        {mensagem}{tipo ? <span className={style.nome_prod_eliminar}>{dadosProd[0]?.nome}</span> : null} ? Essa oporação não pode ser revertida uma vez feita.
+                        {Mensagens[tipo]}
                     </div>
                 </div>
                 <div className={style.area_btn_oper}>
