@@ -35,7 +35,8 @@
     flex: 1;
 }
 
-.btn_okay {
+.btn_okay,
+.btn_sair {
     width: 100px;
     background-color: var(--dourado_principal);
     color: var(--texto_principal);
@@ -43,6 +44,12 @@
     border-radius: 10px;
     font-size: 0.95rem;
     font-weight: 600;
+}
+
+.btn_sair {
+    background-color: transparent;
+    border: 2px solid var(--perigo);
+    color: var(--preto_principal);
 }
 
 .ocultalResumo {

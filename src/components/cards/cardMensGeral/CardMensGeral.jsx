@@ -19,7 +19,7 @@ const CardMensGeral = ({ mens, textoBtn, onClickFecharAdmin = () => { }, control
         <ContainerDiv className={`${style.overlay}${fade ? style.ocultalResumo : ""}`} click={() => { controlSair ? onClickFexarCardMsgGeral() : onClickFecharAdmin() }}>
             <div className={style.card} onClick={(e) => e.stopPropagation()}>
                 <p className={style.mensagem}>{mens}</p>
-                <Button className={style.btn_okay} onClick={() => { onClickFexarCardMsgGeral() }} children={textoBtn} />
+                <Button className={controlSair ? style.btn_okay : style.btn_sair} onClick={() => { onClickFexarCardMsgGeral() }} children={textoBtn} />
             </div>
         </ContainerDiv>
     );
