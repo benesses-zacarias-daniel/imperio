@@ -10,6 +10,7 @@ import RemoverItem from "../../../assets/icons/delete.svg";
 const CardProdutos = ({ dados, onClickDetalhes }) => {
     const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarrinho();
     // const noCarinho = itens.some((prod) => prod.id === dados.id);
+    console.log(dados);
 
     return (
         dados.map(

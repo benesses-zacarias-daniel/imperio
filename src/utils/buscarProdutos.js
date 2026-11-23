@@ -11,7 +11,7 @@ const buscarProdutos = async () => {
                 "status": false,
                 "prod": [
                     {
-                        "id": 0,
+                        "id": 1,
                         "nome": "Ainda Sem Produtos",
                         "preco": 0,
                         "badge": "Sem badge",
@@ -19,7 +19,68 @@ const buscarProdutos = async () => {
                         "desc": "",
                         "src": "",
                         "alt": "",
-                        "categorias": "",
+                        "categorias": "smartphone",
+                        "detalhes": {
+                            "srcDetalhes": [
+                                {
+                                    "id": 1,
+                                    "srcDet": "",
+                                    "srcThumb": "",
+                                    "alt": ""
+                                }],
+                            "especificacoes": []
+                        }
+                    }, {
+                        "id": 2,
+                        "nome": "Ainda Sem Produtos",
+                        "preco": 0,
+                        "badge": "Sem badge",
+                        "primeiros": true,
+                        "desc": "",
+                        "src": "",
+                        "alt": "",
+                        "categorias": "electro",
+                        "detalhes": {
+                            "srcDetalhes": [
+                                {
+                                    "id": 1,
+                                    "srcDet": "",
+                                    "srcThumb": "",
+                                    "alt": ""
+                                }],
+                            "especificacoes": []
+                        }
+                    }, {
+                        "id": 3,
+                        "nome": "Ainda Sem Produtos",
+                        "preco": 0,
+                        "badge": "Sem badge",
+                        "primeiros": true,
+                        "desc": "",
+                        "src": "",
+                        "alt": "",
+                        "categorias": "pc",
+                        "detalhes": {
+                            "srcDetalhes": [
+                                {
+                                    "id": 1,
+                                    "srcDet": "",
+                                    "srcThumb": "",
+                                    "alt": ""
+                                }],
+                            "especificacoes": []
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "nome": "Ainda Sem Produtos",
+                        "preco": 0,
+                        "badge": "Sem badge",
+                        "primeiros": true,
+                        "desc": "",
+                        "src": "",
+                        "alt": "",
+                        "categorias": "electro",
                         "detalhes": {
                             "srcDetalhes": [
                                 {
@@ -43,7 +104,7 @@ const buscarProdutos = async () => {
             "status": false,
             "prod": [
                 {
-                    "id": 0,
+                    "id": 1,
                     "nome": "Ainda Sem Produtos",
                     "preco": 0,
                     "badge": "Sem badge",
@@ -51,7 +112,69 @@ const buscarProdutos = async () => {
                     "desc": "",
                     "src": "",
                     "alt": "",
-                    "categorias": "",
+                    "categorias": "smartphone",
+                    "detalhes": {
+                        "srcDetalhes": [
+                            {
+                                "id": 1,
+                                "srcDet": "",
+                                "srcThumb": "",
+                                "alt": ""
+                            }],
+                        "especificacoes": []
+                    }
+                }, {
+                    "id": 2,
+                    "nome": "Ainda Sem Produtos",
+                    "preco": 0,
+                    "badge": "Sem badge",
+                    "primeiros": true,
+                    "desc": "",
+                    "src": "",
+                    "alt": "",
+                    "categorias": "electro",
+                    "detalhes": {
+                        "srcDetalhes": [
+                            {
+                                "id": 1,
+                                "srcDet": "",
+                                "srcThumb": "",
+                                "alt": ""
+                            }],
+                        "especificacoes": []
+                    }
+                },
+                {
+                    "id": 3,
+                    "nome": "Ainda Sem Produtos",
+                    "preco": 0,
+                    "badge": "Sem badge",
+                    "primeiros": true,
+                    "desc": "",
+                    "src": "",
+                    "alt": "",
+                    "categorias": "pc",
+                    "detalhes": {
+                        "srcDetalhes": [
+                            {
+                                "id": 1,
+                                "srcDet": "",
+                                "srcThumb": "",
+                                "alt": ""
+                            }],
+                        "especificacoes": []
+                    }
+                },
+                {
+                    "id": 4,
+                    "nome": "Ainda Sem Produtos",
+                    "preco": 0,
+                    "badge": "Sem badge",
+                    "primeiros": true,
+                    "desc": "",
+                    "src": "",
+                    "alt": "",
+                    "categorias": "smartphone",
                     "detalhes": {
                         "srcDetalhes": [
                             {

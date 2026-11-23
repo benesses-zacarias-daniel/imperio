@@ -15,22 +15,20 @@ import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 import scrollCima from "../../utils/scrollCima";
 import buscarProdutos from "../../utils/buscarProdutos";
+import CardMensGeral from "../../components/cards/cardMensGeral/CardMensGeral";
 
 const Produtos = () => {
 
     //Testes Usando o LocalStorage
-    const [dadosFiltrados, setDadosFiltrados] = useState([]);
     const [prodsImutaveis, setProdsImutaveis] = useState([]);
-
-
-    //Pequena alteração pra fazer o push
+    const [dadosFiltrados, setDadosFiltrados] = useState([]);
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
     const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
     const [msg, setMsg] = useState("");
-
+    const [load, setLoad] = useState(false);
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
@@ -67,7 +65,7 @@ const Produtos = () => {
 
         } else {
 
-            if (fim >= dadosFiltrados.length) {
+            if (fim >= prodsImutaveis.length) {
                 return;
             }
 
@@ -85,19 +83,27 @@ const Produtos = () => {
     const produtosBusca = async () => {
 
         const { status, prod } = await buscarProdutos();
+        console.log(prod);
 
         if (!status) {
             console.log("Não foi possível carregar os produtos. Usando dados de teste");
             setMsg("Não foi possível carregar os produtos. Usando Produtos de teste");
 
-            setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
-            setDadosFiltrados(prodsImutaveis);
+            const produtosDest = prod.filter((prodDest) => prodDest.primeiros === true);
+            const produtosNorms = prod.filter((prodNormal) => prodNormal.primeiros === false);
+
+            setProdsImutaveis([...produtosDest, ...produtosNorms]);
+            setDadosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
+            setLoad(true);
             return;
         }
 
-        setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
-        setDadosFiltrados(prodsImutaveis);
+        const produtosDest = prod.filter((prodDest) => prodDest.primeiros === true);
+        const produtosNorms = prod.filter((prodNormal) => prodNormal.primeiros === false);
 
+        setProdsImutaveis([...produtosDest, ...produtosNorms]);
+        setDadosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
+        setLoad(true);
     };
 
     useEffect(() => {
@@ -119,10 +125,10 @@ const Produtos = () => {
                 <div className={style.container_area_prod}>
                     <div className={style.area_titulo_cont_prod}>
                         <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
-                        <p className={style.total_prods}>{dadosFiltrados.length} total itens</p>
+                        <p className={style.total_prods}>{prodsImutaveis.length} total itens</p>
                     </div>
                     <div className={style.area_produtos_pro}>
-                        <CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                        {load && (<CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />)}
                     </div>
                 </div>
             </ContainerDiv>

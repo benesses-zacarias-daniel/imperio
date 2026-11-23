@@ -70,6 +70,7 @@ const Home = () => {
 
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
+    const [load, setLoad] = useState(false);
     const [msg, setMsg] = useState("");
 
     const onClickMostrarDetalhes = (id) => {
@@ -90,18 +91,25 @@ const Home = () => {
 
         const { prod, status } = await buscarProdutos();
 
+        console.log(prod);
+
         if (!status) {
+
             console.log("Não foi possível carregar os produtos. Usando dados de teste");
+
             setMsg("Não foi possível carregar os produtos. Usando Produtos de teste!");
-            setProdutosDestaque(prod);
+
+            const destaque = prod.filter((prodDest) => prodDest.primeiros === true);
+
+            setProdutosDestaque(destaque);
+            setLoad(true);
             return;
         }
 
-        const destaque = prod.data.filter((prodDest) => prodDest.primeiros === true);
+        const destaque = prod.filter((prodDest) => prodDest.primeiros === true);
 
         setProdutosDestaque(destaque);
-        console.log(produtosDestaque);
-
+        setLoad(true);
     };
 
     const buscarDeps = async () => {
@@ -155,10 +163,10 @@ const Home = () => {
                                 </Link>
                             </div>
                         </div>
-                        <ContainerDiv className={style.area_prods_home}
+                        {load && (<ContainerDiv className={style.area_prods_home}
                             children={
                                 <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
-                            } />
+                            } />)}
                         <CardCategoria dados={Categorias[0]} />
                     </div>
                 </ContainerDiv>
