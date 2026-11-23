@@ -7,13 +7,13 @@ import Button from "../../button/Button";
 import useContextCarrinho from "../../../hooks/useContextCarrinho";
 import RemoverItem from "../../../assets/icons/delete.svg";
 
-const CardProdutos = ({ dados, onClickDetalhes }) => {
+const CardProdutos = ({ produtos, onClickDetalhes }) => {
     const { itens, onClickAdicionarItem, onClickRemoverItem } = useContextCarrinho();
-    // const noCarinho = itens.some((prod) => prod.id === dados.id);
-    console.log(dados);
+    // const noCarinho = produtos.some((prod) => prod.id === produtos.id);
+    console.log(produtos);
 
     return (
-        dados.map(
+        produtos.map(
             (Produto) => {
                 return (
                     <div key={Produto.id} className={style.container_card}>

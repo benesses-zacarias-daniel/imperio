@@ -23,8 +23,8 @@ const Produtos = () => {
     const [prodsImutaveis, setProdsImutaveis] = useState([]);
     const [inicio, setInicio] = useState(0);
     const [fim, setFim] = useState(3);
-    const [dadosMostrar, setDadosMostrar] = useState([]);
-    const [dadosFiltrados, setDadosFiltrados] = useState([]);
+    const [produtosMostrar, setProdutosMostrar] = useState([]);
+    const [produtosFiltrados, setProdutosFiltrados] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
     const [msg, setMsg] = useState("");
@@ -32,9 +32,9 @@ const Produtos = () => {
 
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            setDadosFiltrados(prodsImutaveis.filter((iten) => iten.categorias === categoria));
+            setProdutosFiltrados(prodsImutaveis.filter((iten) => iten.categorias === categoria));
         } else {
-            setDadosFiltrados(prodsImutaveis);
+            setProdutosFiltrados(prodsImutaveis);
         }
 
         setInicio(0);
@@ -65,7 +65,7 @@ const Produtos = () => {
 
         } else {
 
-            if (fim >= dadosFiltrados.length) {
+            if (fim >= produtosFiltrados.length) {
                 return;
             }
 
@@ -93,8 +93,8 @@ const Produtos = () => {
             const produtosNorms = prod.filter((prodNormal) => prodNormal.primeiros === false);
 
             setProdsImutaveis([...produtosDest, ...produtosNorms]);
-            // setDadosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
-            setDadosFiltrados([...produtosDest, ...produtosNorms]);
+            // setProdutosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
+            setProdutosFiltrados([...produtosDest, ...produtosNorms]);
             setLoad(true);
             return;
         }
@@ -103,8 +103,8 @@ const Produtos = () => {
         const produtosNorms = prod.filter((prodNormal) => prodNormal.primeiros === false);
 
         setProdsImutaveis([...produtosDest, ...produtosNorms]);
-        //setDadosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
-        setDadosFiltrados([...produtosDest, ...produtosNorms]);
+        //setProdutosMostrar(dividirGrupoProdutos([...produtosDest, ...produtosNorms], inicio, fim));
+        setProdutosFiltrados([...produtosDest, ...produtosNorms]);
         setLoad(true);
     };
 
@@ -114,11 +114,11 @@ const Produtos = () => {
 
     useEffect(() => {
 
-        setDadosMostrar(
-            dividirGrupoProdutos(dadosFiltrados, inicio, fim)
+        setProdutosMostrar(
+            dividirGrupoProdutos(produtosFiltrados, inicio, fim)
         );
 
-    }, [dadosFiltrados, inicio, fim]);
+    }, [produtosFiltrados, inicio, fim]);
 
     return (
         <>
@@ -127,10 +127,10 @@ const Produtos = () => {
                 <div className={style.container_area_prod}>
                     <div className={style.area_titulo_cont_prod}>
                         <h3 className={style.titulo_prods}>Catálogo <p className={style.foco_prod}>Imperial</p></h3>
-                        <p className={style.total_prods}>Total {dadosFiltrados.length} itens</p>
+                        <p className={style.total_prods}>Total {produtosFiltrados.length} itens</p>
                     </div>
                     <div className={style.area_produtos_pro}>
-                        {load && (<CardProdutos dados={dadosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />)}
+                        {load && (<CardProdutos produtos={produtosMostrar} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />)}
                     </div>
                 </div>
             </ContainerDiv>

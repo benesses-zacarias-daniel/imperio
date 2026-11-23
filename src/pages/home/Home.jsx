@@ -165,7 +165,7 @@ const Home = () => {
                         </div>
                         {load && (<ContainerDiv className={style.area_prods_home}
                             children={
-                                <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                <CardProdutos produtos={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                             } />)}
                         <CardCategoria dados={Categorias[0]} />
                     </div>
