@@ -15,9 +15,10 @@ const cadastrarAdmin = async (dados) => {
             return { "status": false, "mens": `Erro ao cadastrar` }
         }
 
-        return { "status": true, "mens": "Conta Criada! Verifique o seu email ()" }
+        return { "status": true, "mens": "Conta Criada! Verifique o seu email (Verifique seu email pra confirmar o cadastro!)" }
     } catch (error) {
         console.error("Erro ao cadastrar " + error.message);
+        return { "status": false, "mens": `Erro ao cadastrar` }
     }
 }
 

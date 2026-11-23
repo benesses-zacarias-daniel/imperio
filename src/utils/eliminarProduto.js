@@ -13,6 +13,7 @@ const eliminarProduto = async (idProd) => {
         return { "status": true, "prod": data };
     } catch (error) {
         console.error("Erro ao eliminar produto: " + error.message);
+        return { "status": false, "prod": null };
     }
 }
 

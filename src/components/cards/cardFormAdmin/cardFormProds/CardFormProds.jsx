@@ -174,24 +174,18 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
 
     const contaPrimeiros = async () => {
 
-        try {
+        const { prod, status } = await buscarProdutos();
+        console.log("Primerisos dados: ", prod);
 
-            const { prod, status } = await buscarProdutos();
-            console.log("Primerisos dados: ", prod);
-
-            if (!status) {
-                const prims = prod.filter((prim) => prim.primeiros === true);
-                setContaPrim(prims.length);
-                console.error("Erro ao buscar produtos em destaque: " + error.message);
-                return;
-            }
-
+        if (!status) {
             const prims = prod.filter((prim) => prim.primeiros === true);
             setContaPrim(prims.length);
-
-        } catch (error) {
-            console.error("Erro ao buscar produtos em destaque: " + error.message);
+            console.log("Erro ao buscar produtos em destaque: " + error.message);
+            return;
         }
+
+        const prims = prod.filter((prim) => prim.primeiros === true);
+        setContaPrim(prims.length);
 
     };
 
@@ -214,16 +208,10 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             }
         };
 
-        try {
+        await adicionarProduto(objDados);
+        await contaPrimeiros();
 
-            await adicionarProduto(objDados);
-            await contaPrimeiros();
-
-            limparCampos();
-
-        } catch (error) {
-            console.error("Erro ao adicionar produto: " + error.message);
-        }
+        limparCampos();
 
     };
 
@@ -245,19 +233,13 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             }
         }
 
-        try {
+        const novProd = await atualizarProduto(novosDados, idProd)
 
-            const novProd = await atualizarProduto(novosDados, idProd)
+        console.log(novProd);
 
-            console.log(novProd);
-
-            await contaPrimeiros();
-            limparCampos();
-            onClickFecharCard();
-
-        } catch (error) {
-            console.error("Erro ao actualizar Produto: " + error.message);
-        }
+        await contaPrimeiros();
+        limparCampos();
+        onClickFecharCard();
 
     };
     //Effect

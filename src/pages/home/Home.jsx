@@ -20,6 +20,7 @@ import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 import CardDepoimentos from "../../components/cards/cardDepoimentos/CardDepoimentos";
 import buscarProdutos from "../../utils/buscarProdutos";
 import buscarDepoimentos from "../../utils/buscarDepoimentos";
+import CardMensGeral from "../../components/cards/cardMensGeral/CardMensGeral";
 
 const Home = () => {
     //Testes Usando o LocalStorage
@@ -69,6 +70,7 @@ const Home = () => {
 
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
+    const [msg, setMsg] = useState("");
 
     const onClickMostrarDetalhes = (id) => {
         const dadosDetalhes = produtosDestaque.filter((Prod) => Prod.id === id);
@@ -80,38 +82,44 @@ const Home = () => {
     const onClickOcultar = () => {
         setShowDetalhes(false);
     };
+    const onClickFecharCardGeral = () => {
+        setMsg("")
+    };
 
     const buscarProds = async () => {
-        try {
-            const { prod, info } = await buscarProdutos();
 
-            if (!info) {
-                setProdutosDestaque(prod);
-                return;
-            }
+        const { prod, status } = await buscarProdutos();
 
-            const destaque = prod.data.filter((prodDest) => prodDest.primeiros === true);
-
-            setProdutosDestaque(destaque);
-            console.log(produtosDestaque);
-
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
+        if (!status) {
+            console.log("Não foi possível carregar os produtos. Usando dados de teste");
+            setMsg("Não foi possível carregar os produtos. Usando Produtos de teste!");
+            setProdutosDestaque(prod);
+            return;
         }
+
+        const destaque = prod.data.filter((prodDest) => prodDest.primeiros === true);
+
+        setProdutosDestaque(destaque);
+        console.log(produtosDestaque);
 
     };
 
     const buscarDeps = async () => {
-        try {
 
-            const { dep } = await buscarDepoimentos();
+        const { dep, status } = await buscarDepoimentos();
+
+        if (!status) {
+            console.log("Não foi possível carregar os depoimentos. Usando dados de teste");
             const depsDest = dep.filter((deps) => deps.visivel === true);
 
             setDepoimentos(depsDest);
-
-        } catch (error) {
-            console.error("Erro ao buscar depoimentos: " + error.message);
+            return;
         }
+
+        const depsDest = dep.filter((deps) => deps.visivel === true);
+
+        setDepoimentos(depsDest);
+
     };
 
     useEffect(() => {
@@ -149,9 +157,7 @@ const Home = () => {
                         </div>
                         <ContainerDiv className={style.area_prods_home}
                             children={
-                                <>
-                                </>
-                                // <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                             } />
                         <CardCategoria dados={Categorias[0]} />
                     </div>
@@ -160,6 +166,7 @@ const Home = () => {
                 <ContactarGrupo />
             </ContainerDiv>
             <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
+            <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFecharCardGeral() }} />
         </>
     )
 }

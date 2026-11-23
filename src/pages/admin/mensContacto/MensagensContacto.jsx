@@ -8,6 +8,7 @@ import CardMsg from "../../../components/cards/cardMsg/CardMsg";
 import eliminarMensagem from "../../../utils/eliminarMensagem";
 import buscarMensagens from "../../../utils/buscarMensagens";
 import atualizarMensagem from "../../../utils/atualizarMensagem";
+import CardMensGeral from "../../../components/cards/cardMensGeral/CardMensGeral";
 
 const MensagensContacto = () => {
 
@@ -17,27 +18,24 @@ const MensagensContacto = () => {
 
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosMsg, setDadosMsg] = useState([]);
+    const [msg, setMsg] = useState("");
 
     const onClickEliminar = async (idMens) => {
-        try {
 
-            await eliminarMensagem(idMens);
+        await eliminarMensagem(idMens);
 
-            const { mens, status } = await buscarMensagens();
+        const { mens, status } = await buscarMensagens();
 
-            if (!status) {
-                setMensagens(mens);
-                setShowCardMsg(false);
-                return;
-            };
-
+        if (!status) {
+            setMsg("Erro ao eliminar mensagem. Tente novamente mais tarde!")
             setMensagens(mens);
-
             setShowCardMsg(false);
+            return;
+        };
 
-        } catch (error) {
-            console.error("Erro ao eliminar mensagem: " + error.message);
-        }
+        setMensagens(mens);
+
+        setShowCardMsg(false);
 
     };
 
@@ -58,21 +56,20 @@ const MensagensContacto = () => {
     };
 
     const onClickAdicionarLidas = async (idMens) => {
-        try {
 
-            await atualizarMensagem({ "lida": true }, idMens);
-            const { mens, status } = await buscarMensagens();
+        await atualizarMensagem({ "lida": true }, idMens);
 
-            if (!status) {
-                setMensagens(mens);
-                setShowCardMsg(false);
-            };
+        const { mens, status } = await buscarMensagens();
 
+        if (!status) {
+            setMsg("Erro ao marcar mensagen como lida! Tente Novamente");
             setMensagens(mens);
             setShowCardMsg(false);
-        } catch (error) {
-            console.error("Erro ao adicionar mensagem em lida: " + error.message);
-        }
+            return;
+        };
+
+        setMensagens(mens);
+        setShowCardMsg(false);
 
     };
 
@@ -82,20 +79,23 @@ const MensagensContacto = () => {
         scrollCima();
     };
 
+    const onClickFecharCardGeral = () => {
+        setMsg("")
+    };
+
     const buscarMens = async () => {
-        try {
 
-            const { mens, info } = await buscarMensagens();
+        const { mens, info } = await buscarMensagens();
 
-            if (!info) {
-                setMensagens(mens)
-            };
-
+        if (!info) {
+            console.log("Erro ao buscar mensagens....Preenchendo com mensagem de teste");
+            setMsg("Erro ao buscar mensagens....Preenchendo com mensagem de teste");
             setMensagens(mens);
+            return;
+        };
 
-        } catch (error) {
-            console.error("Erro ao buscar Mensagens: " + error.message);
-        }
+        setMensagens(mens);
+
     };
 
     useEffect(() => {
@@ -113,6 +113,7 @@ const MensagensContacto = () => {
                 </div>
                 <CardDetMens showDetMens={showDetMens} mensagem={msgAberta} onClickFecar={() => { onClickFexar() }} />
                 <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} tipo={2} onClickEliminar={(idMens) => { onClickEliminar(idMens) }} />
+                <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFecharCardGeral() }} />
             </ContainerDiv>
         </>
     )

@@ -29,6 +29,7 @@ const Produtos = () => {
     const [dadosMostrar, setDadosMostrar] = useState([]);
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
+    const [msg, setMsg] = useState("");
 
 
     const onChangeFiltros = (categoria) => {
@@ -77,22 +78,26 @@ const Produtos = () => {
         scrollCima()
     };
 
+    const onClickFecharCardGeral = () => {
+        setMsg("")
+    };
+
     const produtosBusca = async () => {
-        try {
 
-            const { status, prod } = await buscarProdutos();
+        const { status, prod } = await buscarProdutos();
 
-            if (!status) {
-                setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
-                setDadosFiltrados(prodsImutaveis);
-                return;
-            }
+        if (!status) {
+            console.log("Não foi possível carregar os produtos. Usando dados de teste");
+            setMsg("Não foi possível carregar os produtos. Usando Produtos de teste");
 
             setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
             setDadosFiltrados(prodsImutaveis);
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
+            return;
         }
+
+        setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
+        setDadosFiltrados(prodsImutaveis);
+
     };
 
     useEffect(() => {
@@ -130,6 +135,7 @@ const Produtos = () => {
                 } onClick={() => { onClickMudarGrupo(1) }} className={style.btn_cont} />
             </div>
             <CardDetalhes showDetalhes={showDetalhes} dados={dadoDetalhes} onClickOcult={() => { onClickOcultar() }} />
+            <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFecharCardGeral() }} />
         </>
     )
 }

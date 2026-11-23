@@ -27,9 +27,11 @@ const Cadastrar = () => {
     const onChangeNome = (val) => {
         setUsuario((ant) => ({ ...ant, "nome": val.replace(" ", "") }));
     };
+
     const onClickFecharMsg = () => {
         setMsg("")
     }
+
     const onSubmit = async (evt) => {
         evt.preventDefault();
 

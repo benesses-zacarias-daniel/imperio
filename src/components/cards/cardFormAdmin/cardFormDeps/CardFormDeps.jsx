@@ -53,23 +53,19 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
     };
 
     const contaVisiveis = async () => {
-        try {
 
-            const { dep, status } = await buscarDepoimentos();
+        const { dep, status } = await buscarDepoimentos();
 
-            if (!status) {
-                const vis = dep.filter((prim) => prim.visivel === true);
-                setContaVisivel(vis.length);
-                console.error("Erro ao buscar depoimentos visíveis: " + error.message);
-                return;
-            }
-
+        if (!status) {
             const vis = dep.filter((prim) => prim.visivel === true);
-            setContaPrim(vis.length);
-
-        } catch (error) {
-            console.error("Erro ao contar visiveis: " + error.message);
+            setContaVisivel(vis.length);
+            console.log("Erro ao buscar depoimentos visíveis: " + error.message);
+            return;
         }
+
+        const vis = dep.filter((prim) => prim.visivel === true);
+        setContaPrim(vis.length);
+
     };
 
     const onClickGuardarDepoimento = async (evt) => {
@@ -99,17 +95,12 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
             "depoimento": depoimento
         };
 
-        try {
-            const depsN = await atualzarDepoimento(novosDados, idDep);
-            console.log(depsN);
+        const depsN = await atualzarDepoimento(novosDados, idDep);
+        console.log(depsN);
 
-            await contaVisiveis();
-            limparCampos();
-            onClickAtualizacao();
-
-        } catch (error) {
-            console.error("Erro ao actualizar depoimento: " + error.message);
-        }
+        await contaVisiveis();
+        limparCampos();
+        onClickAtualizacao();
 
     };
     //Effect

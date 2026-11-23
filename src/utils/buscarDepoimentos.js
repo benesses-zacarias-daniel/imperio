@@ -24,6 +24,18 @@ const buscarDepoimentos = async () => {
         return { "status": true, "dep": data };
     } catch (error) {
         console.error("Erro ao buscar depoimentos: " + error.message);
+        return {
+            "status": false,
+            "dep": [
+                {
+                    "id": 0,
+                    "nome": "Sem Depoimentos",
+                    "iniciais": "SD",
+                    "visivel": false,
+                    "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
+                }
+            ]
+        }
     }
 }
 

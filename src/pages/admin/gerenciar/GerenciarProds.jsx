@@ -110,19 +110,18 @@ const GerenciarProds = () => {
     };
 
     const buscarProdGeren = async () => {
-        try {
 
-            const { data, status } = await buscarProdutos();
+        const { data, status } = await buscarProdutos();
 
-            if (!status) {
-                setDadosImutaveis(data);
-                return;
-            }
-
+        if (!status) {
+            console.log("Erro ao buscar Produtos....Preenchendo com produtos de teste!");
+            setMsg("Erro ao buscar Produtos....Preenchendo com produtos de teste!")
             setDadosImutaveis(data);
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
+            return;
         }
+
+        setDadosImutaveis(data);
+
     };
 
     useEffect(() => {

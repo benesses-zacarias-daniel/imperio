@@ -24,6 +24,16 @@ const adicionarDepoimento = async (depoimento) => {
         return { "status": true, "dep": `Depoimento guardado com sucesso: ${data}` };
     } catch (error) {
         console.error("Erro ao guardar depoimento: " + error.message);
+        return {
+            "status": false,
+            "dep": [{
+                "id": 0,
+                "nome": "Benesses Zacarias Daniel",
+                "iniciais": "BZD",
+                "visivel": false,
+                "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento."
+            }]
+        }
     }
 }
 

@@ -123,25 +123,22 @@ const Depoimentos = () => {
     };
 
     const buscarDeps = async () => {
-        try {
 
-            const { dep, status } = await buscarDepoimentos();
+        const { dep, status } = await buscarDepoimentos();
 
-            if (!status) {
-                setMsg("Erro ao buscar depoimentos");
-                return;
-            }
-
+        if (!status) {
+            setMsg("Erro ao buscar depoimentos...Preenchendo com depoimentos de teste");
             setDepoimentosImutaveis(dep);
-            setDepoimentos(depoimentosImutaveis);
-
-            const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
-
-            setContaVisivel(conta.length);
-
-        } catch (error) {
-            console.error("Erro ao buscar depoimentos: " + error.message);
+            return;
         }
+
+        setDepoimentosImutaveis(dep);
+        setDepoimentos(depoimentosImutaveis);
+
+        const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
+
+        setContaVisivel(conta.length);
+
     };
 
     useEffect(() => {
@@ -160,34 +157,14 @@ const Depoimentos = () => {
                             <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
                         </div>
                         <CardAct showModal={showModal} tipo={true} onClickControlModal={() => { onClickShow(false, 0) }} children={
-                            <CardFormDepoimentos onClickAtualizacao={() => {
+                            <CardFormDepoimentos onClickAtualizacao={async () => {
                                 onClickShow(false, 0)
-                                const depTestes = localStorage.getItem("depoimentosBancos");
-                                const deps = depTestes ? JSON.parse(depTestes) : [
-                                    {
-                                        "id": 0,
-                                        "nome": "Sem Depoimentos",
-                                        "iniciais": "SD",
-                                        "visivel": false,
-                                        "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-                                    }
-                                ]
 
-                                setDepoimentos(deps);
-                            }} onClickShow={() => {
+                                await buscarDepoimentos();
+                            }} onClickShow={async () => {
                                 scrollCima();
-                                onClickShow(true, 1)
-                                const depTestes = localStorage.getItem("depoimentosBancos");
-                                const deps = depTestes ? JSON.parse(depTestes) : [
-                                    {
-                                        "id": 0,
-                                        "nome": "Sem Depoimentos",
-                                        "iniciais": "SD",
-                                        "visivel": false,
-                                        "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-                                    }
-                                ]
-                                setDepoimentos(deps);
+                                onClickShow(true, 1);
+                                await buscarDepoimentos();
                             }} depoimentoCliente={depAlterar[0]} contaVisivel={contaVisivel.length} tipo={true} />
                         } />
                         <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickElminarDep() }} tipo={1} />

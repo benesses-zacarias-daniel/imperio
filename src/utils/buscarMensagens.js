@@ -24,6 +24,17 @@ const buscarMensagens = async () => {
         return { "status": true, "mens": data };
     } catch (error) {
         console.error("Erro ao buscar Mensagens: " + error.message);
+        return {
+            "status": false, "mens": [
+                {
+                    "id": 0,
+                    "nome": "Benesses Zacarias Daniel",
+                    "iniciais": "BZD",
+                    "mens": "",
+                    "lida": false
+                }
+            ]
+        }
     }
 }
 

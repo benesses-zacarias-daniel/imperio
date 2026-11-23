@@ -50,14 +50,9 @@ const Mensagens = ({ Mensagens }) => {
             "mens": textarea
         }
 
-        try {
+        await enviarMensagem(dadosMens);
 
-            await enviarMensagem(dadosMens);
-
-            limparCampos();
-        } catch (error) {
-            console.error("Erro ao enviar Mensagen: " + error.message);
-        }
+        limparCampos();
 
     };
 

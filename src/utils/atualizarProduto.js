@@ -16,6 +16,7 @@ const atualizarProduto = async (prod, idProd) => {
 
     } catch (error) {
         console.error("Erro ao actualizar Produto: " + error.message);
+        return { "status": false, "prod": null };
     }
 }
 
