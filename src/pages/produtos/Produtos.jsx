@@ -14,59 +14,14 @@ import SetaBaixo from "../../assets/icons/setaBaix.svg";
 import Categorias from "../../components/data/Categorias.json";
 import dividirGrupoProdutos from "../../utils/dividirGrupoProductos";
 import scrollCima from "../../utils/scrollCima";
+import buscarProdutos from "../../utils/buscarProdutos";
 
 const Produtos = () => {
 
     //Testes Usando o LocalStorage
-    const produtosTeste = localStorage.getItem("produtosBanco");
-    const Prods = produtosTeste ? JSON.parse(produtosTeste) : [
-        {
-            "id": 0,
-            "nome": "Ainda Sem Produtos",
-            "preco": 0,
-            "badge": "Sem badge",
-            "primeiros": false,
-            "desc": "",
-            "src": "",
-            "alt": "",
-            "categorias": "",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "",
-                        "srcThumb": "",
-                        "alt": "",
-                        "badge": ""
-                    }],
-                "especificacoes": []
-            }
-        }
-    ];
+    const [dadosFiltrados, setDadosFiltrados] = useState([]);
+    const [prodsImutaveis, setProdsImutaveis] = useState([]);
 
-    const [produtosDestaque, setProdutosDestaque] = useState(Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true));
-    const [dadosFiltrados, setDadosFiltrados] = useState([...produtosDestaque, ...Prods]);
-
-    useEffect(async () => {
-
-        try {
-
-            const { data, error } = await supabase().from("produtos").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar produtos: " + error.message);
-                return;
-            }
-
-            console.log("Produtos buscados com sucesso", data);
-            setProdutosDestaque(data.filter((prodDest) => prodDest.visivel === true));
-            setDadosFiltrados([...produtosDestaque, ...data]);
-
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
-        }
-
-    }, []);
 
     //Pequena alteração pra fazer o push
     const [inicio, setInicio] = useState(0);
@@ -75,11 +30,12 @@ const Produtos = () => {
     const [showDetalhes, setShowDetalhes] = useState(false);
     const [dadoDetalhes, setDadosDetalhes] = useState([]);
 
+
     const onChangeFiltros = (categoria) => {
         if (categoria !== "todas") {
-            setDadosFiltrados(Prods.filter((iten) => iten.categorias === categoria));
+            setDadosFiltrados(prodsImutaveis.filter((iten) => iten.categorias === categoria));
         } else {
-            setDadosFiltrados(Prods);
+            setDadosFiltrados(prodsImutaveis);
         }
 
         setInicio(0);
@@ -87,7 +43,7 @@ const Produtos = () => {
     };
 
     const onClickMostrarDetalhes = (id) => {
-        const dadosDetalhes = Prods.filter((Prod) => Prod.id === id);
+        const dadosDetalhes = prodsImutaveis.filter((Prod) => Prod.id === id);
 
         setDadosDetalhes(dadosDetalhes);
         setShowDetalhes(true);
@@ -119,7 +75,29 @@ const Produtos = () => {
         }
 
         scrollCima()
-    }
+    };
+
+    const produtosBusca = async () => {
+        try {
+
+            const { status, prod } = await buscarProdutos();
+
+            if (!status) {
+                setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
+                setDadosFiltrados(prodsImutaveis);
+                return;
+            }
+
+            setProdsImutaveis([...prod.filter((prodDest) => prodDest.visivel === true), ...data.filter((prodNormal) => prodNormal.visivel === false)]);
+            setDadosFiltrados(prodsImutaveis);
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+    };
+
+    useEffect(async () => {
+        produtosBusca();
+    }, []);
 
     useEffect(() => {
 

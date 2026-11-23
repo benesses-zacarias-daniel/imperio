@@ -7,11 +7,10 @@ import InputFile from "../../form/inputFile/InputFile";
 import ContainerForm from "../../Common/containerForm/ContainerForm";
 import Textarea from "../../form/textarea/Textarea";
 import { useState } from "react";
-import criarURLsImgs from "../../../utils/criarURLsImg";
-
+import conversorWebp from "../../../utils/conversorWebp";
 
 const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
-    console.log(Opcoes[0]);
+
     const [nome, setNome] = useState("");
     const [srcImg, setSrcImg] = useState(dadosAnunciar?.icones[0]?.icone_src ? dadosAnunciar?.icones[0]?.icone_src : "#");
     const [opcao, setOpcao] = useState("smartphone");
@@ -131,9 +130,9 @@ const CaixaAnunciar = ({ dadosAnunciar, Opcoes }) => {
                             </label>
                         </div>
                         <div className={style.area_ocultar_input}>
-                            <InputFile type={dadosAnunciar.type[2]} id={"img_prods"} className={style.input_imagem} onChange={(evt) => {
-                                const img = criarURLsImgs(evt.target.files[0]);
-                                onChangeSrc(img, evt);
+                            <InputFile type={dadosAnunciar.type[2]} id={"img_prods"} className={style.input_imagem} onChange={async (evt) => {
+                                const img = await conversorWebp(evt.target.files[0], { qualidade: 0.8, larguraMax: 1200 });
+                                onChangeSrc(img.base64, evt);
                             }} />
                         </div>
                     </div>

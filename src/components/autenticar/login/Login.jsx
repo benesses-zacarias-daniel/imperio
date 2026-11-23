@@ -6,42 +6,34 @@ import Button from "../../button/Button";
 import ContainerForm from "../../Common/containerForm/ContainerForm";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import useContextAdminLogado from "../../../hooks/useContextAdminLogado";
+import loginAdmin from "../../../utils/loginAdmin";
 
 const Login = () => {
-    const [usuario, setUsuario] = useState({ id: null, email: "", password: "", userName: "" });
+    const { usuario, setUsuario } = useContextAdminLogado();
+
     const { onClickLogar } = useContextAdminLogado();
     const [msgInfo, setMsgInfo] = useState("");
     const navigate = useNavigate();
 
     const onChangeEmail = (val) => {
-        setUsuario((ant) => ({ ...ant, email: val.replace(" ", "") }));
+        setUsuario((ant) => ({ ...ant, "email": val.replace(" ", "") }));
     }
 
-    const onChangePassword = (val) => {
-        setUsuario((ant) => ({ ...ant, password: val.replace(" ", "") }));
+    const onChangeSenha = (val) => {
+        setUsuario((ant) => ({ ...ant, "senha": val.replace(" ", "") }));
     }
 
-    const onSubmit = (evt) => {
+    const onSubmit = async (evt) => {
         evt.preventDefault();
-        const linha = localStorage.getItem("usuarios");
-        const usuarioLogin = linha ? JSON.parse(linha) : [];
-        console.log(linha);
-        console.log(usuarioLogin[0]);
+        const { mens, status } = await loginAdmin(usuario);
 
-
-        if (!usuarioLogin) {
-            setMsgInfo("Nenhum Usuário Cadastrado");
-            return;
-        }
-
-        if (usuarioLogin[0].email === usuario.email && usuarioLogin[0].password === usuario.password) {
-            // guardaInformacoes(usuarioEncontrado);
-            onClickLogar(true);
-            navigate("/admin/adicionar");
-        } else {
-            setMsgInfo("E-mail ou Senha incorretos");
+        if (!status) {
+            setMsgInfo(mens);
             setTimeout(() => { setMsgInfo("") }, 4000);
         }
+
+        onClickLogar(status);
+        navigate("/admin/adicionar");
 
     }
 
@@ -52,6 +44,10 @@ const Login = () => {
     const onInput = (evt) => {
         evt.target.setCustomValidity("");
     }
+
+    useEffect(() => {
+        setUsuario({ "email": "", "senha": "" })
+    }, []);
 
     return (
         <ContainerDiv className={style.area_forms}>
@@ -68,7 +64,7 @@ const Login = () => {
                         } else if (evt.target.validity.tooShort) {
                             onInvalid(evt, "A senha deve ter no mínimo 8 caracteres");
                         }
-                    }} onInput={(evt) => { onInput(evt) }} placeholder={"**********"} value={usuario.password} onChange={(evt) => { onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} placeholder={"**********"} value={usuario.senha} onChange={(evt) => { onChangeSenha(evt.target.value) }} />
                 </div>
                 {msgInfo && (<div className={style.msg_cl}>{msgInfo}</div>)}
                 <div className={style.area_btn_log}>

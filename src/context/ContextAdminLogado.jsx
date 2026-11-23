@@ -1,15 +1,13 @@
 import { createContext, useEffect, useState } from "react";
+import supabase from "../../services/supabase";
 
 
 const ContextAdminLogado = createContext();
 
 
 const ContextAdminLogadoProvider = ({ children }) => {
-    const [adminStatus, setAdminStatus] = useState(() => {
-        const usuarioLogado = localStorage.getItem("usuarioLogado");
-
-        return usuarioLogado ? true : false;
-    });
+    const [adminStatus, setAdminStatus] = useState();
+    const [usuario, setUsuario] = useState({ "email": "", "senha": "", "nome": "" });
 
     const onClickLogar = (val) => {
         setAdminStatus(val);
@@ -21,16 +19,19 @@ const ContextAdminLogadoProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        const usuarioLog = localStorage.getItem("usuarioLogado");;
-        if (!usuarioLog) {
 
-            localStorage.setItem("usuarioLogado", false);
-            return;
+        const verificarSessao = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                setAdminStatus(true);
+            }
         };
-    }, [])
+
+        verificarSessao();
+    }, []);
 
     return (
-        <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair }}>
+        <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair, usuario, setUsuario }}>
             {children}
         </ContextAdminLogado.Provider>
     )

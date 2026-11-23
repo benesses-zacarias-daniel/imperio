@@ -10,52 +10,21 @@ import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import scrollCima from '../../../utils/scrollCima';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
-import supabase from '../../../../services/supabase';
+import atualzarDepoimento from '../../../utils/atualizarDepoimento';
+import buscarDepoimentos from '../../../utils/buscarDepoimentos';
 
 const Depoimentos = () => {
 
-
-    const depTestes = localStorage.getItem("depoimentosBancos");
-    const DepoimentosClientes = depTestes ? JSON.parse(depTestes) : [
-        {
-            "id": 0,
-            "nome": "Sem Depoimentos",
-            "iniciais": "SD",
-            "visivel": false,
-            "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-        }
-    ];
-
-    const [depoimentos, setDepoimentos] = useState(DepoimentosClientes);
-
-    useEffect(async () => {
-
-        try {
-
-            const { data, error } = await supabase().from("depoimentos").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar depoimentos: " + error.message);
-                return;
-            }
-
-            console.log("Depoimentos buscados com sucesso", data);
-
-            setDepoimentos(data);
-
-        } catch (error) {
-            console.error("Erro ao buscar depoimentos: " + error.message);
-        }
-
-    }, [])
-
+    const [depoimentosImutaveis, setDepoimentosImutaveis] = useState([]);
+    const [depoimentos, setDepoimentos] = useState([]);
     const [showGerenciar, setShowGerenciar] = useState(false);
     const [depAlterar, setDepAltera] = useState([]);
     const [msg, setMsg] = useState("");
     const [showModal, setShowModal] = useState(false);
-    const contaVisivel = depoimentos.filter((dep) => dep.visivel === true);
+    const [contaVisivel, setContaVisivel] = useState(0);
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosMsg, setDadosMsg] = useState([]);
+
     const onClickShow = (val, tipo) => {
         if (tipo === 1) {
             setShowGerenciar(val);
@@ -86,77 +55,100 @@ const Depoimentos = () => {
         onClickAdicionarVisivel(id);
     }
 
-    const onClickRemoverVisivel = (id) => {
+    const onClickRemoverVisivel = async (id) => {
         console.log(depoimentos);
-        const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
+        const visiveis = depoimentosImutaveis.filter((visivel) => visivel.visivel === true);
 
         if (visiveis.length < 2) {
             setMsg("No mínimo você precisa ter um depoimento para mostrar.");
             return;
         };
 
-        const objPrimeirosRemovido = depoimentos.map((item) => {
-            if (item.id === id) {
-                return { ...item, visivel: false }
-            }
+        await atualzarDepoimento({ "visivel": false }, id);
 
-            return item;
-        });
+        await buscarDepoimentos();
 
-        setDepoimentos(objPrimeirosRemovido);
-        localStorage.setItem("depoimentosBancos", JSON.stringify(objPrimeirosRemovido));
+        const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
+
+        setContaVisivel(conta.length);
     };
 
-    const onClickAdicionarVisivel = (id) => {
-        const existe = depoimentos.find((visivel) => visivel.id === id);
+    const onClickAdicionarVisivel = async (id) => {
+        const existe = depoimentosImutaveis.find((visivel) => visivel.id === id);
 
         if (!existe) {
             return;
         }
 
-        const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
+        const visiveis = depoimentosImutaveis.filter((visivel) => visivel.visivel === true);
 
         if (!existe.visivel && visiveis.length >= 3) {
             setMsg("Limite máximo de 3 depoimentos em visíveis. Remova um primeiro!");
             return;
         }
 
-        const objPrimeirosAdicionar = depoimentos.map((item) => {
-            if (item.id === id) {
-                return { ...item, visivel: true }
-            }
+        await atualzarDepoimento({ "visivel": true }, id)
 
-            return item;
-        });
+        await buscarDepoimentos();
 
-        setDepoimentos(objPrimeirosAdicionar);
-        localStorage.setItem("depoimentosBancos", JSON.stringify(objPrimeirosAdicionar));
+        const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
+
+        setContaVisivel(conta.length);
     };
 
     const onClickFiltrar = (id) => {
-        const visiveis = depoimentos.filter((visivel) => visivel.visivel === true);
-        const depVisivel = depoimentos.filter((visivel) => visivel.id === id)
+        const visiveis = depoimentosImutaveis.filter((visivel) => visivel.visivel === true);
+        const depVisivel = depoimentosImutaveis.filter((visivel) => visivel.id === id)
         if (visiveis.length < 2 && depVisivel.visivel !== true) {
             setMsg("Pra eliminar o último depoimento visível. Primeiro marque um outro depoimento como visível.");
             return;
         };
 
-        const dadosEliminar = depoimentos.filter((dados) => dados.id === id);
+        const dadosEliminar = depoimentosImutaveis.filter((dados) => dados.id === id);
         setDadosMsg(dadosEliminar[0]);
         setShowCardMsg(true);
     };
 
-    const onClickElminarDep = () => {
-        const dadosEliminar = depoimentos.filter((dados) => dados.id !== dadosMsg?.id);
-        setDepoimentos(dadosEliminar);
+    const onClickElminarDep = async () => {
+
+        await eliminarDepoimento(dadosMsg?.id)
+
+        await buscarDeps();
+
         setShowCardMsg(false);
-        console.log(dadosEliminar);
-        localStorage.setItem("depoimentosBancos", JSON.stringify(dadosEliminar));
     };
 
     const onClickFechar = () => {
         setMsg("")
     };
+
+    const buscarDeps = async () => {
+        try {
+
+            const { dep, status } = await buscarDepoimentos();
+
+            if (!status) {
+                setMsg("Erro ao buscar depoimentos");
+                return;
+            }
+
+            setDepoimentosImutaveis(dep);
+            setDepoimentos(depoimentosImutaveis);
+
+            const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
+
+            setContaVisivel(conta.length);
+
+        } catch (error) {
+            console.error("Erro ao buscar depoimentos: " + error.message);
+        }
+    };
+
+    useEffect(async () => {
+
+        await buscarDeps();
+
+    }, []);
 
     return (
         <>

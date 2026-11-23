@@ -1,5 +1,5 @@
 import style from '../CardFormAdmin.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Img from '../../../img/Img';
 import Button from '../../../button/Button';
 //Ícones
@@ -17,7 +17,9 @@ import InputRadio from '../../../form/inputRadio/InputRadio';
 import InputFile from '../../../form/inputFile/InputFile';
 import conversorWebp from '../../../../utils/conversorWebp';
 import scrollCima from '../../../../utils/scrollCima';
-import supabase from '../../../../../services/supabase';
+import adicionarProduto from '../../../../utils/adicionarProduto';
+import atualizarProduto from '../../../../utils/atualizarProduto';
+import buscarProdutos from '../../../../utils/buscarProdutos';
 
 const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }) => {
     const Opcoes = [
@@ -56,13 +58,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
     const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
-    const [contaPrim, setContaPrim] = useState(() => {
-        const produtosTeste = localStorage.getItem("produtosBanco");
-        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-        const primeiro = dadosProds.filter((prods) => prods.primeiros === true);
-
-        return primeiro.length;
-    });
+    const [contaPrim, setContaPrim] = useState(0);
     //Funções
     const onChangeTextarea = (evt) => {
         evt.preventDefault();
@@ -179,23 +175,19 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
 
     const contaPrimeiros = async () => {
 
-        const produtosTeste = localStorage.getItem("produtosBanco");
-        const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-
         try {
 
-            const { data, error } = await supabase().from("produtos").select("*");
+            const { prod, status } = await buscarProdutos();
 
-            if (error) {
+            if (!status) {
+                const prims = prod.filter((prim) => prim.primeiros === true);
+                setContaPrim(prims.length);
                 console.error("Erro ao buscar produtos em destaque: " + error.message);
                 return;
             }
 
-            const buscaVisiveis = JSON.parse(data);
-            localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
-            const primeiro = buscaVisiveis.filter((prods) => prods.primeiros === true);
-
-            setContaPrim(primeiro.length);
+            const prims = prod.filter((prim) => prim.primeiros === true);
+            setContaPrim(prims.length);
 
         } catch (error) {
             console.error("Erro ao buscar produtos em destaque: " + error.message);
@@ -223,22 +215,11 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
         };
 
         try {
-            const { data, error } = await supabase().from("produtos").insert(objDados);
 
-            if (error) {
-                console.error("Erro ao adicionar produto: " + error.message);
-                return;
-            }
-
-            console.log("Produto adicionado com sucesso: ", data);
-            console.log(objDados);
-            const produtosTeste = localStorage.getItem("produtosBanco");
-            const dadosProds = produtosTeste ? JSON.parse(produtosTeste) : [];
-            dadosProds.push(objDados);
-
-            localStorage.setItem("produtosBanco", JSON.stringify(dadosProds));
-            limparCampos();
+            await adicionarProduto(objDados);
             await contaPrimeiros();
+
+            limparCampos();
 
         } catch (error) {
             console.error("Erro ao adicionar produto: " + error.message);
@@ -264,29 +245,14 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             }
         }
 
-        const dadosStorage = JSON.parse(localStorage.getItem("produtosBanco"));
-        const dados = dadosStorage.map((prod) => {
-            if (prod.id === idProd) {
-                return novosDados;
-            }
-
-            return prod;
-        });
-
         try {
 
-            const { data, error } = await supabase().from("produtos").update(dados).eq("id", idProd).select();
+            const novProd = await atualizarProduto(novosDados, idProd)
 
-            if (error) {
-                console.error("Erro ao actualizar Produto: " + error.message);
-                return;
-            }
+            console.log(novProd);
 
-            console.log("Produto actualizado com sucesso: ", data);
-
-            localStorage.setItem("produtosBanco", JSON.stringify(dados));
-            limparCampos();
             await contaPrimeiros();
+            limparCampos();
             onClickFecharCard();
 
         } catch (error) {
@@ -294,6 +260,10 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
         }
 
     };
+    //Effect
+    useEffect(async () => {
+        await contaPrimeiros();
+    }, []);
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
         evt.target.setCustomValidity(msg);

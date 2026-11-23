@@ -18,83 +18,14 @@ import CardDetalhes from "../../components/cards/cardDetalhes/CardDetalhes";
 // import ProdutoDados from "../../components/data/ProdutosDados.json";
 // import DepoimentosClientes from "../../components/data/DepoimentosClientes.json";
 import CardDepoimentos from "../../components/cards/cardDepoimentos/CardDepoimentos";
-import supabase from "../../../services/supabase";
+import buscarProdutos from "../../utils/buscarProdutos";
+import buscarDepoimentos from "../../utils/buscarDepoimentos";
 
 const Home = () => {
     //Testes Usando o LocalStorage
-    const produtosTeste = localStorage.getItem("produtosBanco");
-    const Prods = produtosTeste ? JSON.parse(produtosTeste) : [
-        {
-            "id": 0,
-            "nome": "Ainda Sem Produtos",
-            "preco": 0,
-            "badge": "Sem badge",
-            "primeiros": false,
-            "desc": "",
-            "src": "",
-            "alt": "",
-            "categorias": "",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "",
-                        "srcThumb": "",
-                        "alt": "",
-                        "badge": ""
-                    }],
-                "especificacoes": []
-            }
-        }
-    ];
-
-    const depTestes = localStorage.getItem("depoimentosBancos");
-    const DepoimentosClientes = depTestes ? JSON.parse(depTestes) : [
-        {
-            "id": 0,
-            "nome": "Sem Depoimentos",
-            "iniciais": "SD",
-            "visivel": false,
-            "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-        }
-    ];
-    const [depsMostrar, setDepoimentos] = useState(DepoimentosClientes.filter((deps) => deps.visivel === true))
     ///
-    const [produtosDestaque, setProdutosDestaque] = useState(Prods.filter((prodFiltrado) => prodFiltrado.primeiros === true));
-
-    useEffect(async () => {
-
-        try {
-
-            const { data, error } = await supabase().from("produtos").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar produtos: " + error.message);
-                return;
-            }
-
-            console.log("Produtos buscados com sucesso", data);
-            setProdutosDestaque(data);
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
-        }
-
-        try {
-
-            const { data, error } = await supabase().from("depoimentos").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar depoimentos: " + error.message);
-                return;
-            }
-
-            console.log("Depoimentos buscados com sucesso", data);
-            setDepoimentos(data);
-        } catch (error) {
-            console.error("Erro ao buscar depoimentos: " + error.message);
-        }
-
-    }, []);
+    const [depsMostrar, setDepoimentos] = useState()
+    const [produtosDestaque, setProdutosDestaque] = useState();
 
     const num1 = "258 84 975 4315";
     const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
@@ -149,6 +80,43 @@ const Home = () => {
     const onClickOcultar = () => {
         setShowDetalhes(false);
     };
+
+    const buscarProds = async () => {
+        try {
+            const { prod, info } = await buscarProdutos();
+
+            if (!info) {
+                setProdutosDestaque(prod);
+                return;
+            }
+
+            const destaque = prod.data.filter((prodDest) => prodDest.primeiros === true);
+
+            setProdutosDestaque(destaque);
+
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+
+    };
+
+    const buscarDeps = async () => {
+        try {
+
+            const { dep } = await buscarDepoimentos();
+            const depsDest = dep.filter((deps) => deps.visivel === true);
+
+            setDepoimentos(depsDest);
+
+        } catch (error) {
+            console.error("Erro ao buscar depoimentos: " + error.message);
+        }
+    };
+
+    useEffect(async () => {
+        await buscarProds();
+        await buscarDeps();
+    }, []);
 
     return (
         <>

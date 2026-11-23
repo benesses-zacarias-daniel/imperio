@@ -10,7 +10,9 @@ import ContainerForm from '../../../Common/containerForm/ContainerForm';
 import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
 import InputRadio from '../../../form/inputRadio/InputRadio';
-import supabase from '../../../../../services/supabase';
+import adicionarDepoimento from '../../../../utils/adicionarDepoimento';
+import atualzarDepoimento from '../../../../utils/atualizarDepoimento';
+import buscarDepoimentos from '../../../../utils/buscarDepoimentos';
 
 const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onClickAtualizacao = () => { }, tipo = false }) => {
 
@@ -18,19 +20,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
     const [iniciais, setIniciais] = useState(depoimentoCliente?.iniciais ? depoimentoCliente?.iniciais : "");
     const [visivel, setVisivel] = useState(depoimentoCliente?.visivel ? depoimentoCliente?.visivel : false);
     const [depoimento, setDepoimento] = useState(depoimentoCliente?.depoimento ? depoimentoCliente?.depoimento : "");
-    const [contaVisivel, setContaVisivel] = useState(() => {
-        const depsTestes = localStorage.getItem("depoimentosBancos");
-        const dadosProds = depsTestes ? JSON.parse(depsTestes) : [{
-            "id": 0,
-            "nome": "Benesses Zacarias Daniel",
-            "iniciais": "BZD",
-            "visivel": false,
-            "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento."
-        }];
-        const visivel = dadosProds.filter((prods) => prods.visivel === true);
-
-        return visivel.length;
-    });
+    const [contaVisivel, setContaVisivel] = useState(0);
     //Funções
     const onChangeDepoimento = (evt) => {
         evt.preventDefault();
@@ -63,67 +53,40 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
     };
 
     const contaVisiveis = async () => {
-        const depoimentosTeste = localStorage.getItem("depoimentosBancos");
-        const depsV = depoimentosTeste ? JSON.parse(depoimentosTeste) : [{ "id": 0, "nome": "Benesses Zacarias Daniel", "iniciais": "BZD", "visivel": false, "depoimento": "Depoimento de Teste pois ainda não adicionou nenhum depoimento." }];
-
         try {
 
-            const { data, error } = await supabase().from("depoimentos").select("*");
+            const { dep, status } = await buscarDepoimentos();
 
-            if (error) {
+            if (!status) {
+                const vis = dep.filter((prim) => prim.visivel === true);
+                setContaVisivel(vis.length);
                 console.error("Erro ao buscar depoimentos visíveis: " + error.message);
                 return;
             }
 
-            console.log("Depoimentos buscados com sucesso", data);
+            const vis = dep.filter((prim) => prim.visivel === true);
+            setContaPrim(vis.length);
 
-            const buscaVisiveis = JSON.parse(data);
-
-            localStorage.setItem("depoimentosBancos", JSON.stringify(depsV));
-            const visiveis = buscaVisiveis.filter((prods) => prods.visiveis === true)
-
-            setContaVisivel(visiveis.length);
         } catch (error) {
-            console.error("Erro ao buscar depoimentos visíveis: " + error.message);
+            console.error("Erro ao contar visiveis: " + error.message);
         }
-
-
     };
 
     const onClickGuardarDepoimento = async (evt) => {
         evt.preventDefault();
 
-        const objDados = {
+        const depoimnent = {
             "nome": nome,
             "iniciais": iniciais,
             "visivel": visivel,
             "depoimento": depoimento
         };
 
-        try {
+        await adicionarDepoimento(depoimnent);
 
-            const { data, error } = await supabase().from("depoimentos").insert([objDados]).select();
-
-            if (error) {
-                console.error("Erro ao guardar depoimento: " + error.message);
-                return;
-            }
-
-            console.log("Depoimento guardado com sucesso: ", data);
-
-            const depTestes = localStorage.getItem("depoimentosBancos");
-            const dep = depTestes ? JSON.parse(depTestes) : [];
-            dep.push(objDados);
-
-            localStorage.setItem("depoimentosBancos", JSON.stringify(dep));
-
-            await contaVisiveis();
-            limparCampos();
-            onClickShow();
-
-        } catch (error) {
-            console.error("Erro ao guardar depoimento: " + error.message);
-        }
+        await contaVisiveis();
+        limparCampos();
+        onClickShow();
     };
 
     const onClickSalvarAlteracoes = async (idDep, evt) => {
@@ -136,37 +99,23 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
             "depoimento": depoimento
         };
 
-        const depTestes = localStorage.getItem("depoimentosBancos");
-
-        const dep = depTestes ? JSON.parse(depTestes) : [];
-        const dadosNovos = dep.map((deps) => {
-
-            if (deps.id === idDep) {
-                return novosDados;
-            }
-
-            return deps;
-        })
-
         try {
-            const { data, error } = await supabase().from("depoimentos").update(dadosNovos).eq("id", idDep).select();
+            const depsN = await atualzarDepoimento(novosDados, idDep);
+            console.log(depsN);
 
-            if (error) {
-                console.error("Erro ao actualizar depoimento: " + error.message);
-                return;
-            }
-
-            console.log("Depoimento actualizado com sucesso: ", data);
-
-            localStorage.setItem("depoimentosBancos", JSON.stringify(dadosNovos));
-            onClickAtualizacao();
             await contaVisiveis();
             limparCampos();
+            onClickAtualizacao();
+
         } catch (error) {
             console.error("Erro ao actualizar depoimento: " + error.message);
         }
 
     };
+    //Effect
+    useEffect(async () => {
+        await contaVisiveis();
+    }, []);
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
         evt.target.setCustomValidity(msg);

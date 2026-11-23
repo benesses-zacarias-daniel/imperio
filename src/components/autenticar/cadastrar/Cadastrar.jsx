@@ -6,57 +6,43 @@ import ContainerForm from "../../Common/containerForm/ContainerForm";
 import ContainerDiv from "../../Common/container/ContainerDiv";
 import useContextAdminLogado from "../../../hooks/useContextAdminLogado";
 import { useNavigate } from "react-router-dom";
+import CardMensGeral from "../../cards/cardMensGeral/CardMensGeral";
+import cadastrarAdmin from "../../../utils/cadastrarAdmin";
 
 const Cadastrar = () => {
-    const [usuarioPadrao, setUsuarioPadrao] = useState({ "id": null, "email": "", "password": "", "userName": "" });
+
+    const { usuario, setUsuario } = useContextAdminLogado();
+    const [msg, setMsg] = useState("");
     const { onClickLogar } = useContextAdminLogado();
     const navigate = useNavigate();
 
     const onChangeEmail = (val) => {
-        setUsuarioPadrao((ant) => ({ ...ant, email: val.replace(" ", "") }));
+        setUsuario((ant) => ({ ...ant, "email": val.replace(" ", "") }));
     };
 
-    const onChangePassword = (val) => {
-        setUsuarioPadrao((ant) => ({ ...ant, password: val.replace(" ", "") }));
+    const onChangeSenha = (val) => {
+        setUsuario((ant) => ({ ...ant, "senha": val.replace(" ", "") }));
     };
 
-    const onChangeUserName = (val) => {
-        setUsuarioPadrao((ant) => ({ ...ant, userName: val.replace(" ", "") }));
+    const onChangeNome = (val) => {
+        setUsuario((ant) => ({ ...ant, "nome": val.replace(" ", "") }));
     };
-
-    const onSubmit = (evt) => {
+    const onClickFecharMsg = () => {
+        setMsg("")
+    }
+    const onSubmit = async (evt) => {
         evt.preventDefault();
-        const data = new Date();
-        const aleat = Math.floor(Math.random() * 1000036)
-        const id = data.getDay() + aleat;
 
-        usuarioPadrao.id = id;
-        guardaInformacoes(usuarioPadrao)
-    };
+        const { mens, status } = await cadastrarAdmin(usuario);
 
-    const guardaInformacoes = (usuarioInfo) => {
-
-        if (!usuarioInfo) {
-            return;
+        if (!status) {
+            setMsg(mens);
         }
 
-        const usuariosSalvos = localStorage.getItem("usuarios");
-        const usuarios = usuariosSalvos ? JSON.parse(usuariosSalvos) : [];
-
-        const existe = usuarios.find((usuario) => usuario.email === usuarioInfo.email);
-
-        if (existe) {
-            alert("Esse E-mail já está cadastrado!");
-            return;
-        }
-
-        usuarios.push(usuarioInfo);
-
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-        localStorage.setItem("usuarioLogado", true);
-
-        onClickLogar(true);
+        setMsg(mens)
+        onClickLogar(status);
         navigate("/admin/adicionar");
+
     };
 
     const onInvalid = (evt, msg) => {
@@ -68,7 +54,7 @@ const Cadastrar = () => {
     };
 
     useEffect(() => {
-        setUsuarioPadrao({ "id": null, "email": "", "password": "", "userName": "" })
+        setUsuario({ "email": "", "senha": "", "nome": "" })
     }, []);
 
     return (
@@ -76,7 +62,7 @@ const Cadastrar = () => {
             <ContainerForm onSubmit={(evt) => { onSubmit(evt) }} className={style.form}>
                 <div className={style.div_input}>
                     <span>E-mail</span>
-                    <InputNormal type={"email"} minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { evt.preventDefault(); onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={usuarioPadrao.email} />
+                    <InputNormal type={"email"} minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} required onChange={(evt) => { evt.preventDefault(); onChangeEmail(evt.target.value) }} placeholder={"exemplo@gmail.com"} value={usuario.email} />
                 </div>
                 <div className={style.div_input}>
                     <span>Senha</span>
@@ -88,16 +74,17 @@ const Cadastrar = () => {
 
                             onInvalid(evt, `A senha deve ter no mínimo 8 caracteres, você tem ${tam_actual} caracteres!`);
                         }
-                    }} onInput={(evt) => { onInput(evt) }} placeholder={"••••••••"} value={usuarioPadrao.password} onChange={(evt) => { evt.preventDefault(); onChangePassword(evt.target.value) }} />
+                    }} onInput={(evt) => { onInput(evt) }} placeholder={"••••••••"} value={usuario.senha} onChange={(evt) => { evt.preventDefault(); onChangeSenha(evt.target.value) }} />
                 </div>
                 <div className={style.div_input}>
                     <span>Nome de Usuário</span>
-                    <InputNormal type={"text"} minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} placeholder={"benesses_dev"} value={usuarioPadrao.userName} onChange={(evt) => { onChangeUserName(evt.target.value) }} />
+                    <InputNormal type={"text"} minLength={null} onInvalid={(evt) => { onInvalid(evt, "Campo obrigatório. Preencha por favor!") }} onInput={(evt) => { onInput(evt) }} placeholder={"benesses_dev"} value={usuario.nome} onChange={(evt) => { onChangeNome(evt.target.value) }} />
                 </div>
                 <div className={style.area_btn_criar}>
                     <Button type="submit" className={style.btn_log_cad} onClick={() => { }} children={"Criar Conta"} />
                 </div>
             </ContainerForm>
+            <CardMensGeral mens={msg} textoBtn={"Okay"} onClickFechar={() => { onClickFecharMsg() }} />
         </ContainerDiv >
     );
 }

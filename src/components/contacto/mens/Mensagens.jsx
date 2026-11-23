@@ -6,6 +6,7 @@ import InputNormal from "../../form/inputNomal/InputNormal";
 import Textarea from "../../form/textarea/Textarea";
 import ContainerForm from "../../Common/containerForm/ContainerForm";
 import { useState } from "react";
+import enviarMensagem from "../../../utils/enviarMensagem";
 
 const Mensagens = ({ Mensagens }) => {
     const [nome, setNome] = useState("");
@@ -51,24 +52,12 @@ const Mensagens = ({ Mensagens }) => {
 
         try {
 
-            const { data, error } = await supabase().from("mensagens").insert([dadosMens]);
+            await enviarMensagem(dadosMens);
 
-            if (error) {
-                console.error("Erro ao enviar mensagen: " + error.message);
-                return;
-            }
-
-            console.log("Mensagens enviada com sucesso", data);
             limparCampos();
-            // const mensSalvas = localStorage.getItem("mensagensBanco");
-            // const mens = mensSalvas ? JSON.parse(mensSalvas) : [];
-            // mens.push(dadosMens);
-            // localStorage.setItem("mensagensBanco", JSON.stringify(mens));
-            // limparCampos()
         } catch (error) {
             console.error("Erro ao enviar Mensagen: " + error.message);
         }
-
 
     };
 

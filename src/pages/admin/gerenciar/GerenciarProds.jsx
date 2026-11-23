@@ -8,7 +8,9 @@ import Categorias from "../../../components/data/Categorias.json";
 import CardAct from '../../../components/cards/cardFormAdmin/cardAct/CardAct';
 import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
-import supabase from '../../../../services/supabase';
+import buscarProdutos from '../../../utils/buscarProdutos';
+import atualizarProduto from '../../../utils/atualizarProduto';
+import eliminarProduto from '../../../utils/eliminarProduto';
 
 const GerenciarProds = () => {
 
@@ -17,52 +19,7 @@ const GerenciarProds = () => {
     const [dadosModal, setDadosModal] = useState([]);
     const [dadosMsg, setDadosMsg] = useState([]);
     const [msg, setMsg] = useState("");
-
-    const produtosTeste = localStorage.getItem("produtosBanco");
-    const ItensTeste = produtosTeste ? JSON.parse(produtosTeste) : [
-        {
-            "id": 0,
-            "nome": "Ainda Sem Produtos",
-            "preco": 0,
-            "badge": "Sem badge",
-            "primeiros": false,
-            "desc": "",
-            "src": "#",
-            "alt": "",
-            "categorias": "",
-            "detalhes": {
-                "srcDetalhes": [
-                    {
-                        "id": 1,
-                        "srcDet": "#",
-                        "srcThumb": "#",
-                        "alt": "",
-                        "badge": ""
-                    }],
-                "especificacoes": []
-            }
-        }
-    ];
-
     const [dadosImutaveis, setDadosImutaveis] = useState(null);
-    useEffect(async () => {
-
-        try {
-
-            const { data, error } = await supabase().from("produtos").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar produtos: " + error.message);
-                return;
-            }
-
-            console.log("Produtos buscados com sucesso", data);
-            setDadosImutaveis(data);
-        } catch (error) {
-            console.error("Erro ao buscar produtos: " + error.message);
-        }
-
-    }, []);
 
     const [dadosFiltrados, setDadosFiltrados] = useState(dadosImutaveis);
 
@@ -92,30 +49,20 @@ const GerenciarProds = () => {
         onClickAdicionarPrimeiros(id);
     }
 
-    const onClickRemoverPrimeiros = (id) => {
-        console.log(dadosFiltrados);
-        const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
+    const onClickRemoverPrimeiros = async (id) => {
+        const listaPrimeiros = dadosImutaveis.filter((prim) => prim.primeiros === true);
         if (listaPrimeiros.length < 2) {
-            //alert("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
             setMsg("Limite mínimo de 1 produto em destaque atingido.Pelo menus tenha produto em destaque!");
             return;
         }
 
-        const objPrimeirosRemovido = dadosFiltrados.map((item) => {
-            if (item.id === id) {
-                return { ...item, primeiros: false }
-            }
+        await atualizarProduto({ "primeiros": false }, id);
 
-            return item;
-        });
+        await buscarProdGeren();
 
-
-        setDadosFiltrados(objPrimeirosRemovido);
-        // const produtosTeste = localStorage.getItem("produtosBanco");
-        localStorage.setItem("produtosBanco", JSON.stringify(objPrimeirosRemovido));
     };
 
-    const onClickAdicionarPrimeiros = (id) => {
+    const onClickAdicionarPrimeiros = async (id) => {
 
         const prod = dadosImutaveis.find((prod) => prod.id === id);
 
@@ -123,52 +70,66 @@ const GerenciarProds = () => {
             return;
         };
 
-        const listaPrimeiros = dadosFiltrados.filter((prim) => prim.primeiros === true);
+        const listaPrimeiros = dadosImutaveis.filter((prim) => prim.primeiros === true);
 
         if (!prod.primeiros && listaPrimeiros.length >= 3) {
             setMsg("Limite máximo de 3 produtos em destaque atingido. Remova um primeiro!");
             return;
         }
 
-        const objPrimeirosAdicionar = dadosFiltrados.map((item) => {
-            if (item.id === id) {
-                return { ...item, primeiros: true }
-            }
+        await atualizarProduto({ "primeiros": true }, id);
 
-            return item;
-        });
-
-        setDadosFiltrados(objPrimeirosAdicionar);
-        localStorage.setItem("produtosBanco", JSON.stringify(objPrimeirosAdicionar));
+        await buscarProdGeren();
     };
 
     const onClickFiltrar = (id) => {
-        const prims = dadosFiltrados.filter((visivel) => visivel.primeiros === true);
+        const prims = dadosImutaveis.filter((visivel) => visivel.primeiros === true);
 
         if (prims.length < 2) {
             setMsg("Pra eliminar o último produto em destaque. Primeiro destaque um outro produto no lugar dele.");
 
             return;
         };
-        const dadosEliminar = dadosFiltrados.filter((dados) => dados.id === id);
+
+        const dadosEliminar = dadosImutaveis.filter((dados) => dados.id === id);
         setDadosMsg(dadosEliminar);
         setShowCardMsg(true);
     };
 
-    const onClickEliminarProd = () => {
-        const dadosEliminar = dadosFiltrados.filter((dados) => dados.id !== dadosMsg[0]?.id);
-        setDadosFiltrados(dadosEliminar);
+    const onClickEliminarProd = async () => {
+
+        await eliminarProduto(dadosMsg[0]?.id)
+
+        await buscarProdGeren();
+
         setShowCardMsg(false);
-        localStorage.setItem("produtosBanco", JSON.stringify(dadosEliminar));
     };
 
     const onClickFechar = () => {
         setMsg("")
     };
 
-    // useEffect(() => {
-    //     localStorage.setItem("prodsGeren", [JSON.stringify(ItensTeste)]);
-    // }, []);
+    const buscarProdGeren = async () => {
+        try {
+
+            const { data, status } = await buscarProdutos();
+
+            if (!status) {
+                setDadosImutaveis(data);
+                return;
+            }
+
+            setDadosImutaveis(data);
+        } catch (error) {
+            console.error("Erro ao buscar produtos: " + error.message);
+        }
+    };
+
+    useEffect(async () => {
+
+        await buscarProdGeren();
+
+    }, []);
 
     return (
         <>

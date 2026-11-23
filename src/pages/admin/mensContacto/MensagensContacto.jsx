@@ -5,30 +5,13 @@ import { useState } from "react";
 import CardDetMens from "../../../components/cards/cardDetMens/CardDetMens";
 import scrollCima from "../../../utils/scrollCima";
 import CardMsg from "../../../components/cards/cardMsg/CardMsg";
+import eliminarMensagem from "../../../utils/eliminarMensagem";
+import buscarMensagens from "../../../utils/buscarMensagens";
+import atualizarMensagem from "../../../utils/atualizarMensagem";
 
 const MensagensContacto = () => {
 
-    const [mensImutaveis, setMensImutaveis] = useState();
-    useEffect(async () => {
-
-        try {
-
-            const { data, error } = await supabase().from("mensagens").select("*");
-
-            if (error) {
-                console.error("Erro ao buscar mensagens: " + error.message);
-                return;
-            }
-
-            console.log("Mensagens buscados com sucesso", data);
-            setMensImutaveis(data);
-        } catch (error) {
-            console.error("Erro ao buscar Mensagens: " + error.message);
-        }
-
-    }, []);
-
-    const [mensagens, setMensagens] = useState(mensImutaveis);
+    const [mensagens, setMensagens] = useState([]);
     const [msgAberta, setMsgAberta] = useState(null);
     const [showDetMens, setShowDetMens] = useState(false);
 
@@ -38,19 +21,22 @@ const MensagensContacto = () => {
     const onClickEliminar = async (idMens) => {
         try {
 
-            const { data, error } = await supabase().from("mensagens").delete().eq("id", idMens);
+            await eliminarMensagem(idMens);
 
-            if (error) {
-                console.error("Erro ao eliminar mensagem: " + error.message);
+            const { mens, status } = await buscarMensagens();
+
+            if (!status) {
+                setMensagens(mens);
+                setShowCardMsg(false);
                 return;
-            }
+            };
 
-            localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
-            const filtradas = mensagens.filter((mens) => mens.id !== idMens);
-            setMensagens(data);
+            setMensagens(mens);
+
             setShowCardMsg(false);
+
         } catch (error) {
-            console.error("Erro ao buscar produtos em destaque: " + error.message);
+            console.error("Erro ao eliminar mensagem: " + error.message);
         }
 
     };
@@ -62,7 +48,6 @@ const MensagensContacto = () => {
     };
 
     const onClickVerDetalhes = (idMens) => {
-        console.log(idMens);
 
         const filtradas = mensagens.filter((mens) => mens.id === idMens);
         console.log(filtradas[0]);
@@ -75,25 +60,15 @@ const MensagensContacto = () => {
     const onClickAdicionarLidas = async (idMens) => {
         try {
 
+            await atualizarMensagem({ "lida": true }, idMens);
+            const { mens, status } = await buscarMensagens();
 
-            const novasMens = mensagens.map((mens) => {
-                if (mens.id === idMens) {
-                    return { ...mens, "lida": true }
-                }
+            if (!status) {
+                setMensagens(mens);
+                setShowCardMsg(false);
+            };
 
-                return mens;
-            })
-
-            const { data, error } = await supabase().from("mensagens").update(novasMens).eq("id", idMens);
-
-            if (error) {
-                console.error("Erro ao adicionar mensagem lida: " + error.message);
-                return;
-            }
-
-            localStorage.setItem("mensagensBanco", JSON.stringify(filtradas));
-            const filtradas = mensagens.filter((mens) => mens.id !== idMens);
-            setMensagens(data);
+            setMensagens(mens);
             setShowCardMsg(false);
         } catch (error) {
             console.error("Erro ao adicionar mensagem em lida: " + error.message);
@@ -106,6 +81,24 @@ const MensagensContacto = () => {
         setShowDetMens(false);
         scrollCima();
     };
+
+    useEffect(async () => {
+
+        try {
+
+            const { mens, info } = await buscarMensagens();
+
+            if (!info) {
+                setMensagens(mens)
+            };
+
+            setMensagens(mens);
+
+        } catch (error) {
+            console.error("Erro ao buscar Mensagens: " + error.message);
+        }
+
+    }, []);
 
     return (
         <>
