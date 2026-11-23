@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import supabase from "../../services/supabase";
+import supabase from "../../services/supabaseClient";
 
 
 const ContextAdminLogado = createContext();
 
 
 const ContextAdminLogadoProvider = ({ children }) => {
-    const [adminStatus, setAdminStatus] = useState();
+    const [adminStatus, setAdminStatus] = useState(false);
     const [usuario, setUsuario] = useState({ "email": "", "senha": "", "nome": "" });
 
     const onClickLogar = (val) => {

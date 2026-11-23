@@ -144,9 +144,9 @@ const Depoimentos = () => {
         }
     };
 
-    useEffect(async () => {
+    useEffect(() => {
 
-        await buscarDeps();
+        buscarDeps();
 
     }, []);
 

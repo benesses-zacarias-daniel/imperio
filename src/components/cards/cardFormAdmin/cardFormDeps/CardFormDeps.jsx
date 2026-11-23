@@ -113,8 +113,8 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
 
     };
     //Effect
-    useEffect(async () => {
-        await contaVisiveis();
+    useEffect(() => {
+        contaVisiveis();
     }, []);
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {

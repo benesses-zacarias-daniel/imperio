@@ -93,6 +93,7 @@ const Home = () => {
             const destaque = prod.data.filter((prodDest) => prodDest.primeiros === true);
 
             setProdutosDestaque(destaque);
+            console.log(produtosDestaque);
 
         } catch (error) {
             console.error("Erro ao buscar produtos: " + error.message);
@@ -113,9 +114,9 @@ const Home = () => {
         }
     };
 
-    useEffect(async () => {
-        await buscarProds();
-        await buscarDeps();
+    useEffect(() => {
+        buscarProds();
+        buscarDeps();
     }, []);
 
     return (
@@ -148,7 +149,9 @@ const Home = () => {
                         </div>
                         <ContainerDiv className={style.area_prods_home}
                             children={
-                                <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
+                                <>
+                                </>
+                                // <CardProdutos dados={produtosDestaque} onClickDetalhes={(id) => { onClickMostrarDetalhes(id) }} />
                             } />
                         <CardCategoria dados={Categorias[0]} />
                     </div>

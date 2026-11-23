@@ -82,8 +82,7 @@ const MensagensContacto = () => {
         scrollCima();
     };
 
-    useEffect(async () => {
-
+    const buscarMens = async () => {
         try {
 
             const { mens, info } = await buscarMensagens();
@@ -97,6 +96,11 @@ const MensagensContacto = () => {
         } catch (error) {
             console.error("Erro ao buscar Mensagens: " + error.message);
         }
+    };
+
+    useEffect(() => {
+
+        buscarMens()
 
     }, []);
 

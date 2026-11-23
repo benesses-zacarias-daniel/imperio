@@ -1,5 +1,5 @@
 import style from "../LoginCadastrar.module.css"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputNormal from "../../form/inputNomal/InputNormal";
 import Button from "../../button/Button";

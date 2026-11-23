@@ -95,7 +95,7 @@ const Produtos = () => {
         }
     };
 
-    useEffect(async () => {
+    useEffect(() => {
         produtosBusca();
     }, []);
 

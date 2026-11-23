@@ -9,7 +9,6 @@ import Remover from "../../../../assets/icons/delete.svg";
 import Guardar from "../../../../assets/icons/guardar.svg";
 import Publicar from "../../../../assets/icons/publicar.svg";
 import ContainerDiv from '../../../Common/container/ContainerDiv';
-import criarURLsImgs from '../../../../utils/criarURLsImg';
 import ContainerForm from '../../../Common/containerForm/ContainerForm';
 import InputNormal from '../../../form/inputNomal/InputNormal';
 import Textarea from '../../../form/textarea/Textarea';
@@ -261,8 +260,8 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
 
     };
     //Effect
-    useEffect(async () => {
-        await contaPrimeiros();
+    useEffect(() => {
+        contaPrimeiros();
     }, []);
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {

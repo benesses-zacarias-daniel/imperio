@@ -125,9 +125,9 @@ const GerenciarProds = () => {
         }
     };
 
-    useEffect(async () => {
+    useEffect(() => {
 
-        await buscarProdGeren();
+        buscarProdGeren();
 
     }, []);
 
