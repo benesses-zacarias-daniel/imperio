@@ -177,6 +177,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
         try {
 
             const { prod, status } = await buscarProdutos();
+            console.log("Primerisos dados: ", prod);
 
             if (!status) {
                 const prims = prod.filter((prim) => prim.primeiros === true);
