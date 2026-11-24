@@ -76,6 +76,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     /* padding: 0px 0px 75px 0px; */
+    overflow-y: scroll;
 }
 
 .fexar_detalhes {
@@ -119,10 +120,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     height: 100%;
-    overflow-y: scroll;
+    padding: 0px 0px 10px 0px;
 }
 
 .desc_detalhe {
+    padding: 5px 0px 0px 0px;
     width: 100%;
     text-align: justify;
     overflow-wrap: anywhere;
@@ -177,14 +179,14 @@
     top: 225px;
     left: 5px;
     font-weight: 900;
-    color: var(--preto_principal);
+    color: var(--texto_principal);
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    background: var(--dourado_transp);
+    background: var(--dourado_principal);
     border-radius: 20px;
     width: 50px;
 }
@@ -211,6 +213,7 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 5px;
 }
 
 .acesso {
@@ -220,7 +223,6 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0px 0px 10px 0px;
 }
 
 .acesso img {

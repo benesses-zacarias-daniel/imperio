@@ -10,11 +10,25 @@ const buscarDepoimentos = async () => {
                 "status": false,
                 "dep": [
                     {
-                        "id": 0,
-                        "nome": "Sem Depoimentos",
-                        "iniciais": "SD",
-                        "visivel": false,
-                        "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
+                        "id": 1,
+                        "nome": "Benesses Da Flora Daniel",
+                        "iniciais": "BFD",
+                        "visivel": true,
+                        "depoimento": "Encontrei o smartphone e a TV que procurava com ótimo preço e garantia. A Imperial Electrónicos tem os melhores produtos do mercado sem dúvida."
+                    },
+                    {
+                        "id": 2,
+                        "nome": "Ntxuphí Namoro",
+                        "iniciais": "NN",
+                        "visivel": true,
+                        "depoimento": "A Imperial Electrónicos ajudou-me a equipar o escritório da minha empresa com computadores e impressoras em tempo recorde. Profissionalismo puro!"
+                    },
+                    {
+                        "id": 3,
+                        "nome": "Benedito Zacarias Daniel",
+                        "iniciais": "BZD",
+                        "visivel": true,
+                        "depoimento": "O processo de compra da nossa geleira e máquina de lavar foi extremamente transparente e com entrega rápida. Recomendo vivamente a equipa."
                     }
                 ]
             };
@@ -28,11 +42,25 @@ const buscarDepoimentos = async () => {
             "status": false,
             "dep": [
                 {
-                    "id": 0,
-                    "nome": "Sem Depoimentos",
-                    "iniciais": "SD",
-                    "visivel": false,
-                    "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
+                    "id": 1,
+                    "nome": "Benesses Da Flora Daniel",
+                    "iniciais": "BFD",
+                    "visivel": true,
+                    "depoimento": "Encontrei o smartphone e a TV que procurava com ótimo preço e garantia. A Imperial Electrónicos tem os melhores produtos do mercado sem dúvida."
+                },
+                {
+                    "id": 2,
+                    "nome": "Ntxuphí Namoro",
+                    "iniciais": "NN",
+                    "visivel": true,
+                    "depoimento": "A Imperial Electrónicos ajudou-me a equipar o escritório da minha empresa com computadores e impressoras em tempo recorde. Profissionalismo puro!"
+                },
+                {
+                    "id": 3,
+                    "nome": "Benedito Zacarias Daniel",
+                    "iniciais": "BZD",
+                    "visivel": true,
+                    "depoimento": "O processo de compra da nossa geleira e máquina de lavar foi extremamente transparente e com entrega rápida. Recomendo vivamente a equipa."
                 }
             ]
         }

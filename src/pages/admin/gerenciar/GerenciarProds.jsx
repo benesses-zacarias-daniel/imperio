@@ -111,16 +111,16 @@ const GerenciarProds = () => {
 
     const buscarProdGeren = async () => {
 
-        const { data, status } = await buscarProdutos();
+        const { prod, status } = await buscarProdutos();
 
         if (!status) {
             console.log("Erro ao buscar Produtos....Preenchendo com produtos de teste!");
             setMsg("Erro ao buscar Produtos....Preenchendo com produtos de teste!")
-            setDadosImutaveis(data);
+            setDadosImutaveis(prod);
             return;
         }
 
-        setDadosImutaveis(data);
+        setDadosImutaveis(prod);
 
     };
 

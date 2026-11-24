@@ -66,11 +66,7 @@ const Depoimentos = () => {
 
         await atualzarDepoimento({ "visivel": false }, id);
 
-        await buscarDepoimentos();
-
-        const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
-
-        setContaVisivel(conta.length);
+        await buscarDeps();
     };
 
     const onClickAdicionarVisivel = async (id) => {
@@ -89,11 +85,7 @@ const Depoimentos = () => {
 
         await atualzarDepoimento({ "visivel": true }, id)
 
-        await buscarDepoimentos();
-
-        const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
-
-        setContaVisivel(conta.length);
+        await buscarDeps();
     };
 
     const onClickFiltrar = (id) => {

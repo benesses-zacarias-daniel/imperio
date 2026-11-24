@@ -100,7 +100,7 @@ const MensagensContacto = () => {
 
     useEffect(() => {
 
-        buscarMens()
+        buscarMens();
 
     }, []);
 

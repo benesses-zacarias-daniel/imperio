@@ -28,7 +28,6 @@ const ContextAdminLogadoProvider = ({ children }) => {
         };
 
         verificarSessao();
-        setAdminStatus(true)
     }, []);
 
     return (

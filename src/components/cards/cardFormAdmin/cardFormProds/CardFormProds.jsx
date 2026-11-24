@@ -217,6 +217,9 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
 
     const onClickSalvarAlteracoes = async (idProd, evt) => {
         evt.preventDefault();
+
+        const novasImgs = [{ "id": crypto.randomUUID(), "srcDet": src, "alt": alt, "srcThumb": src }, ...srcDetalhes]
+
         const novosDados = {
             "id": idProd,
             "nome": nome,
@@ -228,7 +231,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             "alt": alt,
             "categorias": categorias,
             "detalhes": {
-                "srcDetalhes": [{ "id": crypto.randomUUID(), "srcDet": src, "alt": alt, "srcThumb": src }, ...srcDetalhes],
+                "srcDetalhes": novasImgs,
                 "especificacoes": [...especificacoes]
             }
         }
@@ -246,6 +249,11 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     useEffect(() => {
         contaPrimeiros();
     }, []);
+
+    useEffect(() => {
+        setSrcDetalhes(srcDetalhes.slice(1));
+    }, []);
+
     //Funções de Controle dos Inputs
     const onInvalid = (evt, msg) => {
         evt.target.setCustomValidity(msg);

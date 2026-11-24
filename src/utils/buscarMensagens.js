@@ -8,7 +8,8 @@ const buscarMensagens = async () => {
         if (error) {
             console.error("Erro ao buscar mensagens: " + error.message);
             return {
-                "status": false, "mens": [
+                "status": false,
+                "mens": [
                     {
                         "id": 0,
                         "nome": "Benesses Zacarias Daniel",
@@ -25,7 +26,8 @@ const buscarMensagens = async () => {
     } catch (error) {
         console.error("Erro ao buscar Mensagens: " + error.message);
         return {
-            "status": false, "mens": [
+            "status": false,
+            "mens": [
                 {
                     "id": 0,
                     "nome": "Benesses Zacarias Daniel",

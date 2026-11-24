@@ -1,5 +1,5 @@
-import { useState } from "react";
 import style from "./CardDetalhes.module.css";
+import { useState } from "react";
 import Img from "../../img/Img";
 import Fexar from "../../../assets/icons/fexar_detalhes.svg";
 import Carinho from "../../../assets/icons/carinhoadd.svg";
@@ -7,6 +7,7 @@ import Button from "../../button/Button";
 import EstrelaAval from "../../../assets/icons/estrelaAval.svg";
 import RemoverItem from "../../../assets/icons/delete.svg";
 import useContextCarrinho from "../../../hooks/useContextCarrinho";
+import ContainerDiv from "../../Common/container/ContainerDiv";
 
 const CardDetalhes = ({ onClickOcult, dados, showDetalhes = false }) => {
     if (!showDetalhes) {
@@ -36,7 +37,7 @@ const CardDetalhes = ({ onClickOcult, dados, showDetalhes = false }) => {
     };
 
     return (
-        <div className={`${style.container_detalhes} ${fade ? style.ocultarCard : ""}`}>
+        <ContainerDiv className={`${style.container_detalhes} ${fade ? style.ocultarCard : ""}`}>
             <div className={`${style.area_conteudo_detalhes} ${fade ? style.ocultarCard : ""}`}>
                 <div className={style.fexar_detalhes}>
                     <Button estilo={style.btn_fexar_detalhes} onClick={() => {
@@ -115,7 +116,7 @@ const CardDetalhes = ({ onClickOcult, dados, showDetalhes = false }) => {
                     </div>
                 </div>
             </div>
-        </div >);
+        </ContainerDiv >);
 }
 
 export default CardDetalhes;

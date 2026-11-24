@@ -39,11 +39,12 @@ const Cadastrar = () => {
 
         if (!status) {
             setMsg(mens);
+            return;
         }
 
         setMsg(mens)
-        onClickLogar(status);
-        navigate("/admin/adicionar");
+        // onClickLogar(status);
+        // navigate("/admin/adicionar");
 
     };
 
