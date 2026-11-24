@@ -27,15 +27,11 @@ const Mensagens = ({ Mensagens }) => {
 
     const onChangeTextarea = (evt) => {
         evt.preventDefault();
-        console.log(evt);
-        console.log(evt.target);
         setTextarea(evt.target.value);
     };
 
     const onChangeContacto = (evt) => {
         evt.preventDefault();
-        console.log(evt);
-        console.log(evt.target);
         setContacto(evt.target.value);
     };
 

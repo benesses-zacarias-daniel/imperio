@@ -99,6 +99,8 @@ const Home = () => {
 
             setMsg("Não foi possível carregar os produtos. Usando Produtos de teste!");
 
+            scrollCima();
+
             const destaque = prod.filter((prodDest) => prodDest.primeiros === true);
 
             setProdutosDestaque(destaque);

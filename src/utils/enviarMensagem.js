@@ -2,6 +2,7 @@ import supabase from "../../services/supabaseClient";
 
 const enviarMensagem = async (mensagem) => {
     try {
+        console.log(mensagem);
 
         const { data, error } = await supabase.from("mensagens").insert([mensagem]);
 

@@ -88,7 +88,7 @@ const Produtos = () => {
         if (!status) {
             console.log("Não foi possível carregar os produtos. Usando dados de teste");
             setMsg("Não foi possível carregar os produtos. Usando Produtos de teste");
-
+            scrollCima();
             const produtosDest = prod.filter((prodDest) => prodDest.primeiros === true);
             const produtosNorms = prod.filter((prodNormal) => prodNormal.primeiros === false);
 
