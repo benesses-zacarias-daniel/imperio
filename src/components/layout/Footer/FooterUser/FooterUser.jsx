@@ -7,21 +7,29 @@ import Img from "../../../img/Img";
 import Chamada from "../../../../assets/icons/chamadaF.svg";
 import Email from "../../../../assets/icons/email.svg";
 import DadosAutor from "../../../data/DadosAutor.json";
+import { Link } from "react-router-dom";
+import scrollCima from "../../../../utils/scrollCima";
+import ContainerDiv from "../../../Common/container/ContainerDiv";
 
 const FooterUser = () => {
     const linkEmail = `mailto:imperialelectronicoscontacto@gmail.com`;
+    const mens = "Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!"
     const num1 = "258 84 975 4315";
-    const linkWhatsApp1 = `https://wa.me/${num1}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
+    const linkWhatsApp1 = `https://wa.me/${num1}?text=${mens}`;
     const num2 = "258 87 000 6914";
-    const linkWhatsApp2 = `https://wa.me/${num2}?text=Olá, tudo bem? Gostaria de saber mais sobre a Imperial Electronicos!`;
+    const linkWhatsApp2 = `https://wa.me/${num2}?text=${mens}`;
 
     return (
         <footer>
-            <div className={style.area_info}>
+            <ContainerDiv className={style.area_info}>
                 <div className={style.area_marca_nav}>
                     <div className={style.marca}>
                         <div className={style.desc_footer}>
-                            <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} className={style.corFora} />
+                            <Link to={"home"} onClick={() => {
+                                scrollCima();
+                            }}>
+                                <Logo LogoMarca={LogoIcone} marca={"Electrónicos"} foco={"Imperial"} className={style.corFora} />
+                            </Link>
                             <div className={style.desc_texto}>
                                 A sua autoridade em hardware premium e soluções tecnológicas de luxo.
                             </div>
@@ -51,7 +59,7 @@ const FooterUser = () => {
                 </div>
                 <hr className={style.linha} />
                 <Autor dadosAutor={DadosAutor} />
-            </div>
+            </ContainerDiv>
         </footer>)
 }
 

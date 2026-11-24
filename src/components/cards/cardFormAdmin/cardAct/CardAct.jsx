@@ -8,7 +8,7 @@ const CardAct = ({ showModal, children, onClickControlModal, tipo = false }) => 
     if (!showModal) return null;
 
     return (
-        <ContainerDiv className={styles.containerAct} id={"containerAct"} click={(evt) => {
+        <ContainerDiv className={styles.containerAct} id={"containerAct"} onClick={(evt) => {
             if (evt.target === evt.currentTarget) {
                 onClickControlModal(false);
             }

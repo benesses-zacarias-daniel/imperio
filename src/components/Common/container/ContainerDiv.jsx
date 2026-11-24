@@ -1,8 +1,8 @@
-const ContainerDiv = ({ children, className = "", click = () => { }, id = "" }) => {
+const ContainerDiv = ({ children, className = "", onClick = () => { }, id = "" }) => {
 
     return (
         <div className={className} id={id} onClick={(evt) => {
-            click(evt);
+            onClick(evt);
         }}>
             {children}
         </div>

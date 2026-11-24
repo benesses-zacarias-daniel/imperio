@@ -8,7 +8,7 @@ const CardDetMens = ({ showDetMens, mensagem, onClickFecar = () => { } }) => {
     const link = `https://wa.me/${mensagem.telefone}?Olá Sr. (a) ${mensagem.nome}, tudo bem? Recebi a sua mensagem no Site da Imperial Electrónicos. Podemos falar ?`;
 
     return (
-        <ContainerDiv className={style.overlay} click={() => { onClickFecar() }}>
+        <ContainerDiv className={style.overlay} onClick={() => { onClickFecar() }}>
             <div className={style.modal} onClick={(e) => e.stopPropagation()}>
                 <div className={style.header}>
                     <h3>Detalhes da Mensagem</h3>
