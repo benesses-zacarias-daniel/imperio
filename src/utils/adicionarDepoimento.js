@@ -3,7 +3,7 @@ import supabase from "../../services/supabaseClient";
 const adicionarDepoimento = async (depoimento) => {
     try {
 
-        const { data, error } = await supabase.from("depoimentos").insert([depoimento]);
+        const { error } = await supabase.from("depoimentos").insert([depoimento]);
 
         if (error) {
             console.error("Erro ao guardar depoimento: " + error.message);
@@ -19,9 +19,9 @@ const adicionarDepoimento = async (depoimento) => {
             };
         }
 
-        console.log(`Depoimento guardado com sucesso: ${data}`);
+        console.log(`Depoimento guardado com sucesso`);
 
-        return { "status": true, "dep": `Depoimento guardado com sucesso: ${data}` };
+        return { "status": true, "dep": `Depoimento guardado com sucesso!` };
     } catch (error) {
         console.error("Erro ao guardar depoimento: " + error.message);
         return {

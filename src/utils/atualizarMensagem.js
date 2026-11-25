@@ -3,7 +3,7 @@ import supabase from "../../services/supabaseClient";
 const atualizarMensagem = async (mens, idMens) => {
     try {
 
-        const { data, error } = await supabase.from("mensagens").update(mens).eq("id", idMens);
+        const { error } = await supabase.from("mensagens").update(mens).eq("id", idMens);
 
         if (error) {
             console.error("Erro ao adicionar mensagem lida: ", error.message);

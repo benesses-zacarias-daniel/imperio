@@ -2,7 +2,7 @@ import supabase from "../../services/supabaseClient";
 
 const cadastrarAdmin = async (dados) => {
     try {
-        const { data, error } = await supabase.auth.signUp(
+        const { error } = await supabase.auth.signUp(
             {
                 email: dados.email,
                 password: dados.senha,

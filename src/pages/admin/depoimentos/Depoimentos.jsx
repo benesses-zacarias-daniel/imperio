@@ -153,7 +153,9 @@ const Depoimentos = () => {
                 {showGerenciar ? (
                     <>
                         <div className={style.area_scroll_dep}>
-                            {load && (<CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />)}
+                            {load && (
+                                <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
+                            )}
                         </div>
                         <CardAct showModal={showModal} tipo={true} onClickControlModal={() => { onClickShow(false, 0) }} children={
                             <CardFormDepoimentos onClickAtualizacao={async () => {
@@ -172,18 +174,7 @@ const Depoimentos = () => {
                 ) : (
                     <CardFormDepoimentos onClickShow={() => {
                         scrollCima();
-                        onClickShow(true, 1)
-                        const depTestes = localStorage.getItem("depoimentosBancos");
-                        const deps = depTestes ? JSON.parse(depTestes) : [
-                            {
-                                "id": 0,
-                                "nome": "Sem Depoimentos",
-                                "iniciais": "SD",
-                                "visivel": false,
-                                "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-                            }
-                        ]
-                        setDepoimentos(deps);
+                        onClickShow(true, 1);
                         buscarDeps();
                         setLoad(true);
                     }} dadodo={depoimentos} contaVisivel={contaVisivel.length} />
@@ -195,17 +186,6 @@ const Depoimentos = () => {
                 } onClick={() => {
                     onClickShow(showGerenciar ? false : true, 1);
                     scrollCima();
-                    const depTestes = localStorage.getItem("depoimentosBancos");
-                    const deps = depTestes ? JSON.parse(depTestes) : [
-                        {
-                            "id": 0,
-                            "nome": "Sem Depoimentos",
-                            "iniciais": "SD",
-                            "visivel": false,
-                            "depoimento": "Ainda sem nenhum depoimento adiciona ao site."
-                        }
-                    ]
-                    setDepoimentos(deps);
                     buscarDeps();
                     setLoad(true);
                 }} />

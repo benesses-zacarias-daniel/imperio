@@ -58,7 +58,9 @@ const HeaderAdmin = () => {
                 onClickMenu(val);
             }} />
 
-            <CardMensGeral mens={msg} textoBtn={"Sair"} controlSair={false} onClickFecharAdmin={() => { onClickFecharAdmin() }} onClickFechar={() => { onClickSairAdmin() }} />
+            <CardMensGeral mens={msg} textoBtn={"Sair"} controlSair={false} onClickFecharAdmin={() => { onClickFecharAdmin() }} onClickFechar={() => {
+                onClickSairAdmin();
+            }} />
         </>
     )
 }
