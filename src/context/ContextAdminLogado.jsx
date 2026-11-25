@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
-import supabase from "../../services/supabaseClient";
+import verificarSessao from "../utils/verificarSessao";
+import sairAdmin from "../utils/sairAdmin";
 
 
 const ContextAdminLogado = createContext();
@@ -13,21 +14,22 @@ const ContextAdminLogadoProvider = ({ children }) => {
         setAdminStatus(val);
     };
 
-    const onClickSair = () => {
-        setAdminStatus(false);
-        localStorage.clear()
+    const onClickSair = async () => {
+        const { status } = await sairAdmin();
+        console.log(status);
+
+        if (status) {
+            setAdminStatus(false);
+        }
     };
 
     useEffect(() => {
 
-        const verificarSessao = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session) {
-                setAdminStatus(true);
-            }
-        };
+        const { status } = verificarSessao();
+        if (status) {
+            setAdminStatus(status)
+        }
 
-        verificarSessao();
     }, []);
 
     return (

@@ -4,9 +4,13 @@ const cadastrarAdmin = async (dados) => {
     try {
         const { data, error } = await supabase.auth.signUp(
             {
-                "email": dados.email,
-                "senha": dados.senha,
-                "nome": dados.nome
+                email: dados.email,
+                password: dados.senha,
+                options: {
+                    data: {
+                        nome: dados.nome
+                    }
+                }
             }
         );
 

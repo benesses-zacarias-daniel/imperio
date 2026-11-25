@@ -12,6 +12,7 @@ import CardMsg from '../../../components/cards/cardMsg/CardMsg';
 import CardMensGeral from '../../../components/cards/cardMensGeral/CardMensGeral';
 import atualzarDepoimento from '../../../utils/atualizarDepoimento';
 import buscarDepoimentos from '../../../utils/buscarDepoimentos';
+import eliminarDepoimento from '../../../utils/eliminarDepoimento';
 
 const Depoimentos = () => {
 
@@ -24,6 +25,7 @@ const Depoimentos = () => {
     const [contaVisivel, setContaVisivel] = useState(0);
     const [showCardMsg, setShowCardMsg] = useState(false);
     const [dadosMsg, setDadosMsg] = useState([]);
+    const [load, setLoad] = useState(false);
 
     const onClickShow = (val, tipo) => {
         if (tipo === 1) {
@@ -121,6 +123,11 @@ const Depoimentos = () => {
         if (!status) {
             setMsg("Erro ao buscar depoimentos...Preenchendo com depoimentos de teste");
             setDepoimentosImutaveis(dep);
+
+            const conta = depoimentosImutaveis.filter((depsV) => depsV.visivel === true);
+
+            setContaVisivel(conta.length);
+
             return;
         }
 
@@ -146,7 +153,7 @@ const Depoimentos = () => {
                 {showGerenciar ? (
                     <>
                         <div className={style.area_scroll_dep}>
-                            <CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />
+                            {load && (<CardDepGeren deppoimentos={depoimentos} onClickMostrarModal={(id) => { onClickMostrarModal(id) }} onClickFiltrar={(id) => { onClickFiltrar(id) }} onClickVisivel={(id, tipo) => { onClickVisivel(id, tipo) }} />)}
                         </div>
                         <CardAct showModal={showModal} tipo={true} onClickControlModal={() => { onClickShow(false, 0) }} children={
                             <CardFormDepoimentos onClickAtualizacao={async () => {
@@ -177,6 +184,8 @@ const Depoimentos = () => {
                             }
                         ]
                         setDepoimentos(deps);
+                        buscarDeps();
+                        setLoad(true);
                     }} dadodo={depoimentos} contaVisivel={contaVisivel.length} />
                 )}
             </ContainerDiv>
@@ -197,6 +206,8 @@ const Depoimentos = () => {
                         }
                     ]
                     setDepoimentos(deps);
+                    buscarDeps();
+                    setLoad(true);
                 }} />
             </div>
         </>

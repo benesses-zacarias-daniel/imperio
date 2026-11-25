@@ -1,7 +1,7 @@
 import style from "./MensagensContacto.module.css";
 import ContainerDiv from "../../../components/Common/container/ContainerDiv";
 import CardMensContacto from "../../../components/cards/cardMensContacto/CardMensContacto";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardDetMens from "../../../components/cards/cardDetMens/CardDetMens";
 import scrollCima from "../../../utils/scrollCima";
 import CardMsg from "../../../components/cards/cardMsg/CardMsg";
@@ -85,9 +85,9 @@ const MensagensContacto = () => {
 
     const buscarMens = async () => {
 
-        const { mens, info } = await buscarMensagens();
+        const { mens, status } = await buscarMensagens();
 
-        if (!info) {
+        if (!status) {
             console.log("Erro ao buscar mensagens....Preenchendo com mensagem de teste");
             setMsg("Erro ao buscar mensagens....Preenchendo com mensagem de teste");
             setMensagens(mens);

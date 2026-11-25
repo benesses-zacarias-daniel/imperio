@@ -2,7 +2,7 @@ import supabase from "../../services/supabaseClient";
 
 const eliminarProduto = async (idProd) => {
     try {
-        const { data, error } = await supabase.from("produto").delete().eq("id", idProd);;
+        const { data, error } = await supabase.from("produtos").delete().eq("id", idProd);;
 
         if (error) {
             console.error("Erro ao eliminar produto: " + error.message);

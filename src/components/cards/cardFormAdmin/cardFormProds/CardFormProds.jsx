@@ -19,6 +19,7 @@ import scrollCima from '../../../../utils/scrollCima';
 import adicionarProduto from '../../../../utils/adicionarProduto';
 import atualizarProduto from '../../../../utils/atualizarProduto';
 import buscarProdutos from '../../../../utils/buscarProdutos';
+import enviarImagem from '../../../../utils/enviarImagem';
 
 const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }) => {
     const Opcoes = [
@@ -55,7 +56,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     const [src, setSrc] = useState(dadosAct?.src ? dadosAct?.src : "");
     const [alt, setAlt] = useState(dadosAct?.alt ? dadosAct?.alt : "");
     const [especificacoes, setEspecificacoes] = useState(dadosAct?.detalhes?.especificacoes.length ? dadosAct?.detalhes?.especificacoes : [""]);
-    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
+    const [srcDetalhes, setSrcDetalhes] = useState(dadosAct?.detalhes?.srcDetalhes ? dadosAct?.detalhes?.srcDetalhes : [{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "" }]);
     const [categorias, setCategorias] = useState(dadosAct?.categorias ? dadosAct?.categorias : Opcoes[0].opcoes[0].value);
     const [contaPrim, setContaPrim] = useState(0);
     //Funções
@@ -130,7 +131,6 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             setSrcDetalhes((prevImgs) => {
                 const novasImgs = [...prevImgs]
                 novasImgs[pos].alt = val;
-                novasImgs[pos].badge = val;
                 return [...novasImgs];
             });
 
@@ -155,7 +155,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     };
 
     const onClickAdicionarImgDetalhes = () => {
-        setSrcDetalhes([...srcDetalhes, { "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
+        setSrcDetalhes([...srcDetalhes, { "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "" }]);
     };
 
     const limparCampos = () => {
@@ -168,7 +168,7 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
         setSrc(null);
         setAlt("")
         setEspecificacoes([""]);
-        setSrcDetalhes([{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "", "badge": "" }]);
+        setSrcDetalhes([{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "" }]);
         scrollCima();
     };
 
@@ -192,25 +192,37 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     const onClickPublicar = async (evt) => {
 
         evt.preventDefault();
-        const ajusteSrC = srcDetalhes.filter((srcDet, pos) => pos !== 0);
+
+        const urlPrincipal = await enviarImagem(src);
+
+        const extrasComUrl = await Promise.all(
+            srcDetalhes.map(async (item) => ({
+                ...item,
+                "srcDet": await enviarImagem(item.srcDet),
+                "srcThumb": await enviarImagem(item.srcThumb),
+            }))
+        );
+
         const objDados = {
             "nome": nome,
             "preco": preco,
             "badge": badge,
             "primeiros": primeiros,
             "desc": desc,
-            "src": src,
+            "src": urlPrincipal,
             "alt": alt,
             "categorias": categorias,
             "detalhes": {
-                "srcDetalhes": [{ ...srcDetalhes[0], "srcDet": src, "alt": alt, "srcThumb": src }, ...ajusteSrC],
-                "especificacoes": [...especificacoes]
-            }
+                "srcDetalhes": [
+                    { ...srcDetalhes[0], "srcDet": urlPrincipal, "alt": alt, "srcThumb": urlPrincipal },
+                    ...extrasComUrl
+                ],
+                "especificacoes": [...especificacoes],
+            },
         };
 
         await adicionarProduto(objDados);
         await contaPrimeiros();
-
         limparCampos();
 
     };
@@ -218,7 +230,18 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     const onClickSalvarAlteracoes = async (idProd, evt) => {
         evt.preventDefault();
 
-        const novasImgs = [{ "id": crypto.randomUUID(), "srcDet": src, "alt": alt, "srcThumb": src }, ...srcDetalhes]
+        //  const novasImgs = [{ "id": crypto.randomUUID(), "srcDet": src, "alt": alt, "srcThumb": src }, ...srcDetalhes]
+
+        const urlPrincipal = await enviarImagem(src);
+        const ajustesSrc = srcDetalhes.slice(1);
+
+        const extrasComUrl = await Promise.all(
+            ajustesSrc.map(async (item) => ({
+                ...item,
+                "srcDet": await enviarImagem(item.srcDet),
+                "srcThumb": await enviarImagem(item.srcThumb),
+            }))
+        );
 
         const novosDados = {
             "id": idProd,
@@ -231,7 +254,10 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
             "alt": alt,
             "categorias": categorias,
             "detalhes": {
-                "srcDetalhes": novasImgs,
+                "srcDetalhes": [
+                    { ...srcDetalhes[0], "srcDet": urlPrincipal, "alt": alt, "srcThumb": urlPrincipal },
+                    ...extrasComUrl
+                ],
                 "especificacoes": [...especificacoes]
             }
         }
@@ -251,7 +277,13 @@ const CardFormProds = ({ dadosAct, tipo = false, onClickFecharCard = () => { } }
     }, []);
 
     useEffect(() => {
-        setSrcDetalhes(srcDetalhes.slice(1));
+        setSrcDetalhes((prev) => {
+            if (Array.isArray(prev) && prev.length > 0) {
+                return prev;
+            }
+            return [{ "id": crypto.randomUUID(), "srcDet": "", "srcThumb": "", "alt": "" }]
+        });
+
     }, []);
 
     //Funções de Controle dos Inputs

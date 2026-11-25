@@ -1,5 +1,5 @@
 import style from '../CardFormAdmin.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Img from '../../../img/Img';
 import Button from '../../../button/Button';
 //Ícones
@@ -64,7 +64,7 @@ const CardFormDepoimentos = ({ depoimentoCliente, onClickShow = () => { }, onCli
         }
 
         const vis = dep.filter((prim) => prim.visivel === true);
-        setContaPrim(vis.length);
+        setContaVisivel(vis.length);
 
     };
 

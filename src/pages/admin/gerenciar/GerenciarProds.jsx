@@ -19,7 +19,8 @@ const GerenciarProds = () => {
     const [dadosModal, setDadosModal] = useState([]);
     const [dadosMsg, setDadosMsg] = useState([]);
     const [msg, setMsg] = useState("");
-    const [dadosImutaveis, setDadosImutaveis] = useState(null);
+    const [dadosImutaveis, setDadosImutaveis] = useState([]);
+    const [load, setLoad] = useState(false);
 
     const [dadosFiltrados, setDadosFiltrados] = useState(dadosImutaveis);
 
@@ -117,10 +118,16 @@ const GerenciarProds = () => {
             console.log("Erro ao buscar Produtos....Preenchendo com produtos de teste!");
             setMsg("Erro ao buscar Produtos....Preenchendo com produtos de teste!")
             setDadosImutaveis(prod);
+            setDadosFiltrados(prod);
+            setLoad(true);
             return;
         }
 
+        console.log(prod);
+
         setDadosImutaveis(prod);
+        setDadosFiltrados(prod);
+        setLoad(true);
 
     };
 
@@ -136,7 +143,7 @@ const GerenciarProds = () => {
             <Filtros onChange={(cat) => { onChangeFiltros(cat) }} categorias={Categorias} nome={"filtrar_itens_geren"} id={"filtrar_itens_geren"} />
             <ContainerDiv className={style.area_cont_geren}>
                 <div className={style.area_scroll}>
-                    <CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />
+                    {load && (<CardProdGeren ItensGeren={dadosFiltrados} onClickMostrarModal={(idProd) => { onClickMostrarModal(idProd) }} onClickPrimeiros={(id, tipo) => { onClickPrimeiros(id, tipo) }} onClickApagarProd={(id) => { onClickFiltrar(id) }} />)}
                 </div>
                 <CardAct showModal={modalAberto} onClickControlModal={(val) => { onClickControlModal(val) }} children={<CardFormProds tipo={true} dadosAct={dadosModal} onClickFecharCard={() => { onClickControlModal(false) }} />} />
                 <CardMsg dadosProd={dadosMsg} showCardMsg={showCardMsg} onClickOcultarCadMsg={() => { setShowCardMsg(false) }} onClickEliminar={() => { onClickEliminarProd(); }} tipo={0} />

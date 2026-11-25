@@ -2,7 +2,8 @@ import supabase from "../../services/supabaseClient";
 
 const adicionarProduto = async (produto) => {
     try {
-        const { data, error } = await supabase().from("produtos").insert([produto]);
+
+        const { data, error } = await supabase.from("produtos").insert([produto]);
 
         if (error) {
             console.error("Erro ao adicionar produto: " + error.message);
