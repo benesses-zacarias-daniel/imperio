@@ -51,24 +51,25 @@
 .infoGrupo label {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #6b7280;
+    color: var(--preto_transp);
 }
 
 .infoGrupo p {
     margin: 0;
     font-size: 0.95rem;
-    color: #111827;
+    color: var(--preto_principal);
 }
 
 .caixaTexto {
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
+    background-color: var(--texto_principal);
+    border: 2px solid var(--borda);
     border-radius: 8px;
     padding: 12px;
     font-size: 0.95rem;
-    color: #1f2937;
+    color: var(--preto_principal);
     line-height: 1.5;
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .area_accao_mens {

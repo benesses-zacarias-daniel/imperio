@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import ContainerDiv from "../../Common/container/ContainerDiv";
 import Img from "../../img/Img";
 import style from "./Logo.module.css";
 
 const Logo = ({ LogoMarca, marca, foco, className = style.corNormal }) => {
 
     return (
-        <div className={style.area_logo}>
+        <ContainerDiv className={style.area_logo}>
             <Img src={LogoMarca} className={style.icone_logo} />
             <div className={style.area_nome}>
                 <div className={style.area_foco}>
@@ -15,7 +15,7 @@ const Logo = ({ LogoMarca, marca, foco, className = style.corNormal }) => {
                     {marca}
                 </div>
             </div>
-        </div>
+        </ContainerDiv>
     )
 }
 
