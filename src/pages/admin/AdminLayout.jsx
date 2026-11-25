@@ -1,5 +1,5 @@
 import style from './AdminLayout.module.css';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import HeaderAdmin from '../../components/layout/Header/HeaderAdmin/HeaderAdmin';
 import FooterAdmin from '../../components/layout/Footer/FooterAdmin/FooterAdmin';
 import useContextAdminLogado from '../../hooks/useContextAdminLogado';
@@ -8,11 +8,17 @@ import { useEffect } from 'react';
 const AdminLayout = () => {
 
     const { adminStatus } = useContextAdminLogado();
+    const navigate = useNavigate();
+
     useEffect(() => {
         if (!adminStatus) {
-            <Navigate to={"/autenticar/login"} replace />
+            navigate("/autenticar/login", { replace: true });
         }
-    }, [])
+    }, [adminStatus, navigate])
+
+    if (!adminStatus) {
+        return null;
+    }
 
     return (
 

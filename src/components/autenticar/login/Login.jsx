@@ -29,7 +29,7 @@ const Login = () => {
 
         if (!status) {
             setMsgInfo(mens);
-            //setTimeout(() => { setMsgInfo("") }, 4000);
+            setTimeout(() => { setMsgInfo("") }, 4000);
             return;
         }
 

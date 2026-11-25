@@ -19,17 +19,20 @@ const ContextAdminLogadoProvider = ({ children }) => {
         console.log(status);
 
         if (status) {
+            console.log(status);
+
             setAdminStatus(false);
         }
     };
-
-    useEffect(() => {
-
+    const sessao = async () => {
         const { status } = verificarSessao();
         if (status) {
             setAdminStatus(status)
         }
+    }
 
+    useEffect(() => {
+        sessao();
     }, []);
 
     return (
