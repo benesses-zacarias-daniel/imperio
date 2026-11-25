@@ -2,15 +2,15 @@
     {
         "id": 1,
         "titulo": "Dica 1 A : Área Adicionar Produtos",
-        "descricao": "Como preencher cada campo para publicar um novo equipamento na loja:",
+        "descricao": "Como preencher os dados básicos para publicar um equipamento:",
         "itens": [
             {
                 "nome": "Nome do produto",
-                "texto": "Título principal que aparece nos cards da vitrine e no topo da página de detalhes."
+                "texto": "Título principal exibido nos cards da vitrine e no topo dos detalhes."
             },
             {
                 "nome": "Preço",
-                "texto": "Valor de venda exibido ao cliente em Meticais (MT)."
+                "texto": "Valor de venda apresentado ao cliente em Meticais (MT)."
             },
             {
                 "nome": "Categoria",
@@ -22,72 +22,72 @@
             },
             {
                 "nome": "Primeiras (Destaque inicial)",
-                "texto": "Define se o produto aparece logo nas primeiras posições da página inicial. Por padrão é possível escolher no máximo 3 produtos de destaque por vez (Caso necessário mostrar mais produtos contacte o Desenvolvedor)."
+                "texto": "Define se aparece no topo da página inicial. O limite padrão é de 3 produtos em destaque (para aumentar, contacte o Desenvolvedor)."
             }
         ]
     },
     {
         "id": 2,
-        "titulo": "Dica 1 B :  Área Adicionar Produto",
-        "descricao": "Como preencher cada campo para publicar um novo equipamento na loja:",
+        "titulo": "Dica 1 B : Área Adicionar Produto",
+        "descricao": "Como completar as imagens, detalhes técnicos e publicação:",
         "itens": [
             {
                 "nome": "Descrição do Produto",
-                "texto": "Pequena descriçã do produto em poucas palavras. Essa descrição aparece o cartão do produto na loja e nos detalhes do produto."
+                "texto": "Resumo breve mostrado no cartão da loja e na página de detalhes."
             },
             {
                 "nome": "Imagem Principal e Alt Principal",
-                "texto": "Foto de capa exibida no catálogo. O texto alternativo (Alt) descreve a imagem para acessibilidade e buscas."
+                "texto": "Foto de capa do catálogo. O texto alternativo (Alt) descreve a imagem para acessibilidade e buscas."
             },
             {
                 "nome": "Especificações",
-                "texto": "Características técnicas detalhadas (ex: memória, voltagem, dimensões) mostradas na página do produto."
+                "texto": "Detalhes técnicos completos (ex: memória, voltagem, dimensões) exibidos na ficha do produto."
             },
             {
                 "nome": "Outras imagens (Img e Alt)",
-                "texto": "Galeria extra de fotos para o cliente ver o produto de vários ângulos."
+                "texto": "Galeria extra de fotos para mostrar o equipamento de vários ângulos."
             },
             {
                 "nome": "Botão Publicar / Salvar Alterações",
-                "texto": "Valida os campos e coloca o produto imediatamente visível na loja."
+                "texto": "Valida os dados preenchidos e coloca o produto visível na loja."
             }
         ]
     },
     {
         "id": 3,
         "titulo": "Dica 2: Área Gerenciar Produtos",
-        "descricao": "Como organizar, atualizar ou remover produtos já cadastrados:",
+        "descricao": "Como organizar, destacar, atualizar ou remover equipamentos já cadastrados na plataforma:",
         "itens": [
             {
                 "nome": "Filtro por categoria",
-                "texto": "Permite isolar rapidamente produtos de um tipo específico sem precisar rolar toda a lista."
+                "texto": "Permite isolar rapidamente os produtos de um tipo específico sem precisar rolar toda a lista de itens da loja."
             },
             {
-                "nome": "Estrela",
-                "texto": "Estrela amarela indica que o produto está em destaque na página inicial; estrela cinzenta indica exibição normal."
+                "nome": "Estrela (Destaque rápido)",
+                "texto": "A estrela amarela indica que o produto está em destaque na página inicial; a estrela cinzenta indica exibição normal no catálogo."
             },
             {
-                "nome": "Botão Editar & Atualizar",
-                "texto": "Abre o formulário já preenchido com os dados atuais do produto para alterar preço, fotos ou textos e salvar."
+                "nome": "Botão Editar & Atualização",
+                "texto": "Abre o formulário já preenchido com os dados atuais do produto para alterar preço, fotos, especificações ou textos e salvar."
             },
             {
                 "nome": "Botão Remover",
-                "texto": "Abre uma janela de confirmação antes de apagar o produto definitivamente do sistema."
+                "texto": "Abre uma janela de confirmação de segurança antes de apagar o produto definitivamente da base de dados do sistema."
             }
         ]
     },
     {
         "id": 4,
         "titulo": "Dica 3: Área Depoimentos",
-        "descricao": "Como cadastrar e moderar as avaliações dos clientes:",
+        "descricao": "Como cadastrar e moderar avaliações dos clientes na loja:",
         "itens": [
             {
                 "nome": "Nome do cliente e Iniciais",
-                "texto": "Identificação exibida no rodapé do depoimento; as iniciais formam o avatar circular azul."
+                "texto": "Identificação no rodapé do card; as iniciais geram o avatar circular azul."
             },
             {
                 "nome": "Mostrar depoimento (Sim / Não)",
-                "texto": "Controla se o comentário fica público na página inicial ou guardado apenas no painel. Por padrão é possível escolher no máximo 3 depoimentos que serão exibidos por vez (Caso necessário mostrar mais depoimentos contacte o Desenvolvedor)."
+                "texto": "Define se fica público na página inicial ou apenas no painel. O limite padrão é de 3 visíveis por vez (para mais, contacte o Desenvolvedor)."
             },
             {
                 "nome": "Depoimento & Botão Guardar Dep",
@@ -95,41 +95,45 @@
             },
             {
                 "nome": "Gerenciar Dep (Editar, Estrela e Remover)",
-                "texto": "Na lista de depoimentos, a estrela amarela mostra quais estão visíveis no site (cinzenta = oculto). Use Editar para corrigir o texto ou Remover para excluir."
+                "texto": "A estrela amarela indica visibilidade no site (cinzenta = oculto). Use Editar para ajustar o texto ou Remover para excluir."
             }
         ]
     },
     {
         "id": 5,
         "titulo": "Dica 4 : Área Mensagens de Clientes",
-        "descricao": "Como visualizar, responder e organizar os contactos enviados pelos clientes na loja.",
+        "descricao": "Como visualizar, responder e organizar todos os contactos enviados pelos clientes através da loja:",
         "itens": [
             {
                 "nome": "Ver Tudo",
-                "texto": "Abre uma janela com os dados completos do cliente (nome, telefone, e-mail) e o texto integral da mensagem enviada."
+                "texto": "Abre uma janela completa com os dados do cliente (nome, telefone e e-mail) juntamente com o texto integral da mensagem enviada."
             },
             {
                 "nome": "Conversar",
-                "texto": "Botão dentro dos detalhes da mensagem que abre diretamente o WhatsApp do cliente para responder rapidamente."
+                "texto": "Botão dentro dos detalhes da mensagem que abre diretamente o WhatsApp do cliente para iniciar um atendimento rápido e direto."
             },
             {
                 "nome": "Estrela (Marcar como Lida)",
-                "texto": "Identifica visualmente as mensagens que já foram verificadas ou respondidas. Estrela amarela indica mensagem lida e cinza indica nova."
+                "texto": "Identifica visualmente as mensagens já verificadas ou respondidas. A estrela amarela indica mensagem lida e a cinzenta indica mensagem nova."
             },
             {
                 "nome": "Eliminar",
-                "texto": "Remove definitivamente a mensagem da lista depois de o atendimento já ter sido concluído."
+                "texto": "Remove definitivamente a mensagem da lista do painel administrativo depois de o atendimento ao cliente já ter sido concluído."
             }
         ]
     },
     {
         "id": 6,
         "titulo": "Dica 5: Que este Sistema Seja Uma Benção",
-        "descricao": "Este sistema foi feito com o objectivo de te ser muito útil no teu negócio. Faça bom uso:",
+        "descricao": "Este painel administrativo foi construído com dedicação para facilitar a gestão diária, organizar o catálogo e impulsionar as vendas do teu negócio. Faça bom uso de cada recurso disponível:",
         "itens": [
             {
                 "nome": "Desenvolvido por Benesses Zacarias Daniel",
-                "texto": "Aspirante a Programador (Desenvolvedor Web && Mobile)"
+                "texto": "Aspirante a Programador — Desenvolvedor Web && Mobile."
+            },
+            {
+                "nome": "Suporte & Evolução Contínua",
+                "texto": "Sempre que precisares de novas funcionalidades, ajustes visuais ou ampliação dos limites de destaque na loja, entra em contacto para evoluirmos a plataforma juntos."
             }
         ]
     }
