@@ -8,6 +8,7 @@ const ContextAdminLogado = createContext();
 
 const ContextAdminLogadoProvider = ({ children }) => {
     const [adminStatus, setAdminStatus] = useState(false);
+    const [carregandoSessao, setCarregandoSessao] = useState(true);
     const [usuario, setUsuario] = useState({ "email": "", "senha": "", "nome": "" });
 
     const onClickLogar = (val) => {
@@ -24,10 +25,13 @@ const ContextAdminLogadoProvider = ({ children }) => {
             setAdminStatus(false);
         }
     };
+
     const sessao = async () => {
-        const { status } = verificarSessao();
-        if (status) {
+        try {
+            const { status } = await verificarSessao();
             setAdminStatus(status)
+        } finally {
+            setCarregandoSessao(false);
         }
     }
 
@@ -36,7 +40,7 @@ const ContextAdminLogadoProvider = ({ children }) => {
     }, []);
 
     return (
-        <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair, usuario, setUsuario }}>
+        <ContextAdminLogado.Provider value={{ adminStatus, onClickLogar, onClickSair, usuario, setUsuario, carregandoSessao, setCarregandoSessao }}>
             {children}
         </ContextAdminLogado.Provider>
     )

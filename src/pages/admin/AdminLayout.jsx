@@ -7,19 +7,21 @@ import { useEffect } from 'react';
 
 const AdminLayout = () => {
 
-    const { adminStatus } = useContextAdminLogado();
+    const { adminStatus, carregandoSessao } = useContextAdminLogado();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!adminStatus) {
+        if (!carregandoSessao && !adminStatus) {
             navigate("/autenticar/login", { replace: true });
         }
-    }, [adminStatus, navigate])
+    }, [carregandoSessao, adminStatus, navigate])
 
     if (!adminStatus) {
         return null;
     }
-
+    if (carregandoSessao) {
+        return null;
+    }
     return (
 
         <div className={style.layout}>
