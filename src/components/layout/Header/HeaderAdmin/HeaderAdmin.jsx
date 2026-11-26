@@ -42,11 +42,7 @@ const HeaderAdmin = () => {
                     } />
                 </div>
                 <div className={style.area_logo_topo}>
-                    <Link to={"adicionar"} onClick={() => {
-                        scrollCima();
-                    }}>
-                        <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} />
-                    </Link>
+                    <Logo LogoMarca={LogoIcone} marca={"Admin"} foco={"Imperial"} />
                 </div>
                 <div className={style.area_carinho}>
                     <Button onClick={() => { onClickSairMsg() }} children={

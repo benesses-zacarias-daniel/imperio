@@ -1,5 +1,5 @@
 import style from './AdminLayout.module.css';
-import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import HeaderAdmin from '../../components/layout/Header/HeaderAdmin/HeaderAdmin';
 import FooterAdmin from '../../components/layout/Footer/FooterAdmin/FooterAdmin';
 import useContextAdminLogado from '../../hooks/useContextAdminLogado';
